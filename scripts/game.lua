@@ -1,5 +1,6 @@
 local StateMachine = require "scripts/statemachine"
 local Utilities = require "scripts/utilities"
+local Events = require "scripts.events"
 
 local game = {
     Properties = {
@@ -12,107 +13,99 @@ local game = {
         }
     },
     States = {
-		MainMenu =
-        {
-        	OnEnter = function(sm)
-        		-- sm.UserData.currentLevel = 0
-        		-- Events:GlobalEvent(Events.OnSetLevel, sm.UserData.currentLevel)
-        		-- or continue?
-        	end,
-        	Transitions =
-        	{
-        		InGame =
-        		{
-        			Evaluate = function(sm)
-                        -- TODO menu
-        				return true 
-        			end
-        		}
-        	}          
+		MainMenu = {
+        	Transitions = {
+                InGame = {}
+            }
         },       
-        InGame = 
-        {
-            OnEnter = function(sm)
-                local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
-                sm.UserData.roundOverTime = time:GetSeconds() + sm.UserData.Properties.TimeLimit
-                sm.UserData.timeRemaining = math.ceil(sm.UserData.Properties.TimeLimit) 
-                sm.UserData.playerWon = false
-                sm.UserData:Log("Time remaining: " ..tostring(sm.UserData.timeRemaining) .. " seconds")
-            end,
-            OnUpdate = function(sm, deltaTime, scriptTime)
-                local timeRemaining = math.ceil(sm.UserData.roundOverTime - scriptTime:GetSeconds())
-                if timeRemaining ~= sm.UserData.timeRemaining and timeRemaining >= 0 then
-                    sm.UserData:Log("Time remaining: " ..tostring(timeRemaining) .. " seconds")
-                    sm.UserData.timeRemaining = timeRemaining
-                end
-            end,
-            Transitions =
-            {
-                Lose =
-                {
-                    Evaluate = function(sm)
-                        return sm.UserData.timeRemaining <= 0
-                    end
-                },
-                Win =
-                {
-                    Evaluate = function(sm)
-                        return sm.UserData.playerWon
-                    end
-                }
+        InGame = {
+            Transitions = {
+                Lose = {},
+                Win = {}
             }
         },
-        Lose =
-        {
-        	OnEnter = function(sm)
-        	end,
-        	Transitions =
-        	{
-                Reset =
-                {
-                    Evaluate = function(sm)
-                        -- TODO wait for player input to reset or use timer 
-                        return false
-                    end
-
-                }
-        	}
-        },
-        Win =
-        {
-        	OnEnter = function(sm)
-        		-- Events:Event(sm.UserData.Properties.Player, Events.OnSetEnabled, false)
-        		-- sm.UserData.currentLevel = sm.UserData.currentLevel + 1
-        		
-        		-- Events:GlobalEvent(Events.OnSetLevel, sm.UserData.currentLevel)
-        	end,
-        	Transitions =
-        	{
-                Reset =
-                {
-                    Evaluate = function(sm)
-                        -- TODO wait for player input to reset or use timer 
-                        return false
-                    end
-
-                }
-        	}
-        },
+        Lose = { Transitions = {} },
+        Win = { Transitions = {} },
 	}
 }
 
+-------------------------------------------
+---  MainMenu
+-------------------------------------------
+function game.States.MainMenu.OnEnter(sm)
+end
+
+function game.States.MainMenu.Transitions.InGame.Evaluate(sm)
+    return true
+end
+
+-------------------------------------------
+--- InGame 
+-------------------------------------------
+function game.States.InGame.OnEnter(sm)
+    local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
+    sm.UserData.roundOverTime = time:GetSeconds() + sm.UserData.Properties.TimeLimit
+    sm.UserData.timeRemaining = math.ceil(sm.UserData.Properties.TimeLimit) 
+    sm.UserData.playerWon = false
+    sm.UserData:Log("Time remaining: " ..tostring(sm.UserData.timeRemaining) .. " seconds")
+    Events:GlobalLuaEvent(Events.OnUpdateTimeRemaining,tostring(sm.UserData.timeRemaining))
+end
+
+function game.States.InGame.OnUpdate(sm, deltaTime, scriptTime)
+    local timeRemaining = math.ceil(sm.UserData.roundOverTime - scriptTime:GetSeconds())
+    if timeRemaining ~= sm.UserData.timeRemaining and timeRemaining >= 0 then
+        Events:GlobalLuaEvent(Events.OnUpdateTimeRemaining,tostring(timeRemaining))
+        sm.UserData:Log("Time remaining: " ..tostring(timeRemaining) .. " seconds")
+        sm.UserData.timeRemaining = timeRemaining
+    end
+end
+
+function game.States.InGame.Transitions.Lose.Evaluate(sm)
+    return sm.UserData.timeRemaining <= 0
+end
+
+function game.States.InGame.Transitions.Win.Evaluate(sm)
+    return sm.UserData.playerWon
+end
+
+-------------------------------------------
+--- Lose
+-------------------------------------------
+function game.States.Lose.OnEnter(sm)
+    sm.OnRetryPressed = function(sm)
+        sm:GotoState("InGame")
+    end
+    Events:Connect(sm, "OnRetryPressed")
+    sm.OnQuitPressed = function(sm)
+        ConsoleRequestBus.Broadcast.ExecuteConsoleCommand("quit")
+    end
+    Events:Connect(sm, "OnQuitPressed")
+end
+
+function game.States.Lose.OnExit(sm)
+    Events:Disconnect(sm, "OnRetryPressed")
+    Events:Disconnect(sm, "OnQuitPressed")
+end
+
+-------------------------------------------
+--- Win
+-------------------------------------------
+
 function game:OnActivate()
     Utilities:InitLogging(self, "Game")
-    self:Log("activate")
-    --self:Reset()
-    --self.tickHandler = TickBus.Connect(self, 0)
     self.stateMachine = {}
+    self.timeRemaining = 0;
+
+    Events.DebugEvents = self.Properties.Debug
+
+    while UiCursorBus.Broadcast.IsUiCursorVisible() == false do
+        UiCursorBus.Broadcast.IncrementVisibleCounter()
+    end
     setmetatable(self.stateMachine, StateMachine)
 
-    -- execute on the next tick after every entity is activated for this level
+    -- execute on the next tick after every entity is activated
     Utilities:ExecuteOnNextTick(self, function(self)
         local sendEventOnStateChange = true
-        --Events:GlobalEvent(Events.OnSetLevel, self.currentLevel)
         self.stateMachine:Start("Game Logic State Machine", 
             self.entityId, self, self.States, 
             sendEventOnStateChange, 
@@ -121,29 +114,11 @@ function game:OnActivate()
     end)
 end
 
-function game:OnTick(deltaTime, scriptTime)
-    local timeRemaining = math.ceil(self.roundTimeLimit - scriptTime:GetSeconds())
-    if timeRemaining ~= self.timeRemaining and timeRemaining >= 0 then
-        self:Log("Time remaining: " ..tostring(timeRemaining) .. " seconds")
-        self.timeRemaining = timeRemaining
-    end
-
-    if scriptTime:GetSeconds() > self.roundTimeLimit then
-        self:Log("Round over")
-        self:Reset()
-    end
-end
-
-function game:Reset()
-    local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
-    self.roundTimeLimit = time:GetSeconds() + self.Properties.TimeLimit
-    self.timeRemaining = math.ceil(self.Properties.TimeLimit) 
-    self:Log("Time remaining: " ..tostring(self.timeRemaining) .. " seconds")
-end
-
 function game:OnDeactivate()
-    --self.tickHandler:Disconnect()
-    self:Log("deactivate")
+    while UiCursorBus.Broadcast.IsUiCursorVisible() == true do
+        UiCursorBus.Broadcast.DecrementVisibleCounter()
+    end
+    Events:ClearAll()
 end
 
 return game

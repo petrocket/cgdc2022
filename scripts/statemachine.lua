@@ -1,3 +1,4 @@
+local Events = require "scripts.events"
 local StateMachine =
 {
 	sequencePlaying = false,
@@ -113,9 +114,10 @@ function StateMachine:GotoState(targetStateName)
 				local eventName = tostring(self.CurrentStateName) .. "To" .. tostring(targetStateName);
 				local eventId = GameplayNotificationId(self.EntityId, eventName, "float");
 				GameplayNotificationBus.Event.OnEventBegin(eventId, eventName);			
-				
+				Events:LuaEvent("OnStateChange",self.EntityId,targetStateName)
 				local globalEventId = GameplayNotificationId(EntityId(0), "OnStateChange" , "float");
 				GameplayNotificationBus.Event.OnEventBegin(globalEventId, tostring(targetStateName));			
+				Events:GlobalLuaEvent("OnStateChange",targetStateName)
 			end
 			
             self.CurrentState = stateTable;
@@ -133,7 +135,7 @@ function StateMachine:GotoState(targetStateName)
                 end
                 for transKey, transTable in pairs(stateTable.Transitions) do
                     if (transTable.InputEvent ~= nil) then
-                        local listenerCount = table.getn(transTable.InputListeners);
+                        local listenerCount = #transTable.InputListeners;
                         transTable.InputListeners[listenerCount+1] = {};
                         local sm = self;
                         transTable.InputListeners[listenerCount+1].OnEventBegin = function(value)

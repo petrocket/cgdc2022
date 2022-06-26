@@ -7,6 +7,7 @@ end
 Events.OnRequestProperty = "OnRequestProperty"
 Events.OnReceiveProperty = "OnReceiveProperty"
 Events.OnGameDataUpdated = "OnGameDataUpdated"
+Events.DebugEvents = false;
 
 -- used by StateMachine
 Events.OnStateChange = "OnStateChange"
@@ -33,6 +34,9 @@ end
 
 -- call this on the deactivate of your main level to clean up all events
 function Events:ClearAll()
+    if self.DebugEvents then
+        Debug.Log("Clearing all LuaEvents handlers ")
+    end
 	_G["LuaEvents"] = {}
 end
 
@@ -43,19 +47,26 @@ function Events:Connect(listener, event, address)
 	end
 
 	table.insert(_G["LuaEvents"][combined], listener)
-	--Debug.Log("Connected to " .. tostring(combined))
+    if self.DebugEvents then
+	    Debug.Log("Connected to " .. tostring(combined))
 	--Debug.Log("Events:Connect has " .. tostring(table.getn(_G["LuaEvents"][combined])) .. " events registered")
+    end
 end
 
 function Events:Disconnect(listener, event, address)
 	local combined = event .. "%" .. tostring(address)
 	local listeners = _G["LuaEvents"][combined]
 
+
 	local numListeners = 0
 	if listeners ~= nil then
 		for k,l in ipairs(listeners) do
 			if l == listener then
 				table.remove(listeners,k)
+
+                if self.DebugEvents then
+                    Debug.Log("Disconnecting listener from event " .. tostring(combined))
+                end
 				--Debug.Log("Events:Disconnect has " .. tostring(table.getn(listeners)) .. " events registered")
 				return
 			end
@@ -64,20 +75,30 @@ function Events:Disconnect(listener, event, address)
 end
 
 function Events:LuaEvent(event, address, ...)
-	local args = {...}
+	--local args = {...}
 	local combined = event .. "%" .. tostring(address)
-	--Debug.Log("Looking for listeners for " .. tostring(combined))
+    if self.DebugEvents then
+	    Debug.Log("Looking for listeners for " .. tostring(combined))
+    end
 	local listeners = _G["LuaEvents"][combined]
 	if listeners ~= nil then
-		--Debug.Log("Found " ..tostring(table.getn(listeners)) .." listeners for " .. tostring(combined))
+        if self.DebugEvents then
+		    Debug.Log("Found " ..tostring(#listeners) .." listeners for " .. tostring(combined))
+        end
 		for k,listener in ipairs(listeners) do
-			listener[event](listener,...)
+            if listener[event] == nil then
+                if self.DebugEvents then
+		            Debug.Log("Unable to send event " ..tostring(event) .." to listener because missing event function")
+                end
+            else
+                listener[event](listener,...)
+            end
 		end
 	end
 end
 
 function Events:LuaEventResult(event, address, ...)
-	local args = {...}
+	--local args = {...}
 	local combined = event .. "%" .. tostring(address)
 	local listeners = _G["LuaEvents"][combined]
 	if listeners ~= nil then

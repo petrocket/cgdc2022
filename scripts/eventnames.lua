@@ -6,5 +6,6 @@ return {
 
 	SetGameState = "SetGameState",
 
+    OnUpdateTimeRemaining = "OnUpdateTimeRemaining",
 	OnQuitGame = "OnQuitGame",
 }
