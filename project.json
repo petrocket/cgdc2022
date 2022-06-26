@@ -1,0 +1,20 @@
+{
+    "project_name": "cgdc2022",
+    "project_id": "{C14FCB64-73A4-4A4B-8AFE-2FBF7481EAFA}",
+    "origin": "The primary repo for cgdc2022 goes here: i.e. http://www.mydomain.com",
+    "license": "What license cgdc2022 uses goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT etc.",
+    "display_name": "cgdc2022",
+    "summary": "A short description of cgdc2022.",
+    "canonical_tags": [
+        "Project"
+    ],
+    "user_tags": [
+        "cgdc2022"
+    ],
+    "icon_path": "preview.png",
+    "engine": "o3de",
+    "external_subdirectories": [
+        "Gem"
+    ],
+    "restricted": "cgdc2022"
+}

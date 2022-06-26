@@ -1,0 +1,21 @@
+{
+    "gem_name": "cgdc2022",
+    "display_name": "cgdc2022",
+    "license": "What license cgdc2022 uses goes here: i.e. Apache-2.0 or MIT",
+    "license_url": "Link to the license web site goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT",
+    "origin": "The name of the originator goes here. i.e. XYZ Inc.",
+    "origin_url": "The primary repo for cgdc2022 goes here: i.e. http://www.mydomain.com",
+    "type": "",
+    "summary": "A short description of cgdc2022.",
+    "canonical_tags": [
+        "Gem"
+    ],
+    "user_tags": [
+        "cgdc2022"
+    ],
+    "icon_path": "preview.png",
+    "requirements": "",
+    "documentation_url": "",
+    "dependencies": [
+    ]
+}

@@ -1,0 +1,24 @@
+
+set(ENABLED_GEMS
+    cgdc2022
+    Atom
+    AudioSystem
+    AWSCore
+    CameraFramework
+    DebugDraw
+    EditorPythonBindings
+    EMotionFX
+    GameState
+    ImGui
+    LandscapeCanvas
+    LyShine
+    PhysX
+    PrimitiveAssets
+    PrefabBuilder
+    SaveData
+    ScriptCanvasPhysics
+    ScriptEvents
+    StartingPointInput
+    TextureAtlas
+    WhiteBox
+)
