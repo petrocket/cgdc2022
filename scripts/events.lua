@@ -57,7 +57,6 @@ function Events:Disconnect(listener, event, address)
 	local combined = event .. "%" .. tostring(address)
 	local listeners = _G["LuaEvents"][combined]
 
-
 	local numListeners = 0
 	if listeners ~= nil then
 		for k,l in ipairs(listeners) do
@@ -81,6 +80,7 @@ function Events:LuaEvent(event, address, ...)
 	    Debug.Log("Looking for listeners for " .. tostring(combined))
     end
 	local listeners = _G["LuaEvents"][combined]
+    local returnValue = nil
 	if listeners ~= nil then
         if self.DebugEvents then
 		    Debug.Log("Found " ..tostring(#listeners) .." listeners for " .. tostring(combined))
@@ -91,10 +91,11 @@ function Events:LuaEvent(event, address, ...)
 		            Debug.Log("Unable to send event " ..tostring(event) .." to listener because missing event function")
                 end
             else
-                listener[event](listener,...)
+                returnValue = listener[event](listener,...)
             end
 		end
 	end
+    return returnValue
 end
 
 function Events:LuaEventResult(event, address, ...)
@@ -111,7 +112,7 @@ function Events:LuaEventResult(event, address, ...)
 end
 
 function Events:GlobalLuaEvent(event, ...)
-	self:LuaEvent(event, nil, ...)
+	return self:LuaEvent(event, nil, ...)
 end
 
 function Events:GlobalLuaEventResult(event, ...)

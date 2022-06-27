@@ -176,4 +176,10 @@ function Utilities:OnActivated(component, entityIds, func)
 	end
 end
 
+function Utilities:Shuffle(tbl)
+  for i = #tbl, 2, -1 do
+    local j = math.random(i)
+    tbl[i], tbl[j] = tbl[j], tbl[i]
+  end
+end
 return Utilities

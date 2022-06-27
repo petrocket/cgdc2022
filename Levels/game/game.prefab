@@ -68,6 +68,19 @@
                     "$type": "SelectionComponent",
                     "Id": 10234664425985787188
                 },
+                "Component_[10744072781488412777]": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 10744072781488412777,
+                    "m_template": {
+                        "$type": "InputConfigurationComponent",
+                        "Input Event Bindings": {
+                            "assetId": {
+                                "guid": "{750A1B2F-764E-5940-AFF6-48FCA076530F}"
+                            },
+                            "assetHint": "config/player.inputbindings"
+                        }
+                    }
+                },
                 "Component_[1226795490562720139]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 1226795490562720139
@@ -89,13 +102,26 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 3033761453,
                                     "name": "InitialState",
                                     "value": "InGame"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 940636677,
+                                    "name": "NumEnemies",
+                                    "value": 3.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 228880618,
+                                    "name": "NumWeaponCards",
+                                    "value": 5.0
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -495,6 +521,42 @@
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 2540005593822424904
                 },
+                "Component_[3854632978478805261]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 3854632978478805261,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 3831966440,
+                                    "name": "ActivateValue",
+                                    "value": "Win"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1001261735,
+                                    "name": "Event",
+                                    "value": "OnStateChange"
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{DD46EEFA-226D-572A-B898-949561981E8A}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/uicanvaseventloader.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{DD46EEFA-226D-572A-B898-949561981E8A}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/uicanvaseventloader.luac"
+                    }
+                },
                 "Component_[4011864090558247218]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 4011864090558247218,
@@ -504,7 +566,10 @@
                     "$type": "GenericComponentWrapper",
                     "Id": 9687180214210348912,
                     "m_template": {
-                        "$type": "UiCanvasAssetRefComponent"
+                        "$type": "UiCanvasAssetRefComponent",
+                        "CanvasAssetRef": {
+                            "AssetPath": "ui/win.uicanvas"
+                        }
                     }
                 }
             }
