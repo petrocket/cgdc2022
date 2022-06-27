@@ -12,7 +12,8 @@ local game = {
             suffix=" sec"
         },
         NumEnemies = 3,
-        NumWeaponCards = 30 
+        NumWeaponCards = 30,
+        TilePrefab = {default=SpawnableScriptAssetRef(), description="Tile Prefab to spawn"}
     },
     States = {
 		MainMenu = {
@@ -81,10 +82,10 @@ function game.States.InGame.OnEnter(sm)
 
     sm.UserData.player1CardDeck = {}
     cardColors = {}
-    table.insert(cardColors, Color(255,0,0))
-    table.insert(cardColors, Color(0,200,0))
-    table.insert(cardColors, Color(0,150,210))
-    table.insert(cardColors, Color(217,207,20))
+    table.insert(cardColors, Color(255,0,0,1))
+    table.insert(cardColors, Color(0,172,34,1))
+    table.insert(cardColors, Color(0,150,210,1))
+    table.insert(cardColors, Color(217,207,20,1))
 
     local numWeaponCardTypes = 4
     for i = 1,sm.UserData.Properties.NumWeaponCards do
@@ -109,6 +110,9 @@ function game.States.InGame.OnEnter(sm)
         sm:GotoState("Win")
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
+
+    -- spawn "the grid"
+    sm.UserData:ResetGrid()
 end
 
 
@@ -171,6 +175,8 @@ function game:OnActivate()
     Utilities:InitLogging(self, "Game")
     self.stateMachine = {}
     self.timeRemaining = 0;
+    self.spawnableMediator = SpawnableScriptMediator()
+    self.spawnTicket = self.spawnableMediator:CreateSpawnTicket(self.Properties.TilePrefab)
     self:BindInputEvents(self.InputEvents)
 
     Events.DebugEvents = self.Properties.Debug
@@ -202,6 +208,23 @@ end
  end
  function game.InputEvents.Player1Action4:OnPressed(value)
     self.Component:UseCard(self.Component.player1ActiveCards, 4, 1, self.Component.player1CardDeck)
+ end
+
+ function game:ResetGrid()
+    self.spawnableMediator:Despawn(self.spawnTicket)
+    local gridSizeX = 3
+    local gridSizeY = 5
+    for x = 1, gridSizeX do
+        for y = 1,gridSizeY do
+            self.spawnableMediator:SpawnAndParentAndTransform(
+                self.spawnTicket,
+                self.entityId,
+                Vector3(x - 1,y - 1,0.0),
+                Vector3(0,0,0),
+                1.0
+            )
+        end
+    end
  end
 
  function game:UseCard(cards, cardIndex, playerIndex, deck)
