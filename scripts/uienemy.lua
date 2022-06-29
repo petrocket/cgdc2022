@@ -32,8 +32,8 @@ function UiEnemy:OnSetEnemy(enemy)
 end
 
 function UiEnemy:OnTakeDamage(weakness, amount)
-    self:Log("OnTakeDamage " .. tostring(weakness) .. " " .. tostring(amount)) 
     local currentAmount = self:GetWeaknessAmount(weakness)
+    self:Log("OnTakeDamage " .. tostring(weakness) .. " " .. tostring(amount) .. " current amount " .. tostring(currentAmount)) 
     if currentAmount > 0 then
         return self:UpdateWeaknessAmount(weakness, currentAmount - amount)
     end
@@ -42,7 +42,7 @@ end
 
 function UiEnemy:GetWeaknessAmount(weakness)
     entityId, textEntityId = self:GetWeakness(weakness)
-    if textEntityId then
+    if textEntityId and textEntityId:IsValid() and UiElementBus.Event.IsEnabled(textEntityId) then
         local amount = UiTextBus.Event.GetText(textEntityId)
         return math.floor(amount)
     end
