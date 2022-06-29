@@ -82,10 +82,11 @@ function game.States.InGame.OnEnter(sm)
 
     sm.UserData.player1CardDeck = {}
     cardColors = {}
-    table.insert(cardColors, Color(255,0,0,1))
-    table.insert(cardColors, Color(0,172,34,1))
-    table.insert(cardColors, Color(0,150,210,1))
-    table.insert(cardColors, Color(217,207,20,1))
+    table.insert(cardColors, Color(255.0 / 255.0, 0.0,0.0,1.0))
+    table.insert(cardColors, Color(0,172.0 / 255.0,34.0 / 255.0,1.0))
+    table.insert(cardColors, Color(0,150.0/ 255.0,210.0 / 255.0,1.0))
+    table.insert(cardColors, Color(217.0/ 255.0,207.0 / 255.0,20.0 / 255.0,1.0))
+
 
     local numWeaponCardTypes = 4
     for i = 1,sm.UserData.Properties.NumWeaponCards do
