@@ -12,5 +12,9 @@ return {
     OnTakeDamage = 'OnTakeDamage',
     OnEnemyDefeated = 'OnEnemyDefeated',
     OnUpdateTimeRemaining = "OnUpdateTimeRemaining",
+    OnTimerFinished = "OnTimerFinished",
 	OnQuitGame = "OnQuitGame",
+	OnRunAway = "OnRunAway",
+    OnSetEnemyCardVisible = "OnSetEnemyCardVisible",
+    OnSetPlayerCardsVisible = "OnSetPlayerCardsVisible"
 }

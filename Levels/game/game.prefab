@@ -20,9 +20,9 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[356808237558]",
+                    "Entity_[49021515340992]",
                     "Entity_[4289430953152]",
-                    "Entity_[48647853186240]",
-                    "Entity_[49021515340992]"
+                    "Entity_[48647853186240]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -104,25 +104,52 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2251630902,
+                                    "name": "DebugEvents"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 3033761453,
                                     "name": "InitialState",
-                                    "value": "InGame"
+                                    "value": "MainMenu"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 940636677,
                                     "name": "NumEnemies",
-                                    "value": 3.0
+                                    "value": 2.0
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 228880618,
                                     "name": "NumWeaponCards",
-                                    "value": 10.0
+                                    "value": 20.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3197920026,
+                                    "name": "Player1",
+                                    "value": {
+                                        "$type": "EntityId",
+                                        "value": "Entity_[60630811942080]"
+                                    }
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 1954330329,
+                                    "name": "PlayerMoveSpeed",
+                                    "value": 4.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 2051408113,
+                                    "name": "RevealSpeed",
+                                    "value": 8.0
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyGenericClass",
@@ -146,7 +173,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 10.0
+                                    "value": 20.0
                                 }
                             ]
                         },
@@ -190,14 +217,7 @@
                 "Component_[8169186084932133933]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 8169186084932133933,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.15480971336364746,
-                            -0.3487987518310547,
-                            0.9914054870605469
-                        ]
-                    }
+                    "Parent Entity": "Entity_[1146574390643]"
                 },
                 "Component_[8782622812977041482]": {
                     "$type": "EditorVisibilityComponent",
@@ -290,15 +310,22 @@
                             "Properties": [
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
-                                    "id": 3831966440,
-                                    "name": "ActivateValue",
-                                    "value": "InGame"
-                                },
-                                {
-                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1001261735,
                                     "name": "Event",
                                     "value": "OnStateChange"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyStringArray",
+                                    "id": 984042726,
+                                    "name": "Values",
+                                    "values": [
+                                        "Navigation",
+                                        "Combat",
+                                        "RevealTiles",
+                                        "LevelBuildOut",
+                                        "Treasure",
+                                        "Paused"
+                                    ]
                                 }
                             ]
                         },
@@ -440,15 +467,17 @@
                             "Properties": [
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
-                                    "id": 3831966440,
-                                    "name": "ActivateValue",
-                                    "value": "Lose"
-                                },
-                                {
-                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1001261735,
                                     "name": "Event",
                                     "value": "OnStateChange"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyStringArray",
+                                    "id": 984042726,
+                                    "name": "Values",
+                                    "values": [
+                                        "Lose"
+                                    ]
                                 }
                             ]
                         },
@@ -553,15 +582,17 @@
                             "Properties": [
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
-                                    "id": 3831966440,
-                                    "name": "ActivateValue",
-                                    "value": "Win"
-                                },
-                                {
-                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1001261735,
                                     "name": "Event",
                                     "value": "OnStateChange"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyStringArray",
+                                    "id": 984042726,
+                                    "name": "Values",
+                                    "values": [
+                                        "Win"
+                                    ]
                                 }
                             ]
                         },
@@ -710,14 +741,14 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            4.72742223739624,
-                            -0.3025548756122589,
-                            4.486815452575684
+                            2.6321940422058105,
+                            -1.5470702648162842,
+                            3.224252700805664
                         ],
                         "Rotate": [
-                            -25.487485885620117,
-                            -36.0657844543457,
-                            51.00139617919922
+                            -47.39497756958008,
+                            -8.461017608642578,
+                            7.706616401672363
                         ]
                     }
                 },
