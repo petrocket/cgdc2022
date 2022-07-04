@@ -62,10 +62,12 @@ local game = {
         Win = { Transitions = {} },
 	},
     InputEvents = {
+        Player1Action0 = {},
         Player1Action1 = {},
         Player1Action2 = {},
         Player1Action3 = {},
         Player1Action4 = {},
+        Player1Action5 = {},
         Player1UpDown = {},
         Player1LeftRight = {},
         MouseLeftClick = {}
@@ -242,9 +244,11 @@ function game.States.Combat.OnEnter(sm)
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
 
+    sm.OnDiscard = function(sm)
+
+    end
     sm.OnRunAway = function(sm)
-        TransformBus.Event.SetWorldTranslation(sm.UserData.Properties.Player1, sm.UserData.player1MoveStart)
-        sm:GotoState("Navigation")
+        sm.UserData:RunAway()
     end
     Events:Connect(sm, Events.OnRunAway)
 end
@@ -350,15 +354,9 @@ function game:OnActivate()
     end)
 end
 
-function game:StartTimer()
+function game.InputEvents.Player1Action0:OnPressed(value)
+    self.Component:RunAway()
 end
-function game:PauseTimer()
-end
-function game:ResumeTimer()
-end
-function game:StopTimer()
-end
-
 function game.InputEvents.Player1Action1:OnPressed(value)
     self.Component:UseCard(self.Component.player1ActiveCards, 1, 1, self.Component.player1CardDeck)
 end
@@ -370,6 +368,9 @@ function game.InputEvents.Player1Action3:OnPressed(value)
 end
 function game.InputEvents.Player1Action4:OnPressed(value)
     self.Component:UseCard(self.Component.player1ActiveCards, 4, 1, self.Component.player1CardDeck)
+end
+function game.InputEvents.Player1Action5:OnPressed(value)
+    self.Component:Discard(self.Component.player1ActiveCards, 1, self.Component.player1CardDeck)
 end
 
 function game.InputEvents.Player1UpDown:OnPressed(value)
@@ -392,6 +393,8 @@ function game.InputEvents.Player1LeftRight:OnReleased(value)
     self.Component.player1Movement.x = 0
 end
 
+function game.InputEvents.MouseLeftClick:OnPressed(value)
+end
 
 function game:ResetGrid()
     self.spawnableMediator:Despawn(self.spawnTicket)
@@ -419,32 +422,58 @@ function game:ResetGrid()
    end
 end
 
+function game:InCombat()
+    return self.stateMachine.CurrentStateName == "Combat"
+end
+
+function game:RunAway()
+    if not self:InCombat() then
+       return 
+    end
+
+    TransformBus.Event.SetWorldTranslation(self.Properties.Player1, self.player1MoveStart)
+    self.stateMachine:GotoState("Navigation")
+end
+
+function game:Discard(cards, playerIndex, deck)
+    if not self:InCombat() then
+        return 
+    end
+
+    self:Log("$7 Discarding 4 cards with " ..tostring(#deck) .. " cards remaining in deck")
+    for cardIndex=1,4 do
+        local card = nil
+        if #deck > 0 then
+            card = table.remove(deck)
+        end 
+        cards[cardIndex] = card
+        Events:LuaEvent(Events.OnSetPlayerCard, "Player"..tostring(playerIndex), cardIndex, card)
+    end
+end
+
 function game:UseCard(cards, cardIndex, playerIndex, deck)
-   local damageTaken = false
-   local card = cards[cardIndex]
-   if card ~= nil then
-       self:Log("UseCard " ..tostring(card.Name))
-       damageTaken = Events:GlobalLuaEvent(Events.OnTakeDamage, card.Weakness, 1)
-   end
+    if not self:InCombat() then
+        return
+    end
 
-   if damageTaken then
-       self:Log("Getting new card")
-       if #deck > 0 then
-           card = table.remove(deck)
-       else
-           self:Log("Deck empty")
-           card = nil
-       end
-       cards[cardIndex] = card
-       Events:LuaEvent(Events.OnSetPlayerCard, "Player"..tostring(playerIndex), cardIndex, card)
-   end
-end
+    local damageTaken = false
+    local card = cards[cardIndex]
+    if card ~= nil then
+        self:Log("UseCard " ..tostring(card.Name))
+        damageTaken = Events:GlobalLuaEvent(Events.OnTakeDamage, card.Weakness, 1)
+    end
 
-function game.InputEvents.Player1UpDown:OnPressed(value)
-end
-function game.InputEvents.Player1LeftRight:OnPressed(value)
-end
-function game.InputEvents.MouseLeftClick:OnPressed(value)
+    if damageTaken then
+        self:Log("Getting new card")
+        if #deck > 0 then
+            card = table.remove(deck)
+        else
+            self:Log("Deck empty")
+            card = nil
+        end
+        cards[cardIndex] = card
+        Events:LuaEvent(Events.OnSetPlayerCard, "Player"..tostring(playerIndex), cardIndex, card)
+    end
 end
 
 
