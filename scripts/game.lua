@@ -2,6 +2,7 @@ local StateMachine = require "scripts/statemachine"
 local Utilities = require "scripts/utilities"
 local Events = require "scripts.events"
 local Timer = require "scripts/timer"
+local Player = require "scripts/player"
 
 local game = {
     Properties = {
@@ -62,14 +63,6 @@ local game = {
         Win = { Transitions = {} },
 	},
     InputEvents = {
-        Player1Action0 = {},
-        Player1Action1 = {},
-        Player1Action2 = {},
-        Player1Action3 = {},
-        Player1Action4 = {},
-        Player1Action5 = {},
-        Player1UpDown = {},
-        Player1LeftRight = {},
         MouseLeftClick = {}
     },
 }
@@ -97,15 +90,17 @@ end
 -------------------------------------------
 function game.States.LevelBuildOut.OnEnter(sm)
     -- generate the level and animate it 
-    sm.UserData:ResetGrid()
-    sm.UserData.currentEnemy = 1
-    TransformBus.Event.SetLocalTranslation(sm.UserData.Properties.Player1, Vector3(-100,-100,-100))
+    game:ResetGrid()
+    game.currentEnemy = 1
+
+    -- hide the player by moving off the board while we build out
+    TransformBus.Event.SetLocalTranslation(game.Properties.Player1, Vector3(-100,-100,-100))
 
     -- prep random enemies
-    sm.UserData.enemies = {}
-    for i = 1,sm.UserData.Properties.NumEnemies do
+    game.enemies = {}
+    for i = 1,game.Properties.NumEnemies do
         -- TODO give random number of weaknesses and amounts
-        table.insert(sm.UserData.enemies, {
+        table.insert(game.enemies, {
             Name = 'enemy '..tostring(i),
             Weaknesses = {
                 Weakness1 = { Weapon='Weapon1', Amount=1},
@@ -114,10 +109,10 @@ function game.States.LevelBuildOut.OnEnter(sm)
             }
         })
     end
-    Utilities:Shuffle(sm.UserData.enemies)
-    Events:GlobalLuaEvent(Events.OnSetEnemies, sm.UserData.enemies)
+    Utilities:Shuffle(game.enemies)
+    Events:GlobalLuaEvent(Events.OnSetEnemies, game.enemies)
 
-    sm.UserData.player1CardDeck = {}
+    local cards = {}
     cardColors = {}
     table.insert(cardColors, Color(255.0 / 255.0, 0.0,0.0,1.0))
     table.insert(cardColors, Color(0,172.0 / 255.0,34.0 / 255.0,1.0))
@@ -125,28 +120,31 @@ function game.States.LevelBuildOut.OnEnter(sm)
     table.insert(cardColors, Color(217.0/ 255.0,207.0 / 255.0,20.0 / 255.0,1.0))
 
     local numWeaponCardTypes = 4
-    for i = 1,sm.UserData.Properties.NumWeaponCards do
+    for i = 1,game.Properties.NumWeaponCards do
         local cardTypeId = (i %  numWeaponCardTypes) + 1
-        table.insert(sm.UserData.player1CardDeck, {
+        table.insert(cards, {
             Name = 'Weapon'..tostring(cardTypeId),
             Weakness = 'Weakness'..tostring(cardTypeId),
             Color = cardColors[cardTypeId] 
         })
     end
-    Utilities:Shuffle(sm.UserData.player1CardDeck)
+    Utilities:Shuffle(cards)
 
-    local numActiveCards = 4
-    sm.UserData.player1ActiveCards = {}
-    for i = 1, numActiveCards do
-        local card = table.remove(sm.UserData.player1CardDeck)
-        table.insert(sm.UserData.player1ActiveCards, card)
-        Events:LuaEvent(Events.OnSetPlayerCard, "Player1", i, card)
-    end
+    game.player1:SetCards(cards, 4)
 end
+
 function game.States.LevelBuildOut.OnExit(sm)
-    sm.UserData.timer:Start()
-    TransformBus.Event.SetLocalTranslation(sm.UserData.Properties.Player1, Vector3(0.0,0.0,0.0))
+    game.timer:Start()
+
+    -- TODO send to level start position
+    game:MovePlayer(Vector3(0,0,0))
+    --TransformBus.Event.SetLocalTranslation(game.Properties.Player1, Vector3(0.0,0.0,0.0))
 end
+
+function game:MovePlayer(position)
+    TransformBus.Event.SetLocalTranslation(self.Properties.Player1, position)
+end
+
 function game.States.LevelBuildOut.Transitions.RevealTiles.Evaluate(sm)
     return true
 end
@@ -156,66 +154,35 @@ end
 -------------------------------------------
 function game.States.RevealTiles.OnEnter(sm)
     -- show tiles in proximity to player
-    sm.UserData.revealTilesEndTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick():GetSeconds() + 
-        1.0 / sm.UserData.Properties.RevealSpeed
-    sm.UserData:Log("$5 revealing tiles")
+    game.revealTilesEndTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick():GetSeconds() + 
+        1.0 / game.Properties.RevealSpeed
+    game:Log("$5 revealing tiles")
 end
 function game.States.RevealTiles.Transitions.Navigation.Evaluate(sm)
     local currentTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick():GetSeconds()
-    return currentTime >= sm.UserData.revealTilesEndTime 
+    return currentTime >= game.revealTilesEndTime 
 end
 
 -------------------------------------------
 --- Navigation
 -------------------------------------------
-function game.States.Navigation.OnEnter(sm)
-    sm.UserData.player1MoveAmount = 0
-end
 function game.States.Navigation.OnUpdate(sm, deltaTime, scriptTime)
-    if sm.UserData.player1Moving then
-        local moveAmount = scriptTime:GetSeconds() - sm.UserData.player1MoveStartTime
-        moveAmount = math.min(1.0,  moveAmount / (1.0 / sm.UserData.Properties.PlayerMoveSpeed)) 
-        local translation = sm.UserData.player1MoveStart:Lerp(sm.UserData.player1MoveEnd, moveAmount)
-        TransformBus.Event.SetWorldTranslation(sm.UserData.Properties.Player1, translation)
-        sm.UserData.player1MoveAmount = moveAmount
-    elseif sm.UserData.player1Movement:GetLengthSq() > 0 then
-        sm.UserData.player1Moving = true
-        sm.UserData.player1MoveStartTime = scriptTime:GetSeconds()
-        sm.UserData.player1MoveStart = TransformBus.Event.GetWorldTranslation(sm.UserData.Properties.Player1)
-        if sm.UserData.player1Movement.x ~= 0 then
-            sm.UserData.player1MoveEnd = sm.UserData.player1MoveStart + Vector3(math.ceil(sm.UserData.player1Movement.x), 0, 0)
-        else
-            sm.UserData.player1MoveEnd = sm.UserData.player1MoveStart + Vector3(0, math.ceil(sm.UserData.player1Movement.y), 0)
-        end
-        sm.UserData:Log("$3 player movement")
-    end
+    game.player1:Update(deltaTime, scriptTime)
 end
-function game.States.Navigation.OnExit(sm)
-    sm.UserData.player1Moving = false
-end
+
 function game.States.Navigation.Transitions.RevealTiles.Evaluate(sm)
-    local x = sm.UserData.player1MoveEnd.x + 1
-    local y = sm.UserData.player1MoveEnd.y + 1
-    if x > 0 and y > 0 then
-        return sm.UserData.player1MoveAmount >= 1.0 and not sm.UserData.grid[x][y].enemy
-    else
-        return sm.UserData.player1MoveAmount >= 1.0
-    end
+    local tile = game:GetTileAt(game.player1.moveEnd)
+    return game.player1.moveAmount >= 1.0 and not tile.enemy
 end
 function game.States.Navigation.Transitions.Combat.Evaluate(sm)
-    local x = sm.UserData.player1MoveEnd.x + 1
-    local y = sm.UserData.player1MoveEnd.y + 1
-    if x > 0 and y > 0 then
-        return sm.UserData.player1MoveAmount >= 1.0 and sm.UserData.grid[x][y].enemy
-    else
-        return false
-    end
+    local tile = game:GetTileAt(game.player1.moveEnd)
+    return game.player1.moveAmount >= 1.0 and tile.enemy
 end
 function game.States.Navigation.Transitions.Treasure.Evaluate(sm)
     return false
 end
 function game.States.Navigation.Transitions.Lose.Evaluate(sm)
-    return sm.UserData.timer.timeLeft <= 0 
+    return game.timer.timeLeft <= 0 
 end
 function game.States.Navigation.Transitions.Win.Evaluate(sm)
     return false
@@ -229,16 +196,16 @@ function game.States.Combat.OnEnter(sm)
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, true)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, true)
 
-    Events:GlobalLuaEvent(Events.OnSetEnemy, sm.UserData.enemies[sm.UserData.currentEnemy])
+    Events:GlobalLuaEvent(Events.OnSetEnemy, game.enemies[game.currentEnemy])
 
     sm.OnEnemyDefeated = function(sm)
-        local x = sm.UserData.player1MoveEnd.x + 1
-        local y = sm.UserData.player1MoveEnd.y + 1
-        sm.UserData.grid[x][y].enemy = false
-        if sm.UserData.currentEnemy >= sm.UserData.Properties.NumEnemies then
+        local x = game.player1.moveEnd.x + 1
+        local y = game.player1.moveEnd.y + 1
+        game.grid[x][y].enemy = false
+        if game.currentEnemy >= game.Properties.NumEnemies then
             sm:GotoState("Win")
         else
-            sm.UserData.currentEnemy = sm.UserData.currentEnemy + 1
+            game.currentEnemy = game.currentEnemy + 1
             sm:GotoState("Navigation")
         end
     end
@@ -248,7 +215,7 @@ function game.States.Combat.OnEnter(sm)
 
     end
     sm.OnRunAway = function(sm)
-        sm.UserData:RunAway()
+        game:RunAway()
     end
     Events:Connect(sm, Events.OnRunAway)
 end
@@ -262,7 +229,7 @@ function game.States.Combat.Transitions.RevealTiles.Evaluate(sm)
     return false
 end
 function game.States.Combat.Transitions.Lose.Evaluate(sm)
-    return sm.UserData.timer.timeLeft <= 0 
+    return game.timer.timeLeft <= 0 
 end
 function game.States.Combat.Transitions.Win.Evaluate(sm)
     return false
@@ -279,7 +246,7 @@ end
 --- Lose
 -------------------------------------------
 function game.States.Lose.OnEnter(sm)
-    sm.UserData.timer:Pause()
+    game.timer:Pause()
 
     sm.OnRetryPressed = function(sm)
         sm:GotoState("LevelBuildOut")
@@ -300,7 +267,7 @@ end
 --- Win
 -------------------------------------------
 function game.States.Win.OnEnter(sm)
-    sm.UserData.timer:Pause()
+    game.timer:Pause()
     sm.OnRetryPressed = function(sm)
         sm:GotoState("LevelBuildOut")
     end
@@ -319,32 +286,36 @@ end
 function game:OnActivate()
     Utilities:InitLogging(self, "Game")
 
-    self.stateMachine = {}
+    -- there's only one game instance so assign game to this object
+    -- because using 'game' is much simpler and clear 
+    -- than using sm.UserData in the statemachine
+    game = self
+
     self.timeRemaining = 0;
     self.spawnableMediator = SpawnableScriptMediator()
     self.spawnTicket = self.spawnableMediator:CreateSpawnTicket(self.Properties.TilePrefab)
     self:BindInputEvents(self.InputEvents)
     self.tileState = nil
     self.timer = Timer(self.Properties.TimeLimit)
-
-    self.player1Moving = false
-    self.player1MoveStart = Vector3(0,0,0) 
-    self.player1MoveEnd = Vector3(0,0,0) 
-    self.player1Movement = Vector2(0,0)
-    self.player1MoveStartTime = 0 
+    self.player1 = {} 
 
     local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
     math.randomseed(math.ceil(time:GetSeconds()))
 
     Events.DebugEvents = self.Properties.DebugEvents
 
+    self.stateMachine = {}
+    setmetatable(self.stateMachine, StateMachine)
+
     while UiCursorBus.Broadcast.IsUiCursorVisible() == false do
         UiCursorBus.Broadcast.IncrementVisibleCounter()
     end
-    setmetatable(self.stateMachine, StateMachine)
 
     -- execute on the next tick after every entity is activated
     Utilities:ExecuteOnNextTick(self, function(self)
+
+        self.player1 = Events:LuaEvent(Events.GetPlayer, 1)
+
         local sendEventOnStateChange = true
         self.stateMachine:Start("Game Logic State Machine", 
             self.entityId, self, self.States, 
@@ -354,46 +325,24 @@ function game:OnActivate()
     end)
 end
 
-function game.InputEvents.Player1Action0:OnPressed(value)
-    self.Component:RunAway()
-end
-function game.InputEvents.Player1Action1:OnPressed(value)
-    self.Component:UseCard(self.Component.player1ActiveCards, 1, 1, self.Component.player1CardDeck)
-end
-function game.InputEvents.Player1Action2:OnPressed(value)
-    self.Component:UseCard(self.Component.player1ActiveCards, 2, 1, self.Component.player1CardDeck)
-end
-function game.InputEvents.Player1Action3:OnPressed(value)
-    self.Component:UseCard(self.Component.player1ActiveCards, 3, 1, self.Component.player1CardDeck)
-end
-function game.InputEvents.Player1Action4:OnPressed(value)
-    self.Component:UseCard(self.Component.player1ActiveCards, 4, 1, self.Component.player1CardDeck)
-end
-function game.InputEvents.Player1Action5:OnPressed(value)
-    self.Component:Discard(self.Component.player1ActiveCards, 1, self.Component.player1CardDeck)
-end
-
-function game.InputEvents.Player1UpDown:OnPressed(value)
-    self.Component.player1Movement.y = value
-end
-function game.InputEvents.Player1UpDown:OnHeld(value)
-    self.Component.player1Movement.y = value
-end
-function game.InputEvents.Player1UpDown:OnReleased(value)
-    self.Component.player1Movement.y = 0
-end
-
-function game.InputEvents.Player1LeftRight:OnPressed(value)
-    self.Component.player1Movement.x = value
-end
-function game.InputEvents.Player1LeftRight:OnHeld(value)
-    self.Component.player1Movement.x = value
-end
-function game.InputEvents.Player1LeftRight:OnReleased(value)
-    self.Component.player1Movement.x = 0
-end
-
 function game.InputEvents.MouseLeftClick:OnPressed(value)
+end
+
+function game:GetTileAt(gridPosition)
+    if gridPosition ~= nil then
+        local x = math.floor(gridPosition.x)
+        local y = math.floor(gridPosition.y)
+        if self.grid[x] ~= nil then
+            if self.grid[x][y] ~= nil then
+                return self.grid[x][y]
+            end
+        end
+    end
+
+    return {
+        type="None",
+        enemy=false
+    }
 end
 
 function game:ResetGrid()
@@ -435,48 +384,6 @@ function game:RunAway()
     self.stateMachine:GotoState("Navigation")
 end
 
-function game:Discard(cards, playerIndex, deck)
-    if not self:InCombat() then
-        return 
-    end
-
-    self:Log("$7 Discarding 4 cards with " ..tostring(#deck) .. " cards remaining in deck")
-    for cardIndex=1,4 do
-        local card = nil
-        if #deck > 0 then
-            card = table.remove(deck)
-        end 
-        cards[cardIndex] = card
-        Events:LuaEvent(Events.OnSetPlayerCard, "Player"..tostring(playerIndex), cardIndex, card)
-    end
-end
-
-function game:UseCard(cards, cardIndex, playerIndex, deck)
-    if not self:InCombat() then
-        return
-    end
-
-    local damageTaken = false
-    local card = cards[cardIndex]
-    if card ~= nil then
-        self:Log("UseCard " ..tostring(card.Name))
-        damageTaken = Events:GlobalLuaEvent(Events.OnTakeDamage, card.Weakness, 1)
-    end
-
-    if damageTaken then
-        self:Log("Getting new card")
-        if #deck > 0 then
-            card = table.remove(deck)
-        else
-            self:Log("Deck empty")
-            card = nil
-        end
-        cards[cardIndex] = card
-        Events:LuaEvent(Events.OnSetPlayerCard, "Player"..tostring(playerIndex), cardIndex, card)
-    end
-end
-
-
 function game:BindInputEvents(events)
 	for event, handler in pairs(events) do
 		handler.Component = self
@@ -486,12 +393,15 @@ end
 
 function game:UnBindInputEvents(events)
 	for event, handler in pairs(events) do
-		handler.Listener:Disconnect()
-		handler.Listener = nil
+        if handler ~= nil and handler.Listener ~= nil then
+            handler.Listener:Disconnect()
+            handler.Listener = nil
+        end
 	end
 end
 
 function game:OnDeactivate()
+    self.stateMachine:Stop()
     self:UnBindInputEvents(self.InputEvents)
     while UiCursorBus.Broadcast.IsUiCursorVisible() == true do
         UiCursorBus.Broadcast.DecrementVisibleCounter()

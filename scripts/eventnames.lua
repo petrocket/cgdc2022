@@ -5,6 +5,7 @@ return {
 	OnUpDown ="OnUpDown",
 
 	SetGameState = "SetGameState",
+	GetPlayer = "GetPlayer",
 
     OnSetEnemies = 'OnSetEnemies',
     OnSetEnemy = 'OnSetEnemy',

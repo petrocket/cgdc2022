@@ -936,6 +936,67 @@
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 6492730458792700595
                 },
+                "Component_[6957881190916673819]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 6957881190916673819,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 3470402323,
+                                    "name": "Health",
+                                    "value": 100.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 3208210256,
+                                    "name": "Id",
+                                    "value": 1.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 1550561881,
+                                    "name": "MoveSpeed",
+                                    "value": 2.0
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{68B18A7D-2A9E-5EAD-BA3A-C6BB914C1213}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/player.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{68B18A7D-2A9E-5EAD-BA3A-C6BB914C1213}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/player.luac"
+                    }
+                },
+                "Component_[7788213582217314301]": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 7788213582217314301,
+                    "m_template": {
+                        "$type": "InputConfigurationComponent",
+                        "Input Event Bindings": {
+                            "assetId": {
+                                "guid": "{750A1B2F-764E-5940-AFF6-48FCA076530F}"
+                            },
+                            "assetHint": "config/player.inputbindings"
+                        }
+                    }
+                },
                 "Component_[8933862004436838457]": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 8933862004436838457
