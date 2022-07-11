@@ -14,6 +14,7 @@ local game = {
             description="Time limit",  
             suffix=" sec"
         },
+        ProceduralLevel = false,
         NumEnemies = 3,
         NumWeaponCards = 30,
         TilePrefab = {default=SpawnableScriptAssetRef(), description="Tile Prefab to spawn"},
@@ -169,14 +170,19 @@ end
 function game.States.Navigation.OnUpdate(sm, deltaTime, scriptTime)
     game.player1:Update(deltaTime, scriptTime)
 end
-
 function game.States.Navigation.Transitions.RevealTiles.Evaluate(sm)
-    local tile = game:GetTileAt(game.player1.moveEnd)
-    return game.player1.moveAmount >= 1.0 and not tile.enemy
+    if game.player1.moveAmount >= 1.0 then
+        local tile = game:GetTile(game.player1.moveEnd)
+        return not tile.enemy
+    end
+    return false
 end
 function game.States.Navigation.Transitions.Combat.Evaluate(sm)
-    local tile = game:GetTileAt(game.player1.moveEnd)
-    return game.player1.moveAmount >= 1.0 and tile.enemy
+    if game.player1.moveAmount >= 1.0 then
+        local tile = game:GetTile(game.player1.moveEnd)
+        return tile.enemy
+    end
+    return false
 end
 function game.States.Navigation.Transitions.Treasure.Evaluate(sm)
     return false
@@ -199,10 +205,12 @@ function game.States.Combat.OnEnter(sm)
     Events:GlobalLuaEvent(Events.OnSetEnemy, game.enemies[game.currentEnemy])
 
     sm.OnEnemyDefeated = function(sm)
-        local x = game.player1.moveEnd.x + 1
-        local y = game.player1.moveEnd.y + 1
+        local x = game.player1.moveEnd.x
+        local y = game.player1.moveEnd.y
         game.grid[x][y].enemy = false
-        if game.currentEnemy >= game.Properties.NumEnemies then
+        if game.grid[x][y].boss then
+            sm:GotoState("Win")
+        elseif game.currentEnemy >= game.numEnemies then
             sm:GotoState("Win")
         else
             game.currentEnemy = game.currentEnemy + 1
@@ -297,7 +305,12 @@ function game:OnActivate()
     self:BindInputEvents(self.InputEvents)
     self.tileState = nil
     self.timer = Timer(self.Properties.TimeLimit)
-    self.player1 = {} 
+    self.player1 = {}
+    self.tiles = {}
+    self.numEnemies = self.Properties.NumEnemies
+
+    self.tagListener = TagGlobalNotificationBus.Connect(self, Crc32("Tile"))
+    Events:Connect(self, Events.GetTile)
 
     local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
     math.randomseed(math.ceil(time:GetSeconds()))
@@ -325,10 +338,21 @@ function game:OnActivate()
     end)
 end
 
+function game:OnEntityTagAdded(entityId)
+    self:Log("Tile spawned " ..tostring(entityId))
+    table.insert(self.tiles, entityId)
+end
+
+function game:OnEntityTagRemoved(entityId)
+    self:Log("Tile de-spawned " ..tostring(entityId))
+    table.remove(self.tiles, entityId)
+end
+
 function game.InputEvents.MouseLeftClick:OnPressed(value)
 end
 
-function game:GetTileAt(gridPosition)
+function game:GetTile(gridPosition)
+    self:Log("GetTile")
     if gridPosition ~= nil then
         local x = math.floor(gridPosition.x)
         local y = math.floor(gridPosition.y)
@@ -341,6 +365,7 @@ function game:GetTileAt(gridPosition)
 
     return {
         type="None",
+        walkable = false,
         enemy=false
     }
 end
@@ -348,27 +373,60 @@ end
 function game:ResetGrid()
     self.spawnableMediator:Despawn(self.spawnTicket)
     self.grid = {}
-    local gridSizeX = 3
-    local gridSizeY = 5
-    for x = 1, gridSizeX do
-        self.grid[x] = {}
-        for y = 1,gridSizeY do
-            self.grid[x][y] = {
-                type="Path",
-                enemy=false
-            }
-            if y % 2 == 1 or x %2 == 1 then
-                self.grid[x][y].enemy = true
+    if self.Properties.ProceduralLevel then
+        local gridSizeX = 3
+        local gridSizeY = 5
+        for x = 1, gridSizeX do
+            self.grid[x] = {}
+            for y = 1,gridSizeY do
+                self.grid[x][y] = {
+                    type="Path",
+                    enemy=false
+                }
+                if y % 2 == 1 or x %2 == 1 then
+                    self.grid[x][y].enemy = true
+                end
+                self.spawnableMediator:SpawnAndParentAndTransform(
+                    self.spawnTicket,
+                    self.entityId,
+                    Vector3(x - 1,y - 1,0.0),
+                    Vector3(0,0,0),
+                    1.0
+                    )
             end
-            self.spawnableMediator:SpawnAndParentAndTransform(
-                self.spawnTicket,
-                self.entityId,
-                Vector3(x - 1,y - 1,0.0),
-                Vector3(0,0,0),
-                1.0
-                )
         end
-   end
+    else
+        self.numEnemies = 0
+
+        -- find all tiles and add them to our grid
+        for i=1,#self.tiles do
+            local entityId = self.tiles[i]
+            local translation = TransformBus.Event.GetWorldTranslation(entityId)
+            local x = math.floor(translation.x)
+            local y = math.floor(translation.y)
+            if self.grid[x] == nil then
+                self.grid[x] = {}
+            end
+
+            -- TODO potentially just GetTags and store them on the tile
+            -- or add a lua entity so can use different data types
+            local isWalkable = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Walkable"))
+            local hasEnemy = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Enemy"))
+            local isBoss = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Boss"))
+            local isMiniBoss = TagComponentRequestBus.Event.HasTag(entityId, Crc32("MiniBoss"))
+
+            if hasEnemy then
+                self.numEnemies = self.numEnemies + 1
+            end
+            self.grid[x][y] = {
+                enemy = hasEnemy,
+                boss = isBoss,
+                miniBoss = isMiniBoss,
+                walkable = isWalkable,
+                revealed = false
+            }
+        end
+    end
 end
 
 function game:InCombat()
@@ -401,6 +459,11 @@ function game:UnBindInputEvents(events)
 end
 
 function game:OnDeactivate()
+    if self.tagListener ~= nil then
+        self.tagListener:Disconnect()
+    end
+
+    self.spawnableMediator:Despawn(self.spawnTicket)
     self.stateMachine:Stop()
     self:UnBindInputEvents(self.InputEvents)
     while UiCursorBus.Broadcast.IsUiCursorVisible() == true do

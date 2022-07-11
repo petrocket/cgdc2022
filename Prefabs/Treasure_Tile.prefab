@@ -1,62 +1,62 @@
 {
     "ContainerEntity": {
         "Id": "ContainerEntity",
-        "Name": "Tile",
+        "Name": "Treasure_Tile",
         "Components": {
-            "Component_[10746115333382045746]": {
-                "$type": "EditorPrefabComponent",
-                "Id": 10746115333382045746
+            "Component_[11013769627080676215]": {
+                "$type": "SelectionComponent",
+                "Id": 11013769627080676215
             },
-            "Component_[12379974125500800181]": {
-                "$type": "EditorInspectorComponent",
-                "Id": 12379974125500800181
-            },
-            "Component_[13991457836220531299]": {
-                "$type": "EditorPendingCompositionComponent",
-                "Id": 13991457836220531299
-            },
-            "Component_[15114733841619019065]": {
-                "$type": "EditorEntityIconComponent",
-                "Id": 15114733841619019065
-            },
-            "Component_[15215837176358761994]": {
-                "$type": "EditorLockComponent",
-                "Id": 15215837176358761994
-            },
-            "Component_[15217780022151869924]": {
+            "Component_[132049156820487299]": {
                 "$type": "EditorDisabledCompositionComponent",
-                "Id": 15217780022151869924
+                "Id": 132049156820487299
             },
-            "Component_[17136011204416072248]": {
+            "Component_[14156252767398240378]": {
                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                "Id": 17136011204416072248,
+                "Id": 14156252767398240378,
                 "Parent Entity": ""
             },
-            "Component_[383409572097002746]": {
+            "Component_[14548458368405228237]": {
+                "$type": "EditorPrefabComponent",
+                "Id": 14548458368405228237
+            },
+            "Component_[1640011086351387150]": {
+                "$type": "EditorInspectorComponent",
+                "Id": 1640011086351387150
+            },
+            "Component_[250271743745203239]": {
                 "$type": "EditorVisibilityComponent",
-                "Id": 383409572097002746
+                "Id": 250271743745203239
             },
-            "Component_[5260836482576738570]": {
-                "$type": "EditorEntitySortComponent",
-                "Id": 5260836482576738570,
-                "Child Entity Order": [
-                    "Entity_[49416652332224]"
-                ]
+            "Component_[4063213704041265278]": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 4063213704041265278
             },
-            "Component_[7476933879736915433]": {
-                "$type": "SelectionComponent",
-                "Id": 7476933879736915433
-            },
-            "Component_[9430535416654986991]": {
+            "Component_[5056722886492770537]": {
                 "$type": "EditorOnlyEntityComponent",
-                "Id": 9430535416654986991
+                "Id": 5056722886492770537
+            },
+            "Component_[8764785882767140598]": {
+                "$type": "EditorLockComponent",
+                "Id": 8764785882767140598
+            },
+            "Component_[8976563843389575229]": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 8976563843389575229
+            },
+            "Component_[9795664740101024841]": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 9795664740101024841,
+                "Child Entity Order": [
+                    "Entity_[14967320188376]"
+                ]
             }
         }
     },
     "Entities": {
-        "Entity_[49416652332224]": {
-            "Id": "Entity_[49416652332224]",
-            "Name": "Tile",
+        "Entity_[14967320188376]": {
+            "Id": "Entity_[14967320188376]",
+            "Name": "Treasure Tile",
             "Components": {
                 "Component_[10533456016308755782]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -85,6 +85,10 @@
                     "ComponentOrderEntryArray": [
                         {
                             "ComponentId": 10533456016308755782
+                        },
+                        {
+                            "ComponentId": 3366610225388756899,
+                            "SortIndex": 1
                         }
                     ]
                 },
@@ -97,7 +101,8 @@
                     "Id": 3366610225388756899,
                     "Tags": [
                         "Tile",
-                        "Walkable"
+                        "Walkable",
+                        "Treasure"
                     ]
                 },
                 "Component_[3494486458569989425]": {
@@ -108,7 +113,7 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 3943736249630944240,
                     "Child Entity Order": [
-                        "Entity_[49420947299520]"
+                        "Entity_[14971615155672]"
                     ]
                 },
                 "Component_[5778217215772158525]": {
@@ -117,14 +122,14 @@
                 }
             }
         },
-        "Entity_[49420947299520]": {
-            "Id": "Entity_[49420947299520]",
+        "Entity_[14971615155672]": {
+            "Id": "Entity_[14971615155672]",
             "Name": "Mesh",
             "Components": {
                 "Component_[11952518681465469292]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 11952518681465469292,
-                    "Parent Entity": "Entity_[49416652332224]",
+                    "Parent Entity": "Entity_[14967320188376]",
                     "Transform Data": {
                         "Translate": [
                             0.5,
@@ -136,6 +141,34 @@
                 "Component_[13122551840595895218]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 13122551840595895218
+                },
+                "Component_[14577497116855147303]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 14577497116855147303,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1803671422
+                                    },
+                                    "Value": {
+                                        "PropertyOverrides": {
+                                            "baseColor.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    0.0,
+                                                    0.24829480051994324,
+                                                    0.9931944608688354,
+                                                    1.0
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "Component_[1571363690266175830]": {
                     "$type": "EditorEntitySortComponent",

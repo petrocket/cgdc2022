@@ -152,15 +152,19 @@ function Player:Update(deltaTime, scriptTime)
         TransformBus.Event.SetWorldTranslation(self.entityId, translation)
         self.moveAmount = moveAmount
     elseif self.movement:GetLengthSq() > 0 then
-        self.moving = true
-        self.moveStartTime = scriptTime:GetSeconds()
         self.moveStart = TransformBus.Event.GetWorldTranslation(self.entityId)
         if self.movement.x ~= 0 then
             self.moveEnd = self.moveStart + Vector3(math.ceil(self.movement.x), 0, 0)
         else
             self.moveEnd = self.moveStart + Vector3(0, math.ceil(self.movement.y), 0)
         end
-        self:Log("$3 player movement")
+
+        local tile = Events:GlobalLuaEvent(Events.GetTile, Vector2(self.moveEnd.x, self.moveEnd.y))
+        if tile.walkable then
+            self:Log("$3 player movement")
+            self.moving = true
+            self.moveStartTime = scriptTime:GetSeconds()
+        end
     end
 end
 

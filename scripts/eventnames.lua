@@ -6,6 +6,7 @@ return {
 
 	SetGameState = "SetGameState",
 	GetPlayer = "GetPlayer",
+    GetTile = "GetTile",
 
     OnSetEnemies = 'OnSetEnemies',
     OnSetEnemy = 'OnSetEnemy',

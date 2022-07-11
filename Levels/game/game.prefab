@@ -20,9 +20,9 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[356808237558]",
-                    "Entity_[49021515340992]",
                     "Entity_[4289430953152]",
-                    "Entity_[48647853186240]"
+                    "Entity_[48647853186240]",
+                    "Entity_[49021515340992]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -62,6 +62,116 @@
         }
     },
     "Entities": {
+        "Entity_[14911485613528]": {
+            "Id": "Entity_[14911485613528]",
+            "Name": "Tile",
+            "Components": {
+                "Component_[12379974125500800181]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12379974125500800181
+                },
+                "Component_[13991457836220531299]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13991457836220531299
+                },
+                "Component_[15114733841619019065]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15114733841619019065
+                },
+                "Component_[15215837176358761994]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15215837176358761994
+                },
+                "Component_[15217780022151869924]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15217780022151869924
+                },
+                "Component_[17136011204416072248]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17136011204416072248,
+                    "Parent Entity": "Entity_[60270034689216]",
+                    "Transform Data": {
+                        "Translate": [
+                            7.0,
+                            1.0,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[383409572097002746]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 383409572097002746
+                },
+                "Component_[5260836482576738570]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5260836482576738570,
+                    "Child Entity Order": [
+                        "Instance_[14958730253784]/ContainerEntity",
+                        "Instance_[15126233978328]/ContainerEntity"
+                    ]
+                },
+                "Component_[7476933879736915433]": {
+                    "$type": "SelectionComponent",
+                    "Id": 7476933879736915433
+                },
+                "Component_[9430535416654986991]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9430535416654986991
+                }
+            }
+        },
+        "Entity_[33968007427168]": {
+            "Id": "Entity_[33968007427168]",
+            "Name": "Grid Lines",
+            "Components": {
+                "Component_[10320085281088037749]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10320085281088037749
+                },
+                "Component_[13283934251841867557]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13283934251841867557
+                },
+                "Component_[1384121719272357996]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1384121719272357996
+                },
+                "Component_[14923219061656329527]": {
+                    "$type": "AZ::Render::EditorGridComponent",
+                    "Id": 14923219061656329527
+                },
+                "Component_[14991980072312720472]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14991980072312720472
+                },
+                "Component_[16349147760065836382]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16349147760065836382
+                },
+                "Component_[1681137839246205943]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1681137839246205943
+                },
+                "Component_[17686628774119486526]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17686628774119486526,
+                    "IsEditorOnly": true
+                },
+                "Component_[18379816599092739244]": {
+                    "$type": "SelectionComponent",
+                    "Id": 18379816599092739244
+                },
+                "Component_[2977740808143196138]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2977740808143196138,
+                    "Parent Entity": "Entity_[60270034689216]"
+                },
+                "Component_[5849182752315927230]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5849182752315927230
+                }
+            }
+        },
         "Entity_[356808237558]": {
             "Id": "Entity_[356808237558]",
             "Name": "Game",
@@ -144,6 +254,11 @@
                                     "id": 1954330329,
                                     "name": "PlayerMoveSpeed",
                                     "value": 4.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 254812745,
+                                    "name": "ProceduralLevel"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -727,7 +842,8 @@
                     "Id": 5313589497840355948,
                     "Controller": {
                         "Configuration": {
-                            "EditorEntityId": 10847157994936666490
+                            "Field of View": 45.0,
+                            "EditorEntityId": 3057850303860879089
                         }
                     }
                 },
@@ -741,14 +857,14 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            2.6321940422058105,
-                            -1.5470702648162842,
-                            3.224252700805664
+                            4.769269943237305,
+                            -4.002659797668457,
+                            8.35303783416748
                         ],
                         "Rotate": [
-                            -47.39497756958008,
-                            -8.461017608642578,
-                            7.706616401672363
+                            -55.24915313720703,
+                            -5.630886554718018,
+                            3.8941221237182617
                         ]
                     }
                 },
@@ -772,7 +888,33 @@
             "Components": {
                 "Component_[10553805164447782149]": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 10553805164447782149
+                    "Id": 10553805164447782149,
+                    "DisabledComponents": [
+                        {
+                            "$type": "EditorBoxShapeComponent",
+                            "Id": 3070710578520222234,
+                            "GameView": true,
+                            "ShapeColor": [
+                                0.191103994846344,
+                                0.5685969591140747,
+                                1.0
+                            ],
+                            "BoxShape": {
+                                "Configuration": {
+                                    "DrawColor": [
+                                        0.191103994846344,
+                                        0.5685969591140747,
+                                        1.0
+                                    ],
+                                    "Dimensions": [
+                                        3.0,
+                                        5.0,
+                                        1.0
+                                    ]
+                                }
+                            }
+                        }
+                    ]
                 },
                 "Component_[11515871865282553759]": {
                     "$type": "SelectionComponent",
@@ -806,30 +948,6 @@
                     "$type": "EditorEntityIconComponent",
                     "Id": 2957859563114269409
                 },
-                "Component_[3070710578520222234]": {
-                    "$type": "EditorBoxShapeComponent",
-                    "Id": 3070710578520222234,
-                    "GameView": true,
-                    "ShapeColor": [
-                        0.191103994846344,
-                        0.5685969591140747,
-                        1.0
-                    ],
-                    "BoxShape": {
-                        "Configuration": {
-                            "DrawColor": [
-                                0.191103994846344,
-                                0.5685969591140747,
-                                1.0
-                            ],
-                            "Dimensions": [
-                                3.0,
-                                5.0,
-                                1.0
-                            ]
-                        }
-                    }
-                },
                 "Component_[3425484245800471707]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 3425484245800471707
@@ -860,10 +978,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 13885357500858860536
                 },
-                "Component_[15207115450496116355]": {
-                    "$type": "AZ::Render::EditorGridComponent",
-                    "Id": 15207115450496116355
-                },
                 "Component_[18020464476409562806]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 18020464476409562806
@@ -887,12 +1001,27 @@
                 },
                 "Component_[8998624210176190212]": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 8998624210176190212
+                    "Id": 8998624210176190212,
+                    "Child Entity Order": [
+                        "Instance_[34019547034720]/ContainerEntity",
+                        "Entity_[33968007427168]",
+                        "Instance_[2847520028087]/ContainerEntity",
+                        "Instance_[2783095518647]/ContainerEntity",
+                        "Instance_[2886174733751]/ContainerEntity",
+                        "Instance_[2873289831863]/ContainerEntity",
+                        "Instance_[2821750224311]/ContainerEntity",
+                        "Instance_[742388504024]/ContainerEntity",
+                        "Instance_[2899059635639]/ContainerEntity",
+                        "Instance_[15139118880216]/ContainerEntity",
+                        "Instance_[15104759141848]/ContainerEntity",
+                        "Instance_[2860404929975]/ContainerEntity",
+                        "Instance_[2834635126199]/ContainerEntity",
+                        "Entity_[14911485613528]"
+                    ]
                 },
                 "Component_[9064298217038071375]": {
                     "$type": "EditorOnlyEntityComponent",
-                    "Id": 9064298217038071375,
-                    "IsEditorOnly": true
+                    "Id": 9064298217038071375
                 }
             }
         },
@@ -984,19 +1113,6 @@
                         "assetHint": "scripts/player.luac"
                     }
                 },
-                "Component_[7788213582217314301]": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 7788213582217314301,
-                    "m_template": {
-                        "$type": "InputConfigurationComponent",
-                        "Input Event Bindings": {
-                            "assetId": {
-                                "guid": "{750A1B2F-764E-5940-AFF6-48FCA076530F}"
-                            },
-                            "assetHint": "config/player.inputbindings"
-                        }
-                    }
-                },
                 "Component_[8933862004436838457]": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 8933862004436838457
@@ -1074,8 +1190,305 @@
                         ],
                         "UniformScale": 0.6000000238418579
                     }
+                },
+                "Component_[9124696497980502005]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 9124696497980502005,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1803671422
+                                    },
+                                    "Value": {
+                                        "PropertyOverrides": {
+                                            "baseColor.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    1.0,
+                                                    1.0,
+                                                    1.0,
+                                                    1.0
+                                                ]
+                                            },
+                                            "emissive.enable": {
+                                                "$type": "bool",
+                                                "Value": true
+                                            },
+                                            "emissive.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    0.2381017804145813,
+                                                    0.2381017804145813,
+                                                    0.2381017804145813,
+                                                    1.0
+                                                ]
+                                            },
+                                            "emissive.intensity": {
+                                                "$type": "float",
+                                                "Value": 4.119999885559082
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 }
             }
+        }
+    },
+    "Instances": {
+        "Instance_[14958730253784]": {
+            "Source": "Prefabs/Treasure_Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Parent Entity",
+                    "value": "../Entity_[14911485613528]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/0",
+                    "value": -4.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/1",
+                    "value": 3.0
+                }
+            ]
+        },
+        "Instance_[15104759141848]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 3.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 2.0
+                }
+            ]
+        },
+        "Instance_[15126233978328]": {
+            "Source": "Prefabs/Treasure_Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Parent Entity",
+                    "value": "../Entity_[14911485613528]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/0",
+                    "value": -6.0
+                }
+            ]
+        },
+        "Instance_[15139118880216]": {
+            "Source": "Prefabs/Boss_Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[12562803043893547024]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[12562803043893547024]/Transform Data/Translate/1",
+                    "value": 1.0
+                }
+            ]
+        },
+        "Instance_[2783095518647]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 1.0
+                }
+            ]
+        },
+        "Instance_[2821750224311]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 2.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 1.0
+                }
+            ]
+        },
+        "Instance_[2834635126199]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 2.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 2.0
+                }
+            ]
+        },
+        "Instance_[2847520028087]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 3.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 3.0
+                }
+            ]
+        },
+        "Instance_[2860404929975]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 1.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 2.0
+                }
+            ]
+        },
+        "Instance_[2873289831863]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 5.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 1.0
+                }
+            ]
+        },
+        "Instance_[2886174733751]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 4.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 1.0
+                }
+            ]
+        },
+        "Instance_[2899059635639]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
+                    "value": 4.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
+                    "value": 2.0
+                }
+            ]
+        },
+        "Instance_[34019547034720]": {
+            "Source": "Prefabs/Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                }
+            ]
+        },
+        "Instance_[742388504024]": {
+            "Source": "Prefabs/Enemy_Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
+                    "value": "../Entity_[60270034689216]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Transform Data/Translate/0",
+                    "value": 2.0
+                }
+            ]
         }
     }
 }
