@@ -166,7 +166,9 @@ end
 
 function Player.InputEvents.Player1Action0:OnPressed(value)
     self.Component:Log("Player1Action0")
-    --self.Component:RunAway()
+    if self.Component.mode == Player.Modes.Combat then
+        Events:LuaEvent(Events.OnRunAway)
+    end
 end
 function Player.InputEvents.Player1Action1:OnPressed(value)
     self.Component:UseCard(1)

@@ -380,7 +380,7 @@ function game:RunAway()
        return 
     end
 
-    TransformBus.Event.SetWorldTranslation(self.Properties.Player1, self.player1MoveStart)
+    TransformBus.Event.SetWorldTranslation(self.Properties.Player1, self.player1.moveStart)
     self.stateMachine:GotoState("Navigation")
 end
 
