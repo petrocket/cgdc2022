@@ -94,7 +94,7 @@ function game.States.LevelBuildOut.OnEnter(sm)
     game.currentEnemy = 1
 
     -- hide the player by moving off the board while we build out
-    game:MovePlayer(Vector3(-100,-100,-100))
+    game.player1:Move(Vector3(-100,-100,-100), true)
 
     local cards = {}
     cardColors = {}
@@ -115,16 +115,12 @@ function game.States.LevelBuildOut.OnEnter(sm)
     Utilities:Shuffle(cards)
 
     game.player1:SetCards(cards, 4)
+    game.player1:SetCoinAmount(0)
 end
 
 function game.States.LevelBuildOut.OnExit(sm)
     game.timer:Start()
-    -- TODO send to level start position
-    game:MovePlayer(Vector3(0,0,0))
-end
-
-function game:MovePlayer(position)
-    TransformBus.Event.SetLocalTranslation(self.Properties.Player1, position)
+    game.player1:Move(Vector3(0,0,0), true)
 end
 
 function game.States.LevelBuildOut.Transitions.RevealTiles.Evaluate(sm)
@@ -139,7 +135,17 @@ function game.States.RevealTiles.OnEnter(sm)
     game.revealTilesEndTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick():GetSeconds() + 
         1.0 / game.Properties.RevealSpeed
     game:Log("$5 revealing tiles")
+
+    local pos = game.player1:GridPosition()
+    -- notify all tiles around the player
+    for x=pos.x-1,pos.x+1 do
+        for y=pos.y-1,pos.y+1 do
+            --game:Log("Reveal " .. tostring(x).."_"..tostring(y))
+            Events:LuaEvent(Events.OnRevealTile, tostring(x).."_"..tostring(y))
+        end
+    end
 end
+
 function game.States.RevealTiles.Transitions.Navigation.Evaluate(sm)
     local currentTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick():GetSeconds()
     return currentTime >= game.revealTilesEndTime 
@@ -183,9 +189,10 @@ function game.States.Combat.OnEnter(sm)
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, true)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, true)
 
-    local x = math.floor(game.player1.moveEnd.x)
-    local y = math.floor(game.player1.moveEnd.y)
-    local gridPosition = tostring(x) .. "_" .. tostring(y)
+    --local x = math.floor(game.player1.moveEnd.x)
+    --local y = math.floor(game.player1.moveEnd.y)
+    --local gridPosition = tostring(x) .. "_" .. tostring(y)
+    local gridPosition = game.player1:GridPositionString()
     Events:LuaEvent(Events.OnEnterCombat, gridPosition)
 
     sm.OnEnemyDefeated = function(sm)
@@ -204,12 +211,13 @@ function game.States.Combat.OnEnter(sm)
     Events:Connect(sm, Events.OnEnemyDefeated)
 
     sm.OnRunAway = function(sm)
-        local x = math.floor(game.player1.moveEnd.x)
-        local y = math.floor(game.player1.moveEnd.y)
-        local gridPosition = tostring(x) .. "_" .. tostring(y)
+        --local x = math.floor(game.player1.moveEnd.x)
+        --local y = math.floor(game.player1.moveEnd.y)
+        --local gridPosition = tostring(x) .. "_" .. tostring(y)
+        local gridPosition = game.player1:GridPositionString()
         Events:LuaEvent(Events.OnExitCombat, gridPosition)
 
-        TransformBus.Event.SetWorldTranslation(game.Properties.Player1, game.player1.moveStart)
+        game.player1:Move(game.player1.moveStart, false)
         sm:GotoState("Navigation")
     end
     Events:Connect(sm, Events.OnRunAway)

@@ -218,6 +218,274 @@
                     "Id": 9461293233264722062
                 }
             }
+        },
+        "Entity_[222517319800280]": {
+            "Id": "Entity_[222517319800280]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10659733271886052100]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10659733271886052100
+                },
+                "Component_[13081088218042995834]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13081088218042995834
+                },
+                "Component_[14058629697959719901]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14058629697959719901
+                },
+                "Component_[15262490095688949933]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 15262490095688949933,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3782163030,
+                                    "name": "Mesh",
+                                    "value": {
+                                        "$type": "EntityId",
+                                        "value": "Entity_[222521614767576]"
+                                    }
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{1B5B359E-E61E-5DB3-B81F-4D928A8DC7B7}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/coin.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{1B5B359E-E61E-5DB3-B81F-4D928A8DC7B7}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/coin.luac"
+                    }
+                },
+                "Component_[15835001486698767528]": {
+                    "$type": "SelectionComponent",
+                    "Id": 15835001486698767528
+                },
+                "Component_[2150764409054994685]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2150764409054994685
+                },
+                "Component_[2590766491416134127]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2590766491416134127
+                },
+                "Component_[2735711521457032003]": {
+                    "$type": "EditorTagComponent",
+                    "Id": 2735711521457032003,
+                    "Tags": [
+                        "Coin"
+                    ]
+                },
+                "Component_[3416963977700547690]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3416963977700547690,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 6487572817935752952
+                        },
+                        {
+                            "ComponentId": 2735711521457032003,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "Component_[3733493926552730219]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3733493926552730219,
+                    "Child Entity Order": [
+                        "Entity_[222521614767576]"
+                    ]
+                },
+                "Component_[6487572817935752952]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6487572817935752952,
+                    "Parent Entity": "ContainerEntity"
+                },
+                "Component_[9635935923632553269]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9635935923632553269
+                }
+            }
+        },
+        "Entity_[222521614767576]": {
+            "Id": "Entity_[222521614767576]",
+            "Name": "Mesh",
+            "Components": {
+                "Component_[10144602150958009711]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10144602150958009711
+                },
+                "Component_[13111798829019076206]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13111798829019076206,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[13634214387443360417]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13634214387443360417
+                },
+                "Component_[14063317800346237012]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14063317800346237012
+                },
+                "Component_[2210059926517431043]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2210059926517431043
+                },
+                "Component_[2358890991493040327]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2358890991493040327
+                },
+                "Component_[2719883952849916506]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 2719883952849916506,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 1053179562,
+                                    "name": "Destination",
+                                    "value": {
+                                        "$type": "Vector3",
+                                        "value": [
+                                            0.0,
+                                            0.0,
+                                            0.10000000149011612
+                                        ]
+                                    }
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 2254405824,
+                                    "name": "Duration",
+                                    "value": 1.5
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2707365358,
+                                    "name": "Loop",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1582905952,
+                                    "name": "Method",
+                                    "value": "InOutSine"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1851471833,
+                                    "name": "Relative",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{05364E34-D880-5DDE-A5D1-6F9413D42245}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/animate.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{05364E34-D880-5DDE-A5D1-6F9413D42245}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/animate.luac"
+                    }
+                },
+                "Component_[4651729163071159599]": {
+                    "$type": "SelectionComponent",
+                    "Id": 4651729163071159599
+                },
+                "Component_[5149801969133394120]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5149801969133394120,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6723613560793913970]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6723613560793913970,
+                    "Parent Entity": "Entity_[222517319800280]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.5,
+                            0.5,
+                            0.20000004768371582
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            180.0
+                        ]
+                    }
+                },
+                "Component_[8583559422175059967]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 8583559422175059967
+                },
+                "Component_[9337327904992112643]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9337327904992112643
+                },
+                "Component_[9851361234287478035]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9851361234287478035
+                }
+            }
         }
     }
 }

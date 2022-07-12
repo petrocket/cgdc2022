@@ -22,7 +22,10 @@
                     "Entity_[356808237558]",
                     "Entity_[4289430953152]",
                     "Entity_[48647853186240]",
-                    "Entity_[49021515340992]"
+                    "Entity_[49021515340992]",
+                    "Entity_[137425427731928]",
+                    "Entity_[146298830165464]",
+                    ""
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -62,6 +65,184 @@
         }
     },
     "Entities": {
+        "Entity_[137425427731928]": {
+            "Id": "Entity_[137425427731928]",
+            "Name": "Sky",
+            "Components": {
+                "Component_[10110776135562677257]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10110776135562677257
+                },
+                "Component_[11227897035130983287]": {
+                    "$type": "AZ::Render::EditorImageBasedLightComponent",
+                    "Id": 11227897035130983287,
+                    "Controller": {
+                        "Configuration": {
+                            "diffuseImageAsset": {
+                                "assetId": {
+                                    "guid": "{10853039-DC8A-558A-B27E-4433A6386731}",
+                                    "subId": 3000
+                                },
+                                "assetHint": "lightingpresets/lowcontrast/blouberg_sunrise_1_4k_iblskyboxcm_ibldiffuse.exr.streamingimage"
+                            },
+                            "specularImageAsset": {
+                                "assetId": {
+                                    "guid": "{10853039-DC8A-558A-B27E-4433A6386731}",
+                                    "subId": 2000
+                                },
+                                "assetHint": "lightingpresets/lowcontrast/blouberg_sunrise_1_4k_iblskyboxcm_iblspecular.exr.streamingimage"
+                            }
+                        }
+                    }
+                },
+                "Component_[1296433384930308161]": {
+                    "$type": "SelectionComponent",
+                    "Id": 1296433384930308161
+                },
+                "Component_[13278151273755917489]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13278151273755917489,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            3.40779972076416,
+                            -1.714158535003662,
+                            0.052625417709350586
+                        ]
+                    }
+                },
+                "Component_[16911720753009593228]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16911720753009593228
+                },
+                "Component_[2615184157788027799]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2615184157788027799
+                },
+                "Component_[2675418198127144481]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2675418198127144481
+                },
+                "Component_[431924278764626291]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 431924278764626291
+                },
+                "Component_[4844069804466502602]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4844069804466502602
+                },
+                "Component_[6303313290683435484]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6303313290683435484,
+                    "DisabledComponents": [
+                        {
+                            "$type": "AZ::Render::EditorPhysicalSkyComponent",
+                            "Id": 11301155462660904590
+                        },
+                        {
+                            "$type": "AZ::Render::EditorHDRiSkyboxComponent",
+                            "Id": 955148026117270065,
+                            "Controller": {
+                                "Configuration": {
+                                    "CubemapAsset": {
+                                        "assetId": {
+                                            "guid": "{10853039-DC8A-558A-B27E-4433A6386731}",
+                                            "subId": 1000
+                                        },
+                                        "assetHint": "lightingpresets/lowcontrast/blouberg_sunrise_1_4k_iblskyboxcm.exr.streamingimage"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Component_[7833322911966479080]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7833322911966479080
+                }
+            }
+        },
+        "Entity_[146298830165464]": {
+            "Id": "Entity_[146298830165464]",
+            "Name": "FX",
+            "Components": {
+                "Component_[10284153206226104729]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10284153206226104729,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            2.598397731781006,
+                            0.707261323928833,
+                            -4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[10388795937319508569]": {
+                    "$type": "AZ::Render::EditorPostFxLayerComponent",
+                    "Id": 10388795937319508569
+                },
+                "Component_[10419238351447432933]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10419238351447432933
+                },
+                "Component_[10789646751196051481]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10789646751196051481
+                },
+                "Component_[1475126487350155343]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1475126487350155343
+                },
+                "Component_[15044979442090197561]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15044979442090197561
+                },
+                "Component_[18185901441920276438]": {
+                    "$type": "SelectionComponent",
+                    "Id": 18185901441920276438
+                },
+                "Component_[1993897283160956452]": {
+                    "$type": "AZ::Render::EditorDepthOfFieldComponent",
+                    "Id": 1993897283160956452,
+                    "Controller": {
+                        "Configuration": {
+                            "CameraEntityId": "Entity_[49021515340992]",
+                            "ApertureF": 0.27000001072883606,
+                            "FNumber": 0.4438818395137787,
+                            "FocusDistance": 10.0,
+                            "EnableAutoFocus": false
+                        }
+                    }
+                },
+                "Component_[2581585024081708941]": {
+                    "$type": "AZ::Render::EditorBloomComponent",
+                    "Id": 2581585024081708941,
+                    "Controller": {
+                        "Configuration": {
+                            "Enabled": true,
+                            "Intensity": 1.0
+                        }
+                    }
+                },
+                "Component_[5608488324596148933]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5608488324596148933
+                },
+                "Component_[6471033414951568290]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6471033414951568290
+                },
+                "Component_[7462809284546132012]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 7462809284546132012
+                },
+                "Component_[9105255560806826506]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9105255560806826506
+                }
+            }
+        },
         "Entity_[33968007427168]": {
             "Id": "Entity_[33968007427168]",
             "Name": "Grid Lines",
@@ -159,8 +340,8 @@
                     "Parent Entity": "Entity_[60270034689216]",
                     "Transform Data": {
                         "Translate": [
-                            2.0,
-                            1.0,
+                            3.0,
+                            3.0,
                             0.0
                         ]
                     }
@@ -590,7 +771,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 30.0
+                                    "value": 10.0
                                 }
                             ]
                         },
@@ -1065,9 +1246,9 @@
                             1.6091877222061157
                         ],
                         "Rotate": [
-                            -26.000001907348633,
-                            -2.13443399843527e-7,
-                            4.999998092651367
+                            -92.32489776611328,
+                            30.443527221679688,
+                            42.44868469238281
                         ]
                     }
                 },
@@ -1342,7 +1523,7 @@
                     "Parent Entity": "Entity_[60270034689216]",
                     "Transform Data": {
                         "Translate": [
-                            0.0,
+                            6.0,
                             1.0,
                             0.0
                         ]
@@ -1562,7 +1743,8 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -1784,12 +1966,32 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/1",
                     "value": 1.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[9795664740101024841]/Child Entity Order/0",
+                    "value": "Entity_[222517319800280]"
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/Component_[9795664740101024841]/Child Entity Order/1",
+                    "value": "Entity_[14967320188376]"
                 }
             ]
         },
         "Instance_[15139118880216]": {
             "Source": "Prefabs/Boss_Tile.prefab",
             "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[10998047333789280099]/Child Entity Order/0",
+                    "value": "Entity_[222079233136088]"
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/Component_[10998047333789280099]/Child Entity Order/1",
+                    "value": "Entity_[14658082543064]"
+                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[12562803043893547024]/Parent Entity",
@@ -1823,12 +2025,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
-                    "value": 3.0
+                    "value": 2.0
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
-                    "value": 3.0
+                    "value": 1.0
                 }
             ]
         },
@@ -1947,6 +2149,16 @@
             "Patches": [
                 {
                     "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[5124687175076152862]/Child Entity Order/0",
+                    "value": "Entity_[220498685171160]"
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/Component_[5124687175076152862]/Child Entity Order/1",
+                    "value": "Entity_[750978438616]"
+                },
+                {
+                    "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
                     "value": "../Entity_[35535918568920]"
                 }
@@ -1955,6 +2167,11 @@
         "Instance_[742388504024]": {
             "Source": "Prefabs/Enemy_Tile.prefab",
             "Patches": [
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/Component_[5124687175076152862]/Child Entity Order/1",
+                    "value": "Entity_[220498685171160]"
+                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",

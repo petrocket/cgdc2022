@@ -57,16 +57,32 @@ function Player:OnActivate ()
     Events:Connect(self, Events.GetPlayer, math.floor(self.Properties.Id))
 
     self.mode = Player.Modes.Inactive
+    self.gridPosition = { x=0,y=0 }
+
+    -- might need to persist coins later
+    self.coins = 0
 
     Events:Connect(self, Events.OnStateChange)
     Events:Connect(self, Events.OnUseCard)
     Events:Connect(self, Events.OnDiscard)
+    Events:Connect(self, Events.ModifyCoinAmount)
     --return self
+end
+
+function Player:SetCoinAmount(amount)
+    self.coins = amount
+    Events:GlobalLuaEvent(Events.OnUpdateCoinsAmount, self.coins)
+end
+
+function Player:ModifyCoinAmount(amount)
+    self:SetCoinAmount(self.coins + amount)
 end
 
 function Player:OnStateChange(newState)
     self.moveAmount = 0
-    self.moving = false
+    if newState ~= 'Navigation' then
+        self.moving = false
+    end
 
     if newState == 'Navigation' then
         self.mode = self.Modes.Navigation
@@ -77,9 +93,34 @@ function Player:OnStateChange(newState)
     end
 end
 
+function Player:GridPosition()
+    return self.gridPosition
+end
+
+function Player:GridPositionString()
+    return tostring(self.gridPosition.x) .. "_" .. tostring(self.gridPosition.y)
+end
+
 function Player:GetPlayer()
-    self:Log("Returning self ")
     return self
+end
+
+function Player:Move(position, immediately)
+    if not immediately then
+        self.moving = true
+        local scriptTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
+        self.moveStartTime = scriptTime:GetSeconds()
+    end
+
+    self.moveEnd = position 
+    self.moveStart = TransformBus.Event.GetWorldTranslation(self.entityId)
+    self.gridPosition.x = math.ceil(self.moveEnd.x)
+    self.gridPosition.y = math.ceil(self.moveEnd.y)
+
+    if immediately then
+        TransformBus.Event.SetWorldTranslation(self.entityId, position)
+        self.moveAmount = 1.0 
+    end
 end
 
 function Player:SetCards(cards, max_active)
@@ -161,6 +202,8 @@ function Player:Update(deltaTime, scriptTime)
             self:Log("$3 player movement")
             self.moving = true
             self.moveStartTime = scriptTime:GetSeconds()
+            self.gridPosition.x = math.ceil(self.moveEnd.x)
+            self.gridPosition.y = math.ceil(self.moveEnd.y)
         end
     end
 end
@@ -235,6 +278,7 @@ function Player:OnDeactivate()
     Events:Disconnect(self, Events.GetPlayer, math.floor(self.Properties.Id))
     Events:Disconnect(self, Events.OnUseCard)
     Events:Disconnect(self, Events.OnDiscard)
+    Events:Disconnect(self, Events.ModifyCoinAmount)
 end
 
 return Player
