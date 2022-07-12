@@ -62,64 +62,6 @@
         }
     },
     "Entities": {
-        "Entity_[14911485613528]": {
-            "Id": "Entity_[14911485613528]",
-            "Name": "Tile",
-            "Components": {
-                "Component_[12379974125500800181]": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 12379974125500800181
-                },
-                "Component_[13991457836220531299]": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 13991457836220531299
-                },
-                "Component_[15114733841619019065]": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 15114733841619019065
-                },
-                "Component_[15215837176358761994]": {
-                    "$type": "EditorLockComponent",
-                    "Id": 15215837176358761994
-                },
-                "Component_[15217780022151869924]": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 15217780022151869924
-                },
-                "Component_[17136011204416072248]": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 17136011204416072248,
-                    "Parent Entity": "Entity_[60270034689216]",
-                    "Transform Data": {
-                        "Translate": [
-                            7.0,
-                            1.0,
-                            0.0
-                        ]
-                    }
-                },
-                "Component_[383409572097002746]": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 383409572097002746
-                },
-                "Component_[5260836482576738570]": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 5260836482576738570,
-                    "Child Entity Order": [
-                        "Instance_[14958730253784]/ContainerEntity",
-                        "Instance_[15126233978328]/ContainerEntity"
-                    ]
-                },
-                "Component_[7476933879736915433]": {
-                    "$type": "SelectionComponent",
-                    "Id": 7476933879736915433
-                },
-                "Component_[9430535416654986991]": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 9430535416654986991
-                }
-            }
-        },
         "Entity_[33968007427168]": {
             "Id": "Entity_[33968007427168]",
             "Name": "Grid Lines",
@@ -169,6 +111,372 @@
                 "Component_[5849182752315927230]": {
                     "$type": "EditorLockComponent",
                     "Id": 5849182752315927230
+                }
+            }
+        },
+        "Entity_[35497263863256]": {
+            "Id": "Entity_[35497263863256]",
+            "Name": "MiniBoss_Tile",
+            "Components": {
+                "Component_[10670681231913104086]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10670681231913104086
+                },
+                "Component_[14031123470833534313]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14031123470833534313
+                },
+                "Component_[1521846097073127200]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1521846097073127200
+                },
+                "Component_[16619738230948136420]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16619738230948136420
+                },
+                "Component_[1764665144755443372]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1764665144755443372
+                },
+                "Component_[4398679127364965580]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4398679127364965580
+                },
+                "Component_[5124687175076152862]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5124687175076152862,
+                    "Child Entity Order": [
+                        "Instance_[742388504024]/ContainerEntity"
+                    ]
+                },
+                "Component_[6140548043789515829]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6140548043789515829
+                },
+                "Component_[6467158329820040785]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6467158329820040785,
+                    "Parent Entity": "Entity_[60270034689216]",
+                    "Transform Data": {
+                        "Translate": [
+                            2.0,
+                            1.0,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[9931833143394841108]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 9931833143394841108,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1056859706,
+                                    "name": "Boss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2307170565,
+                                    "name": "MiniBoss",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1579384326,
+                                    "name": "Name",
+                                    "value": "MiniBoss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 2363381545,
+                                    "name": "Type",
+                                    "value": "EnemyType1"
+                                }
+                            ],
+                            "Groups": [
+                                {
+                                    "Name": "Weaknesses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3252857228,
+                                            "name": "Type1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1491859510,
+                                            "name": "Type2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 804047008,
+                                            "name": "Type3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2978503939,
+                                            "name": "Type4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Randomness",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyBoolean",
+                                            "id": 1358543748,
+                                            "name": "Enabled",
+                                            "value": true
+                                        }
+                                    ],
+                                    "Groups": [
+                                        {
+                                            "Name": "AmountPerType",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 3.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 1.0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Name": "WeaknessTypes",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 3.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 2.0
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/enemy.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/enemy.luac"
+                    }
+                },
+                "Component_[9975719164101155454]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9975719164101155454
+                }
+            }
+        },
+        "Entity_[35535918568920]": {
+            "Id": "Entity_[35535918568920]",
+            "Name": "Enemy_Tile",
+            "Components": {
+                "Component_[10670681231913104086]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10670681231913104086
+                },
+                "Component_[14031123470833534313]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14031123470833534313
+                },
+                "Component_[1521846097073127200]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1521846097073127200
+                },
+                "Component_[16619738230948136420]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16619738230948136420
+                },
+                "Component_[1764665144755443372]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1764665144755443372
+                },
+                "Component_[4398679127364965580]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4398679127364965580
+                },
+                "Component_[5124687175076152862]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5124687175076152862,
+                    "Child Entity Order": [
+                        "Instance_[742388504024]/ContainerEntity",
+                        "Instance_[35540213536216]/ContainerEntity"
+                    ]
+                },
+                "Component_[6140548043789515829]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6140548043789515829
+                },
+                "Component_[6467158329820040785]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6467158329820040785,
+                    "Parent Entity": "Entity_[60270034689216]",
+                    "Transform Data": {
+                        "Translate": [
+                            2.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[9931833143394841108]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 9931833143394841108,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1056859706,
+                                    "name": "Boss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2307170565,
+                                    "name": "MiniBoss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1579384326,
+                                    "name": "Name",
+                                    "value": "Enemy"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 2363381545,
+                                    "name": "Type",
+                                    "value": "0"
+                                }
+                            ],
+                            "Groups": [
+                                {
+                                    "Name": "Weaknesses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3252857228,
+                                            "name": "Type1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1491859510,
+                                            "name": "Type2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 804047008,
+                                            "name": "Type3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2978503939,
+                                            "name": "Type4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Randomness",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyBoolean",
+                                            "id": 1358543748,
+                                            "name": "Enabled",
+                                            "value": true
+                                        }
+                                    ],
+                                    "Groups": [
+                                        {
+                                            "Name": "AmountPerType",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 2.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 1.0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Name": "WeaknessTypes",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 3.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 2.0
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/enemy.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/enemy.luac"
+                    }
+                },
+                "Component_[9975719164101155454]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9975719164101155454
                 }
             }
         },
@@ -843,7 +1151,7 @@
                     "Controller": {
                         "Configuration": {
                             "Field of View": 45.0,
-                            "EditorEntityId": 3057850303860879089
+                            "EditorEntityId": 8732963385090853470
                         }
                     }
                 },
@@ -879,6 +1187,191 @@
                 "Component_[8917851804471979412]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 8917851804471979412
+                }
+            }
+        },
+        "Entity_[52118787298776]": {
+            "Id": "Entity_[52118787298776]",
+            "Name": "Boss_Tile",
+            "Components": {
+                "Component_[1090156001863833485]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1090156001863833485
+                },
+                "Component_[12174195886422775797]": {
+                    "$type": "SelectionComponent",
+                    "Id": 12174195886422775797
+                },
+                "Component_[12390709966281045023]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 12390709966281045023
+                },
+                "Component_[12667229192309062031]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 12667229192309062031,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1056859706,
+                                    "name": "Boss",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2307170565,
+                                    "name": "MiniBoss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1579384326,
+                                    "name": "Name",
+                                    "value": "Boss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 2363381545,
+                                    "name": "Type"
+                                }
+                            ],
+                            "Groups": [
+                                {
+                                    "Name": "Weaknesses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3252857228,
+                                            "name": "Type1",
+                                            "value": 2.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1491859510,
+                                            "name": "Type2",
+                                            "value": 2.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 804047008,
+                                            "name": "Type3",
+                                            "value": 2.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2978503939,
+                                            "name": "Type4",
+                                            "value": 2.0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Randomness",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyBoolean",
+                                            "id": 1358543748,
+                                            "name": "Enabled"
+                                        }
+                                    ],
+                                    "Groups": [
+                                        {
+                                            "Name": "AmountPerType",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 1.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 1.0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Name": "WeaknessTypes",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 2.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 2.0
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/enemy.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/enemy.luac"
+                    }
+                },
+                "Component_[13968898316902532513]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 13968898316902532513
+                },
+                "Component_[3702379432980366888]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3702379432980366888
+                },
+                "Component_[5606990053782413629]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5606990053782413629,
+                    "Parent Entity": "Entity_[60270034689216]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[6218430879999104023]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6218430879999104023
+                },
+                "Component_[7258858798189418478]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7258858798189418478
+                },
+                "Component_[8665279260310227659]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8665279260310227659
+                },
+                "Component_[8974237073797868548]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8974237073797868548,
+                    "Child Entity Order": [
+                        "Instance_[15139118880216]/ContainerEntity"
+                    ]
                 }
             }
         },
@@ -1003,20 +1496,21 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 8998624210176190212,
                     "Child Entity Order": [
+                        "Instance_[15126233978328]/ContainerEntity",
+                        "Instance_[14958730253784]/ContainerEntity",
                         "Instance_[34019547034720]/ContainerEntity",
                         "Entity_[33968007427168]",
-                        "Instance_[2847520028087]/ContainerEntity",
                         "Instance_[2783095518647]/ContainerEntity",
                         "Instance_[2886174733751]/ContainerEntity",
                         "Instance_[2873289831863]/ContainerEntity",
                         "Instance_[2821750224311]/ContainerEntity",
-                        "Instance_[742388504024]/ContainerEntity",
                         "Instance_[2899059635639]/ContainerEntity",
-                        "Instance_[15139118880216]/ContainerEntity",
                         "Instance_[15104759141848]/ContainerEntity",
                         "Instance_[2860404929975]/ContainerEntity",
                         "Instance_[2834635126199]/ContainerEntity",
-                        "Entity_[14911485613528]"
+                        "Entity_[35535918568920]",
+                        "Entity_[35497263863256]",
+                        "Entity_[52118787298776]"
                     ]
                 },
                 "Component_[9064298217038071375]": {
@@ -1246,17 +1740,17 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Parent Entity",
-                    "value": "../Entity_[14911485613528]"
+                    "value": "../Entity_[60270034689216]"
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/0",
-                    "value": -4.0
+                    "value": 3.0
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/1",
-                    "value": 3.0
+                    "value": 4.0
                 }
             ]
         },
@@ -1286,12 +1780,17 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Parent Entity",
-                    "value": "../Entity_[14911485613528]"
+                    "value": "../Entity_[60270034689216]"
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/0",
-                    "value": -6.0
+                    "value": 1.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/1",
+                    "value": 1.0
                 }
             ]
         },
@@ -1301,12 +1800,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[12562803043893547024]/Parent Entity",
-                    "value": "../Entity_[60270034689216]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[12562803043893547024]/Transform Data/Translate/1",
-                    "value": 1.0
+                    "value": "../Entity_[52118787298776]"
                 }
             ]
         },
@@ -1336,12 +1830,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
-                    "value": 2.0
+                    "value": 3.0
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
-                    "value": 1.0
+                    "value": 3.0
                 }
             ]
         },
@@ -1362,26 +1856,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
                     "value": 2.0
-                }
-            ]
-        },
-        "Instance_[2847520028087]": {
-            "Source": "Prefabs/Tile.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
-                    "value": "../Entity_[60270034689216]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
-                    "value": 3.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
-                    "value": 3.0
                 }
             ]
         },
@@ -1475,18 +1949,23 @@
                 }
             ]
         },
+        "Instance_[35540213536216]": {
+            "Source": "Prefabs/Enemy_Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
+                    "value": "../Entity_[35535918568920]"
+                }
+            ]
+        },
         "Instance_[742388504024]": {
             "Source": "Prefabs/Enemy_Tile.prefab",
             "Patches": [
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
-                    "value": "../Entity_[60270034689216]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Transform Data/Translate/0",
-                    "value": 2.0
+                    "value": "../Entity_[35497263863256]"
                 }
             ]
         }

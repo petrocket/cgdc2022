@@ -15,7 +15,6 @@ local game = {
             suffix=" sec"
         },
         ProceduralLevel = false,
-        NumEnemies = 3,
         NumWeaponCards = 30,
         TilePrefab = {default=SpawnableScriptAssetRef(), description="Tile Prefab to spawn"},
         PlayerMoveSpeed = 2.0,
@@ -95,23 +94,7 @@ function game.States.LevelBuildOut.OnEnter(sm)
     game.currentEnemy = 1
 
     -- hide the player by moving off the board while we build out
-    TransformBus.Event.SetLocalTranslation(game.Properties.Player1, Vector3(-100,-100,-100))
-
-    -- prep random enemies
-    game.enemies = {}
-    for i = 1,game.Properties.NumEnemies do
-        -- TODO give random number of weaknesses and amounts
-        table.insert(game.enemies, {
-            Name = 'enemy '..tostring(i),
-            Weaknesses = {
-                Weakness1 = { Weapon='Weapon1', Amount=1},
-                Weakness2 = { Weapon='Weapon2', Amount=2},
-                Weakness3 = { Weapon='Weapon3', Amount=3}
-            }
-        })
-    end
-    Utilities:Shuffle(game.enemies)
-    Events:GlobalLuaEvent(Events.OnSetEnemies, game.enemies)
+    game:MovePlayer(Vector3(-100,-100,-100))
 
     local cards = {}
     cardColors = {}
@@ -136,10 +119,8 @@ end
 
 function game.States.LevelBuildOut.OnExit(sm)
     game.timer:Start()
-
     -- TODO send to level start position
     game:MovePlayer(Vector3(0,0,0))
-    --TransformBus.Event.SetLocalTranslation(game.Properties.Player1, Vector3(0.0,0.0,0.0))
 end
 
 function game:MovePlayer(position)
@@ -202,7 +183,10 @@ function game.States.Combat.OnEnter(sm)
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, true)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, true)
 
-    Events:GlobalLuaEvent(Events.OnSetEnemy, game.enemies[game.currentEnemy])
+    local x = math.floor(game.player1.moveEnd.x)
+    local y = math.floor(game.player1.moveEnd.y)
+    local gridPosition = tostring(x) .. "_" .. tostring(y)
+    Events:LuaEvent(Events.OnEnterCombat, gridPosition)
 
     sm.OnEnemyDefeated = function(sm)
         local x = game.player1.moveEnd.x
@@ -219,11 +203,14 @@ function game.States.Combat.OnEnter(sm)
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
 
-    sm.OnDiscard = function(sm)
-
-    end
     sm.OnRunAway = function(sm)
-        game:RunAway()
+        local x = math.floor(game.player1.moveEnd.x)
+        local y = math.floor(game.player1.moveEnd.y)
+        local gridPosition = tostring(x) .. "_" .. tostring(y)
+        Events:LuaEvent(Events.OnExitCombat, gridPosition)
+
+        TransformBus.Event.SetWorldTranslation(game.Properties.Player1, game.player1.moveStart)
+        sm:GotoState("Navigation")
     end
     Events:Connect(sm, Events.OnRunAway)
 end
@@ -307,7 +294,7 @@ function game:OnActivate()
     self.timer = Timer(self.Properties.TimeLimit)
     self.player1 = {}
     self.tiles = {}
-    self.numEnemies = self.Properties.NumEnemies
+    self.numEnemies = 0
 
     self.tagListener = TagGlobalNotificationBus.Connect(self, Crc32("Tile"))
     Events:Connect(self, Events.GetTile)
@@ -415,9 +402,6 @@ function game:ResetGrid()
             local isBoss = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Boss"))
             local isMiniBoss = TagComponentRequestBus.Event.HasTag(entityId, Crc32("MiniBoss"))
 
-            if hasEnemy then
-                self.numEnemies = self.numEnemies + 1
-            end
             self.grid[x][y] = {
                 enemy = hasEnemy,
                 boss = isBoss,
@@ -425,21 +409,23 @@ function game:ResetGrid()
                 walkable = isWalkable,
                 revealed = false
             }
+
+            if hasEnemy then
+                self.numEnemies = self.numEnemies + 1
+                local enemyCard = {
+                    Name = 'Enemy',
+                    Weaknesses = {}
+                }
+                if isBoss then
+                    enemyCard.Name = 'Boss'
+                elseif isMiniBoss then
+                    enemyCard.Name = 'MiniBoss'
+                else
+                end
+                self.grid[x][y].enemyCard = enemyCard
+            end
         end
     end
-end
-
-function game:InCombat()
-    return self.stateMachine.CurrentStateName == "Combat"
-end
-
-function game:RunAway()
-    if not self:InCombat() then
-       return 
-    end
-
-    TransformBus.Event.SetWorldTranslation(self.Properties.Player1, self.player1.moveStart)
-    self.stateMachine:GotoState("Navigation")
 end
 
 function game:BindInputEvents(events)
@@ -462,6 +448,8 @@ function game:OnDeactivate()
     if self.tagListener ~= nil then
         self.tagListener:Disconnect()
     end
+
+    self.timer:Stop()
 
     self.spawnableMediator:Despawn(self.spawnTicket)
     self.stateMachine:Stop()

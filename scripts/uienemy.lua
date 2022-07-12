@@ -3,6 +3,7 @@ local Utilities = require "scripts.utilities"
 local UiEnemy = {
     Properties = {
         Debug = false,
+        Name = EntityId(),
         Weaknesses = {
             Weakness1 = EntityId(),
             Weakness2 = EntityId(),
@@ -21,7 +22,7 @@ end
 
 function UiEnemy:OnSetEnemy(enemy)
     self:Log("Set Enemy " .. tostring(enemy.Name)) 
-
+    UiTextBus.Event.SetText(self.Properties.Name, enemy.Name)
     for weakness, entityId in pairs(self.Properties.Weaknesses) do
         UiElementBus.Event.SetIsEnabled(entityId, false)
     end
@@ -76,6 +77,8 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
         if not self:HasWeaknesses() then
             self:Log("No more weaknesses")
             Events:GlobalLuaEvent(Events.OnEnemyDefeated)
+        else
+            Events:GlobalLuaEvent(Events.OnUpdateWeaknessAmount, weakness, amount)
         end
     end
     return damageTaken

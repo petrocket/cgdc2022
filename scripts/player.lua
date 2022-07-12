@@ -53,7 +53,6 @@ function Player:OnActivate ()
     self.name = "Player"..tostring(math.floor(self.Properties.Id))
     Utilities:InitLogging(self, self.name)
     self:BindInputEvents(self.InputEvents)
-    self:Log("OnActivate")
 
     Events:Connect(self, Events.GetPlayer, math.floor(self.Properties.Id))
 

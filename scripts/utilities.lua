@@ -71,9 +71,13 @@ function Utilities:UnBindEvents(events)
 	end
 end
 
-function Utilities:InitLogging(component, name)
-	if component.Log == nil then
-		component.Log = function(context, value) if context.Properties.Debug then Debug.Log(name .. ": " .. tostring(value)); end end
+function Utilities:InitLogging(object, name)
+	if object.Log == nil then
+        if object.debug ~= nil then
+            object.Log = function(context, value) if context.debug then Debug.Log(name .. ": " .. tostring(value)); end end
+        else
+            object.Log = function(context, value) if context.Properties.Debug then Debug.Log(name .. ": " .. tostring(value)); end end
+        end
 	end
 end
 

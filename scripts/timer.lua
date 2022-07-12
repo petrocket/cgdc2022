@@ -19,6 +19,9 @@ function Timer.new (duration)
 end
 
 function Timer:Start()
+    if self.tickBusHandler ~= nil then
+        self.tickBusHandler:Disconnect()
+    end
     self.timeLeft = self.duration
     self:Resume()
 end

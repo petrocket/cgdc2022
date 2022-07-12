@@ -6,6 +6,7 @@ return {
 
 	SetGameState = "SetGameState",
 	GetPlayer = "GetPlayer",
+	GetEnemy = "GetEnemy",
     GetTile = "GetTile",
 
     OnSetEnemies = 'OnSetEnemies',
@@ -13,7 +14,10 @@ return {
     OnSetPlayerCard = 'OnSetPlayerCard',
     OnTakeDamage = 'OnTakeDamage',
     OnEnemyDefeated = 'OnEnemyDefeated',
+    OnEnterCombat = 'OnEnterCombat',
+    OnExitCombat = 'OnExitCombat',
     OnUpdateTimeRemaining = "OnUpdateTimeRemaining",
+    OnUpdateWeaknessAmount = "OnUpdateWeaknessAmount",
     OnTimerFinished = "OnTimerFinished",
 	OnQuitGame = "OnQuitGame",
 	OnRunAway = "OnRunAway",
