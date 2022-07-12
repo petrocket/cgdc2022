@@ -21,6 +21,8 @@ return {
     OnTimerFinished = "OnTimerFinished",
 	OnQuitGame = "OnQuitGame",
 	OnRunAway = "OnRunAway",
+    OnUseCard = "OnUseCard",
+    OnDiscard = "OnDiscard",
     OnSetEnemyCardVisible = "OnSetEnemyCardVisible",
     OnSetPlayerCardsVisible = "OnSetPlayerCardsVisible"
 }

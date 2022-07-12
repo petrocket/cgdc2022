@@ -326,20 +326,18 @@ function game:OnActivate()
 end
 
 function game:OnEntityTagAdded(entityId)
-    self:Log("Tile spawned " ..tostring(entityId))
     table.insert(self.tiles, entityId)
 end
 
 function game:OnEntityTagRemoved(entityId)
-    self:Log("Tile de-spawned " ..tostring(entityId))
     table.remove(self.tiles, entityId)
 end
 
 function game.InputEvents.MouseLeftClick:OnPressed(value)
+    -- TODO move player to selected tile
 end
 
 function game:GetTile(gridPosition)
-    self:Log("GetTile")
     if gridPosition ~= nil then
         local x = math.floor(gridPosition.x)
         local y = math.floor(gridPosition.y)

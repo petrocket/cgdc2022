@@ -59,6 +59,8 @@ function Player:OnActivate ()
     self.mode = Player.Modes.Inactive
 
     Events:Connect(self, Events.OnStateChange)
+    Events:Connect(self, Events.OnUseCard)
+    Events:Connect(self, Events.OnDiscard)
     --return self
 end
 
@@ -78,10 +80,6 @@ end
 function Player:GetPlayer()
     self:Log("Returning self ")
     return self
-end
-
-function Player:Test(message)
-    self:Log("Received message " .. message)
 end
 
 function Player:SetCards(cards, max_active)
@@ -167,6 +165,14 @@ function Player:Update(deltaTime, scriptTime)
     end
 end
 
+function Player:OnDiscard(value)
+    self:DiscardAll()
+end
+
+function Player:OnUseCard(value)
+    self:UseCard(math.floor(value))
+end
+
 function Player.InputEvents.Player1Action0:OnPressed(value)
     self.Component:Log("Player1Action0")
     if self.Component.mode == Player.Modes.Combat then
@@ -227,6 +233,8 @@ end
 function Player:OnDeactivate()
     self:UnBindInputEvents(self.InputEvents)
     Events:Disconnect(self, Events.GetPlayer, math.floor(self.Properties.Id))
+    Events:Disconnect(self, Events.OnUseCard)
+    Events:Disconnect(self, Events.OnDiscard)
 end
 
 return Player

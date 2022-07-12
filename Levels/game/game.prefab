@@ -244,7 +244,7 @@
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 3.0
+                                                    "value": 2.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -267,7 +267,7 @@
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 }
                                             ]
                                         }
@@ -427,7 +427,7 @@
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -444,7 +444,7 @@
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 3.0
+                                                    "value": 2.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -538,12 +538,6 @@
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
-                                    "id": 940636677,
-                                    "name": "NumEnemies",
-                                    "value": 2.0
-                                },
-                                {
-                                    "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 228880618,
                                     "name": "NumWeaponCards",
                                     "value": 20.0
@@ -596,7 +590,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 20.0
+                                    "value": 30.0
                                 }
                             ]
                         },
@@ -1568,8 +1562,7 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug",
-                                    "value": true
+                                    "name": "Debug"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
