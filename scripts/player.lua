@@ -66,7 +66,15 @@ function Player:OnActivate ()
     Events:Connect(self, Events.OnUseCard)
     Events:Connect(self, Events.OnDiscard)
     Events:Connect(self, Events.ModifyCoinAmount)
+    Events:Connect(self, Events.AddCards)
     --return self
+end
+
+function Player:AddCards(cards)
+    for _,card in pairs(cards) do
+        self:Log("Adding card " .. tostring(card.type))
+        table.insert(self.cards.deck, card)
+    end
 end
 
 function Player:SetCoinAmount(amount)
@@ -145,8 +153,8 @@ function Player:UseCard(cardIndex)
     local damageTaken = false
     local card = self.cards.active[cardIndex]
     if card ~= nil then
-        self:Log("UseCard " ..tostring(card.Name))
-        damageTaken = Events:GlobalLuaEvent(Events.OnTakeDamage, card.Weakness, 1)
+        self:Log("UseCard " ..tostring(card.type))
+        damageTaken = Events:GlobalLuaEvent(Events.OnTakeDamage, card.type, 1)
     end
 
     if damageTaken then

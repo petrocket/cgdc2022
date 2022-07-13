@@ -24,8 +24,7 @@
                     "Entity_[48647853186240]",
                     "Entity_[49021515340992]",
                     "Entity_[137425427731928]",
-                    "Entity_[146298830165464]",
-                    ""
+                    "Entity_[146298830165464]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -771,7 +770,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 10.0
+                                    "value": 30.0
                                 }
                             ]
                         },
@@ -1926,6 +1925,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[14156252767398240378]/Transform Data/Translate/1",
                     "value": 4.0
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/Component_[9795664740101024841]/Child Entity Order/1",
+                    "value": "Entity_[222517319800280]"
                 }
             ]
         },

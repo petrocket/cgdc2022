@@ -22,8 +22,8 @@ end
 function UiPlayer:OnSetPlayerCard(cardIndex, card)
     self:Log("OnSetPlayerCard " .. tostring(cardIndex))
     local entityId = self.Properties.Cards["Card"..tostring(cardIndex)]
-    if card ~= nil and card.Color ~= nil then
-        UiImageBus.Event.SetColor(entityId, card.Color)
+    if card ~= nil and card.color ~= nil then
+        UiImageBus.Event.SetColor(entityId, card.color)
         UiElementBus.Event.SetIsEnabled(entityId, true)
     else
         UiElementBus.Event.SetIsEnabled(entityId, false)

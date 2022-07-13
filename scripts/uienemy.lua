@@ -1,5 +1,7 @@
 local Events = require "scripts.events"
 local Utilities = require "scripts.utilities"
+local Card = require "scripts.card"
+
 local UiEnemy = {
     Properties = {
         Debug = false,
@@ -32,13 +34,17 @@ function UiEnemy:OnSetEnemy(enemy)
     end
 end
 
-function UiEnemy:OnTakeDamage(weakness, amount)
-    local currentAmount = self:GetWeaknessAmount(weakness)
-    self:Log("OnTakeDamage " .. tostring(weakness) .. " " .. tostring(amount) .. " current amount " .. tostring(currentAmount)) 
-    if currentAmount > 0 then
-        return self:UpdateWeaknessAmount(weakness, currentAmount - amount)
+function UiEnemy:OnTakeDamage(cardType, unused)
+    local weaknesses = Card:GetWeaknessesForCard(cardType)
+    local damageTaken = false
+    for weakness, amount in pairs(weaknesses) do
+        local currentAmount = self:GetWeaknessAmount(weakness)
+        self:Log("OnTakeDamage " .. tostring(weakness) .. " " .. tostring(amount) .. " current amount " .. tostring(currentAmount)) 
+        if currentAmount > 0 then
+            damageTaken = damageTaken or self:UpdateWeaknessAmount(weakness, currentAmount - amount)
+        end
     end
-    return false
+    return damageTaken
 end
 
 function UiEnemy:GetWeaknessAmount(weakness)

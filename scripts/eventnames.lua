@@ -9,10 +9,12 @@ return {
 	GetEnemy = "GetEnemy",
     GetTile = "GetTile",
     ModifyCoinAmount = "ModifyCoinAmount",
+    AddCards = "AddCards",
 
     OnSetEnemies = 'OnSetEnemies',
     OnSetEnemy = 'OnSetEnemy',
     OnRevealTile = 'OnRevealTile',
+    OnEnterTile = 'OnEnterTile',
     OnSetPlayerCard = 'OnSetPlayerCard',
     OnTakeDamage = 'OnTakeDamage',
     OnEnemyDefeated = 'OnEnemyDefeated',

@@ -3,6 +3,7 @@ local Utilities = require "scripts/utilities"
 local Events = require "scripts.events"
 local Timer = require "scripts/timer"
 local Player = require "scripts/player"
+local Card = require "scripts.card"
 
 local game = {
     Properties = {
@@ -97,20 +98,12 @@ function game.States.LevelBuildOut.OnEnter(sm)
     game.player1:Move(Vector3(-100,-100,-100), true)
 
     local cards = {}
-    cardColors = {}
-    table.insert(cardColors, Color(255.0 / 255.0, 0.0,0.0,1.0))
-    table.insert(cardColors, Color(0,172.0 / 255.0,34.0 / 255.0,1.0))
-    table.insert(cardColors, Color(0,150.0/ 255.0,210.0 / 255.0,1.0))
-    table.insert(cardColors, Color(217.0/ 255.0,207.0 / 255.0,20.0 / 255.0,1.0))
 
-    local numWeaponCardTypes = 4
-    for i = 1,game.Properties.NumWeaponCards do
-        local cardTypeId = (i %  numWeaponCardTypes) + 1
-        table.insert(cards, {
-            Name = 'Weapon'..tostring(cardTypeId),
-            Weakness = 'Weakness'..tostring(cardTypeId),
-            Color = cardColors[cardTypeId] 
-        })
+    -- give the player an equal number of each common card
+    for _,type in pairs(Card.Types.Common) do
+        for i = 1,6 do
+            table.insert(cards, Card(type))
+        end
     end
     Utilities:Shuffle(cards)
 
@@ -160,7 +153,7 @@ end
 function game.States.Navigation.Transitions.RevealTiles.Evaluate(sm)
     if game.player1.moveAmount >= 1.0 then
         local tile = game:GetTile(game.player1.moveEnd)
-        return not tile.enemy
+        return not tile.enemy and not tile.treasure
     end
     return false
 end
@@ -172,6 +165,10 @@ function game.States.Navigation.Transitions.Combat.Evaluate(sm)
     return false
 end
 function game.States.Navigation.Transitions.Treasure.Evaluate(sm)
+    if game.player1.moveAmount >= 1.0 then
+        local tile = game:GetTile(game.player1.moveEnd)
+        return tile.treasure
+    end
     return false
 end
 function game.States.Navigation.Transitions.Lose.Evaluate(sm)
@@ -205,7 +202,7 @@ function game.States.Combat.OnEnter(sm)
             sm:GotoState("Win")
         else
             game.currentEnemy = game.currentEnemy + 1
-            sm:GotoState("Navigation")
+            sm:GotoState("RevealTiles")
         end
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
@@ -241,8 +238,14 @@ end
 -------------------------------------------
 --- Treasure
 -------------------------------------------
+function game.States.Treasure.OnEnter(sm)
+    local gridPosition = game.player1:GridPositionString()
+    game:Log("Treasure.OnEnter")
+    Events:LuaEvent(Events.OnEnterTile, gridPosition)
+end
+
 function game.States.Treasure.Transitions.RevealTiles.Evaluate(sm)
-    return false
+    return true
 end
 
 -------------------------------------------
@@ -407,12 +410,14 @@ function game:ResetGrid()
             local hasEnemy = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Enemy"))
             local isBoss = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Boss"))
             local isMiniBoss = TagComponentRequestBus.Event.HasTag(entityId, Crc32("MiniBoss"))
+            local isTreasure = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Treasure"))
 
             self.grid[x][y] = {
                 enemy = hasEnemy,
                 boss = isBoss,
                 miniBoss = isMiniBoss,
                 walkable = isWalkable,
+                treasure = isTreasure,
                 revealed = false
             }
 

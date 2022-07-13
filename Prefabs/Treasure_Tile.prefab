@@ -113,12 +113,88 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 3943736249630944240,
                     "Child Entity Order": [
-                        "Entity_[14971615155672]"
+                        "Entity_[14971615155672]",
+                        "Entity_[239847512839640]"
                     ]
                 },
                 "Component_[5778217215772158525]": {
                     "$type": "SelectionComponent",
                     "Id": 5778217215772158525
+                },
+                "Component_[783678059047329185]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 783678059047329185,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3782163030,
+                                    "name": "Mesh",
+                                    "value": {
+                                        "$type": "EntityId",
+                                        "value": "Entity_[239847512839640]"
+                                    }
+                                }
+                            ],
+                            "Groups": [
+                                {
+                                    "Name": "CoinAmount",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2641765001,
+                                            "name": "Max",
+                                            "value": 10.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2709200336,
+                                            "name": "Min",
+                                            "value": 3.0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "CardAmount",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2641765001,
+                                            "name": "Max",
+                                            "value": 5.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2709200336,
+                                            "name": "Min",
+                                            "value": 3.0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{11EC9F28-770E-5B89-8546-6CAF38A12A7E}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/treasure.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{11EC9F28-770E-5B89-8546-6CAF38A12A7E}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/treasure.luac"
+                    }
                 }
             }
         },
@@ -484,6 +560,76 @@
                 "Component_[9851361234287478035]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 9851361234287478035
+                }
+            }
+        },
+        "Entity_[239847512839640]": {
+            "Id": "Entity_[239847512839640]",
+            "Name": "Chest",
+            "Components": {
+                "Component_[10440073352394782846]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10440073352394782846
+                },
+                "Component_[11097054052609212316]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11097054052609212316,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{8F19FB6D-DF18-5CC0-B921-6755089004D7}",
+                                    "subId": 275006192
+                                },
+                                "assetHint": "materialeditor/viewportmodels/beveledcube.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[11284063219935679042]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11284063219935679042,
+                    "Parent Entity": "Entity_[14967320188376]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.5,
+                            0.5,
+                            0.0
+                        ],
+                        "UniformScale": 0.5
+                    }
+                },
+                "Component_[14931155012536029153]": {
+                    "$type": "SelectionComponent",
+                    "Id": 14931155012536029153
+                },
+                "Component_[16103769066091615446]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16103769066091615446
+                },
+                "Component_[16251925753982236023]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16251925753982236023
+                },
+                "Component_[16716577173199610963]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 16716577173199610963
+                },
+                "Component_[5463353563576689821]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5463353563576689821
+                },
+                "Component_[5483715662920568512]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5483715662920568512
+                },
+                "Component_[5638678896932260425]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5638678896932260425
+                },
+                "Component_[6503037375832690002]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6503037375832690002
                 }
             }
         }
