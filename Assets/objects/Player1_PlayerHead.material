@@ -1,0 +1,24 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.5102006793022156,
+            0.5102006793022156,
+            0.5102006793022156,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/PlayerHead.png",
+        "baseColor.textureMapUv": "Unwrapped",
+        "emissive.color": [
+            0.4761883020401001,
+            0.42032501101493835,
+            0.2899519205093384,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 3.0,
+        "emissive.textureMap": "Assets/objects/PlayerHead.png",
+        "opacity.factor": 1.0
+    }
+}

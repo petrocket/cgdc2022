@@ -22,9 +22,9 @@
                     "Entity_[356808237558]",
                     "Entity_[4289430953152]",
                     "Entity_[48647853186240]",
-                    "Entity_[49021515340992]",
                     "Entity_[137425427731928]",
-                    "Entity_[146298830165464]"
+                    "Entity_[146298830165464]",
+                    "Entity_[49021515340992]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -1343,7 +1343,7 @@
                                                     "subId": 94503058
                                                 },
                                                 "loadBehavior": "QueueLoad",
-                                                "assetHint": "Prefabs/EnemyMushroomBlue.prefab"
+                                                "assetHint": "prefabs/enemymushroomblue.spawnable"
                                             }
                                         }
                                     }
@@ -1576,14 +1576,14 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            0.6295357346534729,
-                            -4.026543140411377,
-                            6.704061508178711
+                            4.319459438323975,
+                            -3.6111738681793213,
+                            6.209630012512207
                         ],
                         "Rotate": [
-                            -46.89259719848633,
-                            17.85696029663086,
-                            -16.014772415161133
+                            -47.4179573059082,
+                            -9.171455383300781,
+                            8.333075523376465
                         ]
                     }
                 },
@@ -1974,8 +1974,7 @@
                 },
                 "Component_[17953183084840678457]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 17953183084840678457,
-                    "VisibilityFlag": false
+                    "Id": 17953183084840678457
                 },
                 "Component_[18324555148450929270]": {
                     "$type": "EditorEntityIconComponent",
@@ -2062,10 +2061,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8F19FB6D-DF18-5CC0-B921-6755089004D7}",
-                                    "subId": 275006192
+                                    "guid": "{CD6A8DE1-67C0-5D4C-9BE3-99C3104FE3A1}",
+                                    "subId": 278684442
                                 },
-                                "assetHint": "materialeditor/viewportmodels/beveledcube.azmodel"
+                                "assetHint": "assets/objects/player1.azmodel"
                             }
                         }
                     }
@@ -2096,8 +2095,7 @@
                 },
                 "Component_[4578791886669085984]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 4578791886669085984,
-                    "VisibilityFlag": false
+                    "Id": 4578791886669085984
                 },
                 "Component_[7686612633810829998]": {
                     "$type": "SelectionComponent",
@@ -2113,7 +2111,11 @@
                             0.5,
                             0.0
                         ],
-                        "UniformScale": 0.6000000238418579
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -89.99999237060547
+                        ]
                     }
                 },
                 "Component_[9124696497980502005]": {
@@ -2154,6 +2156,45 @@
                                                 "$type": "float",
                                                 "Value": 4.119999885559082
                                             }
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1962797511
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{1731D142-A01E-517E-9ADC-AFD98CD6F3BE}"
+                                            },
+                                            "assetHint": "assets/objects/player1_sword.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3968527592
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AAC42D07-9DB5-5524-8BDA-7FCE393CD0C8}"
+                                            },
+                                            "assetHint": "assets/objects/player1_playerhead.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 4040546504
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AF384B9B-A249-5B78-9CCF-8E5D137A448A}"
+                                            },
+                                            "assetHint": "assets/objects/player1_hat.azmaterial"
                                         }
                                     }
                                 }
