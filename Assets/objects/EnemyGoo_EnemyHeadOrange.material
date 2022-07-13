@@ -1,0 +1,23 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.9962920546531677,
+            1.0,
+            0.9955596327781677,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/EnemyHeadOrange.png",
+        "emissive.color": [
+            1.0,
+            0.45000380277633667,
+            0.0,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 4.559999942779541,
+        "emissive.textureMap": "Assets/objects/EnemyHeadOrange.png",
+        "opacity.factor": 1.0
+    }
+}

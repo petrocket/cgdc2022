@@ -1,0 +1,25 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.21519798040390015,
+            0.9931944608688354,
+            0.0,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/EnemyGoo.png",
+        "baseColor.useTexture": false,
+        "emissive.color": [
+            0.08075074106454849,
+            0.6054474711418152,
+            0.0,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 2.140000104904175,
+        "emissive.textureMap": "Assets/objects/EnemyGoo.png",
+        "opacity.factor": 0.3199999928474426,
+        "opacity.mode": "TintedTransparent"
+    }
+}

@@ -1,0 +1,218 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "EnemyGooOrange",
+        "Components": {
+            "Component_[1111672376822419623]": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 1111672376822419623
+            },
+            "Component_[12084865644745762523]": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 12084865644745762523
+            },
+            "Component_[13350529840900566138]": {
+                "$type": "EditorInspectorComponent",
+                "Id": 13350529840900566138
+            },
+            "Component_[14363153770921154442]": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 14363153770921154442,
+                "Parent Entity": ""
+            },
+            "Component_[18025704359520626675]": {
+                "$type": "EditorPrefabComponent",
+                "Id": 18025704359520626675
+            },
+            "Component_[5060940951035929640]": {
+                "$type": "SelectionComponent",
+                "Id": 5060940951035929640
+            },
+            "Component_[5142324559147870713]": {
+                "$type": "EditorLockComponent",
+                "Id": 5142324559147870713
+            },
+            "Component_[5193257038005695793]": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 5193257038005695793
+            },
+            "Component_[5771319194082716574]": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 5771319194082716574
+            },
+            "Component_[6644735429597850937]": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 6644735429597850937
+            },
+            "Component_[6654670281072803411]": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 6654670281072803411,
+                "Child Entity Order": [
+                    "Entity_[28431849510470]"
+                ]
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[28431849510470]": {
+            "Id": "Entity_[28431849510470]",
+            "Name": "EnemyGooOrange",
+            "Components": {
+                "Component_[10691675158630354090]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10691675158630354090,
+                    "Parent Entity": "ContainerEntity"
+                },
+                "Component_[11489035674917001414]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11489035674917001414
+                },
+                "Component_[12501261146281326775]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12501261146281326775
+                },
+                "Component_[1265457803706491697]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1265457803706491697
+                },
+                "Component_[13234129015424871005]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13234129015424871005
+                },
+                "Component_[15625532116726394993]": {
+                    "$type": "SelectionComponent",
+                    "Id": 15625532116726394993
+                },
+                "Component_[3922065913313282505]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3922065913313282505
+                },
+                "Component_[5422990206599985608]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5422990206599985608,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 10691675158630354090
+                        }
+                    ]
+                },
+                "Component_[6302340344270929654]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6302340344270929654
+                },
+                "Component_[8779527650129162315]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8779527650129162315,
+                    "Child Entity Order": [
+                        "Entity_[28436144477766]"
+                    ]
+                }
+            }
+        },
+        "Entity_[28436144477766]": {
+            "Id": "Entity_[28436144477766]",
+            "Name": "Goo",
+            "Components": {
+                "Component_[10375560172421011758]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 10375560172421011758,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 589042457
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{B1A12925-2D0F-5BD6-9232-CC64CC2E1B9C}"
+                                            },
+                                            "assetHint": "assets/objects/enemygoo_enemyheadorange.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3509660414
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{607BD191-196D-5F2C-8884-F765B03DDDC1}"
+                                            },
+                                            "assetHint": "assets/objects/enemygoo_outergooorange.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[11748278569087132445]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11748278569087132445,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{4D116404-BFF4-5AC0-8049-A9133C3C5699}",
+                                    "subId": 284971529
+                                },
+                                "assetHint": "assets/objects/enemygoo.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[13780918055574386169]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13780918055574386169,
+                    "Parent Entity": "Entity_[28431849510470]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.5,
+                            0.5,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[16494838955419113402]": {
+                    "$type": "SelectionComponent",
+                    "Id": 16494838955419113402
+                },
+                "Component_[17004696578450597616]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17004696578450597616
+                },
+                "Component_[3918457660459352486]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3918457660459352486
+                },
+                "Component_[4428706149235866121]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4428706149235866121
+                },
+                "Component_[7293568309436806147]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7293568309436806147
+                },
+                "Component_[8108432412441400557]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 8108432412441400557
+                },
+                "Component_[8257210668619691329]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8257210668619691329
+                },
+                "Component_[922535973456585382]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 922535973456585382
+                },
+                "Component_[9422586856831825889]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9422586856831825889
+                }
+            }
+        }
+    }
+}

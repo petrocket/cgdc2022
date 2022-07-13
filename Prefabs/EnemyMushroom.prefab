@@ -1,0 +1,223 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "EnemyMushroom",
+        "Components": {
+            "Component_[10912903502483442646]": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 10912903502483442646
+            },
+            "Component_[11999942966553057442]": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 11999942966553057442
+            },
+            "Component_[13356859226024744815]": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 13356859226024744815,
+                "Parent Entity": ""
+            },
+            "Component_[1336408182902288542]": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 1336408182902288542,
+                "Child Entity Order": [
+                    "Entity_[21336563537478]"
+                ]
+            },
+            "Component_[14827922646961804430]": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 14827922646961804430
+            },
+            "Component_[15004131855212207908]": {
+                "$type": "EditorPrefabComponent",
+                "Id": 15004131855212207908
+            },
+            "Component_[15596540866023737140]": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 15596540866023737140
+            },
+            "Component_[4003563957244194024]": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 4003563957244194024
+            },
+            "Component_[4941638103778461605]": {
+                "$type": "EditorInspectorComponent",
+                "Id": 4941638103778461605
+            },
+            "Component_[5248170581563229544]": {
+                "$type": "SelectionComponent",
+                "Id": 5248170581563229544
+            },
+            "Component_[7560617656422211037]": {
+                "$type": "EditorLockComponent",
+                "Id": 7560617656422211037
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[21336563537478]": {
+            "Id": "Entity_[21336563537478]",
+            "Name": "EnemyMushroom",
+            "Components": {
+                "Component_[10011422804728900073]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10011422804728900073
+                },
+                "Component_[12059703655560570767]": {
+                    "$type": "SelectionComponent",
+                    "Id": 12059703655560570767
+                },
+                "Component_[12541440416658708826]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12541440416658708826,
+                    "Parent Entity": "ContainerEntity"
+                },
+                "Component_[17078105937201656398]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17078105937201656398
+                },
+                "Component_[17746848301179305443]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17746848301179305443,
+                    "Child Entity Order": [
+                        "Entity_[21340858504774]"
+                    ]
+                },
+                "Component_[4763045472834625572]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4763045472834625572
+                },
+                "Component_[5545224926522627699]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5545224926522627699,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 12541440416658708826
+                        }
+                    ]
+                },
+                "Component_[6682570770342912420]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6682570770342912420
+                },
+                "Component_[723974047950657061]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 723974047950657061
+                },
+                "Component_[8414145829570246595]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8414145829570246595
+                }
+            }
+        },
+        "Entity_[21340858504774]": {
+            "Id": "Entity_[21340858504774]",
+            "Name": "Mushroom",
+            "Components": {
+                "Component_[11785115842819248081]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11785115842819248081,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{ACA8545F-B587-5EDA-9512-3219213065AE}",
+                                    "subId": 281073519
+                                },
+                                "assetHint": "assets/objects/enemymushroom.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[14917899731923732581]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14917899731923732581
+                },
+                "Component_[16121161002299799458]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16121161002299799458
+                },
+                "Component_[16410446718104112922]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16410446718104112922
+                },
+                "Component_[2207592530857405508]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2207592530857405508
+                },
+                "Component_[2946846348622362052]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2946846348622362052
+                },
+                "Component_[3846300088878843085]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3846300088878843085,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1999673443
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{02B4B480-059F-5620-9044-056DE70B39A7}"
+                                            },
+                                            "assetHint": "assets/objects/enemymushroom_spear.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2937711701
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{0099ABDD-CC5C-5106-A6B3-E382E3A348D6}"
+                                            },
+                                            "assetHint": "assets/objects/enemymushroom_mushroom.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4177137886484830292]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 4177137886484830292,
+                    "Parent Entity": "Entity_[21336563537478]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.5,
+                            0.5,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99994659423828
+                        ]
+                    }
+                },
+                "Component_[4260563685441988393]": {
+                    "$type": "SelectionComponent",
+                    "Id": 4260563685441988393
+                },
+                "Component_[4518673341499861055]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4518673341499861055
+                },
+                "Component_[4750983665831718543]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4750983665831718543
+                },
+                "Component_[8994425078078960074]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8994425078078960074
+                }
+            }
+        }
+    }
+}

@@ -370,11 +370,11 @@
                                         "value": {
                                             "asset": {
                                                 "assetId": {
-                                                    "guid": "{D034E89F-0A24-589D-BD58-E87E134F9817}",
-                                                    "subId": 1954828101
+                                                    "guid": "{A9F768E0-E033-57E1-98CF-3F6FF64B757A}",
+                                                    "subId": 3057612666
                                                 },
                                                 "loadBehavior": "QueueLoad",
-                                                "assetHint": "Prefabs/EnemySphere.prefab"
+                                                "assetHint": "Prefabs/EnemyGooOrange.prefab"
                                             }
                                         }
                                     }
@@ -572,11 +572,11 @@
                                         "value": {
                                             "asset": {
                                                 "assetId": {
-                                                    "guid": "{D034E89F-0A24-589D-BD58-E87E134F9817}",
-                                                    "subId": 1954828101
+                                                    "guid": "{F23BEADD-3466-58AC-A61F-4A52752D5DB0}",
+                                                    "subId": 946477668
                                                 },
                                                 "loadBehavior": "QueueLoad",
-                                                "assetHint": "Prefabs/EnemySphere.prefab"
+                                                "assetHint": "Prefabs/EnemyMushroom.prefab"
                                             }
                                         }
                                     }
@@ -1262,6 +1262,207 @@
                 }
             }
         },
+        "Entity_[45405560264262]": {
+            "Id": "Entity_[45405560264262]",
+            "Name": "Enemy_Tile",
+            "Components": {
+                "Component_[10670681231913104086]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10670681231913104086
+                },
+                "Component_[14031123470833534313]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14031123470833534313
+                },
+                "Component_[1521846097073127200]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1521846097073127200
+                },
+                "Component_[16619738230948136420]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16619738230948136420
+                },
+                "Component_[1764665144755443372]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1764665144755443372
+                },
+                "Component_[4398679127364965580]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4398679127364965580
+                },
+                "Component_[5124687175076152862]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5124687175076152862,
+                    "Child Entity Order": [
+                        "Instance_[742388504024]/ContainerEntity",
+                        "Instance_[35540213536216]/ContainerEntity"
+                    ]
+                },
+                "Component_[6140548043789515829]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6140548043789515829
+                },
+                "Component_[6467158329820040785]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6467158329820040785,
+                    "Parent Entity": "Entity_[60270034689216]",
+                    "Transform Data": {
+                        "Translate": [
+                            1.0,
+                            2.0,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[9931833143394841108]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 9931833143394841108,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1056859706,
+                                    "name": "Boss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3053981555,
+                                    "name": "EnemyPrefab",
+                                    "value": {
+                                        "$type": "AzFramework::Scripts::SpawnableScriptAssetRef",
+                                        "value": {
+                                            "asset": {
+                                                "assetId": {
+                                                    "guid": "{670760BF-62D3-5EEA-9906-B7BFF6F7EEE7}",
+                                                    "subId": 94503058
+                                                },
+                                                "loadBehavior": "QueueLoad",
+                                                "assetHint": "Prefabs/EnemyMushroomBlue.prefab"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2307170565,
+                                    "name": "MiniBoss"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1579384326,
+                                    "name": "Name",
+                                    "value": "Enemy"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 2363381545,
+                                    "name": "Type",
+                                    "value": "0"
+                                }
+                            ],
+                            "Groups": [
+                                {
+                                    "Name": "Weaknesses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3252857228,
+                                            "name": "Type1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1491859510,
+                                            "name": "Type2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 804047008,
+                                            "name": "Type3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2978503939,
+                                            "name": "Type4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Randomness",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyBoolean",
+                                            "id": 1358543748,
+                                            "name": "Enabled",
+                                            "value": true
+                                        }
+                                    ],
+                                    "Groups": [
+                                        {
+                                            "Name": "AmountPerType",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 1.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 1.0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Name": "WeaknessTypes",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 2.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 2.0
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/enemy.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{776BB547-C368-5962-A9E3-48F917DCCC22}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/enemy.luac"
+                    }
+                },
+                "Component_[9975719164101155454]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9975719164101155454
+                }
+            }
+        },
         "Entity_[48647853186240]": {
             "Id": "Entity_[48647853186240]",
             "Name": "Directional Light",
@@ -1361,7 +1562,7 @@
                     "Controller": {
                         "Configuration": {
                             "Field of View": 45.0,
-                            "EditorEntityId": 8732963385090853470
+                            "EditorEntityId": 8690049546363713583
                         }
                     }
                 },
@@ -1442,11 +1643,11 @@
                                         "value": {
                                             "asset": {
                                                 "assetId": {
-                                                    "guid": "{D034E89F-0A24-589D-BD58-E87E134F9817}",
-                                                    "subId": 1954828101
+                                                    "guid": "{F379EF5B-8C51-590B-8530-8C30A74774FA}",
+                                                    "subId": 465578139
                                                 },
                                                 "loadBehavior": "QueueLoad",
-                                                "assetHint": "Prefabs/EnemySphere.prefab"
+                                                "assetHint": "Prefabs/EnemyGoo.prefab"
                                             }
                                         }
                                     }
@@ -1734,8 +1935,8 @@
                         "Instance_[2821750224311]/ContainerEntity",
                         "Instance_[2899059635639]/ContainerEntity",
                         "Instance_[15104759141848]/ContainerEntity",
-                        "Instance_[2860404929975]/ContainerEntity",
                         "Instance_[2834635126199]/ContainerEntity",
+                        "Entity_[45405560264262]",
                         "Entity_[35535918568920]",
                         "Entity_[35497263863256]",
                         "Entity_[52118787298776]"
@@ -1773,7 +1974,8 @@
                 },
                 "Component_[17953183084840678457]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 17953183084840678457
+                    "Id": 17953183084840678457,
+                    "VisibilityFlag": false
                 },
                 "Component_[18324555148450929270]": {
                     "$type": "EditorEntityIconComponent",
@@ -1894,7 +2096,8 @@
                 },
                 "Component_[4578791886669085984]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 4578791886669085984
+                    "Id": 4578791886669085984,
+                    "VisibilityFlag": false
                 },
                 "Component_[7686612633810829998]": {
                     "$type": "SelectionComponent",
@@ -2112,26 +2315,6 @@
                 }
             ]
         },
-        "Instance_[2860404929975]": {
-            "Source": "Prefabs/Tile.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Parent Entity",
-                    "value": "../Entity_[60270034689216]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/0",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/Component_[17136011204416072248]/Transform Data/Translate/1",
-                    "value": 2.0
-                }
-            ]
-        },
         "Instance_[2873289831863]": {
             "Source": "Prefabs/Tile.prefab",
             "Patches": [
@@ -2219,6 +2402,31 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
                     "value": "../Entity_[35535918568920]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances",
+                    "value": []
+                }
+            ]
+        },
+        "Instance_[45409855231558]": {
+            "Source": "Prefabs/Enemy_Tile.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[5124687175076152862]/Child Entity Order/0",
+                    "value": "Entity_[220498685171160]"
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/Component_[5124687175076152862]/Child Entity Order/1",
+                    "value": "Entity_[750978438616]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
+                    "value": "../Entity_[45405560264262]"
                 },
                 {
                     "op": "replace",
