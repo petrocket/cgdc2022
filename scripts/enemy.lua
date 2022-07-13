@@ -7,6 +7,7 @@ local Enemy = {
         Name = "Enemy",
         MiniBoss = false,
         Boss = false,
+        EnemyPrefab = {default=SpawnableScriptAssetRef(), description="Enemy Prefab to spawn"},
         Type = 0, -- mechanical, magical, natural
         Randomness = {
             Enabled = false,
@@ -32,13 +33,18 @@ function Enemy:OnActivate()
     Utilities:InitLogging(self, "Enemy")
     Events:Connect(self, Events.OnStateChange)
 
+    self.spawnableMediator = SpawnableScriptMediator()
+    self.spawnTicket = self.spawnableMediator:CreateSpawnTicket(self.Properties.EnemyPrefab)
+
     local translation = TransformBus.Event.GetWorldTranslation(self.entityId)
     local gridPosition = tostring(math.floor(translation.x)) .. "_" .. tostring(math.floor(translation.y))
-    self:Log(gridPosition)
     Events:Connect(self, Events.GetEnemy, gridPosition)
-
     Events:Connect(self, Events.OnEnterCombat, gridPosition)
     Events:Connect(self, Events.OnExitCombat, gridPosition)
+    Events:Connect(self, Events.OnRevealTile, gridPosition)
+    Events:Connect(self, Events.OnEnemyDefeated)
+
+    self.revealed = false
 end
 
 function Enemy:OnEnterCombat()
@@ -57,6 +63,27 @@ function Enemy:OnUpdateWeaknessAmount(weakness, amount)
     end
 end
 
+function Enemy:OnEnemyDefeated()
+    if self.inCombat then
+        self.inCombat = false
+        self.spawnableMediator:Despawn(self.spawnTicket)
+    end
+end
+
+function Enemy:OnRevealTile()
+    if not self.revealed then
+        self.revealed = true
+        --local translation = TransformBus.Event.GetWorldTranslation(self.entityId)
+        self.spawnableMediator:SpawnAndParentAndTransform(
+            self.spawnTicket,
+            self.entityId,
+            Vector3(0.0,0.0,0.0),
+            Vector3(0,0,0),
+            1.0
+            )
+    end
+end
+
 function Enemy:OnExitCombat()
     Events:Disconnect(self, Events.OnUpdateWeaknessAmount)
     self.inCombat = false
@@ -64,6 +91,8 @@ end
 
 function Enemy:Reset()
     self:Log("Reset")
+    self.revealed = false
+    self.spawnableMediator:Despawn(self.spawnTicket)
     self.data = {
         Name = self.Properties.Name,
         MiniBoss = self.Properties.MiniBoss,
@@ -107,6 +136,7 @@ function Enemy:OnDeactivate()
     Events:Disconnect(self, Events.OnStateChange)
     Events:Disconnect(self, Events.OnEnterCombat)
     Events:Disconnect(self, Events.OnExitCombat)
+    Events:Disconnect(self, Events.OnEnemyDefeated)
 end
 
 return Enemy

@@ -362,6 +362,24 @@
                                     "name": "Debug"
                                 },
                                 {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3053981555,
+                                    "name": "EnemyPrefab",
+                                    "value": {
+                                        "$type": "AzFramework::Scripts::SpawnableScriptAssetRef",
+                                        "value": {
+                                            "asset": {
+                                                "assetId": {
+                                                    "guid": "{D034E89F-0A24-589D-BD58-E87E134F9817}",
+                                                    "subId": 1954828101
+                                                },
+                                                "loadBehavior": "QueueLoad",
+                                                "assetHint": "Prefabs/EnemySphere.prefab"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 2307170565,
                                     "name": "MiniBoss",
@@ -447,7 +465,7 @@
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 }
                                             ]
                                         }
@@ -544,6 +562,24 @@
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
                                     "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3053981555,
+                                    "name": "EnemyPrefab",
+                                    "value": {
+                                        "$type": "AzFramework::Scripts::SpawnableScriptAssetRef",
+                                        "value": {
+                                            "asset": {
+                                                "assetId": {
+                                                    "guid": "{D034E89F-0A24-589D-BD58-E87E134F9817}",
+                                                    "subId": 1954828101
+                                                },
+                                                "loadBehavior": "QueueLoad",
+                                                "assetHint": "Prefabs/EnemySphere.prefab"
+                                            }
+                                        }
+                                    }
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
@@ -1339,14 +1375,14 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            4.769269943237305,
-                            -4.002659797668457,
-                            8.35303783416748
+                            0.6295357346534729,
+                            -4.026543140411377,
+                            6.704061508178711
                         ],
                         "Rotate": [
-                            -55.24915313720703,
-                            -5.630886554718018,
-                            3.8941221237182617
+                            -46.89259719848633,
+                            17.85696029663086,
+                            -16.014772415161133
                         ]
                     }
                 },
@@ -1396,6 +1432,24 @@
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
                                     "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 3053981555,
+                                    "name": "EnemyPrefab",
+                                    "value": {
+                                        "$type": "AzFramework::Scripts::SpawnableScriptAssetRef",
+                                        "value": {
+                                            "asset": {
+                                                "assetId": {
+                                                    "guid": "{D034E89F-0A24-589D-BD58-E87E134F9817}",
+                                                    "subId": 1954828101
+                                                },
+                                                "loadBehavior": "QueueLoad",
+                                                "assetHint": "Prefabs/EnemySphere.prefab"
+                                            }
+                                        }
+                                    }
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
@@ -2165,6 +2219,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
                     "value": "../Entity_[35535918568920]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances",
+                    "value": []
                 }
             ]
         },

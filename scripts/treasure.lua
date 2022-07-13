@@ -51,6 +51,8 @@ function Treasure:OnEnterTile()
         Events:GlobalLuaEvent(Events.ModifyCoinAmount, coinAmount)
 
         local cardAmount = math.random(self.Properties.CardAmount.Min, self.Properties.CardAmount.Max)
+
+        self:Log("Giving " .. tostring(cardAmount) .. " cards")
         local cards = {
             Card(Card.Types.Special.Bomb),
             Card(Card.Types.Special.DoubleArrow),
@@ -70,7 +72,6 @@ function Treasure:OnEnterTile()
             end
         end
 
-        self:Log("Giving " .. tostring(cardAmount) .. " cards")
         Utilities:Shuffle(cards)
         for i=1,cardAmount-1 do
             if #cards <= 0 then

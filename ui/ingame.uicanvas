@@ -328,7 +328,7 @@
 														<Class name="AZ::u64" field="id" value="1822771111" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 														<Class name="AZStd::string" field="name" value="Debug" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 													</Class>
-													<Class name="bool" field="value" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
+													<Class name="bool" field="value" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 												</Class>
 												<Class name="AzFramework::ScriptPropertyNumber" field="element" version="1" type="{5BCDFDEB-A75D-4E83-BB74-C45299CB9826}">
 													<Class name="AzFramework::ScriptProperty" field="BaseClass1" version="2" type="{D227D737-F1ED-4FB3-A1FB-38E4985D2E7A}">
@@ -6812,7 +6812,7 @@
 																			<Class name="AZ::u64" field="id" value="1822771111" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 																			<Class name="AZStd::string" field="name" value="Debug" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 																		</Class>
-																		<Class name="bool" field="value" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
+																		<Class name="bool" field="value" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 																	</Class>
 																	<Class name="AzFramework::ScriptPropertyGenericClass" field="element" version="1" type="{80618224-814C-44D4-A7B8-14B5A36F96ED}">
 																		<Class name="AzFramework::ScriptProperty" field="BaseClass1" version="2" type="{D227D737-F1ED-4FB3-A1FB-38E4985D2E7A}">
