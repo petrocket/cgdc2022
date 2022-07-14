@@ -180,6 +180,13 @@
                     "$type": "SelectionComponent",
                     "Id": 16494838955419113402
                 },
+                "Component_[16559542268584173740]": {
+                    "$type": "EditorTagComponent",
+                    "Id": 16559542268584173740,
+                    "Tags": [
+                        "EnemyMesh"
+                    ]
+                },
                 "Component_[17004696578450597616]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 17004696578450597616

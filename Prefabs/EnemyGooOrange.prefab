@@ -164,6 +164,13 @@
                         }
                     }
                 },
+                "Component_[12185693083615399512]": {
+                    "$type": "EditorTagComponent",
+                    "Id": 12185693083615399512,
+                    "Tags": [
+                        "EnemyMesh"
+                    ]
+                },
                 "Component_[13780918055574386169]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 13780918055574386169,

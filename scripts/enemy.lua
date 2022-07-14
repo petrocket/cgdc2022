@@ -35,6 +35,7 @@ function Enemy:OnActivate()
 
     self.spawnableMediator = SpawnableScriptMediator()
     self.spawnTicket = self.spawnableMediator:CreateSpawnTicket(self.Properties.EnemyPrefab)
+    self.spawnableListener = SpawnableScriptNotificationsBus.Connect(self, self.spawnTicket:GetId())
 
     local translation = TransformBus.Event.GetWorldTranslation(self.entityId)
     local gridPosition = tostring(math.floor(translation.x)) .. "_" .. tostring(math.floor(translation.y))
@@ -44,13 +45,29 @@ function Enemy:OnActivate()
     Events:Connect(self, Events.OnRevealTile, gridPosition)
     Events:Connect(self, Events.OnEnemyDefeated)
 
+    self.mesh = nil
+    self.playerPosition = nil
+    self.playerTransformListener = nil
+    self.tagListener = TagGlobalNotificationBus.Connect(self, Crc32("PlayerMesh"))
     self.revealed = false
+end
+
+function Enemy:OnEntityTagAdded(entityId)
+    if self.playerTransformListener ~= nil then
+        self.playerTransformListener:Disconnect()
+    end
+    self.playerTransformListener = TransformNotificationBus.Connect(self, entityId)
+end
+
+function Enemy:OnTransformChanged(localTM, worldTM)
+    self.playerPosition = worldTM:GetTranslation()
+    self.playerPosition.z = 0
+    self:LookAtPlayer()
 end
 
 function Enemy:OnEnterCombat()
     self.inCombat = true 
     Events:GlobalLuaEvent(Events.OnSetEnemy, self.data)
-
     Events:Connect(self, Events.OnUpdateWeaknessAmount)
 end
 
@@ -70,10 +87,33 @@ function Enemy:OnEnemyDefeated()
     end
 end
 
+function Enemy:LookAtPlayer()
+    self:Log("LookAtPlayer")
+    if self.revealed and self.playerPosition ~= nil and self.mesh then
+        local selfPosition = TransformBus.Event.GetWorldTranslation(self.mesh)
+        selfPosition.z = 0
+
+        local tm = Transform.CreateLookAt(selfPosition, self.playerPosition, AxisType.XNegative)
+        TransformBus.Event.SetWorldTM(self.mesh, tm)
+    end
+end
+
+function Enemy:OnSpawn(spawnTicket, entityList)
+    self:Log("OnSpawn")
+    self.mesh = entityList[1]
+
+    for i=1,#entityList do
+        local isEnemyMesh = TagComponentRequestBus.Event.HasTag(entityList[i], Crc32("EnemyMesh"))
+        if isEnemyMesh then
+            self.mesh = entityList[i]
+        end
+    end
+    self:LookAtPlayer()
+end
+
 function Enemy:OnRevealTile()
     if not self.revealed then
         self.revealed = true
-        --local translation = TransformBus.Event.GetWorldTranslation(self.entityId)
         self.spawnableMediator:SpawnAndParentAndTransform(
             self.spawnTicket,
             self.entityId,
@@ -132,6 +172,11 @@ function Enemy:OnStateChange(newState)
 end
 
 function Enemy:OnDeactivate()
+    self.tagListener:Disconnect()
+    if self.playerTransformListener ~= nil then
+        self.playerTransformListener:Disconnect()
+    end
+    self.spawnableListener:Disconnect()
     Events:Disconnect(self, Events.GetEnemy)
     Events:Disconnect(self, Events.OnStateChange)
     Events:Disconnect(self, Events.OnEnterCombat)

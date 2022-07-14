@@ -193,11 +193,6 @@
                             0.5,
                             0.5,
                             0.0
-                        ],
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            89.99994659423828
                         ]
                     }
                 },
@@ -212,6 +207,13 @@
                 "Component_[4750983665831718543]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 4750983665831718543
+                },
+                "Component_[8397791741366986522]": {
+                    "$type": "EditorTagComponent",
+                    "Id": 8397791741366986522,
+                    "Tags": [
+                        "EnemyMesh"
+                    ]
                 },
                 "Component_[8994425078078960074]": {
                     "$type": "EditorEntitySortComponent",
