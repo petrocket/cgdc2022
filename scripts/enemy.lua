@@ -88,7 +88,6 @@ function Enemy:OnEnemyDefeated()
 end
 
 function Enemy:LookAtPlayer()
-    self:Log("LookAtPlayer")
     if self.revealed and self.playerPosition ~= nil and self.mesh then
         local selfPosition = TransformBus.Event.GetWorldTranslation(self.mesh)
         selfPosition.z = 0
@@ -99,7 +98,6 @@ function Enemy:LookAtPlayer()
 end
 
 function Enemy:OnSpawn(spawnTicket, entityList)
-    self:Log("OnSpawn")
     self.mesh = entityList[1]
 
     for i=1,#entityList do

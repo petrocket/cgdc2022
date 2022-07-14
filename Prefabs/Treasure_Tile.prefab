@@ -305,7 +305,8 @@
                 },
                 "Component_[13081088218042995834]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 13081088218042995834
+                    "Id": 13081088218042995834,
+                    "VisibilityFlag": false
                 },
                 "Component_[14058629697959719901]": {
                     "$type": "EditorOnlyEntityComponent",
@@ -559,7 +560,8 @@
                 },
                 "Component_[9851361234287478035]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 9851361234287478035
+                    "Id": 9851361234287478035,
+                    "VisibilityFlag": false
                 }
             }
         },
@@ -578,10 +580,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8F19FB6D-DF18-5CC0-B921-6755089004D7}",
-                                    "subId": 275006192
+                                    "guid": "{19460BDE-379A-59F3-8A28-60B001C70ABF}",
+                                    "subId": 272937911
                                 },
-                                "assetHint": "materialeditor/viewportmodels/beveledcube.azmodel"
+                                "assetHint": "assets/objects/chest.azmodel"
                             }
                         }
                     }
@@ -594,9 +596,111 @@
                         "Translate": [
                             0.5,
                             0.5,
-                            0.0
+                            0.10158491134643555
                         ],
                         "UniformScale": 0.5
+                    }
+                },
+                "Component_[14490906166891903931]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 14490906166891903931,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1822771111,
+                                    "name": "Debug"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyGenericClass",
+                                    "id": 1053179562,
+                                    "name": "Destination",
+                                    "value": {
+                                        "$type": "Vector3",
+                                        "value": [
+                                            0.0,
+                                            0.0,
+                                            0.05000000074505806
+                                        ]
+                                    }
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 2254405824,
+                                    "name": "Duration",
+                                    "value": 2.0
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 2707365358,
+                                    "name": "Loop",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1582905952,
+                                    "name": "Method",
+                                    "value": "InOutSine"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 1851471833,
+                                    "name": "Relative",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{05364E34-D880-5DDE-A5D1-6F9413D42245}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/animate.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{05364E34-D880-5DDE-A5D1-6F9413D42245}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/animate.luac"
+                    }
+                },
+                "Component_[14827623993926757534]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 14827623993926757534,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 713039361
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{5FF3B634-30DD-519C-9E22-A27789A680C2}"
+                                            },
+                                            "assetHint": "assets/objects/chest_chest.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2988941473
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{56FAEBD5-7547-5D7D-A5E6-041D3624A63F}"
+                                            },
+                                            "assetHint": "assets/objects/chest_lid.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
                     }
                 },
                 "Component_[14931155012536029153]": {

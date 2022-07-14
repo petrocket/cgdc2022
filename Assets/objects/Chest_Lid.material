@@ -1,0 +1,18 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.textureMap": "Assets/objects/Chest.png",
+        "baseColor.textureMapUv": "Unwrapped",
+        "emissive.color": [
+            0.8299381732940674,
+            0.48412299156188965,
+            0.0,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.textureMap": "Assets/objects/ChestEmmissive.png",
+        "emissive.textureMapUv": "Unwrapped",
+        "opacity.factor": 1.0
+    }
+}
