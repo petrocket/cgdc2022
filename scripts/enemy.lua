@@ -83,6 +83,7 @@ end
 function Enemy:OnEnemyDefeated()
     if self.inCombat then
         self.inCombat = false
+        self.mesh = nil
         self.spawnableMediator:Despawn(self.spawnTicket)
     end
 end
@@ -90,10 +91,12 @@ end
 function Enemy:LookAtPlayer()
     if self.revealed and self.playerPosition ~= nil and self.mesh then
         local selfPosition = TransformBus.Event.GetWorldTranslation(self.mesh)
-        selfPosition.z = 0
+        if selfPosition ~= nil then
+            selfPosition.z = 0
 
-        local tm = Transform.CreateLookAt(selfPosition, self.playerPosition, AxisType.XNegative)
-        TransformBus.Event.SetWorldTM(self.mesh, tm)
+            local tm = Transform.CreateLookAt(selfPosition, self.playerPosition, AxisType.XNegative)
+            TransformBus.Event.SetWorldTM(self.mesh, tm)
+        end
     end
 end
 
@@ -130,6 +133,7 @@ end
 function Enemy:Reset()
     self:Log("Reset")
     self.revealed = false
+    self.mesh = nil
     self.spawnableMediator:Despawn(self.spawnTicket)
     self.data = {
         Name = self.Properties.Name,

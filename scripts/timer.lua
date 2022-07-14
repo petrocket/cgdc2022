@@ -39,7 +39,6 @@ end
 
 function Timer:Stop()
     self:Pause()
-    self.duration = -1
     self.timeLeft = -1
 end
 

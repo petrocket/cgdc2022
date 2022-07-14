@@ -20,11 +20,10 @@ end
 
 -- special case for transforms
 function Easing:EaseTM(method, duration, value, endValue, listener, selfReference)
-
-	local startPosition = value:GetPosition()
-	local endPosition = endValue:GetPosition()
-	local startRotation = Quaternion.CreateFromTransform(value)
-	local endRotation = Quaternion.CreateFromTransform(endValue)
+	local startPosition = value:GetTranslation()
+	local endPosition = endValue:GetTranslation()
+	local startRotation = value:GetRotation()
+	local endRotation = endValue:GetRotation(endValue)
 	
 	-- TODO scale maybe
 	
@@ -201,7 +200,7 @@ end
 
 function Easing:InQuad(t, b, c, d)
   t = t / d
-  return c * math.pow(t, 2) + b
+  return c * (t ^ 2) + b
 end
 
 function Easing:OutQuad(t, b, c, d)
@@ -212,7 +211,7 @@ end
 function Easing:InOutQuad(t, b, c, d)
   t = t / d * 2
   if t < 1 then
-    return c / 2 * math.pow(t, 2) + b
+    return c / 2 * (t ^ 2) + b
   else
     return -c / 2 * ((t - 1) * (t - 3) - 1) + b
   end
@@ -228,12 +227,12 @@ end
 
 function Easing:InCubic(t, b, c, d)
 	t = t / d
-	return c * math.pow(t, 3) + b
+	return c * (t ^ 3) + b
 end
 
 function Easing:OutCubic(t, b, c, d)
 	t = t / d - 1
-	return c * (math.pow(t, 3) + 1) + b
+	return c * ((t ^ 3) + 1) + b
 end
 
 function Easing:InOutCubic(t, b, c, d)

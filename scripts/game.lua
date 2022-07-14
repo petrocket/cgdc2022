@@ -4,6 +4,7 @@ local Events = require "scripts.events"
 local Timer = require "scripts/timer"
 local Player = require "scripts/player"
 local Card = require "scripts.card"
+local Easing = require "scripts.easing"
 
 local game = {
     Properties = {
@@ -20,7 +21,8 @@ local game = {
         TilePrefab = {default=SpawnableScriptAssetRef(), description="Tile Prefab to spawn"},
         PlayerMoveSpeed = 2.0,
         RevealSpeed = 2.0,
-        Player1 = EntityId()
+        Player1 = EntityId(),
+        Camera = EntityId()
     },
     States = {
 		MainMenu = {
@@ -41,16 +43,25 @@ local game = {
         Navigation = {
             Transitions = {
                 RevealTiles = {},
-                Combat = {},
+                CombatFlyIn = {},
                 Treasure = {},
-                Lose = {},
-                Win = {}
+                Lose = {}
+            }
+        },
+        CombatFlyIn = {
+            Transitions = {
+                Combat = {}
             }
         },
         Combat = {
             Transitions = {
-                RevealTiles = {},
-                Lose = {},
+                CombatFlyOut = {},
+                Lose = {}
+            }
+        },
+        CombatFlyOut = {
+            Transitions = {
+                Navigation = {},
                 Win = {}
             }
         },
@@ -68,17 +79,12 @@ local game = {
     },
 }
 
-local TileState = {
-    Navigation = "Navigation",
-    Treasure = "Treasure",
-    Combat = "Combat"
-}
-
 -------------------------------------------
 ---  MainMenu
 -------------------------------------------
 function game.States.MainMenu.OnEnter(sm)
     -- show main menu screen
+
 end
 
 function game.States.MainMenu.Transitions.LevelBuildOut.Evaluate(sm)
@@ -95,7 +101,8 @@ function game.States.LevelBuildOut.OnEnter(sm)
     game.currentEnemy = 1
 
     -- hide the player by moving off the board while we build out
-    game.player1:Move(Vector3(-100,-100,-100), true)
+    game.player1:SetVisible(false)
+    game.cameraTM = TransformBus.Event.GetWorldTM(game.Properties.Camera)
 
     local cards = {}
 
@@ -112,8 +119,9 @@ function game.States.LevelBuildOut.OnEnter(sm)
 end
 
 function game.States.LevelBuildOut.OnExit(sm)
-    game.timer:Start()
     game.player1:Move(Vector3(0,0,0), true)
+    game.timer:Start()
+    game.player1:SetVisible(true)
 end
 
 function game.States.LevelBuildOut.Transitions.RevealTiles.Evaluate(sm)
@@ -151,21 +159,22 @@ function game.States.Navigation.OnUpdate(sm, deltaTime, scriptTime)
     game.player1:Update(deltaTime, scriptTime)
 end
 function game.States.Navigation.Transitions.RevealTiles.Evaluate(sm)
-    if game.player1.moveAmount >= 1.0 then
+    if game.timer.timeLeft > 0 and game.player1.moveAmount >= 1.0 then
         local tile = game:GetTile(game.player1.moveEnd)
         return not tile.enemy and not tile.treasure
     end
     return false
 end
-function game.States.Navigation.Transitions.Combat.Evaluate(sm)
-    if game.player1.moveAmount >= 1.0 then
+function game.States.Navigation.Transitions.CombatFlyIn.Evaluate(sm)
+    -- player must finish combat before moving
+    if game.timer.timeLeft > 0 and game.player1.moveStart ~= game.player1.moveEnd then
         local tile = game:GetTile(game.player1.moveEnd)
         return tile.enemy
     end
     return false
 end
 function game.States.Navigation.Transitions.Treasure.Evaluate(sm)
-    if game.player1.moveAmount >= 1.0 then
+    if game.timer.timeLeft > 0 and game.player1.moveAmount >= 1.0 then
         local tile = game:GetTile(game.player1.moveEnd)
         return tile.treasure
     end
@@ -174,8 +183,41 @@ end
 function game.States.Navigation.Transitions.Lose.Evaluate(sm)
     return game.timer.timeLeft <= 0 
 end
-function game.States.Navigation.Transitions.Win.Evaluate(sm)
-    return false
+
+-------------------------------------------
+--- CombatFlyIn
+-------------------------------------------
+function game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, value)
+    local position = startPosition:Lerp(endPosition, value)
+    local tm = TransformBus.Event.GetWorldTM(self.Properties.Camera)
+    local currentRotation = tm:GetRotation()
+
+    local lookAtTM = Transform.CreateLookAt(position, endLookAtPosition, AxisType.YPositive)
+    local rotation = currentRotation:Slerp(lookAtTM:GetRotation(), value)
+
+    tm = Transform.CreateFromQuaternionAndTranslation(rotation, position)
+    TransformBus.Event.SetWorldTM(game.Properties.Camera, tm)
+end
+
+function game.States.CombatFlyIn.OnEnter(sm)
+    local startPosition = game.cameraTM:GetTranslation()
+    local endPosition = game.player1.meshTM:GetTranslation() + Vector3(0,0,0.4)
+    local endLookAtPosition = endPosition + game.player1.meshTM:GetBasisY()
+
+    game.player1:SetVisible(false)
+
+    sm.cameraAnimating = true
+    sm.OnEasingUpdate = function(sm, jobId, value )
+        game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, value)
+    end
+    sm.OnEasingEnd = function(sm)
+        sm.cameraAnimating = false
+    end
+
+	game.cameraEasingId = Easing:Ease(Easing.InOutQuad, 1200, 0.0, 1.0, sm)
+end
+function game.States.CombatFlyIn.Transitions.Combat.Evaluate(sm)
+    return not sm.cameraAnimating
 end
 
 -------------------------------------------
@@ -186,36 +228,26 @@ function game.States.Combat.OnEnter(sm)
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, true)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, true)
 
-    --local x = math.floor(game.player1.moveEnd.x)
-    --local y = math.floor(game.player1.moveEnd.y)
-    --local gridPosition = tostring(x) .. "_" .. tostring(y)
-    local gridPosition = game.player1:GridPositionString()
+    local gridPosition = game.player1:DestinationGridPositionString()
     Events:LuaEvent(Events.OnEnterCombat, gridPosition)
+
+    sm.inCombat = true
 
     sm.OnEnemyDefeated = function(sm)
         local x = game.player1.moveEnd.x
         local y = game.player1.moveEnd.y
         game.grid[x][y].enemy = false
-        if game.grid[x][y].boss then
-            sm:GotoState("Win")
-        elseif game.currentEnemy >= game.numEnemies then
-            sm:GotoState("Win")
-        else
-            game.currentEnemy = game.currentEnemy + 1
-            sm:GotoState("RevealTiles")
-        end
+        game.currentEnemy = game.currentEnemy + 1
+        sm.inCombat = false
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
 
     sm.OnRunAway = function(sm)
-        --local x = math.floor(game.player1.moveEnd.x)
-        --local y = math.floor(game.player1.moveEnd.y)
-        --local gridPosition = tostring(x) .. "_" .. tostring(y)
-        local gridPosition = game.player1:GridPositionString()
+        local gridPosition = game.player1:DestinationGridPositionString()
         Events:LuaEvent(Events.OnExitCombat, gridPosition)
-
-        game.player1:Move(game.player1.moveStart, false)
-        sm:GotoState("Navigation")
+        game.player1:Move(game.player1.moveStart, true)
+        --sm:GotoState("Navigation")
+        sm.inCombat = false
     end
     Events:Connect(sm, Events.OnRunAway)
 end
@@ -225,14 +257,57 @@ function game.States.Combat.OnExit(sm)
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, false)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, false)
 end
-function game.States.Combat.Transitions.RevealTiles.Evaluate(sm)
-    return false
-end
 function game.States.Combat.Transitions.Lose.Evaluate(sm)
     return game.timer.timeLeft <= 0 
 end
-function game.States.Combat.Transitions.Win.Evaluate(sm)
-    return false
+function game.States.Combat.Transitions.CombatFlyOut.Evaluate(sm)
+    return game.timer.timeLeft > 0 and not sm.inCombat
+end
+
+-------------------------------------------
+--- CombatFlyOut
+-------------------------------------------
+function game.States.CombatFlyOut.OnEnter(sm)
+
+    local startPosition = TransformBus.Event.GetWorldTranslation(game.Properties.Camera)
+    local endPosition = game.cameraTM:GetTranslation()
+    local endLookAtPosition = endPosition + (game.cameraTM:GetBasisY() * 1000.0) 
+
+    sm.cameraAnimating = true
+    sm.OnEasingUpdate = function(sm, jobId, value )
+        game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, value)
+    end
+    sm.OnEasingEnd = function(sm)
+        sm.cameraAnimating = false
+    end
+
+	game.cameraEasingId = Easing:Ease(Easing.InOutQuad, 1200, 0.0, 1.0, sm)
+
+end
+function game.States.CombatFlyOut.Transitions.Win.Evaluate(sm)
+    if sm.cameraAnimating then
+        return false
+    end
+
+    local x = game.player1.moveEnd.x
+    local y = game.player1.moveEnd.y
+    return game.grid[x][y].boss or game.currentEnemy >= game.numEnemies
+end
+
+function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
+    if sm.cameraAnimating then
+        return false
+    end
+
+    local x = game.player1.moveEnd.x
+    local y = game.player1.moveEnd.y
+    return not game.grid[x][y].boss and game.currentEnemy < game.numEnemies
+end
+
+function game.States.CombatFlyOut.OnExit(sm)
+    game.player1:SetVisible(true)
+    local immediate = game.player1.moveStart == game.player1.moveEnd
+    game.player1:Move(game.player1.moveEnd, immediate)
 end
 
 -------------------------------------------
@@ -267,6 +342,7 @@ end
 function game.States.Lose.OnExit(sm)
     Events:Disconnect(sm, "OnRetryPressed")
     Events:Disconnect(sm, "OnQuitPressed")
+    TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
 end
 
 -------------------------------------------
@@ -301,7 +377,6 @@ function game:OnActivate()
     self.spawnableMediator = SpawnableScriptMediator()
     self.spawnTicket = self.spawnableMediator:CreateSpawnTicket(self.Properties.TilePrefab)
     self:BindInputEvents(self.InputEvents)
-    self.tileState = nil
     self.timer = Timer(self.Properties.TimeLimit)
     self.player1 = {}
     self.tiles = {}

@@ -6,7 +6,8 @@ local Player = {
         Id = 1,
         Debug = true,
         MoveSpeed = 2.0,
-        Health = 100
+        Health = 100,
+        Mesh = EntityId()
     },
     cards = {
         max_active = 4,
@@ -38,16 +39,6 @@ local Player = {
     },
 }
 
---Player.__index = Player 
---setmetatable(Player, {
---  __call = function (class, ...) return class.new(...) end
---})
-
-function Player:SetInputMode(mode)
-    self.mode = mode
-end
-
---function Player.new (self, id)
 function Player:OnActivate ()
 	--local self = setmetatable({}, Player)
     self.name = "Player"..tostring(math.floor(self.Properties.Id))
@@ -107,6 +98,10 @@ end
 
 function Player:GridPositionString()
     return tostring(self.gridPosition.x) .. "_" .. tostring(self.gridPosition.y)
+end
+
+function Player:DestinationGridPositionString()
+    return tostring(math.ceil(self.moveEnd.x)) .. "_" .. tostring(math.ceil(self.moveEnd.y))
 end
 
 function Player:GetPlayer()
@@ -205,8 +200,14 @@ function Player:Update(deltaTime, scriptTime)
             self.moveEnd = self.moveStart + Vector3(0, math.ceil(self.movement.y), 0)
         end
 
+        if self.Properties.Mesh then
+            local offset = TransformBus.Event.GetLocalTranslation(self.Properties.Mesh)
+            self.meshTM = Transform.CreateLookAt(self.moveStart + offset, self.moveEnd + offset, AxisType.YPositive)
+            TransformBus.Event.SetWorldTM(self.Properties.Mesh, self.meshTM)
+        end
+
         local tile = Events:GlobalLuaEvent(Events.GetTile, Vector2(self.moveEnd.x, self.moveEnd.y))
-        if tile.walkable then
+        if tile.walkable and not tile.enemy then
             self:Log("$3 player movement")
             self.moving = true
             self.moveStartTime = scriptTime:GetSeconds()
@@ -214,6 +215,10 @@ function Player:Update(deltaTime, scriptTime)
             self.gridPosition.y = math.ceil(self.moveEnd.y)
         end
     end
+end
+
+function Player:SetVisible(visible)
+    RenderMeshComponentRequestBus.Event.SetVisibility(self.Properties.Mesh, visible)
 end
 
 function Player:OnDiscard(value)
