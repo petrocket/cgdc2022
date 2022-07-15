@@ -1,0 +1,24 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.5442129969596863,
+            0.38860151171684265,
+            0.07739376276731491,
+            1.0
+        ],
+        "baseColor.factor": 0.9300000071525574,
+        "baseColor.textureMap": "Assets/objects/TilePath.png",
+        "emissive.color": [
+            0.37415122985839844,
+            0.2839398682117462,
+            0.013305867090821266,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 2.0,
+        "emissive.textureMap": "Assets/objects/TilePath.png",
+        "opacity.factor": 1.0
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.191134512424469,
+            0.3605401813983917,
+            0.0,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/TileGrass.png",
+        "baseColor.textureMapUv": "Unwrapped",
+        "emissive.color": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "opacity.factor": 1.0
+    }
+}

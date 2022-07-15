@@ -1,0 +1,21 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.20407415926456451,
+            0.09706263989210129,
+            0.0,
+            1.0
+        ],
+        "baseColor.factor": 0.49000000953674316,
+        "baseColor.textureMap": "Assets/objects/TileDirt2.png",
+        "emissive.color": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "opacity.factor": 1.0
+    }
+}

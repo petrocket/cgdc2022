@@ -291,7 +291,7 @@ function game.States.CombatFlyOut.Transitions.Win.Evaluate(sm)
 
     local x = game.player1.moveEnd.x
     local y = game.player1.moveEnd.y
-    return game.grid[x][y].boss or game.currentEnemy >= game.numEnemies
+    return game.grid[x][y].boss or game.currentEnemy > game.numEnemies
 end
 
 function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
@@ -301,7 +301,7 @@ function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
 
     local x = game.player1.moveEnd.x
     local y = game.player1.moveEnd.y
-    return not game.grid[x][y].boss and game.currentEnemy < game.numEnemies
+    return not game.grid[x][y].boss and game.currentEnemy <= game.numEnemies
 end
 
 function game.States.CombatFlyOut.OnExit(sm)

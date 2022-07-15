@@ -1,0 +1,20 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.26326391100883484,
+            0.496604859828949,
+            0.0,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/TreeLeaves.png",
+        "emissive.color": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "opacity.factor": 1.0
+    }
+}

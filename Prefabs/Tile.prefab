@@ -383,14 +383,7 @@
                 "Component_[11952518681465469292]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 11952518681465469292,
-                    "Parent Entity": "Entity_[49416652332224]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.5,
-                            0.5,
-                            -1.0
-                        ]
-                    }
+                    "Parent Entity": "Entity_[49416652332224]"
                 },
                 "Component_[13122551840595895218]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -415,10 +408,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{B991E03B-F50D-552E-9E2D-64FA6DAB1CCB}",
-                                    "subId": 285127096
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
                                 },
-                                "assetHint": "materialeditor/viewportmodels/cube.azmodel"
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
                             }
                         }
                     }
@@ -426,6 +419,68 @@
                 "Component_[2649035564278595322]": {
                     "$type": "SelectionComponent",
                     "Id": 2649035564278595322
+                },
+                "Component_[305002295731143917]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 305002295731143917,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "Component_[3629407250553870761]": {
                     "$type": "EditorLockComponent",

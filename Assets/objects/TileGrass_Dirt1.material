@@ -1,0 +1,24 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.19728389382362366,
+            0.0942854955792427,
+            0.0008697642479091883,
+            1.0
+        ],
+        "baseColor.factor": 0.3499999940395355,
+        "baseColor.textureMap": "Assets/objects/TileDirt1.png",
+        "emissive.color": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "metallic.textureMapUv": "Unwrapped",
+        "opacity.factor": 1.0,
+        "roughness.lowerBound": 0.5099999904632568,
+        "roughness.textureMapUv": "Unwrapped"
+    }
+}
