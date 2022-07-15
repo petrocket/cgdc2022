@@ -607,10 +607,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{19460BDE-379A-59F3-8A28-60B001C70ABF}",
-                                    "subId": 272937911
+                                    "guid": "{898A9058-99EB-5CC6-A2B4-73AE97CBB74B}",
+                                    "subId": 279735035
                                 },
-                                "assetHint": "assets/objects/chest.azmodel"
+                                "assetHint": "assets/objects/chestsquare.azmodel"
                             }
                         }
                     }
@@ -621,11 +621,10 @@
                     "Parent Entity": "Entity_[14967320188376]",
                     "Transform Data": {
                         "Translate": [
-                            0.5,
-                            0.5,
-                            0.10158491134643555
-                        ],
-                        "UniformScale": 0.5
+                            0.0,
+                            0.0,
+                            0.10000000149011612
+                        ]
                     }
                 },
                 "Component_[14490906166891903931]": {
@@ -694,42 +693,6 @@
                         "assetHint": "scripts/animate.luac"
                     }
                 },
-                "Component_[14827623993926757534]": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 14827623993926757534,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 713039361
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{5FF3B634-30DD-519C-9E22-A27789A680C2}"
-                                            },
-                                            "assetHint": "assets/objects/chest_chest.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2988941473
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{56FAEBD5-7547-5D7D-A5E6-041D3624A63F}"
-                                            },
-                                            "assetHint": "assets/objects/chest_lid.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
                 "Component_[14931155012536029153]": {
                     "$type": "SelectionComponent",
                     "Id": 14931155012536029153
@@ -761,6 +724,29 @@
                 "Component_[6503037375832690002]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 6503037375832690002
+                },
+                "Component_[7937017285472609831]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7937017285472609831,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3950795062
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{C74169A0-C89B-52F1-B951-EFCA2AB23253}"
+                                            },
+                                            "assetHint": "assets/objects/chestsquare_chestsquare.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 }
             }
         }

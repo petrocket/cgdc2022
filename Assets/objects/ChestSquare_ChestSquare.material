@@ -1,0 +1,25 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/ChestSquare.png",
+        "emissive.color": [
+            0.4625925123691559,
+            0.27841612696647644,
+            0.02055390179157257,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 6.199999809265137,
+        "emissive.textureMap": "Assets/objects/ChestSquareEmissive.png",
+        "emissive.textureMapUv": "Unwrapped",
+        "metallic.textureMap": "Assets/objects/ChestSquareEmissive.png",
+        "opacity.factor": 1.0
+    }
+}
