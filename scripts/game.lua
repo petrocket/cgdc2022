@@ -22,7 +22,9 @@ local game = {
         PlayerMoveSpeed = 2.0,
         RevealSpeed = 2.0,
         Player1 = EntityId(),
-        Camera = EntityId()
+        Camera = EntityId(),
+        CameraCombatFOV = 70,
+        FlyInDuration = { default=1.5, suffix = " sec"}
     },
     States = {
 		MainMenu = {
@@ -103,6 +105,7 @@ function game.States.LevelBuildOut.OnEnter(sm)
     -- hide the player by moving off the board while we build out
     game.player1:SetVisible(false)
     game.cameraTM = TransformBus.Event.GetWorldTM(game.Properties.Camera)
+    game.cameraFOV = CameraRequestBus.Event.GetFovDegrees(game.Properties.Camera)
 
     local cards = {}
 
@@ -187,34 +190,39 @@ end
 -------------------------------------------
 --- CombatFlyIn
 -------------------------------------------
-function game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, value)
+function game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, startFOV, endFOV, value)
     local position = startPosition:Lerp(endPosition, value)
     local tm = TransformBus.Event.GetWorldTM(self.Properties.Camera)
     local currentRotation = tm:GetRotation()
 
     local lookAtTM = Transform.CreateLookAt(position, endLookAtPosition, AxisType.YPositive)
     local rotation = currentRotation:Slerp(lookAtTM:GetRotation(), value)
+    local fov = Math.Lerp(startFOV,endFOV,value)
 
     tm = Transform.CreateFromQuaternionAndTranslation(rotation, position)
     TransformBus.Event.SetWorldTM(game.Properties.Camera, tm)
+    CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, fov)
 end
 
 function game.States.CombatFlyIn.OnEnter(sm)
     local startPosition = game.cameraTM:GetTranslation()
-    local endPosition = game.player1.meshTM:GetTranslation() + Vector3(0,0,0.4)
-    local endLookAtPosition = endPosition + game.player1.meshTM:GetBasisY()
+    local forward = game.player1.meshTM:GetBasisY()
+    local endPosition = game.player1.meshTM:GetTranslation() + Vector3(0,0,0.4) - forward * 0.2
+    local endLookAtPosition = endPosition + forward + Vector3(0,0,-0.2)
+    local startFOV = game.cameraFOV
+    local endFOV = game.Properties.CameraCombatFOV
 
     game.player1:SetVisible(false)
 
     sm.cameraAnimating = true
     sm.OnEasingUpdate = function(sm, jobId, value )
-        game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, value)
+        game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, startFOV, endFOV, value)
     end
     sm.OnEasingEnd = function(sm)
         sm.cameraAnimating = false
     end
 
-	game.cameraEasingId = Easing:Ease(Easing.InOutQuad, 1200, 0.0, 1.0, sm)
+	game.cameraEasingId = Easing:Ease(Easing.InOutQuad, game.Properties.FlyInDuration * 1000, 0.0, 1.0, sm)
 end
 function game.States.CombatFlyIn.Transitions.Combat.Evaluate(sm)
     return not sm.cameraAnimating
@@ -272,16 +280,18 @@ function game.States.CombatFlyOut.OnEnter(sm)
     local startPosition = TransformBus.Event.GetWorldTranslation(game.Properties.Camera)
     local endPosition = game.cameraTM:GetTranslation()
     local endLookAtPosition = endPosition + (game.cameraTM:GetBasisY() * 1000.0) 
+    local startFOV = game.Properties.CameraCombatFOV
+    local endFOV = game.cameraFOV
 
     sm.cameraAnimating = true
     sm.OnEasingUpdate = function(sm, jobId, value )
-        game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, value)
+        game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, startFOV, endFOV, value)
     end
     sm.OnEasingEnd = function(sm)
         sm.cameraAnimating = false
     end
 
-	game.cameraEasingId = Easing:Ease(Easing.InOutQuad, 1200, 0.0, 1.0, sm)
+	game.cameraEasingId = Easing:Ease(Easing.InOutQuad, game.Properties.FlyInDuration * 1000, 0.0, 1.0, sm)
 
 end
 function game.States.CombatFlyOut.Transitions.Win.Evaluate(sm)
@@ -343,6 +353,7 @@ function game.States.Lose.OnExit(sm)
     Events:Disconnect(sm, "OnRetryPressed")
     Events:Disconnect(sm, "OnQuitPressed")
     TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
+    CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
 end
 
 -------------------------------------------
@@ -363,6 +374,8 @@ end
 function game.States.Win.OnExit(sm)
     Events:Disconnect(sm, "OnRetryPressed")
     Events:Disconnect(sm, "OnQuitPressed")
+    TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
+    CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
 end
 
 function game:OnActivate()

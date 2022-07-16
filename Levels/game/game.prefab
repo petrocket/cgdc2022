@@ -4490,6 +4490,12 @@
                                     }
                                 },
                                 {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 1613338273,
+                                    "name": "CameraCombatFOV",
+                                    "value": 70.0
+                                },
+                                {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
                                     "name": "Debug",
@@ -4499,6 +4505,12 @@
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 2251630902,
                                     "name": "DebugEvents"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 1400579291,
+                                    "name": "FlyInDuration",
+                                    "value": 1.2
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
