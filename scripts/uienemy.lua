@@ -54,7 +54,9 @@ function UiEnemy:OnTakeDamage(cardType, unused)
         local currentAmount = self:GetWeaknessAmount(weakness)
         self:Log("OnTakeDamage " .. tostring(weakness) .. " " .. tostring(amount) .. " current amount " .. tostring(currentAmount)) 
         if currentAmount > 0 then
-            damageTaken = damageTaken or self:UpdateWeaknessAmount(weakness, currentAmount - amount)
+            if self:UpdateWeaknessAmount(weakness, currentAmount - amount) then
+                damageTaken = true
+            end
         end
     end
 
