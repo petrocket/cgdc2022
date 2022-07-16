@@ -102,6 +102,11 @@ function game.States.LevelBuildOut.OnEnter(sm)
     game:ResetGrid()
     game.currentEnemy = 1
 
+    -- level stats
+    game.totalEnemiesDefeated = 0
+    game.totalCoinsCollected = 0
+    game.totalCardsCollected = 0
+
     -- hide the player by moving off the board while we build out
     game.player1:SetVisible(false)
     game.cameraTM = TransformBus.Event.GetWorldTM(game.Properties.Camera)
@@ -246,6 +251,7 @@ function game.States.Combat.OnEnter(sm)
         local y = game.player1.moveEnd.y
         game.grid[x][y].enemy = false
         game.currentEnemy = game.currentEnemy + 1
+        game.totalEnemiesDefeated= game.totalEnemiesDefeated + 1
         sm.inCombat = false
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
@@ -254,7 +260,6 @@ function game.States.Combat.OnEnter(sm)
         local gridPosition = game.player1:DestinationGridPositionString()
         Events:LuaEvent(Events.OnExitCombat, gridPosition)
         game.player1:Move(game.player1.moveStart, true)
-        --sm:GotoState("Navigation")
         sm.inCombat = false
     end
     Events:Connect(sm, Events.OnRunAway)
@@ -360,6 +365,7 @@ end
 --- Win
 -------------------------------------------
 function game.States.Win.OnEnter(sm)
+    local timeLeft = game.timer:GetFormattedTimeLeft()
     game.timer:Pause()
     sm.OnRetryPressed = function(sm)
         sm:GotoState("LevelBuildOut")
@@ -369,6 +375,12 @@ function game.States.Win.OnEnter(sm)
         ConsoleRequestBus.Broadcast.ExecuteConsoleCommand("quit")
     end
     Events:Connect(sm, "OnQuitPressed")
+    Utilities:ExecuteOnNextTick(sm, function()
+        Events:GlobalLuaEvent(Events.OnUpdateTotalCardsCollected, game.totalCardsCollected)
+        Events:GlobalLuaEvent(Events.OnUpdateTotalCoinsCollected, game.totalCoinsCollected)
+        Events:GlobalLuaEvent(Events.OnUpdateTotalEnemiesDefeated, game.totalEnemiesDefeated)
+        Events:GlobalLuaEvent(Events.OnUpdateTotalTimeLeft, timeLeft)
+    end)
 end
 
 function game.States.Win.OnExit(sm)
@@ -397,6 +409,8 @@ function game:OnActivate()
 
     self.tagListener = TagGlobalNotificationBus.Connect(self, Crc32("Tile"))
     Events:Connect(self, Events.GetTile)
+    Events:Connect(self, Events.ModifyCoinAmount)
+    Events:Connect(self, Events.AddCards)
 
     local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
     math.randomseed(math.ceil(time:GetSeconds()))
@@ -423,6 +437,15 @@ function game:OnActivate()
             self.Properties.Debug)  
     end)
 end
+
+function game:ModifyCoinAmount(amount)
+    self.totalCoinsCollected = self.totalCoinsCollected + amount
+end
+
+function game:AddCards(cards)
+    self.totalCardsCollected = self.totalCardsCollected + #cards 
+end
+
 
 function game:OnEntityTagAdded(entityId)
     table.insert(self.tiles, entityId)

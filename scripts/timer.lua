@@ -26,25 +26,27 @@ function Timer:Start()
     self:Resume()
 end
 
+function Timer:GetFormattedTimeLeft()
+    local minutes = math.floor(self.timeLeft / 60)
+    local seconds = self.timeLeft % 60
+    local minutesString = tostring(minutes)
+    if minutes < 10 then
+        minutesString = "0"..minutesString
+    end
+    local secondsString = seconds
+    if seconds < 10 then
+        secondsString = "0"..secondsString
+    end
+    return minutesString..":"..secondsString
+end
+
 function Timer:OnTick(deltaTime, scriptTime)
     local timeLeft = math.ceil(self.endTime - scriptTime:GetSeconds())
     if timeLeft ~= self.timeLeft and timeLeft >= 0 then
-        Events:GlobalLuaEvent(Events.OnUpdateTimeRemaining, tostring(timeLeft))
-
-        local minutes = math.floor(timeLeft / 60)
-        local seconds = timeLeft % 60
-        local minutesString = tostring(minutes)
-        if minutes < 10 then
-            minutesString = "0"..minutesString
-        end
-        local secondsString = seconds
-        if seconds < 10 then
-            secondsString = "0"..secondsString
-        end
-
-        Events:GlobalLuaEvent(Events.OnUpdateTimeRemainingString,minutesString..":"..secondsString )
-
         self.timeLeft = timeLeft
+        Events:GlobalLuaEvent(Events.OnUpdateTimeRemaining, tostring(timeLeft))
+        Events:GlobalLuaEvent(Events.OnUpdateTimeRemainingString, self:GetFormattedTimeLeft() )
+
     elseif timeLeft < 0 then
         Events:GlobalLuaEvent(Events.OnTimerFinished)
         self:Stop()
