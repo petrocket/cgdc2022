@@ -66,6 +66,8 @@ function Player:AddCards(cards)
         self:Log("Adding card " .. tostring(card.type))
         table.insert(self.cards.deck, card)
     end
+
+    self:NotifyCardAmount()
 end
 
 function Player:SetCoinAmount(amount)
@@ -127,6 +129,7 @@ function Player:Move(position, immediately)
 end
 
 function Player:SetCards(cards, max_active)
+    self:Log("Giving player " .. tostring(#cards) .. " cards")
     self.cards.max_active = max_active
     self.cards.deck = cards
     self.cards.active = {}
@@ -138,6 +141,7 @@ function Player:SetCards(cards, max_active)
         self.cards.active[cardIndex] = card
         Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
     end
+    self:NotifyCardAmount()
 end
 
 function Player:UseCard(cardIndex)
@@ -163,6 +167,19 @@ function Player:UseCard(cardIndex)
         self.cards.active[cardIndex] = card
         Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
     end
+    self:NotifyCardAmount()
+end
+
+function Player:NotifyCardAmount()
+    local numCards = #self.cards.deck
+    for i=1,#self.cards.active do
+        if self.cards.active[i] ~= nil then
+            numCards = numCards + 1
+        end
+    end
+    Events:GlobalLuaEvent(Events.OnUpdateCardDeckAmount, #self.cards.deck)
+    Events:GlobalLuaEvent(Events.OnUpdateCardDiscardsAmount, #self.cards.discards)
+    Events:GlobalLuaEvent(Events.OnUpdateCardsAmount,numCards)
 end
 
 function Player:DiscardAll()
@@ -172,6 +189,10 @@ function Player:DiscardAll()
 
     self:Log("$7 Discarding 4 cards with " ..tostring(#self.cards.deck) .. " cards remaining in deck")
     for cardIndex=1,self.cards.max_active do
+        if self.cards.active[cardIndex] ~= nil then
+            table.insert(self.cards.discards, self.cards.active[cardIndex])
+        end
+
         local card = nil
         if #self.cards.deck > 0 then
             card = table.remove(self.cards.deck)
@@ -179,6 +200,8 @@ function Player:DiscardAll()
         self.cards.active[cardIndex] = card
         Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
     end
+
+    self:NotifyCardAmount()
 end
 
 function Player:Update(deltaTime, scriptTime)

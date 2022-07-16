@@ -24,10 +24,11 @@
                     "Entity_[48647853186240]",
                     "Entity_[137425427731928]",
                     "Entity_[146298830165464]",
-                    "Entity_[49021515340992]",
                     "Entity_[115750504269835]",
                     "Entity_[640273385293835]",
-                    "Entity_[640346399737867]"
+                    "Entity_[640346399737867]",
+                    "Entity_[49021515340992]",
+                    "Entity_[4141653445767]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -4117,7 +4118,7 @@
                                                     "subId": 3057612666
                                                 },
                                                 "loadBehavior": "QueueLoad",
-                                                "assetHint": "Prefabs/EnemyGooOrange.prefab"
+                                                "assetHint": "prefabs/enemygooorange.spawnable"
                                             }
                                         }
                                     }
@@ -4147,23 +4148,23 @@
                                     "Properties": [
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3252857228,
-                                            "name": "Type1"
+                                            "id": 3627544126,
+                                            "name": "Arrow"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 1491859510,
-                                            "name": "Type2"
+                                            "id": 3977723523,
+                                            "name": "Scroll"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 804047008,
-                                            "name": "Type3"
+                                            "id": 513004264,
+                                            "name": "Shield"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2978503939,
-                                            "name": "Type4"
+                                            "id": 2598749967,
+                                            "name": "Sword"
                                         }
                                     ]
                                 },
@@ -4349,23 +4350,23 @@
                                     "Properties": [
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3252857228,
-                                            "name": "Type1"
+                                            "id": 3627544126,
+                                            "name": "Arrow"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 1491859510,
-                                            "name": "Type2"
+                                            "id": 3977723523,
+                                            "name": "Scroll"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 804047008,
-                                            "name": "Type3"
+                                            "id": 513004264,
+                                            "name": "Shield"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2978503939,
-                                            "name": "Type4"
+                                            "id": 2598749967,
+                                            "name": "Sword"
                                         }
                                     ]
                                 },
@@ -4559,7 +4560,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 30.0
+                                    "value": 60.0
                                 }
                             ]
                         },
@@ -5728,6 +5729,368 @@
                 }
             }
         },
+        "Entity_[4141653445767]": {
+            "Id": "Entity_[4141653445767]",
+            "Name": "UI icon meshes",
+            "Components": {
+                "Component_[10276931082697184022]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10276931082697184022
+                },
+                "Component_[11282301630018847164]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11282301630018847164,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{CD6A8DE1-67C0-5D4C-9BE3-99C3104FE3A1}",
+                                    "subId": 278684442
+                                },
+                                "assetHint": "assets/objects/player1.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[11865802582472440707]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11865802582472440707
+                },
+                "Component_[14703953487126460248]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14703953487126460248
+                },
+                "Component_[15632722633314408354]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15632722633314408354,
+                    "Child Entity Order": [
+                        "Entity_[4218962857095]",
+                        "Entity_[4287682333831]",
+                        "Entity_[4330632006791]",
+                        "Entity_[4356401810567]",
+                        "Entity_[4399351483527]",
+                        "Entity_[4433711221895]"
+                    ]
+                },
+                "Component_[16490172689736855794]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16490172689736855794
+                },
+                "Component_[17118218272459870476]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17118218272459870476
+                },
+                "Component_[4219563700021465387]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4219563700021465387
+                },
+                "Component_[4578791886669085984]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4578791886669085984,
+                    "VisibilityFlag": false
+                },
+                "Component_[7686612633810829998]": {
+                    "$type": "SelectionComponent",
+                    "Id": 7686612633810829998
+                },
+                "Component_[8286114637202875700]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8286114637202875700,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.5,
+                            0.5,
+                            12.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -89.99994659423828
+                        ]
+                    }
+                },
+                "Component_[9124696497980502005]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 9124696497980502005,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1803671422
+                                    },
+                                    "Value": {
+                                        "PropertyOverrides": {
+                                            "baseColor.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    1.0,
+                                                    1.0,
+                                                    1.0,
+                                                    1.0
+                                                ]
+                                            },
+                                            "emissive.enable": {
+                                                "$type": "bool",
+                                                "Value": true
+                                            },
+                                            "emissive.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    0.2381017804145813,
+                                                    0.2381017804145813,
+                                                    0.2381017804145813,
+                                                    1.0
+                                                ]
+                                            },
+                                            "emissive.intensity": {
+                                                "$type": "float",
+                                                "Value": 4.119999885559082
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1962797511
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{1731D142-A01E-517E-9ADC-AFD98CD6F3BE}"
+                                            },
+                                            "assetHint": "assets/objects/player1_sword.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3968527592
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AAC42D07-9DB5-5524-8BDA-7FCE393CD0C8}"
+                                            },
+                                            "assetHint": "assets/objects/player1_playerhead.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 4040546504
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AF384B9B-A249-5B78-9CCF-8E5D137A448A}"
+                                            },
+                                            "assetHint": "assets/objects/player1_hat.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Entity_[4218962857095]": {
+            "Id": "Entity_[4218962857095]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10048931643638633247]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10048931643638633247
+                },
+                "Component_[10563297422759882919]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10563297422759882919
+                },
+                "Component_[10986528568616619597]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10986528568616619597
+                },
+                "Component_[14038875343280554199]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14038875343280554199
+                },
+                "Component_[16145564483668904319]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16145564483668904319
+                },
+                "Component_[17820318455754370618]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17820318455754370618
+                },
+                "Component_[18078159386498704250]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18078159386498704250,
+                    "Parent Entity": "Entity_[4141653445767]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.000002086162567138672,
+                            -9.5367431640625e-7,
+                            1.0000028610229492
+                        ],
+                        "Rotate": [
+                            -90.00000762939453,
+                            -5.000051021575928,
+                            -0.0000974877257249318
+                        ]
+                    }
+                },
+                "Component_[2158293477461252112]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2158293477461252112,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4824754509423409311]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4824754509423409311
+                },
+                "Component_[5725722559060405597]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5725722559060405597,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6829489999631075262]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6829489999631075262
+                },
+                "Component_[7870645471950948061]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7870645471950948061,
+                    "VisibilityFlag": false
+                }
+            }
+        },
+        "Entity_[4287682333831]": {
+            "Id": "Entity_[4287682333831]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10048931643638633247]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10048931643638633247
+                },
+                "Component_[10563297422759882919]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10563297422759882919
+                },
+                "Component_[10986528568616619597]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10986528568616619597
+                },
+                "Component_[14038875343280554199]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14038875343280554199
+                },
+                "Component_[16145564483668904319]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16145564483668904319
+                },
+                "Component_[17820318455754370618]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17820318455754370618
+                },
+                "Component_[18078159386498704250]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18078159386498704250,
+                    "Parent Entity": "Entity_[4141653445767]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.000002086162567138672,
+                            -9.5367431640625e-7,
+                            1.0000028610229492
+                        ],
+                        "Rotate": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ]
+                    }
+                },
+                "Component_[2158293477461252112]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2158293477461252112,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4824754509423409311]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4824754509423409311
+                },
+                "Component_[5725722559060405597]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5725722559060405597,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6829489999631075262]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6829489999631075262
+                },
+                "Component_[7870645471950948061]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7870645471950948061
+                }
+            }
+        },
         "Entity_[4289430953152]": {
             "Id": "Entity_[4289430953152]",
             "Name": "UI",
@@ -6039,6 +6402,103 @@
                 }
             }
         },
+        "Entity_[4330632006791]": {
+            "Id": "Entity_[4330632006791]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10048931643638633247]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10048931643638633247
+                },
+                "Component_[10563297422759882919]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10563297422759882919
+                },
+                "Component_[10986528568616619597]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10986528568616619597
+                },
+                "Component_[14038875343280554199]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14038875343280554199
+                },
+                "Component_[16145564483668904319]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16145564483668904319
+                },
+                "Component_[17820318455754370618]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17820318455754370618
+                },
+                "Component_[18078159386498704250]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18078159386498704250,
+                    "Parent Entity": "Entity_[4141653445767]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.025728166103363037,
+                            -0.022646456956863403,
+                            1.0995712280273438
+                        ],
+                        "Rotate": [
+                            -1.0673388572968179e-7,
+                            0.9999995231628418,
+                            9.314521376424523e-10
+                        ]
+                    }
+                },
+                "Component_[2158293477461252112]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2158293477461252112,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4824754509423409311]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4824754509423409311
+                },
+                "Component_[5725722559060405597]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5725722559060405597,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6829489999631075262]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6829489999631075262
+                },
+                "Component_[7870645471950948061]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7870645471950948061
+                }
+            }
+        },
         "Entity_[4340970560704]": {
             "Id": "Entity_[4340970560704]",
             "Name": "Win",
@@ -6131,6 +6591,103 @@
                             "AssetPath": "ui/win.uicanvas"
                         }
                     }
+                }
+            }
+        },
+        "Entity_[4356401810567]": {
+            "Id": "Entity_[4356401810567]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10048931643638633247]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10048931643638633247
+                },
+                "Component_[10563297422759882919]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10563297422759882919
+                },
+                "Component_[10986528568616619597]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10986528568616619597
+                },
+                "Component_[14038875343280554199]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14038875343280554199
+                },
+                "Component_[16145564483668904319]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16145564483668904319
+                },
+                "Component_[17820318455754370618]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17820318455754370618
+                },
+                "Component_[18078159386498704250]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18078159386498704250,
+                    "Parent Entity": "Entity_[4141653445767]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.014934957027435303,
+                            0.009423375129699707,
+                            1.2194252014160156
+                        ],
+                        "Rotate": [
+                            -1.0673388572968179e-7,
+                            0.9999995231628418,
+                            9.314521376424523e-10
+                        ]
+                    }
+                },
+                "Component_[2158293477461252112]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2158293477461252112,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4824754509423409311]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4824754509423409311
+                },
+                "Component_[5725722559060405597]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5725722559060405597,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6829489999631075262]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6829489999631075262
+                },
+                "Component_[7870645471950948061]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7870645471950948061
                 }
             }
         },
@@ -7219,6 +7776,103 @@
                 }
             }
         },
+        "Entity_[4399351483527]": {
+            "Id": "Entity_[4399351483527]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10048931643638633247]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10048931643638633247
+                },
+                "Component_[10563297422759882919]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10563297422759882919
+                },
+                "Component_[10986528568616619597]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10986528568616619597
+                },
+                "Component_[14038875343280554199]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14038875343280554199
+                },
+                "Component_[16145564483668904319]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16145564483668904319
+                },
+                "Component_[17820318455754370618]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17820318455754370618
+                },
+                "Component_[18078159386498704250]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18078159386498704250,
+                    "Parent Entity": "Entity_[4141653445767]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.0007939934730529785,
+                            -0.05261433124542236,
+                            1.331777572631836
+                        ],
+                        "Rotate": [
+                            -1.0673388572968179e-7,
+                            0.9999995231628418,
+                            9.314521376424523e-10
+                        ]
+                    }
+                },
+                "Component_[2158293477461252112]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2158293477461252112,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4824754509423409311]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4824754509423409311
+                },
+                "Component_[5725722559060405597]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5725722559060405597,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6829489999631075262]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6829489999631075262
+                },
+                "Component_[7870645471950948061]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7870645471950948061
+                }
+            }
+        },
         "Entity_[442421421836299]": {
             "Id": "Entity_[442421421836299]",
             "Name": "Tree",
@@ -7321,6 +7975,103 @@
                 "Component_[9097023291240557289]": {
                     "$type": "SelectionComponent",
                     "Id": 9097023291240557289
+                }
+            }
+        },
+        "Entity_[4433711221895]": {
+            "Id": "Entity_[4433711221895]",
+            "Name": "Coin",
+            "Components": {
+                "Component_[10048931643638633247]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10048931643638633247
+                },
+                "Component_[10563297422759882919]": {
+                    "$type": "SelectionComponent",
+                    "Id": 10563297422759882919
+                },
+                "Component_[10986528568616619597]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10986528568616619597
+                },
+                "Component_[14038875343280554199]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14038875343280554199
+                },
+                "Component_[16145564483668904319]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16145564483668904319
+                },
+                "Component_[17820318455754370618]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17820318455754370618
+                },
+                "Component_[18078159386498704250]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18078159386498704250,
+                    "Parent Entity": "Entity_[4141653445767]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.006862133741378784,
+                            -0.024912476539611816,
+                            1.7810602188110352
+                        ],
+                        "Rotate": [
+                            75.09048461914063,
+                            -48.90495300292969,
+                            166.15440368652344
+                        ]
+                    }
+                },
+                "Component_[2158293477461252112]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2158293477461252112,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 711284801
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A13429AB-FF5C-5F92-B26E-E6A62E970040}"
+                                            },
+                                            "assetHint": "assets/objects/coin_gold.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4824754509423409311]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4824754509423409311
+                },
+                "Component_[5725722559060405597]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5725722559060405597,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{F30FE902-C190-5C07-BD86-E1D153A9DA52}",
+                                    "subId": 275355485
+                                },
+                                "assetHint": "assets/objects/coin.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6829489999631075262]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6829489999631075262
+                },
+                "Component_[7870645471950948061]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7870645471950948061
                 }
             }
         },
@@ -7435,23 +8186,23 @@
                                     "Properties": [
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3252857228,
-                                            "name": "Type1"
+                                            "id": 3627544126,
+                                            "name": "Arrow"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 1491859510,
-                                            "name": "Type2"
+                                            "id": 3977723523,
+                                            "name": "Scroll"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 804047008,
-                                            "name": "Type3"
+                                            "id": 513004264,
+                                            "name": "Shield"
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2978503939,
-                                            "name": "Type4"
+                                            "id": 2598749967,
+                                            "name": "Sword"
                                         }
                                     ]
                                 },
@@ -7946,7 +8697,9 @@
                         "Configuration": {
                             "Intensity": 1.0,
                             "CameraEntityId": "",
-                            "ShadowFilterMethod": 1
+                            "ShadowFarClipDistance": 200.0,
+                            "ShadowFilterMethod": 1,
+                            "CascadeBlendingEnabled": true
                         }
                     }
                 },
@@ -7993,8 +8746,8 @@
                     "Id": 5313589497840355948,
                     "Controller": {
                         "Configuration": {
-                            "Field of View": 45.0,
-                            "EditorEntityId": 12129629297396886008
+                            "Field of View": 30.0,
+                            "EditorEntityId": 10621335811669032919
                         }
                     }
                 },
@@ -8008,14 +8761,14 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            1.3402856588363647,
-                            -5.0112714767456055,
-                            8.718745231628418
+                            -0.9119080901145935,
+                            -6.984908103942871,
+                            12.606226921081543
                         ],
                         "Rotate": [
-                            -51.510780334472656,
-                            15.916496276855469,
-                            -12.300978660583496
+                            -48.37302017211914,
+                            21.945423126220703,
+                            -18.372468948364258
                         ]
                     }
                 },
@@ -8079,7 +8832,7 @@
                                                     "subId": 465578139
                                                 },
                                                 "loadBehavior": "QueueLoad",
-                                                "assetHint": "Prefabs/EnemyGoo.prefab"
+                                                "assetHint": "prefabs/enemygoo.spawnable"
                                             }
                                         }
                                     }
@@ -8107,26 +8860,26 @@
                                     "Properties": [
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3252857228,
-                                            "name": "Type1",
+                                            "id": 3627544126,
+                                            "name": "Arrow",
                                             "value": 2.0
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 1491859510,
-                                            "name": "Type2",
+                                            "id": 3977723523,
+                                            "name": "Scroll",
                                             "value": 2.0
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 804047008,
-                                            "name": "Type3",
+                                            "id": 513004264,
+                                            "name": "Shield",
                                             "value": 2.0
                                         },
                                         {
                                             "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2978503939,
-                                            "name": "Type4",
+                                            "id": 2598749967,
+                                            "name": "Sword",
                                             "value": 2.0
                                         }
                                     ]
@@ -9229,8 +9982,7 @@
                 },
                 "Component_[12382929808314530562]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 12382929808314530562,
-                    "VisibilityFlag": false
+                    "Id": 12382929808314530562
                 },
                 "Component_[14459229911560463794]": {
                     "$type": "SelectionComponent",
@@ -10272,7 +11024,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -10422,7 +11174,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -10472,12 +11224,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -10497,7 +11249,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -10577,7 +11329,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -10917,7 +11669,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -11092,7 +11844,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -11167,7 +11919,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -11747,7 +12499,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -11772,7 +12524,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -11792,12 +12544,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": -1.0796327590942383
+                    "value": -1.0796327590942385
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -11817,7 +12569,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": -1.0796327590942383
+                    "value": -1.0796327590942385
                 },
                 {
                     "op": "replace",
@@ -11867,7 +12619,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": -1.0796327590942383
+                    "value": -1.0796327590942385
                 },
                 {
                     "op": "replace",
@@ -11897,7 +12649,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -11947,7 +12699,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -11997,7 +12749,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -12022,7 +12774,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -12247,7 +12999,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -12367,7 +13119,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -12942,7 +13694,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -12967,7 +13719,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -12992,7 +13744,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/0",
-                    "value": 1.9203670024871826
+                    "value": 1.9203670024871824
                 },
                 {
                     "op": "replace",
@@ -13247,7 +13999,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",
@@ -13297,7 +14049,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[7058844407443832117]/Transform Data/Translate/1",
-                    "value": 3.9641103744506836
+                    "value": 3.964110374450683
                 },
                 {
                     "op": "replace",

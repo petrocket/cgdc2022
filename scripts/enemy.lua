@@ -21,10 +21,10 @@ local Enemy = {
             }
         },
         Weaknesses = {
-            Type1 = 0,
-            Type2 = 0,
-            Type3 = 0,
-            Type4 = 0
+            Arrow = 0,
+            Sword = 0,
+            Shield = 0,
+            Scroll = 0
         }
     }
 }
@@ -144,7 +144,7 @@ function Enemy:Reset()
     }
 
     if self.Properties.Randomness.Enabled then
-        local weaknessTypes = {1,2,3,4}
+        local weaknessTypes = {"Arrow","Sword","Shield","Scroll"}
         local rules = self.Properties.Randomness
         Utilities:Shuffle(weaknessTypes)
         local numWeaknessTypes = math.random(rules.WeaknessTypes.Min, rules.WeaknessTypes.Max)
@@ -152,14 +152,14 @@ function Enemy:Reset()
         for i=1,numWeaknessTypes do
             local weaknessType = weaknessTypes[i]
             local amount = math.random(rules.AmountPerType.Min, rules.AmountPerType.Max)
-            self.data.Weaknesses["Weakness"..tostring(weaknessType)] =  { Amount=amount}
+            self.data.Weaknesses[weaknessType] =  { Amount=amount}
             self:Log("Gave enemy " .. tostring(amount) .. " of weakness type " .. tostring(weaknessType))
         end
     else
-        self.data.Weaknesses.Weakness1 = { Amount=math.floor(self.Properties.Weaknesses.Type1)}
-        self.data.Weaknesses.Weakness2 = { Amount=math.floor(self.Properties.Weaknesses.Type2)}
-        self.data.Weaknesses.Weakness3 = { Amount=math.floor(self.Properties.Weaknesses.Type3)}
-        self.data.Weaknesses.Weakness4 = { Amount=math.floor(self.Properties.Weaknesses.Type4)}
+        self.data.Weaknesses.Arrow = { Amount=math.floor(self.Properties.Weaknesses.Arrow)}
+        self.data.Weaknesses.Shield = { Amount=math.floor(self.Properties.Weaknesses.Shield)}
+        self.data.Weaknesses.Sword = { Amount=math.floor(self.Properties.Weaknesses.Sword)}
+        self.data.Weaknesses.Scroll = { Amount=math.floor(self.Properties.Weaknesses.Scroll)}
     end
 end
 

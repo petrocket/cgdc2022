@@ -6,12 +6,7 @@ local UiEnemy = {
     Properties = {
         Debug = false,
         Name = EntityId(),
-        Weaknesses = {
-            Weakness1 = EntityId(),
-            Weakness2 = EntityId(),
-            Weakness3 = EntityId(),
-            Weakness4 = EntityId()
-        }
+        Weaknesses = EntityId()
     }
 }
 
@@ -20,14 +15,32 @@ function UiEnemy:OnActivate()
 
     Events:Connect(self, Events.OnSetEnemy)
     Events:Connect(self, Events.OnTakeDamage)
+    self:Log("OnActivate")
+    self.weaknessAmounts = {}
+end
+
+function UiEnemy:Reset()
+    self.weaknessAmounts = {}
+    local weaknesses = UiElementBus.Event.GetChildren(self.Properties.Weaknesses)
+    for i=1,#weaknesses do
+        local weakness = weaknesses[i]
+        self:HideAllChildren(weakness)
+        UiElementBus.Event.SetIsEnabled(weakness, false)
+    end
+end
+
+function UiEnemy:HideAllChildren(parent)
+    local children = UiElementBus.Event.GetChildren(parent)
+    for i=1,#children do
+        UiElementBus.Event.SetIsEnabled(children[i], false)
+    end
 end
 
 function UiEnemy:OnSetEnemy(enemy)
     self:Log("Set Enemy " .. tostring(enemy.Name)) 
     UiTextBus.Event.SetText(self.Properties.Name, enemy.Name)
-    for weakness, entityId in pairs(self.Properties.Weaknesses) do
-        UiElementBus.Event.SetIsEnabled(entityId, false)
-    end
+
+    self:Reset()
 
     for weakness, data in pairs(enemy.Weaknesses) do
         self:UpdateWeaknessAmount(weakness, data.Amount)
@@ -44,62 +57,96 @@ function UiEnemy:OnTakeDamage(cardType, unused)
             damageTaken = damageTaken or self:UpdateWeaknessAmount(weakness, currentAmount - amount)
         end
     end
+
+    if not self:HasWeaknesses() then
+        self:Log("No more weaknesses")
+        Events:GlobalLuaEvent(Events.OnEnemyDefeated)
+    end
+
     return damageTaken
 end
 
 function UiEnemy:GetWeaknessAmount(weakness)
-    entityId, textEntityId = self:GetWeakness(weakness)
-    if textEntityId and textEntityId:IsValid() and UiElementBus.Event.IsEnabled(textEntityId) then
-        local amount = UiTextBus.Event.GetText(textEntityId)
-        return math.floor(amount)
+    if self.weaknessAmounts[weakness] ~= nil then
+        return self.weaknessAmounts[weakness]
     end
     return 0
 end
 
-function UiEnemy:GetWeakness(weakness)
-    for uiWeakness, entityId in pairs(self.Properties.Weaknesses) do 
-        if weakness == uiWeakness then
-            local textEntityId = UiElementBus.Event.FindDescendantByName(entityId, "Text")
-            return entityId, textEntityId
-        end
-    end
-    return nil, nil
-end
-
 function UiEnemy:UpdateWeaknessAmount(weakness, amount)
-    local damageTaken = false
-    entityId, textEntityId = self:GetWeakness(weakness)
+    if self.weaknessAmounts[weakness] == nil then
+        self.weaknessAmounts[weakness] = 0
+    end
+    if self.weaknessAmounts[weakness] < 0 then
+        self:Log("Trying to set weakness amount less than 0 for weakness " ..tostring(weakness))
+        return false
+    end
 
-    if entityId ~= nil and textEntityId ~= nil then
-        self:Log("Update weakness ".. tostring(weakness) .. " amount to " .. tostring(amount)) 
-        UiTextBus.Event.SetText(textEntityId, tostring(amount))
-            
-        if amount <= 0 then
-            UiElementBus.Event.SetIsEnabled(entityId, false)
-        else
-            UiElementBus.Event.SetIsEnabled(entityId, true)
+    local weaknesses = UiElementBus.Event.GetChildren(self.Properties.Weaknesses)
+
+    if amount > self.weaknessAmounts[weakness] then
+        -- append to end 
+
+        for i=1,#weaknesses do
+            local entityId = UiElementBus.Event.FindChildByName(self.Properties.Weaknesses, "Weakness"..tostring(i))
+            local isEnabled = UiElementBus.Event.IsEnabled(entityId)
+            if not isEnabled then
+                -- look for an image element with the name that matches the weakness
+                local child = UiElementBus.Event.FindChildByName(entityId, weakness)
+                if child ~= nil and child:IsValid() then
+                    UiElementBus.Event.SetIsEnabled(entityId, true)
+                    UiElementBus.Event.SetIsEnabled(child, true)
+                    self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] + 1
+                    self:Log("Enabled weakness " ..weakness)
+
+                    if self.weaknessAmounts[weakness] == amount then
+                        -- done removing weaknesses
+                        break
+                    end
+                else
+                    self:Log("Failed to find child for weakness " ..tostring(weakness))
+                end
+            end
         end
-        damageTaken = true 
-        if not self:HasWeaknesses() then
-            self:Log("No more weaknesses")
-            Events:GlobalLuaEvent(Events.OnEnemyDefeated)
-        else
-            Events:GlobalLuaEvent(Events.OnUpdateWeaknessAmount, weakness, amount)
+    elseif amount < self.weaknessAmounts[weakness] then
+        -- remove from end
+        for i=#weaknesses, 1, -1 do
+            local entityId = UiElementBus.Event.FindChildByName(self.Properties.Weaknesses, "Weakness"..tostring(i))
+            local isEnabled = UiElementBus.Event.IsEnabled(entityId)
+            if isEnabled then
+                -- look for an image element with the name that matches the weakness
+                local child = UiElementBus.Event.FindChildByName(entityId, weakness)
+                if child ~= nil and child:IsValid() then
+                    local childIsEnabled = UiElementBus.Event.IsEnabled(child)
+                    if childIsEnabled then
+                        UiElementBus.Event.SetIsEnabled(child, false)
+                        self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] - 1
+                        self:Log("Disabled weakness " ..weakness)
+
+                        if self.weaknessAmounts[weakness] == amount then
+                            -- done removing weaknesses
+                            break 
+                        end
+                    end
+                end
+            end
         end
     end
-    return damageTaken
+
+    if amount ~= self.weaknessAmounts[weakness] then
+        self:Log("Failed to update weaknesses for "..tostring(weakness))
+    end
+
+    Events:GlobalLuaEvent(Events.OnUpdateWeaknessAmount, weakness, amount)
+    return true -- damage taken
 end
 
 function UiEnemy:HasWeaknesses()
-    for uiWeakness, entityId in pairs(self.Properties.Weaknesses) do 
-        local textEntityId = UiElementBus.Event.FindDescendantByName(entityId, "Text")
-        local amount = UiTextBus.Event.GetText(textEntityId)
-        amount = math.floor(amount)
-        local enabled = UiElementBus.Event.IsEnabled(entityId)
-        if enabled and amount > 0 then
+    for weakness,amount in pairs(self.weaknessAmounts) do
+        if amount > 0 then
             return true
         end
-    end
+    end 
     return false
 end
 
