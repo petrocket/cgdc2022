@@ -20,6 +20,7 @@ function UiEnemy:OnActivate()
 end
 
 function UiEnemy:Reset()
+    self:Log("Reset")
     self.weaknessAmounts = {}
     local weaknesses = UiElementBus.Event.GetChildren(self.Properties.Weaknesses)
     for i=1,#weaknesses do
@@ -37,7 +38,7 @@ function UiEnemy:HideAllChildren(parent)
 end
 
 function UiEnemy:OnSetEnemy(enemy)
-    self:Log("Set Enemy " .. tostring(enemy.Name)) 
+    self:Log("Set " .. tostring(enemy.Name) .. " with " ..tostring(Utilities:Count(enemy.Weaknesses)).. " weaknesses")
     UiTextBus.Event.SetText(self.Properties.Name, enemy.Name)
 
     self:Reset()
@@ -77,14 +78,17 @@ end
 
 function UiEnemy:UpdateWeaknessAmount(weakness, amount)
     if self.weaknessAmounts[weakness] == nil then
+        --self:Log("Initializing to 0 - " ..tostring(weakness))
         self.weaknessAmounts[weakness] = 0
     end
+
     if self.weaknessAmounts[weakness] < 0 then
-        self:Log("Trying to set weakness amount less than 0 for weakness " ..tostring(weakness))
+        self:Log("$5 Trying to set weakness amount less than 0 for weakness " ..tostring(weakness))
         return false
     end
 
     local weaknesses = UiElementBus.Event.GetChildren(self.Properties.Weaknesses)
+    --self:Log("UpdateWeaknessAmount " .. tostring(weakness) .. " " ..tostring(amount))
 
     if amount > self.weaknessAmounts[weakness] then
         -- append to end 
@@ -106,7 +110,7 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
                         break
                     end
                 else
-                    self:Log("Failed to find child for weakness " ..tostring(weakness))
+                    self:Log("$5 Failed to find child for weakness " ..tostring(weakness))
                 end
             end
         end
@@ -133,10 +137,12 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
                 end
             end
         end
+    else
+        self:Log("Enemy weakness "..tostring(weakness) .. " already set to " .. tostring(amount))
     end
 
     if amount ~= self.weaknessAmounts[weakness] then
-        self:Log("Failed to update weaknesses for "..tostring(weakness))
+        self:Log("$5 Failed to update weaknesses for "..tostring(weakness))
     end
 
     Events:GlobalLuaEvent(Events.OnUpdateWeaknessAmount, weakness, amount)

@@ -186,4 +186,13 @@ function Utilities:Shuffle(tbl)
     tbl[i], tbl[j] = tbl[j], tbl[i]
   end
 end
+
+function Utilities:Count(tbl)
+	local count = 0
+	for key,value in pairs(tbl) do 
+		count = count + 1
+	end
+	return count
+end
+
 return Utilities

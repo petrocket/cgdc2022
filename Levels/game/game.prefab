@@ -4493,8 +4493,7 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug",
-                                    "value": true
+                                    "name": "Debug"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyGenericClass",
@@ -4760,7 +4759,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 60.0
+                                    "value": 45.0
                                 }
                             ]
                         },

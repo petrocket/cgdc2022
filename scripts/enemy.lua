@@ -132,6 +132,10 @@ end
 
 function Enemy:Reset()
     self:Log("Reset")
+
+    self.inCombat = false
+    Events:Disconnect(self, Events.OnUpdateWeaknessAmount)
+
     self.revealed = false
     self.mesh = nil
     self.spawnableMediator:Despawn(self.spawnTicket)
@@ -144,6 +148,7 @@ function Enemy:Reset()
     }
 
     if self.Properties.Randomness.Enabled then
+        self:Log("Giving enemy random weaknesses")
         local weaknessTypes = {"Arrow","Sword","Shield","Scroll"}
         local rules = self.Properties.Randomness
         Utilities:Shuffle(weaknessTypes)
@@ -153,13 +158,17 @@ function Enemy:Reset()
             local weaknessType = weaknessTypes[i]
             local amount = math.random(rules.AmountPerType.Min, rules.AmountPerType.Max)
             self.data.Weaknesses[weaknessType] =  { Amount=amount}
-            self:Log("Gave enemy " .. tostring(amount) .. " of weakness type " .. tostring(weaknessType))
         end
     else
+        self:Log("Giving enemy weaknesses from properties")
         self.data.Weaknesses.Arrow = { Amount=math.floor(self.Properties.Weaknesses.Arrow)}
         self.data.Weaknesses.Shield = { Amount=math.floor(self.Properties.Weaknesses.Shield)}
         self.data.Weaknesses.Sword = { Amount=math.floor(self.Properties.Weaknesses.Sword)}
         self.data.Weaknesses.Scroll = { Amount=math.floor(self.Properties.Weaknesses.Scroll)}
+    end
+
+    for type,weakness in pairs(self.data.Weaknesses) do
+        self:Log(tostring(type) .. " " .. tostring(weakness.Amount))
     end
 end
 
