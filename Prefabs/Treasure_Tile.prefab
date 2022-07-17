@@ -522,6 +522,18 @@
                                     "id": 1851471833,
                                     "name": "Relative",
                                     "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 30895266,
+                                    "name": "StartOnActivate",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 30895266,
+                                    "name": "StartOnActivate",
+                                    "value": true
                                 }
                             ]
                         },
@@ -673,6 +685,18 @@
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1851471833,
                                     "name": "Relative",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 30895266,
+                                    "name": "StartOnActivate",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyBoolean",
+                                    "id": 30895266,
+                                    "name": "StartOnActivate",
                                     "value": true
                                 }
                             ]

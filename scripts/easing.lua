@@ -124,6 +124,18 @@ function Easing:IsActive(jobId)
 	return job and job.active or false
 end
 
+function Easing:Stop(jobId)
+	if self:IsActive(jobId) then
+		local job = self.jobs[jobId]
+		job.active = false
+		if job.listener then
+			if job.listener.OnEasingEnd then
+				job.listener:OnEasingEnd(job.id, job.value)
+			end					
+		end
+	end
+end
+
 -- update each easing job and notify listeners of changes
 function Easing:OnTick(deltaTime, scriptTime)
 	local activeJobFound = false

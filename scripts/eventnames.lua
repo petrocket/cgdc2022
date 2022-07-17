@@ -10,6 +10,8 @@ return {
     GetTile = "GetTile",
     ModifyCoinAmount = "ModifyCoinAmount",
     AddCards = "AddCards",
+    SetAnimationEnabled = "SetAnimationEnabled",
+    ShowUiCanvas = "ShowUiCanvas",
 
     OnSetEnemies = 'OnSetEnemies',
     OnSetEnemy = 'OnSetEnemy',
@@ -32,7 +34,8 @@ return {
     OnUpdateTotalEnemiesDefeated = "OnUpdateTotalEnemiesDefeated",
     OnUpdateTotalTimeLeft = "OnUpdateTotalTimeLeft",
     OnTimerFinished = "OnTimerFinished",
-	OnQuitPresed = "OnQuitPresed",
+	OnQuitPressed = "OnQuitPressed",
+	OnOKPressed = "OnOKPressed",
 	OnMenuPressed = "OnMenu",
 	OnNewGamePressed = "OnNewGamePressed",
 	OnRetryPressed = "OnRetryPressed",

@@ -1,4 +1,5 @@
 local Easing = require "scripts.easing"
+local Events = require "scripts.events"
 local Utilities = require "scripts.utilities"
 
 local Animate = {
@@ -8,23 +9,41 @@ local Animate = {
 		Destination = Vector3(0,0,1),
 		Duration = {default=3.0, suffix = "s"},
 		Loop = true,
-		Method = { default = "InOutSine"}
+		Method = { default = "InOutSine"},
+		StartOnActivate = true
     }
 }
 
 function Animate:OnActivate()
     Utilities:InitLogging(self, "Animate")
 
+	self:Log("OnActivate " .. tostring(self.jobId))	
+	Events:Connect(self, Events.SetAnimationEnabled, self.entityId )
+	self.durationInMS = self.Properties.Duration * 1000
+	if self.Properties.StartOnActivate then
+		self:Start()
+	end
+end
+
+function Animate:Start()
     local tm = TransformBus.Event.GetWorldTM(self.entityId)
 	self.startWorldPosition = tm:GetTranslation()
 	self.endWorldPosition = self.Properties.Relative and (self.startWorldPosition + self.Properties.Destination) or self.Properties.Destination
 	self.endLocalPosition = self.endWorldPosition - self.startWorldPosition
-	self.durationInMS = self.Properties.Duration * 1000
-
     self.value = Vector3(0,0,0)
-	
 	self.jobId = Easing:Ease(Easing[self.Properties.Method], self.durationInMS, self.value, self.endLocalPosition, self)
-	self:Log("OnActivate " .. tostring(self.jobId))	
+end
+
+function Animate:Stop()
+	Easing:Stop(self.jobId)
+end
+
+function Animate:SetAnimationEnabled(enabled)
+	if enabled then
+		self:Start()
+	else
+		self:Stop()
+	end
 end
 
 function Animate:OnEasingBegin(id, value)
@@ -32,7 +51,7 @@ function Animate:OnEasingBegin(id, value)
 end
 
 function Animate:OnEasingUpdate(id, value)
-	self:Log("OnEasingUpdate " .. tostring(id) .. " ".. tostring(value))
+	--self:Log("OnEasingUpdate " .. tostring(id) .. " ".. tostring(value))
 	
 	local tm = TransformBus.Event.GetWorldTM(self.entityId)
 	tm:SetTranslation(self.startWorldPosition + value)

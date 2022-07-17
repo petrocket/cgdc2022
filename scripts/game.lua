@@ -210,6 +210,8 @@ function game:CameraEasingUpdate(startPosition, endPosition, endLookAtPosition, 
 end
 
 function game.States.CombatFlyIn.OnEnter(sm)
+    Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
+
     local startPosition = game.cameraTM:GetTranslation()
     local forward = game.player1.meshTM:GetBasisY()
     local endPosition = game.player1.meshTM:GetTranslation() + Vector3(0,0,0.4) - forward * 0.2
@@ -233,6 +235,10 @@ function game.States.CombatFlyIn.Transitions.Combat.Evaluate(sm)
     return not sm.cameraAnimating
 end
 
+function game.States.CombatFlyIn.OnExit(sm)
+    Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, true)
+end
+
 -------------------------------------------
 --- Combat
 -------------------------------------------
@@ -246,21 +252,21 @@ function game.States.Combat.OnEnter(sm)
 
     sm.inCombat = true
 
-    sm.OnEnemyDefeated = function(sm)
+    sm.OnEnemyDefeated = function(_sm)
         local x = game.player1.moveEnd.x
         local y = game.player1.moveEnd.y
         game.grid[x][y].enemy = false
         game.currentEnemy = game.currentEnemy + 1
         game.totalEnemiesDefeated= game.totalEnemiesDefeated + 1
-        sm.inCombat = false
+        _sm.inCombat = false
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
 
-    sm.OnRunAway = function(sm)
+    sm.OnRunAway = function(_sm)
         local gridPosition = game.player1:DestinationGridPositionString()
         Events:LuaEvent(Events.OnExitCombat, gridPosition)
         game.player1:Move(game.player1.moveStart, true)
-        sm.inCombat = false
+        _sm.inCombat = false
     end
     Events:Connect(sm, Events.OnRunAway)
 end
@@ -281,6 +287,7 @@ end
 --- CombatFlyOut
 -------------------------------------------
 function game.States.CombatFlyOut.OnEnter(sm)
+    Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
 
     local startPosition = TransformBus.Event.GetWorldTranslation(game.Properties.Camera)
     local endPosition = game.cameraTM:GetTranslation()
@@ -320,6 +327,7 @@ function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
 end
 
 function game.States.CombatFlyOut.OnExit(sm)
+    Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, true)
     game.player1:SetVisible(true)
     local immediate = game.player1.moveStart == game.player1.moveEnd
     game.player1:Move(game.player1.moveEnd, immediate)
@@ -331,11 +339,32 @@ end
 function game.States.Treasure.OnEnter(sm)
     local gridPosition = game.player1:GridPositionString()
     game:Log("Treasure.OnEnter")
+
+    sm.okPressed = false 
+    sm.modalVisible = false
+
+    -- HACK only wait for OK pressed if the canvas is shown
+    sm.ShowUiCanvas = function(_sm, canvas)
+        _sm.modalVisible = true
+        game.timer:Pause()
+        _sm.OnOKPressed = function(__sm)
+            __sm.okPressed = true
+        end
+        Events:Connect(_sm, Events.OnOKPressed)
+    end
+    Events:Connect(sm, Events.ShowUiCanvas)
     Events:LuaEvent(Events.OnEnterTile, gridPosition)
 end
 
+function game.States.Treasure.OnExit(sm)
+    Events:GlobalLuaEvent(Events.ShowUiCanvas, "None")
+    Events:Disconnect(sm, Events.OnOKPressed)
+    Events:Disconnect(sm, Events.ShowUiCanvas)
+    game.timer:Resume()
+end
+
 function game.States.Treasure.Transitions.RevealTiles.Evaluate(sm)
-    return true
+    return sm.okPressed or not sm.modalVisible
 end
 
 -------------------------------------------
@@ -357,6 +386,7 @@ end
 function game.States.Lose.OnExit(sm)
     Events:Disconnect(sm, "OnRetryPressed")
     Events:Disconnect(sm, "OnQuitPressed")
+    Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
     TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
     CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
 end
@@ -386,6 +416,7 @@ end
 function game.States.Win.OnExit(sm)
     Events:Disconnect(sm, "OnRetryPressed")
     Events:Disconnect(sm, "OnQuitPressed")
+    Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
     TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
     CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
 end

@@ -45,6 +45,8 @@ function Treasure:OnEnterTile()
         -- hide the chest 
         RenderMeshComponentRequestBus.Event.SetVisibility(self.Properties.Mesh, false)
 
+        Events:GlobalLuaEvent(Events.ShowUiCanvas, "Treasure")
+
         -- give the player loot
         local coinAmount = math.random(self.Properties.CoinAmount.Min, self.Properties.CoinAmount.Max)
         self:Log("Giving " .. tostring(coinAmount) .. " coins")
