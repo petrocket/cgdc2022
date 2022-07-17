@@ -270,9 +270,12 @@ function game.States.Combat.OnEnter(sm)
         Events:Disconnect(_sm, Events.OnEnemyDefeated)
         local x = game.player1.moveEnd.x
         local y = game.player1.moveEnd.y
-        game.grid[x][y].enemy = false
-        game.currentEnemy = game.currentEnemy + 1
-        game.totalEnemiesDefeated= game.totalEnemiesDefeated + 1
+        -- sanity check there is an enemy
+        if game.grid[x][y].enemy then 
+            game.grid[x][y].enemy = false
+            game.currentEnemy = game.currentEnemy + 1
+            game.totalEnemiesDefeated= game.totalEnemiesDefeated + 1
+        end
         game.timer:Pause()
         local scriptTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
         _sm.leaveCombatTime = scriptTime:GetSeconds() + game.Properties.CombatEndingDuration
@@ -337,7 +340,10 @@ function game.States.CombatFlyOut.Transitions.Win.Evaluate(sm)
 
     local x = game.player1.moveEnd.x
     local y = game.player1.moveEnd.y
-    return game.grid[x][y].boss or game.currentEnemy > game.numEnemies
+    if game.grid[x][y].boss then
+        game:Log("Transitioning to Win after defeating boss")
+    end
+    return game.grid[x][y].boss or (game.totalEnemiesDefeated >= game.numEnemies)
 end
 
 function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
@@ -347,7 +353,7 @@ function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
 
     local x = game.player1.moveEnd.x
     local y = game.player1.moveEnd.y
-    return not game.grid[x][y].boss and game.currentEnemy <= game.numEnemies
+    return not game.grid[x][y].boss and (game.totalEnemiesDefeated < game.numEnemies)
 end
 
 function game.States.CombatFlyOut.OnExit(sm)

@@ -102,8 +102,7 @@
                             0.035889625549316406,
                             -4.76837158203125e-7
                         ]
-                    },
-                    "IsStatic": true
+                    }
                 },
                 "Component_[418196844967323672]": {
                     "$type": "EditorEntitySortComponent",
@@ -4861,7 +4860,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 10.0
+                                    "value": 31.0
                                 }
                             ]
                         },
