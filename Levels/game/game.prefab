@@ -4683,6 +4683,12 @@
                                     "value": 70.0
                                 },
                                 {
+                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                    "id": 3878422116,
+                                    "name": "CombatEndingDuration",
+                                    "value": 2.0
+                                },
+                                {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
                                     "name": "Debug",

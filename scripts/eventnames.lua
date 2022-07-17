@@ -13,6 +13,8 @@ return {
     SetAnimationEnabled = "SetAnimationEnabled",
     ShowUiCanvas = "ShowUiCanvas",
 
+    OnCardDiscarded = 'OnCardDiscarded',
+    OnCardUsed = 'OnCardUsed',
     OnSetEnemies = 'OnSetEnemies',
     OnSetEnemy = 'OnSetEnemy',
     OnRevealTile = 'OnRevealTile',

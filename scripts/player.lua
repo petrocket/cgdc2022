@@ -157,6 +157,7 @@ function Player:UseCard(cardIndex)
     end
 
     if damageTaken then
+        Events:LuaEvent(Events.OnCardUsed, self.name, cardIndex)
         self:Log("Getting new card")
         if #self.cards.deck > 0 then
             card = table.remove(self.cards.deck)
@@ -189,6 +190,8 @@ function Player:DiscardAll()
 
     self:Log("$7 Discarding 4 cards with " ..tostring(#self.cards.deck) .. " cards remaining in deck")
     for cardIndex=1,self.cards.max_active do
+
+        Events:LuaEvent(Events.OnCardDiscarded, self.name, cardIndex)
         if self.cards.active[cardIndex] ~= nil then
             table.insert(self.cards.discards, self.cards.active[cardIndex])
         end

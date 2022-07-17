@@ -24,7 +24,8 @@ local game = {
         Player1 = EntityId(),
         Camera = EntityId(),
         CameraCombatFOV = 70,
-        FlyInDuration = { default=1.5, suffix = " sec"}
+        FlyInDuration = { default=1.5, suffix = " sec"},
+        CombatEndingDuration = { default=2, suffix=" sec"}
     },
     States = {
 		MainMenu = {
@@ -211,6 +212,7 @@ end
 
 function game.States.CombatFlyIn.OnEnter(sm)
     Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
+    game.timer:Pause()
 
     local startPosition = game.cameraTM:GetTranslation()
     local forward = game.player1.meshTM:GetBasisY()
@@ -236,6 +238,7 @@ function game.States.CombatFlyIn.Transitions.Combat.Evaluate(sm)
 end
 
 function game.States.CombatFlyIn.OnExit(sm)
+    game.timer:Resume()
     Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, true)
 end
 
@@ -251,18 +254,25 @@ function game.States.Combat.OnEnter(sm)
     Events:LuaEvent(Events.OnEnterCombat, gridPosition)
 
     sm.inCombat = true
+    sm.leaveCombatTime = 0
 
     sm.OnEnemyDefeated = function(_sm)
+        Events:Disconnect(_sm, Events.OnEnemyDefeated)
         local x = game.player1.moveEnd.x
         local y = game.player1.moveEnd.y
         game.grid[x][y].enemy = false
         game.currentEnemy = game.currentEnemy + 1
         game.totalEnemiesDefeated= game.totalEnemiesDefeated + 1
+        game.timer:Pause()
+        local scriptTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
+        _sm.leaveCombatTime = scriptTime:GetSeconds() + game.Properties.CombatEndingDuration
         _sm.inCombat = false
+        game:Log(tostring(_sm.leaveCombatTime))
     end
     Events:Connect(sm, Events.OnEnemyDefeated)
 
     sm.OnRunAway = function(_sm)
+        Events:Disconnect(_sm, Events.OnRunAway)
         local gridPosition = game.player1:DestinationGridPositionString()
         Events:LuaEvent(Events.OnExitCombat, gridPosition)
         game.player1:Move(game.player1.moveStart, true)
@@ -271,8 +281,7 @@ function game.States.Combat.OnEnter(sm)
     Events:Connect(sm, Events.OnRunAway)
 end
 function game.States.Combat.OnExit(sm)
-    Events:Disconnect(sm, Events.OnEnemyDefeated)
-    Events:Disconnect(sm, Events.OnRunAway)
+    -- don't resume the timer until after fly-out
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, false)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, false)
 end
@@ -280,7 +289,12 @@ function game.States.Combat.Transitions.Lose.Evaluate(sm)
     return game.timer.timeLeft <= 0 
 end
 function game.States.Combat.Transitions.CombatFlyOut.Evaluate(sm)
-    return game.timer.timeLeft > 0 and not sm.inCombat
+    if game.timer.timeLeft > 0 and not sm.inCombat then
+        local scriptTime = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
+        return sm.leaveCombatTime < scriptTime:GetSeconds()
+    else
+        return false
+    end
 end
 
 -------------------------------------------
@@ -288,7 +302,7 @@ end
 -------------------------------------------
 function game.States.CombatFlyOut.OnEnter(sm)
     Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
-
+    game.timer:Pause()
     local startPosition = TransformBus.Event.GetWorldTranslation(game.Properties.Camera)
     local endPosition = game.cameraTM:GetTranslation()
     local endLookAtPosition = endPosition + (game.cameraTM:GetBasisY() * 1000.0) 
@@ -327,6 +341,7 @@ function game.States.CombatFlyOut.Transitions.Navigation.Evaluate(sm)
 end
 
 function game.States.CombatFlyOut.OnExit(sm)
+    game.timer:Resume()
     Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, true)
     game.player1:SetVisible(true)
     local immediate = game.player1.moveStart == game.player1.moveEnd

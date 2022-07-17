@@ -27,8 +27,10 @@ function Timer:Start()
 end
 
 function Timer:GetFormattedTimeLeft()
-    local minutes = math.floor(self.timeLeft / 60)
-    local seconds = self.timeLeft % 60
+    -- don't go below zero in case timeLeft is less
+    local timeLeft = math.max(0,self.timeLeft)
+    local minutes = math.floor(timeLeft / 60)
+    local seconds = timeLeft % 60
     local minutesString = tostring(minutes)
     if minutes < 10 then
         minutesString = "0"..minutesString
