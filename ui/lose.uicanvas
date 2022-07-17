@@ -441,26 +441,10 @@
 									<Class name="AZStd::unordered_map&lt;EntityId, EntityId, AZStd::hash&lt;EntityId&gt;, AZStd::equal_to&lt;EntityId&gt;, allocator&gt;" field="EntityIdMap" type="{D33569A9-EFFC-566C-8CCC-74D6E086A1B0}">
 										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
 											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="313745595004" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="17165429629940060808" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250161891675438" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-										</Class>
-										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
-											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="318040562300" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250166186642734" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-										</Class>
-										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
-											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="300860693116" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250170481610030" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="250157596708142" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 										</Class>
 										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
@@ -473,10 +457,26 @@
 										</Class>
 										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
 											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="17165429629940060808" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="300860693116" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250157596708142" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="250170481610030" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+										</Class>
+										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
+											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="318040562300" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="250166186642734" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+										</Class>
+										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
+											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="313745595004" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="250161891675438" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 										</Class>
 									</Class>
@@ -607,6 +607,13 @@
 																			<Class name="AZStd::string" field="name" value="Event" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 																		</Class>
 																		<Class name="AZStd::string" field="value" value="OnRetryPressed" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+																	</Class>
+																	<Class name="AzFramework::ScriptPropertyString" field="element" version="1" type="{A0229C6D-B010-47E7-8985-EE220FC7BFAF}">
+																		<Class name="AzFramework::ScriptProperty" field="BaseClass1" version="2" type="{D227D737-F1ED-4FB3-A1FB-38E4985D2E7A}">
+																			<Class name="AZ::u64" field="id" value="635879819" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+																			<Class name="AZStd::string" field="name" value="InputEvent" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+																		</Class>
+																		<Class name="AZStd::string" field="value" value="Player1Primary" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 																	</Class>
 																	<Class name="AzFramework::ScriptPropertyString" field="element" version="1" type="{A0229C6D-B010-47E7-8985-EE220FC7BFAF}">
 																		<Class name="AzFramework::ScriptProperty" field="BaseClass1" version="2" type="{D227D737-F1ED-4FB3-A1FB-38E4985D2E7A}">
@@ -811,26 +818,10 @@
 									<Class name="AZStd::unordered_map&lt;EntityId, EntityId, AZStd::hash&lt;EntityId&gt;, AZStd::equal_to&lt;EntityId&gt;, allocator&gt;" field="EntityIdMap" type="{D33569A9-EFFC-566C-8CCC-74D6E086A1B0}">
 										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
 											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="313745595004" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="17165429629940060808" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250183366511918" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-										</Class>
-										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
-											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="318040562300" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250187661479214" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-										</Class>
-										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
-											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="300860693116" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-											</Class>
-											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250191956446510" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="250179071544622" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 										</Class>
 										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
@@ -843,10 +834,26 @@
 										</Class>
 										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
 											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="17165429629940060808" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="300860693116" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-												<Class name="AZ::u64" field="id" value="250179071544622" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+												<Class name="AZ::u64" field="id" value="250191956446510" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+										</Class>
+										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
+											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="318040562300" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="250187661479214" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+										</Class>
+										<Class name="AZStd::pair&lt;EntityId, EntityId&gt;" field="element" type="{30DDE93C-E899-5AB9-856D-FC456D054EDB}">
+											<Class name="EntityId" field="value1" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="313745595004" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+											</Class>
+											<Class name="EntityId" field="value2" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
+												<Class name="AZ::u64" field="id" value="250183366511918" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 											</Class>
 										</Class>
 									</Class>
@@ -958,6 +965,13 @@
 																			<Class name="AZStd::string" field="name" value="Event" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 																		</Class>
 																		<Class name="AZStd::string" field="value" value="OnMenuPressed" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+																	</Class>
+																	<Class name="AzFramework::ScriptPropertyString" field="element" version="1" type="{A0229C6D-B010-47E7-8985-EE220FC7BFAF}">
+																		<Class name="AzFramework::ScriptProperty" field="BaseClass1" version="2" type="{D227D737-F1ED-4FB3-A1FB-38E4985D2E7A}">
+																			<Class name="AZ::u64" field="id" value="635879819" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+																			<Class name="AZStd::string" field="name" value="InputEvent" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+																		</Class>
+																		<Class name="AZStd::string" field="value" value="Esc" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 																	</Class>
 																	<Class name="AzFramework::ScriptPropertyString" field="element" version="1" type="{A0229C6D-B010-47E7-8985-EE220FC7BFAF}">
 																		<Class name="AzFramework::ScriptProperty" field="BaseClass1" version="2" type="{D227D737-F1ED-4FB3-A1FB-38E4985D2E7A}">

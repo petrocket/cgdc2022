@@ -15,12 +15,14 @@ function Timer.new (duration)
 	local self = setmetatable({}, Timer)
 	self.duration = math.ceil(duration)
     self.timeLeft = duration
+    self.tickBusHandler = nil
 	return self
 end
 
 function Timer:Start()
     if self.tickBusHandler ~= nil then
         self.tickBusHandler:Disconnect()
+        self.tickBusHandler = nil
     end
     self.timeLeft = self.duration
     self:Resume()
@@ -68,10 +70,12 @@ function Timer:Pause()
 end
 
 function Timer:Resume()
-    self.tickBusHandler = TickBus.Connect(self)
-    local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
-    self.endTime = time:GetSeconds() + self.timeLeft 
-    Events:GlobalLuaEvent(Events.OnUpdateTimeRemaining, tostring(self.timeLeft))
+    if self.tickBusHandler == nil then
+        self.tickBusHandler = TickBus.Connect(self)
+        local time = TickRequestBus.Broadcast.GetTimeAtCurrentTick()
+        self.endTime = time:GetSeconds() + self.timeLeft 
+        Events:GlobalLuaEvent(Events.OnUpdateTimeRemaining, tostring(self.timeLeft))
+    end
 end
 
 return Timer

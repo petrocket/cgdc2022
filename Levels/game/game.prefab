@@ -480,6 +480,7 @@
                     "Controller": {
                         "Configuration": {
                             "CameraEntityId": "Entity_[49021515340992]",
+                            "Enabled": true,
                             "ApertureF": 0.20999999344348907,
                             "FNumber": 0.5704227089881897,
                             "FocusDistance": 8.0
@@ -527,6 +528,101 @@
                             "SmhShadowsEnd": 0.36000001430511475
                         }
                     }
+                }
+            }
+        },
+        "Entity_[1601769290231103]": {
+            "Id": "Entity_[1601769290231103]",
+            "Name": "Pause",
+            "Components": {
+                "Component_[10042525162733529829]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10042525162733529829,
+                    "Parent Entity": "Entity_[4289430953152]"
+                },
+                "Component_[13016550316787731095]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 13016550316787731095
+                },
+                "Component_[13480893694578250823]": {
+                    "$type": "ScriptEditorComponent",
+                    "Id": 13480893694578250823,
+                    "ScriptComponent": {
+                        "Properties": {
+                            "Properties": [
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 1001261735,
+                                    "name": "Event",
+                                    "value": "OnPauseChanged"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyStringArray",
+                                    "id": 984042726,
+                                    "name": "Values",
+                                    "values": [
+                                        "Paused"
+                                    ]
+                                }
+                            ]
+                        },
+                        "Script": {
+                            "assetId": {
+                                "guid": "{DD46EEFA-226D-572A-B898-949561981E8A}",
+                                "subId": 1
+                            },
+                            "assetHint": "scripts/uicanvaseventloader.luac"
+                        }
+                    },
+                    "ScriptAsset": {
+                        "assetId": {
+                            "guid": "{DD46EEFA-226D-572A-B898-949561981E8A}",
+                            "subId": 1
+                        },
+                        "assetHint": "scripts/uicanvaseventloader.luac"
+                    }
+                },
+                "Component_[13672757346057905376]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13672757346057905376
+                },
+                "Component_[14815285469970074628]": {
+                    "$type": "SelectionComponent",
+                    "Id": 14815285469970074628
+                },
+                "Component_[14986079996368194914]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14986079996368194914
+                },
+                "Component_[16666955165755632652]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16666955165755632652
+                },
+                "Component_[16947050552427300231]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16947050552427300231
+                },
+                "Component_[17166366266369717397]": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17166366266369717397,
+                    "m_template": {
+                        "$type": "UiCanvasAssetRefComponent",
+                        "CanvasAssetRef": {
+                            "AssetPath": "ui/pause.uicanvas"
+                        }
+                    }
+                },
+                "Component_[17770819150812056359]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17770819150812056359
+                },
+                "Component_[4800952585253574728]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4800952585253574728
+                },
+                "Component_[7647231103588010478]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7647231103588010478
                 }
             }
         },
@@ -4765,7 +4861,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 45.0
+                                    "value": 10.0
                                 }
                             ]
                         },
@@ -6341,7 +6437,8 @@
                         "Entity_[4315200756928]",
                         "Entity_[23682341563711]",
                         "Entity_[4328085658816]",
-                        "Entity_[4340970560704]"
+                        "Entity_[4340970560704]",
+                        "Entity_[1601769290231103]"
                     ]
                 },
                 "Component_[6900488500576474817]": {

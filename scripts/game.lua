@@ -78,7 +78,8 @@ local game = {
         Win = { Transitions = {} },
 	},
     InputEvents = {
-        MouseLeftClick = {}
+        MouseLeftClick = {},
+        Esc = {}
     },
 }
 
@@ -86,12 +87,21 @@ local game = {
 ---  MainMenu
 -------------------------------------------
 function game.States.MainMenu.OnEnter(sm)
-    -- show main menu screen
-
+    sm.newGamePressed = false
+    sm.OnNewGamePressed = function(_sm)
+        Events:Disconnect(_sm, Events.OnNewGamePressed)
+        _sm.newGamePressed = true
+    end
+    sm.OnQuitPressed = function(_sm)
+        Events:Disconnect(_sm, Events.OnQuitPressed)
+        ConsoleRequestBus.Broadcast.ExecuteConsoleCommand("quit")
+    end
+    Events:Connect(sm, Events.OnQuitPressed)
+    Events:Connect(sm, Events.OnNewGamePressed)
 end
 
 function game.States.MainMenu.Transitions.LevelBuildOut.Evaluate(sm)
-    return true
+    return sm.newGamePressed 
 end
 
 
@@ -388,19 +398,27 @@ end
 function game.States.Lose.OnEnter(sm)
     game.timer:Pause()
 
-    sm.OnRetryPressed = function(sm)
-        sm:GotoState("LevelBuildOut")
+    sm.OnRetryPressed = function(_sm)
+        game:Log("OnRetryPressed")
+        _sm:GotoState("LevelBuildOut")
+        Events:Disconnect(_sm, Events.OnRetryPressed)
     end
-    Events:Connect(sm, "OnRetryPressed")
-    sm.OnQuitPressed = function(sm)
+    Events:Connect(sm, Events.OnRetryPressed)
+    sm.OnQuitPressed = function(_sm)
+        Events:Disconnect(_sm, Events.OnQuitPressed)
         ConsoleRequestBus.Broadcast.ExecuteConsoleCommand("quit")
     end
-    Events:Connect(sm, "OnQuitPressed")
+    Events:Connect(sm, Events.OnQuitPressed)
+
+    sm.OnMenuPressed = function(_sm)
+        game:Log("OnMenuPressed")
+        _sm:GotoState("MainMenu")
+        Events:Disconnect(_sm, Events.OnMenuPressed)
+    end
+    Events:Connect(sm, Events.OnMenuPressed)
 end
 
 function game.States.Lose.OnExit(sm)
-    Events:Disconnect(sm, "OnRetryPressed")
-    Events:Disconnect(sm, "OnQuitPressed")
     Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
     TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
     CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
@@ -412,14 +430,23 @@ end
 function game.States.Win.OnEnter(sm)
     local timeLeft = game.timer:GetFormattedTimeLeft()
     game.timer:Pause()
-    sm.OnRetryPressed = function(sm)
-        sm:GotoState("LevelBuildOut")
+    sm.OnRetryPressed = function(_sm)
+        Events:Disconnect(_sm, "OnRetryPressed")
+        _sm:GotoState("LevelBuildOut")
     end
     Events:Connect(sm, "OnRetryPressed")
-    sm.OnQuitPressed = function(sm)
+    sm.OnQuitPressed = function(_sm)
+        Events:Disconnect(_sm, "OnQuitPressed")
         ConsoleRequestBus.Broadcast.ExecuteConsoleCommand("quit")
     end
     Events:Connect(sm, "OnQuitPressed")
+
+    sm.OnMenuPressed = function(_sm)
+        Events:Disconnect(_sm, Events.OnMenuPressed)
+        _sm:GotoState("MainMenu")
+    end
+    Events:Connect(sm, Events.OnMenuPressed)
+
     Utilities:ExecuteOnNextTick(sm, function()
         Events:GlobalLuaEvent(Events.OnUpdateTotalCardsCollected, game.totalCardsCollected)
         Events:GlobalLuaEvent(Events.OnUpdateTotalCoinsCollected, game.totalCoinsCollected)
@@ -429,8 +456,6 @@ function game.States.Win.OnEnter(sm)
 end
 
 function game.States.Win.OnExit(sm)
-    Events:Disconnect(sm, "OnRetryPressed")
-    Events:Disconnect(sm, "OnQuitPressed")
     Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
     TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
     CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
@@ -503,6 +528,43 @@ end
 
 function game.InputEvents.MouseLeftClick:OnPressed(value)
     -- TODO move player to selected tile
+end
+
+function game.InputEvents.Esc:OnPressed(value)
+    game:Log("Esc:OnPressed")
+    -- HACK just support pausing in navigation and combat
+    local state = game.stateMachine.CurrentStateName
+    if not game.paused and (state == "Navigation" or state == "Combat") then
+        game:Log("$6 Pausing")
+        game.paused = true
+        game.timer:Pause()
+
+        self.OnResumePressed = function(_self)
+            game:Log("$6 Resuming")
+            game.paused = false
+            game.timer:Resume()
+            Events:GlobalLuaEvent(Events.OnPauseChanged, "Unpaused")
+        end
+
+        self.OnMenuPressed = function(_self)
+            Events:LuaEvent(Events.SetAnimationEnabled, game.Properties.Camera, false)
+            TransformBus.Event.SetWorldTM(game.Properties.Camera, game.cameraTM)
+            CameraRequestBus.Event.SetFovDegrees(game.Properties.Camera, game.cameraFOV)
+            game.paused = false
+            game:Log("Going to main menu")
+            game.stateMachine:GotoState("MainMenu")
+            Events:GlobalLuaEvent(Events.OnPauseChanged, "Unpaused")
+        end
+
+        self.OnQuitPressed = function(_self)
+            ConsoleRequestBus.Broadcast.ExecuteConsoleCommand("quit")
+        end
+        Events:Connect(self, Events.OnResumePressed)
+        Events:Connect(self, Events.OnMenuPressed)
+        Events:Connect(self, Events.OnQuitPressed)
+
+        Events:GlobalLuaEvent(Events.OnPauseChanged, "Paused")
+    end
 end
 
 function game:GetTile(gridPosition)

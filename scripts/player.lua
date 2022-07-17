@@ -58,7 +58,17 @@ function Player:OnActivate ()
     Events:Connect(self, Events.OnDiscard)
     Events:Connect(self, Events.ModifyCoinAmount)
     Events:Connect(self, Events.AddCards)
+    Events:Connect(self, Events.OnPauseChanged)
     --return self
+end
+
+function Player:OnPauseChanged(value)
+    if value == "Paused" then
+        self.previousMode = self.mode
+        self.mode= self.Modes.Inactive
+    elseif self.previousMode ~= nil then
+        self.mode = self.previousMode
+    end
 end
 
 function Player:AddCards(cards)
