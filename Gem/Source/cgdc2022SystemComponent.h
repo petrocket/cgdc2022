@@ -25,16 +25,13 @@ namespace cgdc2022
         ~cgdc2022SystemComponent();
 
     protected:
-        ////////////////////////////////////////////////////////////////////////
         // cgdc2022RequestBus interface implementation
+        void LoadLevel(const AZStd::string& levelName) override;
+        void SaveLevel(const AZStd::string& levelName, const LevelData& levelData) override;
 
-        ////////////////////////////////////////////////////////////////////////
-
-        ////////////////////////////////////////////////////////////////////////
         // AZ::Component interface implementation
         void Init() override;
         void Activate() override;
         void Deactivate() override;
-        ////////////////////////////////////////////////////////////////////////
     };
 }

@@ -19,6 +19,9 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
+                    "Entity_[36661327009842]",
+                    "Entity_[36854600538162]",
+                    "Entity_[37181018052658]",
                     "Entity_[356808237558]",
                     "Entity_[4289430953152]",
                     "Entity_[48647853186240]",
@@ -26,9 +29,10 @@
                     "Entity_[146298830165464]",
                     "Entity_[115750504269835]",
                     "Entity_[640273385293835]",
-                    "Entity_[640346399737867]",
                     "Entity_[49021515340992]",
-                    "Entity_[4141653445767]"
+                    "Entity_[52186769966771]",
+                    "Entity_[4141653445767]",
+                    "Entity_[36755816290354]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -3638,16 +3642,17 @@
                 },
                 "Component_[1384121719272357996]": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 1384121719272357996
-                },
-                "Component_[14923219061656329527]": {
-                    "$type": "AZ::Render::EditorGridComponent",
-                    "Id": 14923219061656329527
+                    "Id": 1384121719272357996,
+                    "DisabledComponents": [
+                        {
+                            "$type": "AZ::Render::EditorGridComponent",
+                            "Id": 14923219061656329527
+                        }
+                    ]
                 },
                 "Component_[14991980072312720472]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 14991980072312720472,
-                    "VisibilityFlag": false
+                    "Id": 14991980072312720472
                 },
                 "Component_[16349147760065836382]": {
                     "$type": "EditorEntitySortComponent",
@@ -4416,7 +4421,7 @@
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1579384326,
                                     "name": "Name",
-                                    "value": "MiniBoss"
+                                    "value": "Forest Goo MiniBoss"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
@@ -4617,7 +4622,7 @@
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1579384326,
                                     "name": "Name",
-                                    "value": "Enemy"
+                                    "value": "Shroom lvl 1"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
@@ -4860,7 +4865,7 @@
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2400096598,
                                     "name": "TimeLimit",
-                                    "value": 31.0
+                                    "value": 121.0
                                 }
                             ]
                         },
@@ -4909,6 +4914,478 @@
                 "Component_[8782622812977041482]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 8782622812977041482
+                }
+            }
+        },
+        "Entity_[36661327009842]": {
+            "Id": "Entity_[36661327009842]",
+            "Name": "Mesh",
+            "Components": {
+                "Component_[10276931082697184022]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10276931082697184022
+                },
+                "Component_[11282301630018847164]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11282301630018847164,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{CD6A8DE1-67C0-5D4C-9BE3-99C3104FE3A1}",
+                                    "subId": 278684442
+                                },
+                                "assetHint": "assets/objects/player1.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[11865802582472440707]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11865802582472440707
+                },
+                "Component_[14703953487126460248]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14703953487126460248
+                },
+                "Component_[15632722633314408354]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15632722633314408354
+                },
+                "Component_[16490172689736855794]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16490172689736855794
+                },
+                "Component_[17118218272459870476]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17118218272459870476
+                },
+                "Component_[4219563700021465387]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4219563700021465387,
+                    "IsEditorOnly": true
+                },
+                "Component_[4578791886669085984]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4578791886669085984,
+                    "VisibilityFlag": false
+                },
+                "Component_[7499552028460475540]": {
+                    "$type": "EditorTagComponent",
+                    "Id": 7499552028460475540,
+                    "Tags": [
+                        "PlayerMesh"
+                    ]
+                },
+                "Component_[7686612633810829998]": {
+                    "$type": "SelectionComponent",
+                    "Id": 7686612633810829998
+                },
+                "Component_[8286114637202875700]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8286114637202875700,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            3.4329135417938232,
+                            1.5668189525604248,
+                            0.0016169250011444092
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -164.9999237060547
+                        ]
+                    }
+                },
+                "Component_[9124696497980502005]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 9124696497980502005,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1803671422
+                                    },
+                                    "Value": {
+                                        "PropertyOverrides": {
+                                            "baseColor.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    1.0,
+                                                    1.0,
+                                                    1.0,
+                                                    1.0
+                                                ]
+                                            },
+                                            "emissive.enable": {
+                                                "$type": "bool",
+                                                "Value": true
+                                            },
+                                            "emissive.color": {
+                                                "$type": "Color",
+                                                "Value": [
+                                                    0.2381017804145813,
+                                                    0.2381017804145813,
+                                                    0.2381017804145813,
+                                                    1.0
+                                                ]
+                                            },
+                                            "emissive.intensity": {
+                                                "$type": "float",
+                                                "Value": 4.119999885559082
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1962797511
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{1731D142-A01E-517E-9ADC-AFD98CD6F3BE}"
+                                            },
+                                            "assetHint": "assets/objects/player1_sword.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3968527592
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AAC42D07-9DB5-5524-8BDA-7FCE393CD0C8}"
+                                            },
+                                            "assetHint": "assets/objects/player1_playerhead.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 4040546504
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AF384B9B-A249-5B78-9CCF-8E5D137A448A}"
+                                            },
+                                            "assetHint": "assets/objects/player1_hat.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Entity_[36755816290354]": {
+            "Id": "Entity_[36755816290354]",
+            "Name": "ScreenshotCamera",
+            "Components": {
+                "Component_[11331162845640941006]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11331162845640941006
+                },
+                "Component_[1367782351090991333]": {
+                    "$type": "AZ::Render::EditorPostFxLayerComponent",
+                    "Id": 1367782351090991333
+                },
+                "Component_[14345070511285277549]": {
+                    "$type": "AZ::Render::EditorDepthOfFieldComponent",
+                    "Id": 14345070511285277549,
+                    "Controller": {
+                        "Configuration": {
+                            "CameraEntityId": "Entity_[36755816290354]",
+                            "Enabled": true,
+                            "ApertureF": 0.18000000715255737,
+                            "FNumber": 0.6652460098266602,
+                            "FocusDistance": 1.399999976158142,
+                            "EnableAutoFocus": false
+                        }
+                    }
+                },
+                "Component_[1481759218498748814]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1481759218498748814
+                },
+                "Component_[18307513168962823964]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 18307513168962823964
+                },
+                "Component_[2716074730159786510]": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 2716074730159786510,
+                    "Controller": {
+                        "Configuration": {
+                            "EditorEntityId": 11365026613885927296
+                        }
+                    }
+                },
+                "Component_[2759724373943647864]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2759724373943647864
+                },
+                "Component_[3647010334870599247]": {
+                    "$type": "SelectionComponent",
+                    "Id": 3647010334870599247
+                },
+                "Component_[4157577491108460364]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 4157577491108460364,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            3.206388473510742,
+                            -0.1805611252784729,
+                            0.7968716621398926
+                        ],
+                        "Rotate": [
+                            -18.16011619567871,
+                            11.196307182312012,
+                            -30.623991012573242
+                        ]
+                    }
+                },
+                "Component_[5076863426610638779]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5076863426610638779
+                },
+                "Component_[8723837636303525496]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8723837636303525496,
+                    "VisibilityFlag": false
+                },
+                "Component_[9102388543575627702]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9102388543575627702
+                },
+                "Component_[9546726138612593504]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9546726138612593504,
+                    "IsEditorOnly": true
+                }
+            }
+        },
+        "Entity_[36854600538162]": {
+            "Id": "Entity_[36854600538162]",
+            "Name": "Mesh",
+            "Components": {
+                "Component_[10276931082697184022]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10276931082697184022
+                },
+                "Component_[11282301630018847164]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11282301630018847164,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{4D116404-BFF4-5AC0-8049-A9133C3C5699}",
+                                    "subId": 284971529
+                                },
+                                "assetHint": "assets/objects/enemygoo.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[11865802582472440707]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11865802582472440707
+                },
+                "Component_[14703953487126460248]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14703953487126460248
+                },
+                "Component_[15632722633314408354]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15632722633314408354
+                },
+                "Component_[16490172689736855794]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16490172689736855794
+                },
+                "Component_[17118218272459870476]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17118218272459870476
+                },
+                "Component_[3535921609605974056]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3535921609605974056,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 589042457
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{B1A12925-2D0F-5BD6-9232-CC64CC2E1B9C}"
+                                            },
+                                            "assetHint": "assets/objects/enemygoo_enemyheadorange.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3509660414
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{607BD191-196D-5F2C-8884-F765B03DDDC1}"
+                                            },
+                                            "assetHint": "assets/objects/enemygoo_outergooorange.azmaterial"
+                                        },
+                                        "PropertyOverrides": {
+                                            "emissive.intensity": {
+                                                "$type": "float",
+                                                "Value": 3.0199999809265137
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[4219563700021465387]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4219563700021465387,
+                    "IsEditorOnly": true
+                },
+                "Component_[4578791886669085984]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4578791886669085984,
+                    "VisibilityFlag": false
+                },
+                "Component_[7686612633810829998]": {
+                    "$type": "SelectionComponent",
+                    "Id": 7686612633810829998
+                },
+                "Component_[8286114637202875700]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8286114637202875700,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            4.643720626831055,
+                            0.8561631441116333,
+                            0.0016169250011444092
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            15.000064849853516
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[37181018052658]": {
+            "Id": "Entity_[37181018052658]",
+            "Name": "Mesh",
+            "Components": {
+                "Component_[10276931082697184022]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10276931082697184022
+                },
+                "Component_[11282301630018847164]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 11282301630018847164,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{ACA8545F-B587-5EDA-9512-3219213065AE}",
+                                    "subId": 281073519
+                                },
+                                "assetHint": "assets/objects/enemymushroom.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[11865802582472440707]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11865802582472440707
+                },
+                "Component_[14703953487126460248]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14703953487126460248
+                },
+                "Component_[15632722633314408354]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15632722633314408354
+                },
+                "Component_[16490172689736855794]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16490172689736855794
+                },
+                "Component_[17118218272459870476]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17118218272459870476
+                },
+                "Component_[4219563700021465387]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4219563700021465387,
+                    "IsEditorOnly": true
+                },
+                "Component_[4578791886669085984]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4578791886669085984,
+                    "VisibilityFlag": false
+                },
+                "Component_[5423874725567055030]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 5423874725567055030,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2937711701
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7090EF24-01A7-5E2C-B50F-9F268BD0C689}"
+                                            },
+                                            "assetHint": "assets/objects/enemymushroom_mushroomblue.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[7686612633810829998]": {
+                    "$type": "SelectionComponent",
+                    "Id": 7686612633810829998
+                },
+                "Component_[8286114637202875700]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8286114637202875700,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            7.927350997924805,
+                            1.4884042739868164,
+                            0.0016169250011444092
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            0.000061471713706851
+                        ]
+                    }
                 }
             }
         },
@@ -8527,7 +9004,7 @@
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1579384326,
                                     "name": "Name",
-                                    "value": "Enemy"
+                                    "value": "Shroom lvl 1"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
@@ -9175,7 +9652,7 @@
                     "Controller": {
                         "Configuration": {
                             "Field of View": 30.0,
-                            "EditorEntityId": 15555788341999687806
+                            "EditorEntityId": 10901915108798641580
                         }
                     }
                 },
@@ -9274,7 +9751,7 @@
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 1579384326,
                                     "name": "Name",
-                                    "value": "Boss"
+                                    "value": "Forest Goo Boss"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -9414,6 +9891,78 @@
                     "Child Entity Order": [
                         "Instance_[15139118880216]/ContainerEntity"
                     ]
+                }
+            }
+        },
+        "Entity_[52186769966771]": {
+            "Id": "Entity_[52186769966771]",
+            "Name": "levelforest1",
+            "Components": {
+                "Component_[11149433566987864587]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11149433566987864587,
+                    "VisibilityFlag": false
+                },
+                "Component_[11517531366822173778]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11517531366822173778
+                },
+                "Component_[17473092063679159554]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17473092063679159554
+                },
+                "Component_[2534505609205589120]": {
+                    "$type": "SelectionComponent",
+                    "Id": 2534505609205589120
+                },
+                "Component_[2990048417457103999]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2990048417457103999,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -3.0
+                        ]
+                    }
+                },
+                "Component_[3208231703894060348]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 3208231703894060348
+                },
+                "Component_[3574580306781298111]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3574580306781298111
+                },
+                "Component_[6318588799259579846]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6318588799259579846
+                },
+                "Component_[6392331153624522732]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6392331153624522732,
+                    "IsEditorOnly": true
+                },
+                "Component_[8041798091983295211]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8041798091983295211
+                },
+                "Component_[9055409879773012819]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 9055409879773012819,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{AC794262-7F18-5197-984D-B2AF76D67F09}",
+                                    "subId": 285033299
+                                },
+                                "loadBehavior": "PreLoad",
+                                "assetHint": "assets/objects/levelforest1.azmodel"
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -10376,565 +10925,6 @@
                             -6.748037338256836
                         ],
                         "UniformScale": 10.0
-                    }
-                },
-                "Component_[18110044531620938669]": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 18110044531620938669
-                },
-                "Component_[18239284903343165937]": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 18239284903343165937
-                },
-                "Component_[18346740207814976769]": {
-                    "$type": "EditorLockComponent",
-                    "Id": 18346740207814976769
-                },
-                "Component_[2719615386569120566]": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 2719615386569120566
-                },
-                "Component_[7157657542792630239]": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 7157657542792630239
-                }
-            }
-        },
-        "Entity_[640346399737867]": {
-            "Id": "Entity_[640346399737867]",
-            "Name": "BackgroundColor",
-            "Components": {
-                "Component_[11283269857798705931]": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11283269857798705931
-                },
-                "Component_[12382929808314530562]": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 12382929808314530562
-                },
-                "Component_[14459229911560463794]": {
-                    "$type": "SelectionComponent",
-                    "Id": 14459229911560463794
-                },
-                "Component_[14461703973812380673]": {
-                    "$type": "EditorWhiteBoxComponent",
-                    "Id": 14461703973812380673,
-                    "WhiteBoxData": "T01UQQgAAAAMAAAAEgAAAAAWAAA2wgAA/MEAAAA/AABeQgAA/MEAAAA/AABeQgAAm0IAAAA/AAA2wgAAm0IAAAA/AAA2wgAA/MEAAAC/AABeQgAA/MEAAAC/AABeQgAAm0IAAAC/AAA2wgAAm0IAAAC/+BYCAQAYAAUEAgAVAQcAAAAGAgEIAwEbAgkFAAEfAwsMBgIeBwgOBQIaBgYKBwIQBQMSBAMUBQQPBwMZBAoWAQQdBQcRBAQBAQUXBAUiAAocAgYhBgkNBQYDAgcgAwgjBwsLBggHAwkTBwoJAAtYDgAAXMIAAABCAAA4QgAAAAAAAFzCAACawgAAAAAAAABCAAA4QgAAAEIAAFzCAACawgAAOEIAAJrCAABcwgAAAAAAADhCAAAAQgAAAAAAAJrCAABcwgAAmsIAADhCAACAPwAAXMIAAABCAACAPwAAmsIAADhCAACawgAAXMIAAABCAAA4QgAAAEIAAFzCAACAPwAAOEIAAJrCAACAPwAAAEIAAFzCAAAAAAAAgD8AAABCAAA4QgAAgD8AAFzCAAAAAAAAOEIAAIA/AAAAAAAAAEIAAAAAAACawgAAXMIAAIA/AACAPwAAAEIAAAAAAACawgAAOEIAAAAAAACAPwAAmsIAAFzCAACAPwAAOEIAAAAAAACAPwAAmsIAAAAAAAAAQuAGCRUbHxkdISPoBgQIDhIWGBwVIBsiHygWAAAAAAAAAIAAAIA/AAAAAAAAAAAAAIA/AAAAgAAAAIAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAgL8AAAAAAAAAgAAAgL8AAAAA//9/PwAAAAAAAACA//9/PwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAgAAAgD8AAAAA//9/vwAAAAAAAAAA//9/vwAAAAAAAAAAwsATdmVydGV4LWhpZGRlbi1wcm9wcwEAAAAAxsANcG9seWdvbi1wcm9wc8QAAAAMAAAABgAAAAIAAAAGAAAABwAAAAUAAAACAAAABAAAAAUAAAAEAAAAAgAAAAQAAAAFAAAACwAAAAIAAAAKAAAACwAAAAMAAAACAAAAAgAAAAMAAAAKAAAAAgAAAAoAAAALAAAAAgAAAAIAAAACAAAAAwAAAAkAAAACAAAACAAAAAkAAAABAAAAAgAAAAAAAAABAAAACAAAAAIAAAAIAAAACQAAAAAAAAACAAAAAAAAAAEAAAAHAAAAAgAAAAYAAAAHAAAAHAA=",
-                    "Material": {
-                        "Tint": [
-                            0.0,
-                            0.18027009069919586,
-                            0.3605401813983917
-                        ],
-                        "UseTexture": false
-                    },
-                    "RenderData": {
-                        "Faces": [
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.0,
-                                    -0.0,
-                                    1.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.0,
-                                    0.0,
-                                    1.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        32.0
-                                    ]
-                                },
-                                "Normal": [
-                                    -0.0,
-                                    -0.0,
-                                    -1.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        32.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.0,
-                                    0.0,
-                                    -1.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        1.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        1.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        0.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.0,
-                                    -1.0,
-                                    0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        1.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        0.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        0.0
-                                    ]
-                                },
-                                "Normal": [
-                                    -0.0,
-                                    -1.0,
-                                    0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        1.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        1.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        0.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.9999999403953552,
-                                    0.0,
-                                    -0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        1.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        0.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        55.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        0.0,
-                                        32.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.9999999403953552,
-                                    0.0,
-                                    0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        1.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        1.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        0.0
-                                    ]
-                                },
-                                "Normal": [
-                                    0.0,
-                                    1.0,
-                                    0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        1.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        46.0,
-                                        0.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        55.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        -55.0,
-                                        0.0
-                                    ]
-                                },
-                                "Normal": [
-                                    -0.0,
-                                    1.0,
-                                    0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        1.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        1.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        0.0,
-                                        32.0
-                                    ]
-                                },
-                                "Normal": [
-                                    -0.9999999403953552,
-                                    0.0,
-                                    0.0
-                                ]
-                            },
-                            {
-                                "Vertex1": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        -0.5
-                                    ],
-                                    "UV": [
-                                        1.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Vertex2": {
-                                    "Position": [
-                                        -45.5,
-                                        -31.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        0.0,
-                                        32.0
-                                    ]
-                                },
-                                "Vertex3": {
-                                    "Position": [
-                                        -45.5,
-                                        77.5,
-                                        0.5
-                                    ],
-                                    "UV": [
-                                        0.0,
-                                        -77.0
-                                    ]
-                                },
-                                "Normal": [
-                                    -0.9999999403953552,
-                                    0.0,
-                                    0.0
-                                ]
-                            }
-                        ],
-                        "Material": {
-                            "Tint": [
-                                0.0,
-                                0.18027009069919586,
-                                0.3605401813983917
-                            ],
-                            "UseTexture": false
-                        }
-                    }
-                },
-                "Component_[16022554837168795467]": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 16022554837168795467
-                },
-                "Component_[16697063892457440714]": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 16697063892457440714,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            3.3206169605255127,
-                            -13.2183256149292,
-                            -2.748037338256836
-                        ]
                     }
                 },
                 "Component_[18110044531620938669]": {
@@ -14378,11 +14368,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
                     "value": "../Entity_[35535918568920]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances",
-                    "value": []
                 }
             ]
         },
@@ -14403,11 +14388,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6467158329820040785]/Parent Entity",
                     "value": "../Entity_[45405560264262]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances",
-                    "value": []
                 }
             ]
         },

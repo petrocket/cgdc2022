@@ -332,8 +332,7 @@
                 },
                 "Component_[13081088218042995834]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 13081088218042995834,
-                    "VisibilityFlag": false
+                    "Id": 13081088218042995834
                 },
                 "Component_[14058629697959719901]": {
                     "$type": "EditorOnlyEntityComponent",
@@ -599,8 +598,7 @@
                 },
                 "Component_[9851361234287478035]": {
                     "$type": "EditorVisibilityComponent",
-                    "Id": 9851361234287478035,
-                    "VisibilityFlag": false
+                    "Id": 9851361234287478035
                 }
             }
         },

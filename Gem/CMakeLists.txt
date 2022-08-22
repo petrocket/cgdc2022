@@ -38,6 +38,8 @@ ly_add_target(
         PRIVATE
             AZ::AzGameFramework
             Gem::Atom_AtomBridge.Static
+            Gem::LocalUser
+            Gem::SaveData.Static
 )
 
 ly_add_target(
@@ -53,6 +55,9 @@ ly_add_target(
         PRIVATE
             Gem::cgdc2022.Static
             AZ::AzCore
+    RUNTIME_DEPENDENCIES
+        Gem::GameState
+        Gem::LocalUser
 )
 
 # if enabled, cgdc2022 is used by all kinds of applications

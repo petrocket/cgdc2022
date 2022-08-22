@@ -2,13 +2,34 @@
 #include <AzCore/Serialization/SerializeContext.h>
 #include <AzCore/Serialization/EditContext.h>
 #include <AzCore/Serialization/EditContextConstants.inl>
+#include <LocalUser/LocalUserRequestBus.h>
+#include <SaveData/SaveDataRequestBus.h>
 
 #include "cgdc2022SystemComponent.h"
 
 namespace cgdc2022
 {
+    class cgdc2022NotificationBusBehaviorHandler
+        : public cgdc2022NotificationBus::Handler
+        , public AZ::BehaviorEBusHandler
+    {
+    public:
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        AZ_EBUS_BEHAVIOR_BINDER(cgdc2022NotificationBusBehaviorHandler, "{CE11195D-BDD2-46A1-92CF-5714E0973DA1}", AZ::SystemAllocator
+            , OnLevelLoaded
+        );
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        void OnLevelLoaded(const LevelData& levelData) override
+        {
+            Call(FN_OnLevelLoaded, levelData);
+        }
+    };
+
     void cgdc2022SystemComponent::Reflect(AZ::ReflectContext* context)
     {
+        LevelData::Reflect(context);
+
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
             serialize->Class<cgdc2022SystemComponent, AZ::Component>()
@@ -23,6 +44,18 @@ namespace cgdc2022
                         ->Attribute(AZ::Edit::Attributes::AutoExpand, true)
                     ;
             }
+        }
+
+
+        AZ::BehaviorContext* behaviorContext = azrtti_cast<AZ::BehaviorContext*>(context);
+        if (behaviorContext)
+        {
+            behaviorContext->EBus<cgdc2022RequestBus>("GameRequestBus")
+                ->Event("LoadLevel", &cgdc2022RequestBus::Events::LoadLevel)
+                ->Event("SaveLevel", &cgdc2022RequestBus::Events::SaveLevel);
+
+            behaviorContext->EBus<cgdc2022NotificationBus>("GameNotificationBus")
+                ->Handler<cgdc2022NotificationBusBehaviorHandler>();
         }
     }
 
@@ -72,5 +105,29 @@ namespace cgdc2022
     void cgdc2022SystemComponent::Deactivate()
     {
         cgdc2022RequestBus::Handler::BusDisconnect();
+    }
+
+    void cgdc2022SystemComponent::LoadLevel(const AZStd::string& levelName)
+    {
+        SaveData::SaveDataRequests::SaveOrLoadObjectParams<LevelData> loadObjectParams;
+        //GameOptionRequestBus::BroadcastResult(loadObjectParams.serializableObject,
+        //                                      &GameOptionRequests::GetGameOptions);
+        loadObjectParams.dataBufferName = AZStd::string("LevelData:").append(levelName);
+        loadObjectParams.localUserId = LocalUser::LocalUserRequests::GetPrimaryLocalUserId();
+        loadObjectParams.callback = [](const SaveData::SaveDataRequests::SaveOrLoadObjectParams<LevelData>& params,
+                                       [[maybe_unused]] SaveData::SaveDataNotifications::Result result)
+        {
+            params.serializableObject->OnLoadedFromPersistentData();
+        };
+        SaveData::SaveDataRequests::LoadObject(loadObjectParams);
+    }
+
+    void cgdc2022SystemComponent::SaveLevel(const AZStd::string& levelName, const LevelData& levelData)
+    {
+        SaveData::SaveDataRequests::SaveOrLoadObjectParams<LevelData> saveObjectParams;
+        saveObjectParams.serializableObject = AZStd::make_shared<LevelData>(levelData);
+        saveObjectParams.dataBufferName = AZStd::string("LevelData:").append(levelName);
+        saveObjectParams.localUserId = LocalUser::LocalUserRequests::GetPrimaryLocalUserId();
+        SaveData::SaveDataRequests::SaveObject(saveObjectParams);
     }
 }

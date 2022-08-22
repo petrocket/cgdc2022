@@ -32,7 +32,7 @@ local game = {
         	Transitions = {
                 LevelBuildOut = {}
             }
-        },    
+        },
         LevelBuildOut = {
             Transitions = {
                 RevealTiles = {}
@@ -98,6 +98,18 @@ function game.States.MainMenu.OnEnter(sm)
     end
     Events:Connect(sm, Events.OnQuitPressed)
     Events:Connect(sm, Events.OnNewGamePressed)
+
+    local levelTile = LevelTile()
+    levelTile.position = Vector3(1,2,3)
+    levelTile.type = "UnknownType"
+    local tiles = vector_LevelTile()
+    tiles:PushBack(levelTile)
+
+    local level = LevelData()
+    level.name = "TestLevelName"
+    level.tiles = tiles 
+
+    GameRequestBus.Broadcast.SaveLevel("TestLevel", level)
 end
 
 function game.States.MainMenu.Transitions.LevelBuildOut.Evaluate(sm)
