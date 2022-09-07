@@ -33,5 +33,6 @@ namespace cgdc2022
         void Init() override;
         void Activate() override;
         void Deactivate() override;
+        AZStd::shared_ptr<LevelData> m_levelData;
     };
 }

@@ -20,7 +20,7 @@ namespace cgdc2022
         );
 
         ////////////////////////////////////////////////////////////////////////////////////////////
-        void OnLevelLoaded(const LevelData& levelData) override
+        void OnLevelLoaded(LevelData levelData) override
         {
             Call(FN_OnLevelLoaded, levelData);
         }
@@ -100,6 +100,8 @@ namespace cgdc2022
     void cgdc2022SystemComponent::Activate()
     {
         cgdc2022RequestBus::Handler::BusConnect();
+
+        m_levelData = AZStd::make_shared<LevelData>();
     }
 
     void cgdc2022SystemComponent::Deactivate()
@@ -110,14 +112,17 @@ namespace cgdc2022
     void cgdc2022SystemComponent::LoadLevel(const AZStd::string& levelName)
     {
         SaveData::SaveDataRequests::SaveOrLoadObjectParams<LevelData> loadObjectParams;
-        //GameOptionRequestBus::BroadcastResult(loadObjectParams.serializableObject,
-        //                                      &GameOptionRequests::GetGameOptions);
-        loadObjectParams.dataBufferName = AZStd::string("LevelData:").append(levelName);
+        loadObjectParams.serializableObject = m_levelData;
+        loadObjectParams.dataBufferName = AZStd::string("LevelData_").append(levelName);
         loadObjectParams.localUserId = LocalUser::LocalUserRequests::GetPrimaryLocalUserId();
         loadObjectParams.callback = [](const SaveData::SaveDataRequests::SaveOrLoadObjectParams<LevelData>& params,
                                        [[maybe_unused]] SaveData::SaveDataNotifications::Result result)
         {
-            params.serializableObject->OnLoadedFromPersistentData();
+            AZ_Warning("LoadLevel", false, "In callback and result is %s", result == SaveData::SaveDataNotifications::Result::Success ? "Success" : "Error");
+            if (params.serializableObject)
+            {
+                cgdc2022NotificationBus::Broadcast(&cgdc2022NotificationBus::Events::OnLevelLoaded, *params.serializableObject);
+            }
         };
         SaveData::SaveDataRequests::LoadObject(loadObjectParams);
     }
@@ -126,7 +131,7 @@ namespace cgdc2022
     {
         SaveData::SaveDataRequests::SaveOrLoadObjectParams<LevelData> saveObjectParams;
         saveObjectParams.serializableObject = AZStd::make_shared<LevelData>(levelData);
-        saveObjectParams.dataBufferName = AZStd::string("LevelData:").append(levelName);
+        saveObjectParams.dataBufferName = AZStd::string("LevelData_").append(levelName);
         saveObjectParams.localUserId = LocalUser::LocalUserRequests::GetPrimaryLocalUserId();
         SaveData::SaveDataRequests::SaveObject(saveObjectParams);
     }

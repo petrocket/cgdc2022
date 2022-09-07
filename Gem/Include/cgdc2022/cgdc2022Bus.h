@@ -120,13 +120,7 @@ namespace cgdc2022
         //! EBus Trait: save data notifications can be handled by multiple listeners
         static const AZ::EBusHandlerPolicy HandlerPolicy = AZ::EBusHandlerPolicy::Multiple;
 
-        virtual void OnLevelLoaded(const LevelData& levelData) = 0;
+        virtual void OnLevelLoaded(LevelData levelData) = 0;
     };
     using cgdc2022NotificationBus = AZ::EBus<cgdc2022Notifications>;
-
-    inline void LevelData::OnLoadedFromPersistentData()
-    {
-        const LevelData& levelData = *this;
-        cgdc2022NotificationBus::Broadcast(&cgdc2022NotificationBus::Events::OnLevelLoaded, levelData);
-    }
 } // namespace cgdc2022

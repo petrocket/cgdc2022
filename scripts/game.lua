@@ -99,17 +99,7 @@ function game.States.MainMenu.OnEnter(sm)
     Events:Connect(sm, Events.OnQuitPressed)
     Events:Connect(sm, Events.OnNewGamePressed)
 
-    local levelTile = LevelTile()
-    levelTile.position = Vector3(1,2,3)
-    levelTile.type = "UnknownType"
-    local tiles = vector_LevelTile()
-    tiles:PushBack(levelTile)
-
-    local level = LevelData()
-    level.name = "TestLevelName"
-    level.tiles = tiles 
-
-    GameRequestBus.Broadcast.SaveLevel("TestLevel", level)
+    game:TestSaveAndLoad()
 end
 
 function game.States.MainMenu.Transitions.LevelBuildOut.Evaluate(sm)
@@ -525,6 +515,36 @@ function game:OnActivate()
             self.Properties.InitialState,  
             self.Properties.Debug)  
     end)
+end
+
+function game:TestSaveAndLoad()
+    -- NOTE This will NOT work in editor unless you add a Tools alias to the 
+    -- GameState Gem's cmakelist.txt
+    -- By default the gem is not loaded in editor
+    local levelTile = LevelTile()
+    levelTile.position = Vector3(2,3,4)
+    levelTile.type = "UnknownType"
+    local tiles = vector_LevelTile()
+    tiles:PushBack(levelTile)
+
+    local level = LevelData()
+    level.name = "TestLevelName"
+    level.tiles = tiles
+
+    GameRequestBus.Broadcast.SaveLevel("TestLevel", level)
+
+    game.OnLevelLoaded = function(_sm, levelData)
+        game:Log("$5 OnLevelLoaded ")
+        if levelData ~= nil then
+            game:Log("LevelData.name " .. tostring(levelData.name))
+            if levelData.tiles ~= nil then
+                local tile = levelData.tiles[1]
+                game:Log("LevelData.tiles[1] " .. tostring(tile.type))
+            end
+        end
+    end
+    GameNotificationBus.Connect(game)
+    GameRequestBus.Broadcast.LoadLevel("TestLevel")
 end
 
 function game:ModifyCoinAmount(amount)
