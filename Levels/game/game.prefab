@@ -5092,24 +5092,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 11331162845640941006
                 },
-                "Component_[1367782351090991333]": {
-                    "$type": "AZ::Render::EditorPostFxLayerComponent",
-                    "Id": 1367782351090991333
-                },
-                "Component_[14345070511285277549]": {
-                    "$type": "AZ::Render::EditorDepthOfFieldComponent",
-                    "Id": 14345070511285277549,
-                    "Controller": {
-                        "Configuration": {
-                            "CameraEntityId": "Entity_[36755816290354]",
-                            "Enabled": true,
-                            "ApertureF": 0.18000000715255737,
-                            "FNumber": 0.6652460098266602,
-                            "FocusDistance": 1.399999976158142,
-                            "EnableAutoFocus": false
-                        }
-                    }
-                },
                 "Component_[1481759218498748814]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 1481759218498748814
@@ -5117,15 +5099,6 @@
                 "Component_[18307513168962823964]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 18307513168962823964
-                },
-                "Component_[2716074730159786510]": {
-                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
-                    "Id": 2716074730159786510,
-                    "Controller": {
-                        "Configuration": {
-                            "EditorEntityId": 11365026613885927296
-                        }
-                    }
                 },
                 "Component_[2759724373943647864]": {
                     "$type": "EditorEntitySortComponent",
@@ -5163,7 +5136,36 @@
                 },
                 "Component_[9102388543575627702]": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 9102388543575627702
+                    "Id": 9102388543575627702,
+                    "DisabledComponents": [
+                        {
+                            "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                            "Id": 2716074730159786510,
+                            "Controller": {
+                                "Configuration": {
+                                    "EditorEntityId": 4428049019320037035,
+                                    "MakeActiveViewOnActivation": false
+                                }
+                            }
+                        },
+                        {
+                            "$type": "AZ::Render::EditorDepthOfFieldComponent",
+                            "Id": 14345070511285277549,
+                            "Controller": {
+                                "Configuration": {
+                                    "CameraEntityId": "Entity_[36755816290354]",
+                                    "ApertureF": 0.18000000715255737,
+                                    "FNumber": 0.6652460098266602,
+                                    "FocusDistance": 1.399999976158142,
+                                    "EnableAutoFocus": false
+                                }
+                            }
+                        },
+                        {
+                            "$type": "AZ::Render::EditorPostFxLayerComponent",
+                            "Id": 1367782351090991333
+                        }
+                    ]
                 },
                 "Component_[9546726138612593504]": {
                     "$type": "EditorOnlyEntityComponent",
@@ -9958,7 +9960,6 @@
                                     "guid": "{AC794262-7F18-5197-984D-B2AF76D67F09}",
                                     "subId": 285033299
                                 },
-                                "loadBehavior": "PreLoad",
                                 "assetHint": "assets/objects/levelforest1.azmodel"
                             }
                         }

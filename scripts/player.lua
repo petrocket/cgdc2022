@@ -23,7 +23,9 @@ local Player = {
         Player1Action4 = {},
         Player1Action5 = {},
         Player1UpDown = {},
-        Player1LeftRight = {}
+        Player1LeftRight = {},
+        MouseLeftClick = {},
+        MouseMove = {}
     },
     health = 100,
     moving = false,
@@ -250,6 +252,7 @@ function Player:Update(deltaTime, scriptTime)
             self.gridPosition.x = math.ceil(self.moveEnd.x)
             self.gridPosition.y = math.ceil(self.moveEnd.y)
         end
+        self.movement = Vector2(0,0)
     end
 end
 
@@ -304,6 +307,62 @@ function Player.InputEvents.Player1LeftRight:OnHeld(value)
 end
 function Player.InputEvents.Player1LeftRight:OnReleased(value)
     self.Component.movement.x = 0
+end
+
+function RayPlaneIntersection(rayPosition, rayDirection, planePosition, planeNormal)
+    local denom = planeNormal:Dot(rayDirection)
+    if math.abs( denom ) < 0.001 then
+        return false
+    end
+
+	-- distance of direction
+	local d = planePosition - rayPosition
+	local t = d:Dot(planeNormal) / denom
+
+	if t < 0.001 then
+		return false
+	end
+
+	-- Return collision point 
+	return rayPosition + rayDirection * t
+end
+
+function Player.InputEvents.MouseLeftClick:OnPressed(value)
+    local camera = Events:GlobalLuaEvent(Events.GetCamera)
+
+    -- get mouse position
+    --self.Component.movement.x = value
+    local cursorPos = UiCursorBus.Broadcast.GetUiCursorPosition()
+    if cursorPos ~= nil and camera ~= nil then
+        local startPos = CameraRequestBus.Event.ScreenToWorld(camera, cursorPos, 0)
+        local endPos = CameraRequestBus.Event.ScreenToWorld(camera, cursorPos, 1)
+
+        -- ray/plane intersection
+        local direction = (endPos - startPos):GetNormalized()
+        local hit = RayPlaneIntersection(startPos, direction, Vector3(0,0,0), Vector3(0,0,1))
+
+        if hit then
+            local tile = Events:GlobalLuaEvent(Events.GetTile, Vector2(hit.x, hit.y))
+            if tile ~= nil then
+                --self.Component:Log("tile pos " ..tostring(tile.pos))
+                local delta = tile.pos - Vector2(self.Component.gridPosition.x, self.Component.gridPosition.y)
+                self.Component:Log("delta " ..tostring(delta))
+                -- don't allow diagonal movement
+                if (math.abs(delta.x) == 1 and delta.y == 0) or (math.abs(delta.y) == 1 and delta.x == 0) then
+                    self.Component.movement.x = delta.x
+                    self.Component.movement.y = delta.y
+                end
+            --else
+                --self.Component:Log("no tile hit")
+            end
+        end
+        --self.Component:Log(tostring(hit))
+    end
+end
+
+function Player.InputEvents.MouseMove:OnHeld(value)
+    -- get mouse position
+    --self.Component:Log(value)
 end
 
 function Player:BindInputEvents(events)

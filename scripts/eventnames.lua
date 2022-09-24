@@ -5,6 +5,7 @@ return {
 	OnUpDown ="OnUpDown",
 
 	SetGameState = "SetGameState",
+	GetCamera = "GetCamera",
 	GetPlayer = "GetPlayer",
 	GetEnemy = "GetEnemy",
     GetTile = "GetTile",

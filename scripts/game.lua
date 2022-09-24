@@ -99,7 +99,7 @@ function game.States.MainMenu.OnEnter(sm)
     Events:Connect(sm, Events.OnQuitPressed)
     Events:Connect(sm, Events.OnNewGamePressed)
 
-    game:TestSaveAndLoad()
+    -- game:TestSaveAndLoad()
 end
 
 function game.States.MainMenu.Transitions.LevelBuildOut.Evaluate(sm)
@@ -488,6 +488,7 @@ function game:OnActivate()
 
     self.tagListener = TagGlobalNotificationBus.Connect(self, Crc32("Tile"))
     Events:Connect(self, Events.GetTile)
+    Events:Connect(self, Events.GetCamera)
     Events:Connect(self, Events.ModifyCoinAmount)
     Events:Connect(self, Events.AddCards)
 
@@ -563,7 +564,12 @@ function game:OnEntityTagAdded(entityId)
 end
 
 function game:OnEntityTagRemoved(entityId)
-    table.remove(self.tiles, entityId)
+    for i=1,#self.tiles do
+        if self.tiles[i] == entityId then
+            table.remove(self.tiles, i)
+            break
+        end
+    end
 end
 
 function game.InputEvents.MouseLeftClick:OnPressed(value)
@@ -605,6 +611,10 @@ function game.InputEvents.Esc:OnPressed(value)
 
         Events:GlobalLuaEvent(Events.OnPauseChanged, "Paused")
     end
+end
+
+function game:GetCamera()
+    return game.Properties.Camera
 end
 
 function game:GetTile(gridPosition)
@@ -672,6 +682,7 @@ function game:ResetGrid()
             local isTreasure = TagComponentRequestBus.Event.HasTag(entityId, Crc32("Treasure"))
 
             self.grid[x][y] = {
+                pos = Vector2(x,y),
                 enemy = hasEnemy,
                 boss = isBoss,
                 miniBoss = isMiniBoss,
