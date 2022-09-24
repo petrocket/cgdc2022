@@ -503,6 +503,8 @@ function game:OnActivate()
         UiCursorBus.Broadcast.IncrementVisibleCounter()
     end
 
+    UiCursorBus.Broadcast.SetUiCursor("ui/cursor.png")
+
     -- execute on the next tick after every entity is activated
     Utilities:ExecuteOnNextTick(self, function(self)
 
