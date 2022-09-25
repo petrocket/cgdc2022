@@ -630,6 +630,7 @@ function game:GetTile(gridPosition)
 
     return {
         type="None",
+        pos = Vector2(-1,-1),
         walkable = false,
         enemy=false
     }

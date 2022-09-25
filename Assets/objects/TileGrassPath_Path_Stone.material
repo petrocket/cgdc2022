@@ -1,0 +1,38 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.48299381136894226,
+            0.48299381136894226,
+            0.48299381136894226,
+            1.0
+        ],
+        "baseColor.factor": 0.9300000071525574,
+        "baseColor.textureMap": "Assets/objects/TilePath.png",
+        "emissive.color": [
+            0.4625925123691559,
+            0.3469443917274475,
+            0.0,
+            1.0
+        ],
+        "emissive.textureMap": "Assets/objects/TileEmissive.png",
+        "irradiance.manualColor": [
+            0.0,
+            0.2730144262313843,
+            0.5850309133529663,
+            1.0
+        ],
+        "metallic.factor": 0.05000000074505806,
+        "metallic.useTexture": false,
+        "opacity.factor": 1.0,
+        "parallax.factor": 0.0,
+        "parallax.offset": 0.01600000075995922,
+        "parallax.quality": "Medium",
+        "parallax.useTexture": false,
+        "roughness.factor": 0.23999999463558197,
+        "roughness.textureMap": "Assets/objects/TileEmissive.png",
+        "specularF0.factor": 0.47999998927116394,
+        "uv.rotateDegrees": 86.4000015258789
+    }
+}

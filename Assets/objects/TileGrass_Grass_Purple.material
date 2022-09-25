@@ -1,0 +1,24 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.3004196286201477,
+            0.15661859512329102,
+            0.4761883020401001,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/TileGrass.png",
+        "emissive.color": [
+            0.11564812809228897,
+            0.0,
+            0.23129625618457794,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 10.9399995803833,
+        "emissive.textureMap": "Assets/objects/TileEmissive.png",
+        "opacity.factor": 1.0,
+        "uv.rotateDegrees": 64.80000305175781
+    }
+}

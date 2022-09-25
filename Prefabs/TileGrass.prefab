@@ -117,8 +117,7 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
-                                            },
-                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                            }
                                         }
                                     }
                                 }

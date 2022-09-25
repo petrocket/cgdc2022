@@ -1,0 +1,10 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.factor": 0.49000000953674316,
+        "baseColor.textureMap": "Assets/textures/arrow_dark.png",
+        "emissive.intensity": 8.960000038146973,
+        "opacity.mode": "Cutout"
+    }
+}

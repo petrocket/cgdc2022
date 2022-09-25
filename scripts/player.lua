@@ -343,7 +343,7 @@ function Player.InputEvents.MouseLeftClick:OnPressed(value)
 
         if hit then
             local tile = Events:GlobalLuaEvent(Events.GetTile, Vector2(hit.x, hit.y))
-            if tile ~= nil then
+            if tile.walkable then
                 --self.Component:Log("tile pos " ..tostring(tile.pos))
                 local delta = tile.pos - Vector2(self.Component.gridPosition.x, self.Component.gridPosition.y)
                 self.Component:Log("delta " ..tostring(delta))

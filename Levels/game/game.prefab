@@ -32,7 +32,14 @@
                     "Entity_[49021515340992]",
                     "Entity_[52186769966771]",
                     "Entity_[4141653445767]",
-                    "Entity_[36755816290354]"
+                    "Entity_[36755816290354]",
+                    "Entity_[44755829645518]",
+                    "Entity_[204438418743502]",
+                    "Entity_[204481368416462]",
+                    "Entity_[204447008678094]",
+                    "Entity_[204455598612686]",
+                    "Entity_[204464188547278]",
+                    "Entity_[204472778481870]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -241,6 +248,20 @@
                         "Instance_[184182218197003]/ContainerEntity",
                         "Instance_[184220872902667]/ContainerEntity",
                         "Entity_[218090984998923]",
+                        "Entity_[4176978632910]",
+                        "Entity_[4228518240462]",
+                        "Entity_[4280057848014]",
+                        "Entity_[4331597455566]",
+                        "Entity_[4383137063118]",
+                        "Entity_[4434676670670]",
+                        "Entity_[4486216278222]",
+                        "Entity_[4537755885774]",
+                        "Entity_[4589295493326]",
+                        "Entity_[4640835100878]",
+                        "Entity_[4692374708430]",
+                        "Entity_[4743914315982]",
+                        "Entity_[4795453923534]",
+                        "Entity_[4846993531086]",
                         "Entity_[218155409508363]",
                         "Entity_[248044086921227]",
                         "Entity_[248125691299851]",
@@ -626,6 +647,426 @@
                 "Component_[7647231103588010478]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 7647231103588010478
+                }
+            }
+        },
+        "Entity_[204438418743502]": {
+            "Id": "Entity_[204438418743502]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.5289082527160645,
+                            0.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
+                }
+            }
+        },
+        "Entity_[204447008678094]": {
+            "Id": "Entity_[204447008678094]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.47109174728393555,
+                            0.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
+                }
+            }
+        },
+        "Entity_[204455598612686]": {
+            "Id": "Entity_[204455598612686]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            7.4710917472839355,
+                            1.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
+                }
+            }
+        },
+        "Entity_[204464188547278]": {
+            "Id": "Entity_[204464188547278]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            8.471092224121094,
+                            1.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
+                }
+            }
+        },
+        "Entity_[204472778481870]": {
+            "Id": "Entity_[204472778481870]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            9.471092224121094,
+                            1.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
+                }
+            }
+        },
+        "Entity_[204481368416462]": {
+            "Id": "Entity_[204481368416462]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            -2.5289082527160645,
+                            0.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
                 }
             }
         },
@@ -3628,60 +4069,6 @@
                 }
             }
         },
-        "Entity_[33968007427168]": {
-            "Id": "Entity_[33968007427168]",
-            "Name": "Grid Lines",
-            "Components": {
-                "Component_[10320085281088037749]": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 10320085281088037749
-                },
-                "Component_[13283934251841867557]": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 13283934251841867557
-                },
-                "Component_[1384121719272357996]": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 1384121719272357996,
-                    "DisabledComponents": [
-                        {
-                            "$type": "AZ::Render::EditorGridComponent",
-                            "Id": 14923219061656329527
-                        }
-                    ]
-                },
-                "Component_[14991980072312720472]": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 14991980072312720472
-                },
-                "Component_[16349147760065836382]": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 16349147760065836382
-                },
-                "Component_[1681137839246205943]": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 1681137839246205943
-                },
-                "Component_[17686628774119486526]": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 17686628774119486526,
-                    "IsEditorOnly": true
-                },
-                "Component_[18379816599092739244]": {
-                    "$type": "SelectionComponent",
-                    "Id": 18379816599092739244
-                },
-                "Component_[2977740808143196138]": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 2977740808143196138,
-                    "Parent Entity": "Entity_[60270034689216]"
-                },
-                "Component_[5849182752315927230]": {
-                    "$type": "EditorLockComponent",
-                    "Id": 5849182752315927230
-                }
-            }
-        },
         "Entity_[343774612981771]": {
             "Id": "Entity_[343774612981771]",
             "Name": "tiledirt",
@@ -6677,6 +7064,137 @@
                 }
             }
         },
+        "Entity_[4176978632910]": {
+            "Id": "Entity_[4176978632910]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -2.0796329975128174,
+                            -0.035889625549316406,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
         "Entity_[4218962857095]": {
             "Id": "Entity_[4218962857095]",
             "Name": "Coin",
@@ -6773,6 +7291,268 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 7870645471950948061,
                     "VisibilityFlag": false
+                }
+            }
+        },
+        "Entity_[4228518240462]": {
+            "Id": "Entity_[4228518240462]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.0796329975128174,
+                            -0.035889625549316406,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4280057848014]": {
+            "Id": "Entity_[4280057848014]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.07963299751281738,
+                            -0.035889625549316406,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
                 }
             }
         },
@@ -7325,6 +8105,137 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 7870645471950948061,
                     "VisibilityFlag": false
+                }
+            }
+        },
+        "Entity_[4331597455566]": {
+            "Id": "Entity_[4331597455566]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.07963299751281738,
+                            0.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
                 }
             }
         },
@@ -8607,6 +9518,137 @@
                 }
             }
         },
+        "Entity_[4383137063118]": {
+            "Id": "Entity_[4383137063118]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.0796329975128174,
+                            0.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
         "Entity_[4399351483527]": {
             "Id": "Entity_[4399351483527]",
             "Name": "Coin",
@@ -8907,6 +9949,469 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 7870645471950948061,
                     "VisibilityFlag": false
+                }
+            }
+        },
+        "Entity_[4434676670670]": {
+            "Id": "Entity_[4434676670670]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.0796329975128174,
+                            1.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[44755829645518]": {
+            "Id": "Entity_[44755829645518]",
+            "Name": "Arrow Decal",
+            "Components": {
+                "Component_[11669664284751571388]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11669664284751571388
+                },
+                "Component_[13410790222796884268]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13410790222796884268
+                },
+                "Component_[16827508047392955967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16827508047392955967
+                },
+                "Component_[5324890436484528667]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5324890436484528667
+                },
+                "Component_[5421614777295687600]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5421614777295687600
+                },
+                "Component_[7593095191862059134]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7593095191862059134
+                },
+                "Component_[861313027631993012]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 861313027631993012,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.5289082527160645,
+                            0.5053815841674805,
+                            0.0
+                        ],
+                        "UniformScale": 0.4000000059604645
+                    }
+                },
+                "Component_[907273644213985575]": {
+                    "$type": "AZ::Render::EditorDecalComponent",
+                    "Id": 907273644213985575,
+                    "Controller": {
+                        "Configuration": {
+                            "Opacity": 0.5299999713897705,
+                            "Material": {
+                                "assetId": {
+                                    "guid": "{50D1383F-6729-5F4E-BC68-F2EA7D83873A}"
+                                },
+                                "assetHint": "assets/materials/arrow_dark.azmaterial"
+                            }
+                        }
+                    }
+                },
+                "Component_[9113738891451484227]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9113738891451484227
+                },
+                "Component_[9120144120922185188]": {
+                    "$type": "SelectionComponent",
+                    "Id": 9120144120922185188
+                },
+                "Component_[9521978145467859418]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9521978145467859418
+                }
+            }
+        },
+        "Entity_[4486216278222]": {
+            "Id": "Entity_[4486216278222]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.07963299751281738,
+                            1.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4537755885774]": {
+            "Id": "Entity_[4537755885774]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.9203670024871826,
+                            1.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
                 }
             }
         },
@@ -9480,6 +10985,792 @@
                 }
             }
         },
+        "Entity_[4589295493326]": {
+            "Id": "Entity_[4589295493326]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.9203670024871826,
+                            2.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4640835100878]": {
+            "Id": "Entity_[4640835100878]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.9203670024871826,
+                            3.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4692374708430]": {
+            "Id": "Entity_[4692374708430]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            1.9203670024871826,
+                            1.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4743914315982]": {
+            "Id": "Entity_[4743914315982]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            1.9203670024871826,
+                            0.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4795453923534]": {
+            "Id": "Entity_[4795453923534]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            2.9203670024871826,
+                            0.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
+        "Entity_[4846993531086]": {
+            "Id": "Entity_[4846993531086]",
+            "Name": "tilegrasspath",
+            "Components": {
+                "Component_[13107170935134201304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13107170935134201304
+                },
+                "Component_[13204703933591427450]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13204703933591427450
+                },
+                "Component_[14990965680559356588]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14990965680559356588
+                },
+                "Component_[15146150157107978386]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15146150157107978386
+                },
+                "Component_[17101506969096411396]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17101506969096411396
+                },
+                "Component_[17579441395724469829]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17579441395724469829
+                },
+                "Component_[18361876890934080576]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18361876890934080576,
+                    "Parent Entity": "Entity_[115750504269835]",
+                    "Transform Data": {
+                        "Translate": [
+                            3.9203670024871826,
+                            0.9641103744506836,
+                            4.76837158203125e-7
+                        ]
+                    }
+                },
+                "Component_[287860501026308483]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 287860501026308483
+                },
+                "Component_[5478737527059126558]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5478737527059126558,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{78D340A9-3993-5817-8DD7-45A42D617A32}",
+                                    "subId": 278937968
+                                },
+                                "assetHint": "assets/objects/tilegrasspath.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[7913795536052297342]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 7913795536052297342,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 256583439
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF214C79-9431-597A-899F-D439C80DEAD6}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrasspath_path.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1557364215
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{FA410007-904F-5D67-BA2F-1E36CB747AE2}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt1.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1821142962
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BEFE89FE-4921-5F2A-9E1D-604724446F21}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_dirt2.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2956159980
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[8423298036765208980]": {
+                    "$type": "SelectionComponent",
+                    "Id": 8423298036765208980
+                },
+                "Component_[9851683312388505748]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9851683312388505748
+                }
+            }
+        },
         "Entity_[48647853186240]": {
             "Id": "Entity_[48647853186240]",
             "Name": "Directional Light",
@@ -9654,7 +11945,7 @@
                     "Controller": {
                         "Configuration": {
                             "Field of View": 30.0,
-                            "EditorEntityId": 10901915108798641580
+                            "EditorEntityId": 15754202749951722085
                         }
                     }
                 },
@@ -10049,11 +12340,17 @@
         },
         "Entity_[60270034689216]": {
             "Id": "Entity_[60270034689216]",
-            "Name": "Grid",
+            "Name": "Tiles",
             "Components": {
                 "Component_[10738360157319793426]": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 10738360157319793426
+                    "Id": 10738360157319793426,
+                    "DisabledComponents": [
+                        {
+                            "$type": "AZ::Render::EditorGridComponent",
+                            "Id": 17296341281712488511
+                        }
+                    ]
                 },
                 "Component_[114029751308601929]": {
                     "$type": "EditorEntityIconComponent",
@@ -10091,7 +12388,6 @@
                         "Instance_[15126233978328]/ContainerEntity",
                         "Instance_[14958730253784]/ContainerEntity",
                         "Instance_[34019547034720]/ContainerEntity",
-                        "Entity_[33968007427168]",
                         "Instance_[2783095518647]/ContainerEntity",
                         "Instance_[2886174733751]/ContainerEntity",
                         "Instance_[2873289831863]/ContainerEntity",

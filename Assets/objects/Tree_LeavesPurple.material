@@ -1,0 +1,33 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.7891203165054321,
+            0.0631265714764595,
+            0.607614278793335,
+            1.0
+        ],
+        "baseColor.textureMap": "Assets/objects/TreeLeaves.png",
+        "emissive.color": [
+            0.9387807846069336,
+            0.09179827570915222,
+            0.7270313501358032,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 7.5,
+        "emissive.textureMap": "Assets/objects/TileEmissive.png",
+        "irradiance.irradianceColorSource": "BaseColor",
+        "irradiance.manualColor": [
+            1.0,
+            0.5000076293945313,
+            0.0,
+            1.0
+        ],
+        "metallic.textureMap": "Assets/objects/TileEmissive.png",
+        "opacity.factor": 1.0,
+        "specularF0.factor": 1.0,
+        "specularF0.textureMap": "Assets/objects/TileEmissive.png"
+    }
+}

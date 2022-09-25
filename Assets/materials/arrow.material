@@ -1,0 +1,16 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.2585030794143677,
+            0.1748683899641037,
+            0.0792706161737442,
+            1.0
+        ],
+        "baseColor.factor": 0.49000000953674316,
+        "baseColor.textureMap": "Assets/textures/arrow.png",
+        "emissive.intensity": 8.960000038146973,
+        "opacity.mode": "Cutout"
+    }
+}
