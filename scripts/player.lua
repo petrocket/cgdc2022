@@ -258,6 +258,7 @@ end
 
 function Player:SetVisible(visible)
     RenderMeshComponentRequestBus.Event.SetVisibility(self.Properties.Mesh, visible)
+    ActorComponentRequestBus.Event.SetRenderCharacter(self.Properties.Mesh, visible)
 end
 
 function Player:OnDiscard(value)

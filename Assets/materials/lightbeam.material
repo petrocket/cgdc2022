@@ -1,0 +1,32 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "materialTypeVersion": 5,
+    "propertyValues": {
+        "baseColor.color": [
+            0.7755092978477478,
+            0.6366063952445984,
+            0.13441672921180725,
+            1.0
+        ],
+        "baseColor.textureBlendMode": "LinearLight",
+        "baseColor.textureMap": "Assets/textures/FX_lightbeam.png",
+        "baseColor.textureMapUv": "Unwrapped",
+        "emissive.color": [
+            0.9319753050804138,
+            0.7856870293617249,
+            0.2568093240261078,
+            1.0
+        ],
+        "emissive.enable": true,
+        "emissive.intensity": 1.4800000190734863,
+        "emissive.textureMap": "Assets/textures/FX_lightbeam.png",
+        "general.enableAreaLights": false,
+        "general.enableDirectionalLights": false,
+        "general.enableIBL": false,
+        "general.enablePunctualLights": false,
+        "general.enableShadows": false,
+        "opacity.factor": 0.0,
+        "opacity.mode": "Blended",
+        "opacity.textureMapUv": "Unwrapped"
+    }
+}
