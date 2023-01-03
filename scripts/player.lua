@@ -57,11 +57,11 @@ function Player:OnActivate ()
 
     Events:Connect(self, Events.OnStateChange)
     Events:Connect(self, Events.OnUseCard)
+    Events:Connect(self, Events.OnVerseChallengeComplete)
     Events:Connect(self, Events.OnDiscard)
     Events:Connect(self, Events.ModifyCoinAmount)
     Events:Connect(self, Events.AddCards)
     Events:Connect(self, Events.OnPauseChanged)
-    --return self
 end
 
 function Player:OnPauseChanged(value)
@@ -136,7 +136,7 @@ function Player:Move(position, immediately)
 
     if immediately then
         TransformBus.Event.SetWorldTranslation(self.entityId, position)
-        self.moveAmount = 1.0 
+        self.moveAmount = 1.0
     end
 end
 
@@ -161,26 +161,12 @@ function Player:UseCard(cardIndex)
         return
     end
 
-    local damageTaken = false
     local card = self.cards.active[cardIndex]
     if card ~= nil then
-        self:Log("UseCard " ..tostring(card.type))
-        damageTaken = Events:GlobalLuaEvent(Events.OnTakeDamage, card.type, 1)
+        self:Log("UseCard " ..tostring(card.verse.reference))
+        Events:GlobalLuaEvent(Events.OnSetVerseChallengeVisible, true)
+        Events:GlobalLuaEvent(Events.OnStartVerseChallenge, card)
     end
-
-    if damageTaken then
-        Events:LuaEvent(Events.OnCardUsed, self.name, cardIndex)
-        self:Log("Getting new card")
-        if #self.cards.deck > 0 then
-            card = table.remove(self.cards.deck)
-        else
-            self:Log("Draw deck empty")
-            card = nil
-        end
-        self.cards.active[cardIndex] = card
-        Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
-    end
-    self:NotifyCardAmount()
 end
 
 function Player:NotifyCardAmount()
@@ -246,7 +232,7 @@ function Player:Update(deltaTime, scriptTime)
 
         local tile = Events:GlobalLuaEvent(Events.GetTile, Vector2(self.moveEnd.x, self.moveEnd.y))
         if tile.walkable and not tile.enemy then
-            self:Log("$3 player movement")
+            --self:Log("$3 player movement")
             self.moving = true
             self.moveStartTime = scriptTime:GetSeconds()
             self.gridPosition.x = math.ceil(self.moveEnd.x)
@@ -267,6 +253,36 @@ end
 
 function Player:OnUseCard(value)
     self:UseCard(math.floor(value))
+end
+
+function Player:OnVerseChallengeComplete(card)
+    -- find this card
+    local cardIndex = 0 
+    for i=1,#self.cards.active do
+        if self.cards.active[i] ~= nil and self.cards.active[i].reference == card.reference then
+            cardIndex = i
+            break
+        end
+    end
+
+    if cardIndex > 0 then
+        Events:LuaEvent(Events.OnCardUsed, self.name, cardIndex)
+        self:Log("Getting new card")
+        if #self.cards.deck > 0 then
+            card = table.remove(self.cards.deck)
+        else
+            self:Log("Draw deck empty")
+            card = nil
+        end
+        self.cards.active[cardIndex] = card
+        Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
+    else
+        self:Log("$3 Couldn't find active card with reference " .. card.reference)
+    end
+
+    Events:GlobalLuaEvent(Events.OnSetVerseChallengeVisible, false)
+
+    self:NotifyCardAmount()
 end
 
 function Player.InputEvents.Player1Action0:OnPressed(value)

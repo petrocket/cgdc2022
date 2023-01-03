@@ -1,7 +1,10 @@
+local TopicColors = require "scripts.topicscolors"
+
 local Card = {
     type = 0,
-    color = Color(0.0,0.0,0.0),
+    color = Color(0.0,0.0,0.0,0.0),
     name = 'Card',
+    verse = {},
     Types = {
         Common = {
             Arrow = "Arrow",
@@ -40,10 +43,20 @@ setmetatable(Card, {
     return cls.new(...)
   end,
 })
-function Card.new (type)
+function Card.new (verse)
 	local self = setmetatable({}, Card)
-	self.type = type
-    self.color = Card.Colors[self.type]
+	self.verse = verse
+    if verse ~= nil and verse.topics ~= nil then
+        for topic, amount in pairs(verse.topics) do
+            if TopicColors[topic] ~= nil then
+                self.color =  TopicColors[topic]
+            end
+            break
+        end
+    else
+        -- just use a grey color till we know what to do
+        self.color = TopicColors.Unknown
+    end
 	return self
 end
 

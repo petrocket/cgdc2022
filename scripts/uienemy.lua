@@ -2,6 +2,7 @@ local Events = require "scripts.events"
 local Utilities = require "scripts.utilities"
 local Card = require "scripts.card"
 local Easing = require "scripts.easing"
+local TopicIcons = require "scripts.topicicons"
 
 local UiEnemy = {
     Properties = {
@@ -57,7 +58,7 @@ function UiEnemy:HideAllChildren(parent)
 end
 
 function UiEnemy:OnSetEnemy(enemy)
-    self:Log("Set " .. tostring(enemy.Name) .. " with " ..tostring(Utilities:Count(enemy.Weaknesses)).. " weaknesses")
+    self:Log("Set " .. tostring(enemy.Name) .. " with " ..tostring(Utilities:Count(enemy.Topics)).. " topic weaknesses")
     UiTextBus.Event.SetText(self.Properties.Name, enemy.Name)
 
     self:Reset()
@@ -66,8 +67,8 @@ function UiEnemy:OnSetEnemy(enemy)
     UiTextBus.Event.SetText(victoryText, "Defeated " .. enemy.Name)
 
 
-    for weakness, data in pairs(enemy.Weaknesses) do
-        self:UpdateWeaknessAmount(weakness, data.Amount)
+    for topic, data in pairs(enemy.Topics) do
+        self:UpdateWeaknessAmount(topic, data.Amount)
     end
 end
 
@@ -115,6 +116,8 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
     local weaknesses = UiElementBus.Event.GetChildren(self.Properties.Weaknesses)
     --self:Log("UpdateWeaknessAmount " .. tostring(weakness) .. " " ..tostring(amount))
 
+    local iconOffset = 18
+    local iconWidth = 91
     if amount > self.weaknessAmounts[weakness] then
         -- append to end 
 
@@ -123,38 +126,43 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
             if _weakness.State == WeaknessState.Hidden then
                 local entityId = _weakness.EntityId
                 -- look for an image element with the name that matches the weakness
-                local child = UiElementBus.Event.FindChildByName(entityId, weakness)
+                local child = UiElementBus.Event.FindChildByName(entityId, "Topics")
                 if child ~= nil and child:IsValid() then
                     UiElementBus.Event.SetIsEnabled(entityId, true)
                     UiElementBus.Event.SetIsEnabled(child, true)
                     self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] + 1
-                    self:Log("Enabled weakness " ..weakness)
+                    self:Log("Enabled weakness topic " ..weakness)
+                    if TopicIcons[weakness] ~= nil then
+                        UiTransformBus.Event.SetLocalPositionX(child, iconOffset - iconWidth * TopicIcons[weakness] )
+                    else
+                        self:Log("$5 Failed to find topic icon for " ..tostring(weakness))
+                    end
 
                     _weakness.State = WeaknessState.Visible
 
                     if self.weaknessAmounts[weakness] == amount then
-                        -- done removing weaknesses
+                        -- done adding weaknesses
                         break
                     end
                 else
-                    self:Log("$5 Failed to find child for weakness " ..tostring(weakness))
+                    self:Log("$5 Failed to find child for weakness topic " ..tostring(weakness))
                 end
             end
         end
     elseif amount < self.weaknessAmounts[weakness] then
+        local imageOffset = iconOffset - iconWidth * TopicIcons[weakness]
         -- remove from end
         for i=#weaknesses, 1, -1 do
             local _weakness = self.weaknesses[i]
             if _weakness.State == WeaknessState.Visible then
                 local entityId = _weakness.EntityId
-                -- look for an image element with the name that matches the weakness
-                local child = UiElementBus.Event.FindChildByName(entityId, weakness)
+                local child = UiElementBus.Event.FindChildByName(entityId, "Topics")
                 if child ~= nil and child:IsValid() then
-                    local childIsEnabled = UiElementBus.Event.IsEnabled(child)
-                    if childIsEnabled then
+                    local childOffsetX = UiTransformBus.Event.GetLocalPositionX(child)
+                    if childOffsetX == imageOffset then
                         UiElementBus.Event.SetIsEnabled(child, false)
                         self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] - 1
-                        self:Log("Disabled weakness " ..weakness)
+                        self:Log("Disabled weakness topic " ..weakness)
                         _weakness.State = WeaknessState.FadingOut
                         _weakness.FadeEntityId = UiElementBus.Event.FindChildByName(entityId, "White")
 
@@ -181,14 +189,14 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
             end
         end
     else
-        self:Log("Enemy weakness "..tostring(weakness) .. " already set to " .. tostring(amount))
+        self:Log("Enemy weakness topic amount for "..tostring(weakness) .. " already set to " .. tostring(amount))
     end
 
     if amount ~= self.weaknessAmounts[weakness] then
-        self:Log("$5 Failed to update weaknesses for "..tostring(weakness))
+        self:Log("$5 Failed to update weakness topic for "..tostring(weakness))
     end
 
-    Events:GlobalLuaEvent(Events.OnUpdateWeaknessAmount, weakness, amount)
+    Events:GlobalLuaEvent(Events.OnUpdateTopicAmount, weakness, amount)
     return true -- damage taken
 end
 

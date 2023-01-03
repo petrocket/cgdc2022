@@ -60,10 +60,6 @@
                 "$type": "EditorEntityIconComponent",
                 "Id": 5688118765544765547
             },
-            "Component_[6545738857812235305]": {
-                "$type": "SelectionComponent",
-                "Id": 6545738857812235305
-            },
             "Component_[7247035804068349658]": {
                 "$type": "EditorPrefabComponent",
                 "Id": 7247035804068349658
@@ -335,10 +331,6 @@
                 "Component_[87410853075534268]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 87410853075534268
-                },
-                "Component_[9939719143365080193]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9939719143365080193
                 }
             }
         },
@@ -389,10 +381,6 @@
                             }
                         }
                     }
-                },
-                "Component_[1296433384930308161]": {
-                    "$type": "SelectionComponent",
-                    "Id": 1296433384930308161
                 },
                 "Component_[13278151273755917489]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -493,10 +481,6 @@
                 "Component_[15044979442090197561]": {
                     "$type": "EditorLockComponent",
                     "Id": 15044979442090197561
-                },
-                "Component_[18185901441920276438]": {
-                    "$type": "SelectionComponent",
-                    "Id": 18185901441920276438
                 },
                 "Component_[1993897283160956452]": {
                     "$type": "AZ::Render::EditorDepthOfFieldComponent",
@@ -610,10 +594,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 13672757346057905376
                 },
-                "Component_[14815285469970074628]": {
-                    "$type": "SelectionComponent",
-                    "Id": 14815285469970074628
-                },
                 "Component_[14986079996368194914]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 14986079996368194914
@@ -672,10 +652,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -766,10 +742,6 @@
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
                 },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
-                },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 16804730226332637472
@@ -825,7 +797,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -857,10 +830,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -917,7 +886,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -949,10 +919,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1009,7 +975,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1041,10 +1008,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1101,7 +1064,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1133,10 +1097,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1193,7 +1153,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1225,10 +1186,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1285,7 +1242,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1317,10 +1275,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1377,7 +1331,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1409,10 +1364,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1474,7 +1425,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1506,10 +1458,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1571,7 +1519,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1603,10 +1552,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1668,7 +1613,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1700,10 +1646,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1765,7 +1707,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1797,10 +1740,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1862,7 +1801,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -1932,10 +1872,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
                 },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
-                },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9521978145467859418
@@ -2001,10 +1937,6 @@
                 "Component_[9113738891451484227]": {
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
-                },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
                 },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -2072,10 +2004,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
                 },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
-                },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9521978145467859418
@@ -2141,10 +2069,6 @@
                 "Component_[9113738891451484227]": {
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
-                },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
                 },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -2212,10 +2136,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
                 },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
-                },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9521978145467859418
@@ -2282,10 +2202,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
                 },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
-                },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9521978145467859418
@@ -2314,10 +2230,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -2379,7 +2291,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -2411,10 +2324,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -2476,7 +2385,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -2508,10 +2418,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -2573,7 +2479,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -2605,10 +2512,6 @@
                 "Component_[15914053629068547892]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15914053629068547892
-                },
-                "Component_[16266837777510749284]": {
-                    "$type": "SelectionComponent",
-                    "Id": 16266837777510749284
                 },
                 "Component_[16804730226332637472]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -2670,7 +2573,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{ABFE8F62-6F07-5606-BEDD-CDA09863C042}"
-                                            }
+                                            },
+                                            "assetHint": "assets/materials/red_apple.azmaterial"
                                         }
                                     }
                                 }
@@ -2801,10 +2705,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -2931,10 +2831,6 @@
                             ]
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -3063,10 +2959,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -3115,10 +3007,6 @@
                 "Component_[4019360975972485935]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 4019360975972485935
-                },
-                "Component_[5936272081333510357]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5936272081333510357
                 },
                 "Component_[9558935405540676478]": {
                     "$type": "ScriptEditorComponent",
@@ -3204,10 +3092,6 @@
                             1.0000009536743164
                         ]
                     }
-                },
-                "Component_[4066908398532806576]": {
-                    "$type": "SelectionComponent",
-                    "Id": 4066908398532806576
                 },
                 "Component_[4130892524390660268]": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -3383,10 +3267,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -3513,10 +3393,6 @@
                             ]
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -3645,10 +3521,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -3736,10 +3608,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -3829,10 +3697,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -3920,10 +3784,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4013,10 +3873,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -4104,10 +3960,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4197,10 +4049,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -4288,10 +4136,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4381,10 +4225,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -4472,10 +4312,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4565,10 +4401,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -4656,10 +4488,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4749,10 +4577,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -4840,10 +4664,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4933,10 +4753,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -5024,10 +4840,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -5117,10 +4929,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -5208,10 +5016,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -5301,10 +5105,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -5392,10 +5192,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -5485,10 +5281,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -5576,10 +5368,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -5669,10 +5457,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -5760,10 +5544,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -5853,10 +5633,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -5944,10 +5720,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -6037,10 +5809,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -6128,10 +5896,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -6221,10 +5985,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -6313,10 +6073,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -6327,10 +6083,6 @@
             "Id": "Entity_[35497263863256]",
             "Name": "MiniBoss_Tile",
             "Components": {
-                "Component_[10670681231913104086]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10670681231913104086
-                },
                 "Component_[14031123470833534313]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 14031123470833534313
@@ -6388,7 +6140,8 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyGenericClass",
@@ -6422,37 +6175,17 @@
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 135157099,
+                                    "name": "TopicGroup"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 2363381545,
                                     "name": "Type",
                                     "value": "EnemyType1"
                                 }
                             ],
                             "Groups": [
-                                {
-                                    "Name": "Weaknesses",
-                                    "Properties": [
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3627544126,
-                                            "name": "Arrow"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3977723523,
-                                            "name": "Scroll"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 513004264,
-                                            "name": "Shield"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2598749967,
-                                            "name": "Sword"
-                                        }
-                                    ]
-                                },
                                 {
                                     "Name": "Randomness",
                                     "Properties": [
@@ -6465,13 +6198,30 @@
                                     ],
                                     "Groups": [
                                         {
-                                            "Name": "AmountPerType",
+                                            "Name": "Topics",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
                                                     "value": 2.0
+                                                },
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2709200336,
+                                                    "name": "Min",
+                                                    "value": 2.0
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "Name": "AmountPerTopic",
+                                            "Properties": [
+                                                {
+                                                    "$type": "AzFramework::ScriptPropertyNumber",
+                                                    "id": 2641765001,
+                                                    "name": "Max",
+                                                    "value": 1.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -6480,23 +6230,76 @@
                                                     "value": 1.0
                                                 }
                                             ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Topics",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 153380485,
+                                            "name": "Topic1"
                                         },
                                         {
-                                            "Name": "WeaknessTypes",
-                                            "Properties": [
-                                                {
-                                                    "$type": "AzFramework::ScriptPropertyNumber",
-                                                    "id": 2641765001,
-                                                    "name": "Max",
-                                                    "value": 3.0
-                                                },
-                                                {
-                                                    "$type": "AzFramework::ScriptPropertyNumber",
-                                                    "id": 2709200336,
-                                                    "name": "Min",
-                                                    "value": 2.0
-                                                }
-                                            ]
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 4130305058,
+                                            "name": "Topic1Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2418882367,
+                                            "name": "Topic2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3351735999,
+                                            "name": "Topic2Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3878291369,
+                                            "name": "Topic3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1638950155,
+                                            "name": "Topic3Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2035192330,
+                                            "name": "Topic4"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2752994181,
+                                            "name": "Topic4Amount"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Verses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3820918404,
+                                            "name": "Verse1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2058864446,
+                                            "name": "Verse2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 229701544,
+                                            "name": "Verse3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2480169483,
+                                            "name": "Verse4"
                                         }
                                     ]
                                 }
@@ -6528,10 +6331,6 @@
             "Id": "Entity_[35535918568920]",
             "Name": "Enemy_Tile",
             "Components": {
-                "Component_[10670681231913104086]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10670681231913104086
-                },
                 "Component_[14031123470833534313]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 14031123470833534313
@@ -6590,7 +6389,8 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyGenericClass",
@@ -6623,37 +6423,17 @@
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 135157099,
+                                    "name": "TopicGroup"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 2363381545,
                                     "name": "Type",
                                     "value": "0"
                                 }
                             ],
                             "Groups": [
-                                {
-                                    "Name": "Weaknesses",
-                                    "Properties": [
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3627544126,
-                                            "name": "Arrow"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3977723523,
-                                            "name": "Scroll"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 513004264,
-                                            "name": "Shield"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2598749967,
-                                            "name": "Sword"
-                                        }
-                                    ]
-                                },
                                 {
                                     "Name": "Randomness",
                                     "Properties": [
@@ -6666,38 +6446,108 @@
                                     ],
                                     "Groups": [
                                         {
-                                            "Name": "AmountPerType",
+                                            "Name": "Topics",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 }
                                             ]
                                         },
                                         {
-                                            "Name": "WeaknessTypes",
+                                            "Name": "AmountPerTopic",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 }
                                             ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Topics",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 153380485,
+                                            "name": "Topic1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 4130305058,
+                                            "name": "Topic1Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2418882367,
+                                            "name": "Topic2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3351735999,
+                                            "name": "Topic2Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3878291369,
+                                            "name": "Topic3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1638950155,
+                                            "name": "Topic3Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2035192330,
+                                            "name": "Topic4"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2752994181,
+                                            "name": "Topic4Amount"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Verses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3820918404,
+                                            "name": "Verse1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2058864446,
+                                            "name": "Verse2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 229701544,
+                                            "name": "Verse3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2480169483,
+                                            "name": "Verse4"
                                         }
                                     ]
                                 }
@@ -6729,10 +6579,6 @@
             "Id": "Entity_[356808237558]",
             "Name": "Game",
             "Components": {
-                "Component_[10234664425985787188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10234664425985787188
-                },
                 "Component_[10744072781488412777]": {
                     "$type": "GenericComponentWrapper",
                     "Id": 10744072781488412777,
@@ -6806,7 +6652,7 @@
                                     "$type": "AzFramework::ScriptPropertyString",
                                     "id": 3033761453,
                                     "name": "InitialState",
-                                    "value": "MainMenu"
+                                    "value": "LevelBuildOut"
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyNumber",
@@ -6974,10 +6820,6 @@
                         "PlayerMesh"
                     ]
                 },
-                "Component_[7686612633810829998]": {
-                    "$type": "SelectionComponent",
-                    "Id": 7686612633810829998
-                },
                 "Component_[8286114637202875700]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 8286114637202875700,
@@ -7016,10 +6858,6 @@
                                                     1.0
                                                 ]
                                             },
-                                            "emissive.enable": {
-                                                "$type": "bool",
-                                                "Value": true
-                                            },
                                             "emissive.color": {
                                                 "$type": "Color",
                                                 "Value": [
@@ -7028,6 +6866,10 @@
                                                     0.2381017804145813,
                                                     1.0
                                                 ]
+                                            },
+                                            "emissive.enable": {
+                                                "$type": "bool",
+                                                "Value": true
                                             },
                                             "emissive.intensity": {
                                                 "$type": "float",
@@ -7100,10 +6942,6 @@
                 "Component_[2759724373943647864]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 2759724373943647864
-                },
-                "Component_[3647010334870599247]": {
-                    "$type": "SelectionComponent",
-                    "Id": 3647010334870599247
                 },
                 "Component_[4157577491108460364]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -7266,10 +7104,6 @@
                     "Id": 4578791886669085984,
                     "VisibilityFlag": false
                 },
-                "Component_[7686612633810829998]": {
-                    "$type": "SelectionComponent",
-                    "Id": 7686612633810829998
-                },
                 "Component_[8286114637202875700]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 8286114637202875700,
@@ -7364,10 +7198,6 @@
                             ]
                         }
                     }
-                },
-                "Component_[7686612633810829998]": {
-                    "$type": "SelectionComponent",
-                    "Id": 7686612633810829998
                 },
                 "Component_[8286114637202875700]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -7470,10 +7300,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -7561,10 +7387,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -7654,10 +7476,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -7745,10 +7563,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -7838,10 +7652,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -7929,10 +7739,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -8022,10 +7828,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -8113,10 +7915,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -8206,10 +8004,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -8298,10 +8092,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -8389,10 +8179,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -8498,10 +8284,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -8567,10 +8349,6 @@
                     "Id": 4578791886669085984,
                     "VisibilityFlag": false
                 },
-                "Component_[7686612633810829998]": {
-                    "$type": "SelectionComponent",
-                    "Id": 7686612633810829998
-                },
                 "Component_[8286114637202875700]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 8286114637202875700,
@@ -8609,10 +8387,6 @@
                                                     1.0
                                                 ]
                                             },
-                                            "emissive.enable": {
-                                                "$type": "bool",
-                                                "Value": true
-                                            },
                                             "emissive.color": {
                                                 "$type": "Color",
                                                 "Value": [
@@ -8621,6 +8395,10 @@
                                                     0.2381017804145813,
                                                     1.0
                                                 ]
+                                            },
+                                            "emissive.enable": {
+                                                "$type": "bool",
+                                                "Value": true
                                             },
                                             "emissive.intensity": {
                                                 "$type": "float",
@@ -8795,10 +8573,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -8812,10 +8586,6 @@
                 "Component_[10048931643638633247]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 10048931643638633247
-                },
-                "Component_[10563297422759882919]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10563297422759882919
                 },
                 "Component_[10986528568616619597]": {
                     "$type": "EditorLockComponent",
@@ -9025,10 +8795,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -9156,10 +8922,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -9173,10 +8935,6 @@
                 "Component_[10048931643638633247]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 10048931643638633247
-                },
-                "Component_[10563297422759882919]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10563297422759882919
                 },
                 "Component_[10986528568616619597]": {
                     "$type": "EditorLockComponent",
@@ -9293,10 +9051,6 @@
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 3892470664042673232
                 },
-                "Component_[5174535924819336564]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5174535924819336564
-                },
                 "Component_[5772097440133197666]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 5772097440133197666,
@@ -9397,10 +9151,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 2753774096167923961
                 },
-                "Component_[375814538820189554]": {
-                    "$type": "SelectionComponent",
-                    "Id": 375814538820189554
-                },
                 "Component_[4091127121099083447]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 4091127121099083447
@@ -9472,10 +9222,6 @@
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 4019360975972485935
                 },
-                "Component_[5936272081333510357]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5936272081333510357
-                },
                 "Component_[9558935405540676478]": {
                     "$type": "ScriptEditorComponent",
                     "Id": 9558935405540676478,
@@ -9531,10 +9277,6 @@
                 "Component_[1547311556933960867]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 1547311556933960867
-                },
-                "Component_[17029623548752611639]": {
-                    "$type": "SelectionComponent",
-                    "Id": 17029623548752611639
                 },
                 "Component_[17976436093226404684]": {
                     "$type": "EditorEntitySortComponent",
@@ -9626,10 +9368,6 @@
                 "Component_[10048931643638633247]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 10048931643638633247
-                },
-                "Component_[10563297422759882919]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10563297422759882919
                 },
                 "Component_[10986528568616619597]": {
                     "$type": "EditorLockComponent",
@@ -9839,10 +9577,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -9860,10 +9594,6 @@
                 "Component_[13789747136391582385]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 13789747136391582385
-                },
-                "Component_[14287811210545911583]": {
-                    "$type": "SelectionComponent",
-                    "Id": 14287811210545911583
                 },
                 "Component_[14443312664996525555]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -9951,10 +9681,6 @@
                 "Component_[10048931643638633247]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 10048931643638633247
-                },
-                "Component_[10563297422759882919]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10563297422759882919
                 },
                 "Component_[10986528568616619597]": {
                     "$type": "EditorLockComponent",
@@ -10141,10 +9867,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10257,10 +9979,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10362,10 +10080,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10482,10 +10196,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10592,10 +10302,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10702,10 +10408,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10812,10 +10514,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -10922,10 +10620,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -11032,10 +10726,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -11142,10 +10832,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -11270,10 +10956,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -11287,10 +10969,6 @@
                 "Component_[10048931643638633247]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 10048931643638633247
-                },
-                "Component_[10563297422759882919]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10563297422759882919
                 },
                 "Component_[10986528568616619597]": {
                     "$type": "EditorLockComponent",
@@ -11477,10 +11155,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -11491,10 +11165,6 @@
                 "Component_[10048931643638633247]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 10048931643638633247
-                },
-                "Component_[10563297422759882919]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10563297422759882919
                 },
                 "Component_[10986528568616619597]": {
                     "$type": "EditorLockComponent",
@@ -11704,10 +11374,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -11773,10 +11439,6 @@
                 "Component_[9113738891451484227]": {
                     "$type": "EditorLockComponent",
                     "Id": 9113738891451484227
-                },
-                "Component_[9120144120922185188]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9120144120922185188
                 },
                 "Component_[9521978145467859418]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -11905,10 +11567,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -12036,10 +11694,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -12050,10 +11704,6 @@
             "Id": "Entity_[45405560264262]",
             "Name": "Enemy_Tile",
             "Components": {
-                "Component_[10670681231913104086]": {
-                    "$type": "SelectionComponent",
-                    "Id": 10670681231913104086
-                },
                 "Component_[14031123470833534313]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 14031123470833534313
@@ -12113,7 +11763,8 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyGenericClass",
@@ -12146,37 +11797,17 @@
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 135157099,
+                                    "name": "TopicGroup"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 2363381545,
                                     "name": "Type",
                                     "value": "0"
                                 }
                             ],
                             "Groups": [
-                                {
-                                    "Name": "Weaknesses",
-                                    "Properties": [
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3627544126,
-                                            "name": "Arrow"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3977723523,
-                                            "name": "Scroll"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 513004264,
-                                            "name": "Shield"
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2598749967,
-                                            "name": "Sword"
-                                        }
-                                    ]
-                                },
                                 {
                                     "Name": "Randomness",
                                     "Properties": [
@@ -12189,38 +11820,108 @@
                                     ],
                                     "Groups": [
                                         {
-                                            "Name": "AmountPerType",
+                                            "Name": "Topics",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 }
                                             ]
                                         },
                                         {
-                                            "Name": "WeaknessTypes",
+                                            "Name": "AmountPerTopic",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 }
                                             ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Topics",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 153380485,
+                                            "name": "Topic1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 4130305058,
+                                            "name": "Topic1Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2418882367,
+                                            "name": "Topic2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3351735999,
+                                            "name": "Topic2Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3878291369,
+                                            "name": "Topic3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1638950155,
+                                            "name": "Topic3Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2035192330,
+                                            "name": "Topic4"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2752994181,
+                                            "name": "Topic4Amount"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Verses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3820918404,
+                                            "name": "Verse1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2058864446,
+                                            "name": "Verse2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 229701544,
+                                            "name": "Verse3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2480169483,
+                                            "name": "Verse4"
                                         }
                                     ]
                                 }
@@ -12330,10 +12031,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -12421,10 +12118,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -12514,10 +12207,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -12605,10 +12294,6 @@
                             }
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -12737,10 +12422,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -12867,10 +12548,6 @@
                             ]
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -12999,10 +12676,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -13129,10 +12802,6 @@
                             ]
                         }
                     }
-                },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
                 },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -13261,10 +12930,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -13392,10 +13057,6 @@
                         }
                     }
                 },
-                "Component_[8423298036765208980]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8423298036765208980
-                },
                 "Component_[9851683312388505748]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 9851683312388505748
@@ -13443,10 +13104,6 @@
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 2794604345475880554
                 },
-                "Component_[3342128004959998545]": {
-                    "$type": "SelectionComponent",
-                    "Id": 3342128004959998545
-                },
                 "Component_[4603772404146192257]": {
                     "$type": "AZ::Render::EditorDirectionalLightComponent",
                     "Id": 4603772404146192257,
@@ -13481,10 +13138,6 @@
                 "Component_[16829822348380306203]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 16829822348380306203
-                },
-                "Component_[17374614644437488451]": {
-                    "$type": "SelectionComponent",
-                    "Id": 17374614644437488451
                 },
                 "Component_[2255581093314292567]": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -13623,10 +13276,6 @@
                     "$type": "EditorInspectorComponent",
                     "Id": 1090156001863833485
                 },
-                "Component_[12174195886422775797]": {
-                    "$type": "SelectionComponent",
-                    "Id": 12174195886422775797
-                },
                 "Component_[12390709966281045023]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 12390709966281045023
@@ -13646,7 +13295,8 @@
                                 {
                                     "$type": "AzFramework::ScriptPropertyBoolean",
                                     "id": 1822771111,
-                                    "name": "Debug"
+                                    "name": "Debug",
+                                    "value": true
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyGenericClass",
@@ -13678,41 +13328,17 @@
                                     "value": "Forest Goo Boss"
                                 },
                                 {
+                                    "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 135157099,
+                                    "name": "TopicGroup"
+                                },
+                                {
                                     "$type": "AzFramework::ScriptPropertyNumber",
                                     "id": 2363381545,
                                     "name": "Type"
                                 }
                             ],
                             "Groups": [
-                                {
-                                    "Name": "Weaknesses",
-                                    "Properties": [
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3627544126,
-                                            "name": "Arrow",
-                                            "value": 2.0
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 3977723523,
-                                            "name": "Scroll",
-                                            "value": 2.0
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 513004264,
-                                            "name": "Shield",
-                                            "value": 2.0
-                                        },
-                                        {
-                                            "$type": "AzFramework::ScriptPropertyNumber",
-                                            "id": 2598749967,
-                                            "name": "Sword",
-                                            "value": 2.0
-                                        }
-                                    ]
-                                },
                                 {
                                     "Name": "Randomness",
                                     "Properties": [
@@ -13724,38 +13350,112 @@
                                     ],
                                     "Groups": [
                                         {
-                                            "Name": "AmountPerType",
+                                            "Name": "Topics",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 1.0
+                                                    "value": 2.0
                                                 }
                                             ]
                                         },
                                         {
-                                            "Name": "WeaknessTypes",
+                                            "Name": "AmountPerTopic",
                                             "Properties": [
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2641765001,
                                                     "name": "Max",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 },
                                                 {
                                                     "$type": "AzFramework::ScriptPropertyNumber",
                                                     "id": 2709200336,
                                                     "name": "Min",
-                                                    "value": 2.0
+                                                    "value": 1.0
                                                 }
                                             ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Topics",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 153380485,
+                                            "name": "Topic1",
+                                            "value": "Love"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 4130305058,
+                                            "name": "Topic1Amount",
+                                            "value": 1.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2418882367,
+                                            "name": "Topic2",
+                                            "value": "Humility"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 3351735999,
+                                            "name": "Topic2Amount",
+                                            "value": 1.0
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3878291369,
+                                            "name": "Topic3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 1638950155,
+                                            "name": "Topic3Amount"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2035192330,
+                                            "name": "Topic4"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyNumber",
+                                            "id": 2752994181,
+                                            "name": "Topic4Amount"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Name": "Verses",
+                                    "Properties": [
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 3820918404,
+                                            "name": "Verse1"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2058864446,
+                                            "name": "Verse2"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 229701544,
+                                            "name": "Verse3"
+                                        },
+                                        {
+                                            "$type": "AzFramework::ScriptPropertyString",
+                                            "id": 2480169483,
+                                            "name": "Verse4"
                                         }
                                     ]
                                 }
@@ -13834,10 +13534,6 @@
                 "Component_[17473092063679159554]": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 17473092063679159554
-                },
-                "Component_[2534505609205589120]": {
-                    "$type": "SelectionComponent",
-                    "Id": 2534505609205589120
                 },
                 "Component_[2990048417457103999]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -13923,10 +13619,6 @@
                         }
                     ]
                 },
-                "Component_[11515871865282553759]": {
-                    "$type": "SelectionComponent",
-                    "Id": 11515871865282553759
-                },
                 "Component_[1175103254832077361]": {
                     "$type": "EditorLockComponent",
                     "Id": 1175103254832077361
@@ -13994,10 +13686,6 @@
                 "Component_[18020464476409562806]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 18020464476409562806
-                },
-                "Component_[2705055447380100268]": {
-                    "$type": "SelectionComponent",
-                    "Id": 2705055447380100268
                 },
                 "Component_[5661255076909076492]": {
                     "$type": "EditorInspectorComponent",
@@ -14145,10 +13833,6 @@
                 "Component_[8933862004436838457]": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 8933862004436838457
-                },
-                "Component_[8957198779511351883]": {
-                    "$type": "SelectionComponent",
-                    "Id": 8957198779511351883
                 }
             }
         },
@@ -14243,10 +13927,6 @@
                         "PlayerMesh"
                     ]
                 },
-                "Component_[7686612633810829998]": {
-                    "$type": "SelectionComponent",
-                    "Id": 7686612633810829998
-                },
                 "Component_[8286114637202875700]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 8286114637202875700,
@@ -14285,10 +13965,6 @@
                                                     1.0
                                                 ]
                                             },
-                                            "emissive.enable": {
-                                                "$type": "bool",
-                                                "Value": true
-                                            },
                                             "emissive.color": {
                                                 "$type": "Color",
                                                 "Value": [
@@ -14297,6 +13973,10 @@
                                                     0.2381017804145813,
                                                     1.0
                                                 ]
+                                            },
+                                            "emissive.enable": {
+                                                "$type": "bool",
+                                                "Value": true
                                             },
                                             "emissive.intensity": {
                                                 "$type": "float",
@@ -14361,10 +14041,6 @@
                 "Component_[12382929808314530562]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 12382929808314530562
-                },
-                "Component_[14459229911560463794]": {
-                    "$type": "SelectionComponent",
-                    "Id": 14459229911560463794
                 },
                 "Component_[14461703973812380673]": {
                     "$type": "EditorWhiteBoxComponent",
@@ -15013,10 +14689,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -15123,10 +14795,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         },
@@ -15233,10 +14901,6 @@
                 "Component_[7125258814111648578]": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7125258814111648578
-                },
-                "Component_[9097023291240557289]": {
-                    "$type": "SelectionComponent",
-                    "Id": 9097023291240557289
                 }
             }
         }

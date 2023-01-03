@@ -32,7 +32,7 @@ return {
     OnUpdateCardDiscardsAmount = "OnUpdateCardDiscardsAmount",
     OnUpdateTimeRemaining = "OnUpdateTimeRemaining",
     OnUpdateTimeRemainingString = "OnUpdateTimeRemainingString",
-    OnUpdateWeaknessAmount = "OnUpdateWeaknessAmount",
+    OnUpdateTopicAmount = "OnUpdateTopicAmount",
     OnUpdateTotalCoinsCollected = "OnUpdateTotalCoinsCollected",
     OnUpdateTotalCardsCollected = "OnUpdateTotalCardsCollected",
     OnUpdateTotalEnemiesDefeated = "OnUpdateTotalEnemiesDefeated",
@@ -44,10 +44,14 @@ return {
 	OnNewGamePressed = "OnNewGamePressed",
 	OnResumePressed = "OnResumePressed",
 	OnRetryPressed = "OnRetryPressed",
+    OnStartVerseChallenge = "OnStartVerseChallenge",
+    OnVerseChallengeComplete = "OnVerseChallengeComplete",
 	OnNextLevelPressed = "OnNextLevelPressed",
 	OnRunAway = "OnRunAway",
     OnUseCard = "OnUseCard",
     OnDiscard = "OnDiscard",
     OnSetEnemyCardVisible = "OnSetEnemyCardVisible",
-    OnSetPlayerCardsVisible = "OnSetPlayerCardsVisible"
+    OnSetPlayerCardsVisible = "OnSetPlayerCardsVisible",
+    OnSetVerseChallengeVisible = "OnSetVerseChallengeVisible",
+    OnSelectFragment = "OnSelectFragment"
 }

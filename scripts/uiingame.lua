@@ -8,7 +8,8 @@ local UiInGame = {
                 EntityId(), EntityId(), EntityId(), EntityId()
             }
         },
-        EnemyCard = EntityId()
+        EnemyCard = EntityId(),
+        VerseChallenge = EntityId(),
     }
 }
 
@@ -17,10 +18,15 @@ function UiInGame:OnActivate()
 
     Events:Connect(self, Events.OnSetEnemyCardVisible)
     Events:Connect(self, Events.OnSetPlayerCardsVisible)
+    Events:Connect(self, Events.OnSetVerseChallengeVisible)
 end
 
 function UiInGame:OnSetEnemyCardVisible(visible)
     UiElementBus.Event.SetIsEnabled(self.Properties.EnemyCard, visible)
+end
+
+function UiInGame:OnSetVerseChallengeVisible(visible)
+    UiElementBus.Event.SetIsEnabled(self.Properties.VerseChallenge, visible)
 end
 
 function UiInGame:OnSetPlayerCardsVisible(player, visible)
@@ -34,6 +40,7 @@ end
 function UiInGame:OnDeactivate()
     Events:Disconnect(self, Events.OnSetEnemyCardVisible)
     Events:Disconnect(self, Events.OnSetPlayerCardsVisible)
+    Events:Disconnect(self, Events.OnSetVerseChallengeVisible)
 end
 
 return UiInGame

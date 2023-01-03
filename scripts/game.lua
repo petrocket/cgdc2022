@@ -4,6 +4,7 @@ local Events = require "scripts.events"
 local Timer = require "scripts/timer"
 local Player = require "scripts/player"
 local Card = require "scripts.card"
+local Verse = require "scripts.verse"
 local Easing = require "scripts.easing"
 
 local game = {
@@ -125,14 +126,13 @@ function game.States.LevelBuildOut.OnEnter(sm)
     game.cameraTM = TransformBus.Event.GetWorldTM(game.Properties.Camera)
     game.cameraFOV = CameraRequestBus.Event.GetFovDegrees(game.Properties.Camera)
 
+    -- give the player a card for every verse
     local cards = {}
-
-    -- give the player an equal number of each common card
-    for _,type in pairs(Card.Types.Common) do
-        for i = 1,6 do
-            table.insert(cards, Card(type))
-        end
+    local verses = Verse.GetAllVerses()
+    for i = 1,#verses do
+        table.insert(cards, Card(verses[i]))
     end
+    game:Log("$1 created "..tostring(#cards).. " verse cards")
     Utilities:Shuffle(cards)
 
     game.player1:SetCards(cards, 4)

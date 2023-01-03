@@ -1,5 +1,7 @@
 local Events = require "scripts.events"
 local Utilities = require "scripts.utilities"
+local Topics = require "scripts.topics"
+local TopicGroups = require "scripts.topicgroups"
 
 local Enemy = {
     Properties = {
@@ -9,22 +11,33 @@ local Enemy = {
         Boss = false,
         EnemyPrefab = {default=SpawnableScriptAssetRef(), description="Enemy Prefab to spawn"},
         Type = 0, -- mechanical, magical, natural
-        Randomness = {
+        Randomness = { -- random topics
             Enabled = false,
-            WeaknessTypes = {
+            Topics = {
                 Min = 2,
                 Max = 2
             },
-            AmountPerType = {
+            AmountPerTopic = {
                 Min = 1,
                 Max = 1
             }
         },
-        Weaknesses = {
-            Arrow = 0,
-            Sword = 0,
-            Shield = 0,
-            Scroll = 0
+        TopicGroup = '', -- optional topic group
+        Topics = { -- specific topics
+            Topic1='',
+            Topic1Amount=0,
+            Topic2='',
+            Topic2Amount=0,
+            Topic3='',
+            Topic3Amount=0,
+            Topic4='',
+            Topic4Amount=0
+        },
+        Verses = { -- specific verses
+            Verse1='',
+            Verse2='',
+            Verse3='',
+            Verse4=''
         }
     }
 }
@@ -68,15 +81,16 @@ end
 function Enemy:OnEnterCombat()
     self.inCombat = true 
     Events:GlobalLuaEvent(Events.OnSetEnemy, self.data)
-    Events:Connect(self, Events.OnUpdateWeaknessAmount)
+    --Events:Connect(self, Events.OnUpdateTopicAmount)
+    Events:Connect(self, Events.OnUpdateTopicAmount)
 end
 
-function Enemy:OnUpdateWeaknessAmount(weakness, amount)
+function Enemy:OnUpdateTopicAmount(topic, amount)
     -- TODO FIX this is backwards... the UI is telling us what 
     -- the new weakness is, that logic should be here and
     -- the UI should reflect our data
-    if self.data.Weaknesses[weakness] ~= nil then
-        self.data.Weaknesses[weakness].Amount = amount
+    if self.data.Topics[topic] ~= nil then
+        self.data.Topics[topic].Amount = amount
     end
 end
 
@@ -126,15 +140,15 @@ function Enemy:OnRevealTile()
 end
 
 function Enemy:OnExitCombat()
-    Events:Disconnect(self, Events.OnUpdateWeaknessAmount)
+    Events:Disconnect(self, Events.OnUpdateTopicAmount)
     self.inCombat = false
 end
 
 function Enemy:Reset()
-    self:Log("Reset")
+    --self:Log("Reset")
 
     self.inCombat = false
-    Events:Disconnect(self, Events.OnUpdateWeaknessAmount)
+    Events:Disconnect(self, Events.OnUpdateTopicAmount)
 
     self.revealed = false
     self.mesh = nil
@@ -144,31 +158,36 @@ function Enemy:Reset()
         MiniBoss = self.Properties.MiniBoss,
         Boss = self.Properties.Boss,
         Type = self.Properties.Type,
-        Weaknesses = {}
+        Topics = {},
+        Verses = {}
     }
 
+    -- TODO topic group support
     if self.Properties.Randomness.Enabled then
-        self:Log("Giving enemy random weaknesses")
-        local weaknessTypes = {"Arrow","Sword","Shield","Scroll"}
+        --self:Log("Giving enemy random topics")
+        local topics = Utilities:GetKeyList(Topics)
+        Utilities:Shuffle(topics)
         local rules = self.Properties.Randomness
-        Utilities:Shuffle(weaknessTypes)
-        local numWeaknessTypes = math.random(rules.WeaknessTypes.Min, rules.WeaknessTypes.Max)
-        self:Log("Giving enemy " .. tostring(numWeaknessTypes) .. " random weakness types ")
-        for i=1,numWeaknessTypes do
-            local weaknessType = weaknessTypes[i]
-            local amount = math.random(rules.AmountPerType.Min, rules.AmountPerType.Max)
-            self.data.Weaknesses[weaknessType] =  { Amount=amount}
+        local numTopics = math.random(rules.Topics.Min, rules.Topics.Max)
+        self:Log("Giving enemy " .. self.data.Name .. " "  .. tostring(numTopics) .. " random topics")
+        for i=1,numTopics do
+            local topic = topics[i]
+            self.data.Topics[topic] = { Amount=math.random(rules.AmountPerTopic.Min, rules.AmountPerTopic.Max)}
         end
     else
-        self:Log("Giving enemy weaknesses from properties")
-        self.data.Weaknesses.Arrow = { Amount=math.floor(self.Properties.Weaknesses.Arrow)}
-        self.data.Weaknesses.Shield = { Amount=math.floor(self.Properties.Weaknesses.Shield)}
-        self.data.Weaknesses.Sword = { Amount=math.floor(self.Properties.Weaknesses.Sword)}
-        self.data.Weaknesses.Scroll = { Amount=math.floor(self.Properties.Weaknesses.Scroll)}
+        self:Log("Giving enemy " .. self.data.Name .. " topics/verses from properties")
+        self.data.Topics[self.Properties.Topics.Topic1] = { Amount=math.floor(self.Properties.Topics.Topic1Amount)}
+        self.data.Topics[self.Properties.Topics.Topic2] = { Amount=math.floor(self.Properties.Topics.Topic2Amount)}
+        self.data.Topics[self.Properties.Topics.Topic3] = { Amount=math.floor(self.Properties.Topics.Topic3Amount)}
+        self.data.Topics[self.Properties.Topics.Topic4] = { Amount=math.floor(self.Properties.Topics.Topic4Amount)}
+        self.data.Verses = self.Properties.Verses
     end
 
-    for type,weakness in pairs(self.data.Weaknesses) do
-        self:Log(tostring(type) .. " " .. tostring(weakness.Amount))
+    for type,topic in pairs(self.data.Topics) do
+        self:Log(tostring(type) .. " " .. tostring(topic.Amount))
+    end
+    for key,verse in pairs(self.data.Verses) do
+        self:Log(tostring(verse))
     end
 end
 
