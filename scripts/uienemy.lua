@@ -26,6 +26,8 @@ function UiEnemy:OnActivate()
 
     Events:Connect(self, Events.OnSetEnemy)
     Events:Connect(self, Events.OnTakeDamage)
+    Events:Connect(self, Events.CanUseCardOnEnemy)
+
     self:Log("OnActivate")
     self.weaknessAmounts = {}
     self.weaknesses = {}
@@ -43,7 +45,8 @@ function UiEnemy:Reset()
 
         self.weaknesses[i] = {
             EntityId=entityId,
-            State=WeaknessState.Hidden
+            State=WeaknessState.Hidden,
+            Weakness=""
         }
         self:HideAllChildren(entityId)
         UiElementBus.Event.SetIsEnabled(entityId, false)
@@ -66,14 +69,13 @@ function UiEnemy:OnSetEnemy(enemy)
     local victoryText = UiElementBus.Event.FindChildByName(self.Properties.Victory,"Text")
     UiTextBus.Event.SetText(victoryText, "Defeated " .. enemy.Name)
 
-
     for topic, data in pairs(enemy.Topics) do
         self:UpdateWeaknessAmount(topic, data.Amount)
     end
 end
 
-function UiEnemy:OnTakeDamage(cardType, unused)
-    local weaknesses = Card:GetWeaknessesForCard(cardType)
+function UiEnemy:OnTakeDamage(card)
+    local weaknesses = card.verse.topics
     local damageTaken = false
     for weakness, amount in pairs(weaknesses) do
         local currentAmount = self:GetWeaknessAmount(weakness)
@@ -102,6 +104,20 @@ function UiEnemy:GetWeaknessAmount(weakness)
     return 0
 end
 
+function UiEnemy:CanUseCardOnEnemy(card)
+    -- return true if can use on enemy
+    for weakness, amount in pairs(card.verse.topics) do
+        local currentAmount = self:GetWeaknessAmount(weakness)
+        self:Log("$5 CanUseCardOnEnemy weakness " ..tostring(weakness).. " amount " ..currentAmount)
+        if currentAmount > 0 then 
+            return true
+        end
+    end
+
+    return false
+end
+
+-- weakness == topic
 function UiEnemy:UpdateWeaknessAmount(weakness, amount)
     if self.weaknessAmounts[weakness] == nil then
         --self:Log("Initializing to 0 - " ..tostring(weakness))
@@ -114,13 +130,10 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
     end
 
     local weaknesses = UiElementBus.Event.GetChildren(self.Properties.Weaknesses)
-    --self:Log("UpdateWeaknessAmount " .. tostring(weakness) .. " " ..tostring(amount))
+    self:Log("UpdateWeaknessAmount " .. tostring(weakness) .. " " ..tostring(amount))
 
-    local iconOffset = 18
-    local iconWidth = 91
     if amount > self.weaknessAmounts[weakness] then
         -- append to end 
-
         for i=1,#weaknesses do
             local _weakness = self.weaknesses[i]
             if _weakness.State == WeaknessState.Hidden then
@@ -131,14 +144,11 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
                     UiElementBus.Event.SetIsEnabled(entityId, true)
                     UiElementBus.Event.SetIsEnabled(child, true)
                     self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] + 1
-                    self:Log("Enabled weakness topic " ..weakness)
-                    if TopicIcons[weakness] ~= nil then
-                        UiTransformBus.Event.SetLocalPositionX(child, iconOffset - iconWidth * TopicIcons[weakness] )
-                    else
-                        self:Log("$5 Failed to find topic icon for " ..tostring(weakness))
-                    end
-
+                    UiImageBus.Event.SetSpritePathname(child, "assets/textures/"..weakness..".png")
                     _weakness.State = WeaknessState.Visible
+                    _weakness.Weakness = weakness
+
+                    self:Log("Enabled weakness topic " ..weakness)
 
                     if self.weaknessAmounts[weakness] == amount then
                         -- done adding weaknesses
@@ -150,40 +160,37 @@ function UiEnemy:UpdateWeaknessAmount(weakness, amount)
             end
         end
     elseif amount < self.weaknessAmounts[weakness] then
-        local imageOffset = iconOffset - iconWidth * TopicIcons[weakness]
         -- remove from end
         for i=#weaknesses, 1, -1 do
             local _weakness = self.weaknesses[i]
-            if _weakness.State == WeaknessState.Visible then
+            if _weakness.State == WeaknessState.Visible and _weakness.Weakness == weakness then
                 local entityId = _weakness.EntityId
                 local child = UiElementBus.Event.FindChildByName(entityId, "Topics")
                 if child ~= nil and child:IsValid() then
-                    local childOffsetX = UiTransformBus.Event.GetLocalPositionX(child)
-                    if childOffsetX == imageOffset then
-                        UiElementBus.Event.SetIsEnabled(child, false)
-                        self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] - 1
-                        self:Log("Disabled weakness topic " ..weakness)
-                        _weakness.State = WeaknessState.FadingOut
-                        _weakness.FadeEntityId = UiElementBus.Event.FindChildByName(entityId, "White")
+                    UiElementBus.Event.SetIsEnabled(child, false)
+                    self.weaknessAmounts[weakness] = self.weaknessAmounts[weakness] - 1
+                    self:Log("Disabled weakness topic " ..weakness)
+                    _weakness.State = WeaknessState.FadingOut
+                    _weakness.Weakness = ""
+                    _weakness.FadeEntityId = UiElementBus.Event.FindChildByName(entityId, "White")
 
-                        -- enable the white overlay
-                        UiElementBus.Event.SetIsEnabled(_weakness.FadeEntityId, true)
-                        UiImageBus.Event.SetAlpha(_weakness.FadeEntityId, 1.0)
-                        _weakness.OnEasingUpdate = function(_self, jobId, value)
-                            -- fade out the weakness
-                            UiImageBus.Event.SetAlpha(_self.FadeEntityId, value)
-                        end
-                        _weakness.OnEasingEnd = function(_self, jobId)
-                            -- disable the weakness after fadeout
-                            UiElementBus.Event.SetIsEnabled(_self.EntityId, false)
-                            _self.State = WeaknessState.Hidden
-                        end
-                        _weakness.jobId = Easing:Ease(Easing.OutCubic, 1000, 1, 0 ,_weakness)
+                    -- enable the white overlay
+                    UiElementBus.Event.SetIsEnabled(_weakness.FadeEntityId, true)
+                    UiImageBus.Event.SetAlpha(_weakness.FadeEntityId, 1.0)
+                    _weakness.OnEasingUpdate = function(_self, jobId, value)
+                        -- fade out the weakness
+                        UiImageBus.Event.SetAlpha(_self.FadeEntityId, value)
+                    end
+                    _weakness.OnEasingEnd = function(_self, jobId)
+                        -- disable the weakness after fadeout
+                        UiElementBus.Event.SetIsEnabled(_self.EntityId, false)
+                        _self.State = WeaknessState.Hidden
+                    end
+                    _weakness.jobId = Easing:Ease(Easing.OutCubic, 1000, 1, 0 ,_weakness)
 
-                        if self.weaknessAmounts[weakness] == amount then
-                            -- done removing weaknesses
-                            break 
-                        end
+                    if self.weaknessAmounts[weakness] == amount then
+                        -- done removing weaknesses
+                        break
                     end
                 end
             end
@@ -210,8 +217,7 @@ function UiEnemy:HasWeaknesses()
 end
 
 function UiEnemy:OnDeactivate()
-    Events:Disconnect(self, Events.OnSetEnemy)
-    Events:Disconnect(self, Events.OnTakeDamage)
+    Events:Disconnect(self)
 end
 
 return UiEnemy

@@ -36,6 +36,7 @@ local Player = {
     movement = Vector2(0,0),
     Modes = {
         Combat = "Combat",
+        VerseChallenge = "VerseChallenge",
         Navigation = "Navigation",
         Inactive = "Inactive"
     },
@@ -46,7 +47,9 @@ function Player:OnActivate ()
     self.name = "Player"..tostring(math.floor(self.Properties.Id))
     Utilities:InitLogging(self, self.name)
     self:BindInputEvents(self.InputEvents)
+    self:Log("OnActivate 2")
 
+    --Events.DebugEvents = false
     Events:Connect(self, Events.GetPlayer, math.floor(self.Properties.Id))
 
     self.mode = Player.Modes.Inactive
@@ -104,6 +107,7 @@ function Player:OnStateChange(newState)
     else
         self.mode = self.Modes.Inactive
     end
+
 end
 
 function Player:GridPosition()
@@ -119,6 +123,7 @@ function Player:DestinationGridPositionString()
 end
 
 function Player:GetPlayer()
+    self:Log("GetPlayer and self is " ..tostring(self))
     return self
 end
 
@@ -163,9 +168,16 @@ function Player:UseCard(cardIndex)
 
     local card = self.cards.active[cardIndex]
     if card ~= nil then
-        self:Log("UseCard " ..tostring(card.verse.reference))
-        Events:GlobalLuaEvent(Events.OnSetVerseChallengeVisible, true)
-        Events:GlobalLuaEvent(Events.OnStartVerseChallenge, card)
+        -- check if the enemy has this weakness
+        local canUseOnEnemy = Events:GlobalLuaEventResult(Events.CanUseCardOnEnemy, card)
+        if canUseOnEnemy == true then
+            self:Log("UseCard " ..tostring(card.verse.reference))
+            Events:GlobalLuaEvent(Events.OnSetVerseChallengeVisible, true)
+            Events:GlobalLuaEvent(Events.OnStartVerseChallenge, card)
+            self.mode = Player.Modes.VerseChallenge
+        else
+            self:Log("UseCard cannot use " ..tostring(card.verse.reference) .. "("..tostring(cardIndex)..") on enemy")
+        end
     end
 end
 
@@ -202,7 +214,17 @@ function Player:DiscardAll()
         Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
     end
 
+    self:ReUseDiscardPileIfNoActiveCards()
+
     self:NotifyCardAmount()
+end
+
+function Player:ReUseDiscardPileIfNoActiveCards()
+    if #self.cards.active == 0 then
+        local cards = self.cards.discards
+        Utilities:Shuffle(cards)
+        self:SetCards(cards, self.cards.max_active)
+    end
 end
 
 function Player:Update(deltaTime, scriptTime)
@@ -219,10 +241,22 @@ function Player:Update(deltaTime, scriptTime)
     elseif self.movement:GetLengthSq() > 0 then
         self.moveStart = TransformBus.Event.GetWorldTranslation(self.entityId)
         if self.movement.x ~= 0 then
-            self.moveEnd = self.moveStart + Vector3(math.ceil(self.movement.x), 0, 0)
+            if self.movement.x > 0 then
+                self.movement.x = 1
+            else
+                self.movement.x = -1
+            end
+            self.moveEnd = self.moveStart + Vector3(self.movement.x, 0, 0)
         else
-            self.moveEnd = self.moveStart + Vector3(0, math.ceil(self.movement.y), 0)
+            if self.movement.y > 0 then
+                self.movement.y = 1
+            else
+                self.movement.y = -1
+            end
+            self.moveEnd = self.moveStart + Vector3(0, self.movement.y, 0)
         end
+
+        self:Log(tostring(self.movement.x) .. " " .. tostring(self.movement.y))
 
         if self.Properties.Mesh then
             local offset = TransformBus.Event.GetLocalTranslation(self.Properties.Mesh)
@@ -256,10 +290,16 @@ function Player:OnUseCard(value)
 end
 
 function Player:OnVerseChallengeComplete(card)
+    -- damage the enemy
+    Events:GlobalLuaEvent(Events.OnTakeDamage, card)
+
+    -- we are no longer in the verse challenge
+    self.mode = Player.Modes.Combat
+
     -- find this card
     local cardIndex = 0 
     for i=1,#self.cards.active do
-        if self.cards.active[i] ~= nil and self.cards.active[i].reference == card.reference then
+        if self.cards.active[i] ~= nil and self.cards.active[i].verse.reference == card.verse.reference then
             cardIndex = i
             break
         end
@@ -276,35 +316,57 @@ function Player:OnVerseChallengeComplete(card)
         end
         self.cards.active[cardIndex] = card
         Events:LuaEvent(Events.OnSetPlayerCard, self.name, cardIndex, card)
-    else
-        self:Log("$3 Couldn't find active card with reference " .. card.reference)
     end
 
     Events:GlobalLuaEvent(Events.OnSetVerseChallengeVisible, false)
+
+    self:ReUseDiscardPileIfNoActiveCards()
 
     self:NotifyCardAmount()
 end
 
 function Player.InputEvents.Player1Action0:OnPressed(value)
     self.Component:Log("Player1Action0")
-    if self.Component.mode == Player.Modes.Combat then
+    if self.Component.mode == Player.Modes.Combat or self.Component.mode == Player.Modes.VerseChallenge then
         Events:LuaEvent(Events.OnRunAway)
     end
 end
 function Player.InputEvents.Player1Action1:OnPressed(value)
-    self.Component:UseCard(1)
+    if self.Component.mode == Player.Modes.VerseChallenge then
+        self.Component:Log("OnSelectFragment 1")
+        Events:GlobalLuaEvent(Events.OnSelectFragment, 1)
+    else
+        self.Component:UseCard(1)
+    end
 end
 function Player.InputEvents.Player1Action2:OnPressed(value)
-    self.Component:UseCard(2)
+    if self.Component.mode == Player.Modes.VerseChallenge then
+        self.Component:Log("OnSelectFragment 2")
+        Events:GlobalLuaEvent(Events.OnSelectFragment, 2)
+    else
+        self.Component:UseCard(2)
+    end
 end
 function Player.InputEvents.Player1Action3:OnPressed(value)
-    self.Component:UseCard(3)
+    if self.Component.mode == Player.Modes.VerseChallenge then
+        self.Component:Log("OnSelectFragment 3")
+        Events:GlobalLuaEvent(Events.OnSelectFragment, 3)
+    else
+        self.Component:UseCard(3)
+    end
 end
 function Player.InputEvents.Player1Action4:OnPressed(value)
-    self.Component:UseCard(4)
+    if self.Component.mode == Player.Modes.VerseChallenge then
+        self.Component:Log("OnSelectFragment 4")
+        Events:GlobalLuaEvent(Events.OnSelectFragment, 4)
+    else
+        self.Component:UseCard(4)
+    end
 end
 function Player.InputEvents.Player1Action5:OnPressed(value)
-    self.Component:DiscardAll()
+    if self.Component.mode == Player.Modes.Combat or self.Component.mode == Player.Modes.VerseChallenge then
+        self.Component:DiscardAll()
+    end
 end
 
 function Player.InputEvents.Player1UpDown:OnPressed(value)
@@ -399,6 +461,7 @@ function Player:UnBindInputEvents(events)
 end
 
 function Player:OnDeactivate()
+    self:Log("OnDeactivate")
     self:UnBindInputEvents(self.InputEvents)
     Events:Disconnect(self, Events.GetPlayer, math.floor(self.Properties.Id))
     Events:Disconnect(self, Events.OnUseCard)

@@ -3,10 +3,6 @@
         "Id": "ContainerEntity",
         "Name": "Enemy_Tile",
         "Components": {
-            "Component_[10670681231913104086]": {
-                "$type": "SelectionComponent",
-                "Id": 10670681231913104086
-            },
             "Component_[12762279473911860352]": {
                 "$type": "EditorPrefabComponent",
                 "Id": 12762279473911860352
@@ -108,10 +104,6 @@
                         },
                         "assetHint": "scripts/coin.luac"
                     }
-                },
-                "Component_[15835001486698767528]": {
-                    "$type": "SelectionComponent",
-                    "Id": 15835001486698767528
                 },
                 "Component_[2150764409054994685]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -290,10 +282,6 @@
                         "assetHint": "scripts/animate.luac"
                     }
                 },
-                "Component_[4651729163071159599]": {
-                    "$type": "SelectionComponent",
-                    "Id": 4651729163071159599
-                },
                 "Component_[5149801969133394120]": {
                     "$type": "AZ::Render::EditorMeshComponent",
                     "Id": 5149801969133394120,
@@ -347,7 +335,8 @@
                 "Component_[10533456016308755782]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10533456016308755782,
-                    "Parent Entity": "ContainerEntity"
+                    "Parent Entity": "ContainerEntity",
+                    "IsStatic": true
                 },
                 "Component_[10535979164790534722]": {
                     "$type": "EditorEntityIconComponent",
@@ -398,10 +387,6 @@
                 "Component_[3943736249630944240]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 3943736249630944240
-                },
-                "Component_[5778217215772158525]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5778217215772158525
                 }
             }
         }

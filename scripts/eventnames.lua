@@ -13,6 +13,7 @@ return {
     AddCards = "AddCards",
     SetAnimationEnabled = "SetAnimationEnabled",
     ShowUiCanvas = "ShowUiCanvas",
+    CanUseCardOnEnemy = "CanUseCardOnEnemy",
 
     OnCardDiscarded = "OnCardDiscarded",
     OnCardUsed = "OnCardUsed",

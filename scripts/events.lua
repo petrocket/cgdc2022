@@ -54,6 +54,19 @@ function Events:Connect(listener, event, address)
 end
 
 function Events:Disconnect(listener, event, address)
+	if event == nil and address == nil then
+		-- disconnect the listener from every event
+		-- useful on Deactivate
+		for eventaddress,listeners in pairs(_G["LuaEvents"]) do
+			for k,l in ipairs(listeners) do
+				if l == listener then
+					table.remove(listeners,k)
+				end
+			end
+		end
+		return
+	end
+
 	local combined = event .. "%" .. tostring(address)
 	local listeners = _G["LuaEvents"][combined]
 

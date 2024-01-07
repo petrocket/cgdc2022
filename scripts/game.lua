@@ -11,6 +11,7 @@ local game = {
     Properties = {
         Debug = true,
         DebugEvents = false,
+        ClearLuaEvents = false,
         InitialState = "MainMenu",
         TimeLimit = {
             default = 30, 
@@ -299,6 +300,7 @@ function game.States.Combat.OnExit(sm)
     -- don't resume the timer until after fly-out
     Events:GlobalLuaEvent(Events.OnSetEnemyCardVisible, false)
     Events:GlobalLuaEvent(Events.OnSetPlayerCardsVisible, 1, false)
+    Events:GlobalLuaEvent(Events.OnSetVerseChallengeVisible, false)
 end
 function game.States.Combat.Transitions.Lose.Evaluate(sm)
     return game.timer.timeLeft <= 0 
@@ -471,6 +473,7 @@ end
 
 function game:OnActivate()
     Utilities:InitLogging(self, "Game")
+    self:Log("OnActivate 3")
 
     -- there's only one game instance so assign game to this object
     -- because using 'game' is much simpler and clear 
@@ -508,7 +511,6 @@ function game:OnActivate()
 
     -- execute on the next tick after every entity is activated
     Utilities:ExecuteOnNextTick(self, function(self)
-
         self.player1 = Events:LuaEvent(Events.GetPlayer, 1)
 
         local sendEventOnStateChange = true
@@ -727,6 +729,7 @@ function game:UnBindInputEvents(events)
 end
 
 function game:OnDeactivate()
+    self:Log("OnDeactivate")
     if self.tagListener ~= nil then
         self.tagListener:Disconnect()
     end
@@ -734,12 +737,20 @@ function game:OnDeactivate()
     self.timer:Stop()
 
     self.spawnableMediator:Despawn(self.spawnTicket)
+
     self.stateMachine:Stop()
+    self.stateMachine = {}
+    self._nextTickHandler = nil
+
     self:UnBindInputEvents(self.InputEvents)
     while UiCursorBus.Broadcast.IsUiCursorVisible() == true do
         UiCursorBus.Broadcast.DecrementVisibleCounter()
     end
-    Events:ClearAll()
+
+    -- Clearing all events might break hot-reloading of Lua scripts
+    if self.Properties.ClearLuaEvents then
+        Events:ClearAll()
+    end
 end
 
 return game

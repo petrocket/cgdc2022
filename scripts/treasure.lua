@@ -1,6 +1,7 @@
 local Events = require "scripts.events"
 local Utilities = require "scripts.utilities"
 local Card = require "scripts.card"
+local Verse = require "scripts.verse"
 
 local Treasure = {
     Properties = {
@@ -53,25 +54,11 @@ function Treasure:OnEnterTile()
         Events:GlobalLuaEvent(Events.ModifyCoinAmount, coinAmount)
 
         local cardAmount = math.random(self.Properties.CardAmount.Min, self.Properties.CardAmount.Max)
-
         self:Log("Giving " .. tostring(cardAmount) .. " cards")
-        local cards = {
-            Card(Card.Types.Special.Bomb),
-            Card(Card.Types.Special.DoubleArrow),
-            Card(Card.Types.Special.DoubleSword)
-        }
-
-        Utilities:Shuffle(cards)
-
-        -- always give at least 1 special card
-        local specialCard =  table.remove(cards)
-        Events:GlobalLuaEvent(Events.AddCards, {specialCard})
-
-        -- add 4 of each common card
-        for _,cardType in pairs(Card.Types.Common) do
-            for i=1,4 do
-                table.insert(cards, Card(cardType))
-            end
+        local verses = Verse.GetAllVerses()
+        local cards = {}
+        for i = 1,#verses do
+            table.insert(cards, Card(verses[i]))
         end
 
         Utilities:Shuffle(cards)

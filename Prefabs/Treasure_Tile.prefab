@@ -3,10 +3,6 @@
         "Id": "ContainerEntity",
         "Name": "Treasure_Tile",
         "Components": {
-            "Component_[11013769627080676215]": {
-                "$type": "SelectionComponent",
-                "Id": 11013769627080676215
-            },
             "Component_[132049156820487299]": {
                 "$type": "EditorDisabledCompositionComponent",
                 "Id": 132049156820487299
@@ -61,7 +57,8 @@
                 "Component_[10533456016308755782]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10533456016308755782,
-                    "Parent Entity": "ContainerEntity"
+                    "Parent Entity": "ContainerEntity",
+                    "IsStatic": true
                 },
                 "Component_[10535979164790534722]": {
                     "$type": "EditorEntityIconComponent",
@@ -115,10 +112,6 @@
                     "Child Entity Order": [
                         "Entity_[239847512839640]"
                     ]
-                },
-                "Component_[5778217215772158525]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5778217215772158525
                 },
                 "Component_[783678059047329185]": {
                     "$type": "ScriptEditorComponent",
@@ -251,10 +244,6 @@
                         },
                         "assetHint": "scripts/coin.luac"
                     }
-                },
-                "Component_[15835001486698767528]": {
-                    "$type": "SelectionComponent",
-                    "Id": 15835001486698767528
                 },
                 "Component_[2150764409054994685]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -427,10 +416,6 @@
                         "assetHint": "scripts/animate.luac"
                     }
                 },
-                "Component_[4651729163071159599]": {
-                    "$type": "SelectionComponent",
-                    "Id": 4651729163071159599
-                },
                 "Component_[5149801969133394120]": {
                     "$type": "AZ::Render::EditorMeshComponent",
                     "Id": 5149801969133394120,
@@ -589,10 +574,6 @@
                         },
                         "assetHint": "scripts/animate.luac"
                     }
-                },
-                "Component_[14931155012536029153]": {
-                    "$type": "SelectionComponent",
-                    "Id": 14931155012536029153
                 },
                 "Component_[16103769066091615446]": {
                     "$type": "EditorEntitySortComponent",

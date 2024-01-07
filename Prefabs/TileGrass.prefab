@@ -7,10 +7,6 @@
                 "$type": "EditorLockComponent",
                 "Id": 10881953252412577433
             },
-            "Component_[13189221922042377678]": {
-                "$type": "SelectionComponent",
-                "Id": 13189221922042377678
-            },
             "Component_[16334091097359185863]": {
                 "$type": "EditorPendingCompositionComponent",
                 "Id": 16334091097359185863
@@ -68,7 +64,7 @@
                                     "guid": "{735364E5-0601-583D-A1C6-26F234BB044D}",
                                     "subId": 283307377
                                 },
-                                "assetHint": "assets/objects/tilegrass.azmodel"
+                                "assetHint": "assets/objects/tilegrass.fbx.azmodel"
                             }
                         }
                     }
@@ -117,7 +113,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{9D0BB03A-5FF3-51D3-ABDA-330488324EC3}"
-                                            }
+                                            },
+                                            "assetHint": "assets/objects/tilegrass_grass.azmaterial"
                                         }
                                     }
                                 }
@@ -132,7 +129,8 @@
                 "Component_[16479602594534327229]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 16479602594534327229,
-                    "Parent Entity": "ContainerEntity"
+                    "Parent Entity": "ContainerEntity",
+                    "IsStatic": true
                 },
                 "Component_[16536981530252698377]": {
                     "$type": "EditorTagComponent",
@@ -140,10 +138,6 @@
                     "Tags": [
                         "Tile"
                     ]
-                },
-                "Component_[18345784851772186614]": {
-                    "$type": "SelectionComponent",
-                    "Id": 18345784851772186614
                 },
                 "Component_[1865029571019402956]": {
                     "$type": "EditorLockComponent",

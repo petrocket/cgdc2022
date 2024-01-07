@@ -63,6 +63,8 @@ function Enemy:OnActivate()
     self.playerTransformListener = nil
     self.tagListener = TagGlobalNotificationBus.Connect(self, Crc32("PlayerMesh"))
     self.revealed = false
+
+    self:Reset()
 end
 
 function Enemy:OnEntityTagAdded(entityId)
@@ -80,6 +82,9 @@ end
 
 function Enemy:OnEnterCombat()
     self.inCombat = true 
+    local translation = TransformBus.Event.GetWorldTranslation(self.entityId)
+    local gridPosition = tostring(math.floor(translation.x)) .. "_" .. tostring(math.floor(translation.y))
+    self:Log("OnEnterCombat " .. gridPosition)
     Events:GlobalLuaEvent(Events.OnSetEnemy, self.data)
     --Events:Connect(self, Events.OnUpdateTopicAmount)
     Events:Connect(self, Events.OnUpdateTopicAmount)
@@ -129,6 +134,7 @@ end
 function Enemy:OnRevealTile()
     if not self.revealed then
         self.revealed = true
+        self:Log("Spawning enemy")
         self.spawnableMediator:SpawnAndParentAndTransform(
             self.spawnTicket,
             self.entityId,
@@ -176,18 +182,30 @@ function Enemy:Reset()
         end
     else
         self:Log("Giving enemy " .. self.data.Name .. " topics/verses from properties")
-        self.data.Topics[self.Properties.Topics.Topic1] = { Amount=math.floor(self.Properties.Topics.Topic1Amount)}
-        self.data.Topics[self.Properties.Topics.Topic2] = { Amount=math.floor(self.Properties.Topics.Topic2Amount)}
-        self.data.Topics[self.Properties.Topics.Topic3] = { Amount=math.floor(self.Properties.Topics.Topic3Amount)}
-        self.data.Topics[self.Properties.Topics.Topic4] = { Amount=math.floor(self.Properties.Topics.Topic4Amount)}
+        if self.Properties.Topics.Topic1 ~= "" then
+            self.data.Topics[self.Properties.Topics.Topic1] = { Amount=math.floor(self.Properties.Topics.Topic1Amount)}
+        end
+        if self.Properties.Topics.Topic2 ~= "" then
+            self.data.Topics[self.Properties.Topics.Topic2] = { Amount=math.floor(self.Properties.Topics.Topic2Amount)}
+        end
+        if self.Properties.Topics.Topic3 ~= "" then
+            self.data.Topics[self.Properties.Topics.Topic3] = { Amount=math.floor(self.Properties.Topics.Topic3Amount)}
+        end
+        if self.Properties.Topics.Topic4 ~= "" then
+            self.data.Topics[self.Properties.Topics.Topic4] = { Amount=math.floor(self.Properties.Topics.Topic4Amount)}
+        end
         self.data.Verses = self.Properties.Verses
     end
 
     for type,topic in pairs(self.data.Topics) do
-        self:Log(tostring(type) .. " " .. tostring(topic.Amount))
+        if type ~= "" then
+            self:Log(tostring(type) .. " " .. tostring(topic.Amount))
+        end
     end
     for key,verse in pairs(self.data.Verses) do
-        self:Log(tostring(verse))
+        if verse ~= "" then
+            self:Log(tostring(verse))
+        end
     end
 end
 
@@ -202,16 +220,17 @@ function Enemy:OnStateChange(newState)
 end
 
 function Enemy:OnDeactivate()
+    -- Disconnect from all Lua events
+    Events:Disconnect(self)
+
     self.tagListener:Disconnect()
     if self.playerTransformListener ~= nil then
         self.playerTransformListener:Disconnect()
     end
+
+    self.spawnableMediator:Despawn(self.spawnTicket)
+
     self.spawnableListener:Disconnect()
-    Events:Disconnect(self, Events.GetEnemy)
-    Events:Disconnect(self, Events.OnStateChange)
-    Events:Disconnect(self, Events.OnEnterCombat)
-    Events:Disconnect(self, Events.OnExitCombat)
-    Events:Disconnect(self, Events.OnEnemyDefeated)
 end
 
 return Enemy

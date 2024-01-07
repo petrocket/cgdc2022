@@ -5,7 +5,5 @@ return {
     Purity = "Purity",
     Honesty = "Honesty",
     Faith = "Faith",
-    GoodWorks = "GoodWorks",
-
-    Fear = "Fear"
+    GoodWorks = "GoodWorks"
 }

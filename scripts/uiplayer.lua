@@ -1,6 +1,7 @@
 local Events = require "scripts.events"
 local Utilities = require "scripts.utilities"
 local Easing = require "scripts.easing"
+local TopicIcons = require "scripts.topicicons"
 
 local UiPlayer = {
     Properties = {
@@ -52,7 +53,7 @@ function UiPlayer:FlashCard(cardIndex)
         return
     end
 
-    self:Log("OnCardUsed")
+    self:Log("OnCardUsed " .. tostring(cardIndex))
     UiElementBus.Event.SetIsEnabled(fadeEntityId, true)
     UiImageBus.Event.SetAlpha(fadeEntityId, 1.0)
     local anim = {
@@ -85,22 +86,42 @@ function UiPlayer:OnSetPlayerCard(cardIndex, card)
         return
     end
 
-    if card ~= nil and card.color ~= nil then
+    if card ~= nil then
+        local topicGridEntityId = UiElementBus.Event.FindChildByName(entityId, "TopicGrid")
+
         local anim = self.anims["Card"..cardIndex]
         if  anim ~= nil and anim.Animating then
             -- disable all except the animating entity
-            self:HideAllChildrenExcept(entityId, "White")
+            --self:HideAllChildrenExcept(entityId, "White")
         else
             UiElementBus.Event.SetIsEnabled(entityId, true)
-            self:HideAllChildren(entityId)
+            --UiElementBus.Event.SetIsEnabled(topicGridEntityId, true)
         end
 
-        local child = UiElementBus.Event.FindChildByName(entityId, card.type)
-        if child ~= nil and child:IsValid() then
-            --self:Log("Found card image of type " .. tostring(card.type))
-            UiElementBus.Event.SetIsEnabled(child, true)
-        else
-            self:Log("$7 Did not find card image of type " .. tostring(card.type))
+        self:HideAllChildren(topicGridEntityId)
+
+        -- support up to 4 topics
+        local currentTopic = 1
+        local maxTopics = 4
+        local iconOffset = 9
+        local iconWidth = 91 / 2
+        local child = nil
+        for topic, amount in pairs(card.verse.topics) do
+            child = UiElementBus.Event.FindChildByName(topicGridEntityId, "Topic"..tostring(currentTopic))
+            if child ~= nil and child:IsValid() then
+                local currentPath = UiImageBus.Event.GetSpritePathname(child)
+                --self:Log("Imagepath: " .. tostring(currentPath))
+                self:Log("Enabling Topic" .. tostring(currentTopic) .. " " .. tostring(topic))
+                UiImageBus.Event.SetSpritePathname(child, "assets/textures/"..topic..".png")
+                UiElementBus.Event.SetIsEnabled(child, true)
+            else
+                self:Log("$7 Did not find Topic" .. tostring(currentTopic) .. " " .. tostring(topic))
+            end
+
+            if currentTopic == maxTopics then
+                break
+            end
+            currentTopic = currentTopic + 1
         end
 
         child  = UiElementBus.Event.FindChildByName(entityId, "Text")
@@ -108,7 +129,10 @@ function UiPlayer:OnSetPlayerCard(cardIndex, card)
             UiElementBus.Event.SetIsEnabled(child, true)
         end 
 
-        UiImageBus.Event.SetColor(entityId, card.color)
+        if card.color ~= nil then
+            UiImageBus.Event.SetColor(entityId, card.color)
+        end
+        UiElementBus.Event.SetIsEnabled(entityId, true)
     else
         UiElementBus.Event.SetIsEnabled(entityId, false)
     end

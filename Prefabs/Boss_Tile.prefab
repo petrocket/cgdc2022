@@ -27,10 +27,6 @@
                 "$type": "EditorPrefabComponent",
                 "Id": 13023547721708110926
             },
-            "Component_[13945590097031455137]": {
-                "$type": "SelectionComponent",
-                "Id": 13945590097031455137
-            },
             "Component_[16020004567762872450]": {
                 "$type": "EditorEntityIconComponent",
                 "Id": 16020004567762872450
@@ -61,7 +57,8 @@
                 "Component_[10533456016308755782]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10533456016308755782,
-                    "Parent Entity": "ContainerEntity"
+                    "Parent Entity": "ContainerEntity",
+                    "IsStatic": true
                 },
                 "Component_[10535979164790534722]": {
                     "$type": "EditorEntityIconComponent",
@@ -113,10 +110,6 @@
                 "Component_[3943736249630944240]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 3943736249630944240
-                },
-                "Component_[5778217215772158525]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5778217215772158525
                 }
             }
         },
@@ -174,10 +167,6 @@
                         },
                         "assetHint": "scripts/coin.luac"
                     }
-                },
-                "Component_[15835001486698767528]": {
-                    "$type": "SelectionComponent",
-                    "Id": 15835001486698767528
                 },
                 "Component_[2150764409054994685]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -343,10 +332,6 @@
                         },
                         "assetHint": "scripts/animate.luac"
                     }
-                },
-                "Component_[4651729163071159599]": {
-                    "$type": "SelectionComponent",
-                    "Id": 4651729163071159599
                 },
                 "Component_[5149801969133394120]": {
                     "$type": "AZ::Render::EditorMeshComponent",

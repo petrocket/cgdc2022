@@ -183,9 +183,7 @@ function UiVerseChallenge:OnSetPlayerCard(cardIndex, card)
 end
 
 function UiVerseChallenge:OnDeactivate()
-    Events:Disconnect(self, Events.OnSetPlayerCard, self.player)
-    Events:Disconnect(self, Events.OnCardDiscarded, self.player)
-    Events:Disconnect(self, Events.OnCardUsed, self.player)
+    Events:Disconnect(self)
 end
 
 return UiVerseChallenge

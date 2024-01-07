@@ -44,10 +44,6 @@
                     "Entity_[180924856505816]"
                 ]
             },
-            "Component_[7476933879736915433]": {
-                "$type": "SelectionComponent",
-                "Id": 7476933879736915433
-            },
             "Component_[9430535416654986991]": {
                 "$type": "EditorOnlyEntityComponent",
                 "Id": 9430535416654986991
@@ -73,10 +69,6 @@
                 "Component_[15175896245056995270]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 15175896245056995270
-                },
-                "Component_[2201868964494188756]": {
-                    "$type": "SelectionComponent",
-                    "Id": 2201868964494188756
                 },
                 "Component_[3385263840181427636]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -332,10 +324,6 @@
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 8593882054323737338
                 },
-                "Component_[924804271128550424]": {
-                    "$type": "SelectionComponent",
-                    "Id": 924804271128550424
-                },
                 "Component_[9406325880983630333]": {
                     "$type": "EditorMaterialComponent",
                     "Id": 9406325880983630333,
@@ -368,7 +356,8 @@
                 "Component_[10533456016308755782]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10533456016308755782,
-                    "Parent Entity": "ContainerEntity"
+                    "Parent Entity": "ContainerEntity",
+                    "IsStatic": true
                 },
                 "Component_[10535979164790534722]": {
                     "$type": "EditorEntityIconComponent",
@@ -414,10 +403,6 @@
                 "Component_[3943736249630944240]": {
                     "$type": "EditorEntitySortComponent",
                     "Id": 3943736249630944240
-                },
-                "Component_[5778217215772158525]": {
-                    "$type": "SelectionComponent",
-                    "Id": 5778217215772158525
                 }
             }
         }
