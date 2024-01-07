@@ -16,7 +16,16 @@
                     "watch": "@PROJECTROOT@/Registry",
                     "recursive": 1,
                     "order": 3
-                }
+                },
+                "Exclude Release": {
+                    "pattern": "^[Rr]elease(/.*)?$"
+                },
+                "Exclude Meta": {
+                    "pattern": "^[Ss]cripts/meta/(/.*)?$"
+                },
+                "Exclude AssetBundling": {
+                    "pattern": "^[Aa]sset[Bb]undling(/.*)?$"
+                },
             }
         }
     }

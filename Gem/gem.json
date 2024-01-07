@@ -1,12 +1,13 @@
 {
     "gem_name": "cgdc2022",
+    "version":"1.0.0",
     "display_name": "cgdc2022",
-    "license": "What license cgdc2022 uses goes here: i.e. Apache-2.0 or MIT",
-    "license_url": "Link to the license web site goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT",
-    "origin": "The name of the originator goes here. i.e. XYZ Inc.",
-    "origin_url": "The primary repo for cgdc2022 goes here: i.e. http://www.mydomain.com",
+    "license": "MIT",
+    "license_url": "https://opensource.org/licenses/MIT",
+    "origin": "Petrocket",
+    "origin_url": "https://github.com/petrocket",
     "type": "",
-    "summary": "A short description of cgdc2022.",
+    "summary": "CGDC Game gem",
     "canonical_tags": [
         "Gem"
     ],
@@ -17,5 +18,9 @@
     "requirements": "",
     "documentation_url": "",
     "dependencies": [
+    ],
+    "compatible_engines": [
+    ],
+    "engine_api_dependencies":[
     ]
 }

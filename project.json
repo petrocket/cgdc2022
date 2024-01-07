@@ -1,10 +1,11 @@
 {
     "project_name": "cgdc2022",
+    "version": "1.0.0",
     "project_id": "{C14FCB64-73A4-4A4B-8AFE-2FBF7481EAFA}",
-    "origin": "The primary repo for cgdc2022 goes here: i.e. http://www.mydomain.com",
-    "license": "What license cgdc2022 uses goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT etc.",
+    "origin": "https://github.com/petrocket/cgdc2022",
+    "license": "MIT",
     "display_name": "cgdc2022",
-    "summary": "A short description of cgdc2022.",
+    "summary": "A game originally created for CGDC2022.",
     "canonical_tags": [
         "Project"
     ],
@@ -16,5 +17,35 @@
     "external_subdirectories": [
         "Gem"
     ],
-    "restricted": "cgdc2022"
+    "restricted": "cgdc2022",
+    "gem_names": [
+        "Atom",
+        "AudioEngineWwise",
+        "CameraFramework",
+        "DiffuseProbeGrid",
+        "EMotionFX",
+        "EditorModeFeedback",
+        "GameJamAssets==1.0.0",
+        "GameState",
+        "ImGui",
+        "LandscapeCanvas",
+        "LocalUser",
+        "LuaVSCode",
+        "LyShine",
+        "MiniAudio",
+        "PhysX",
+        "PrefabBuilder",
+        "PrimitiveAssets",
+        "Profiler",
+        "RecastNavigation",
+        "RemoteTools",
+        "SaveData",
+        "ScriptedEntityTweener",
+        "Stars",
+        "StartingPointInput",
+        "Terrain",
+        "TextureAtlas",
+        "Vegetation",
+        "WhiteBox"
+    ]
 }

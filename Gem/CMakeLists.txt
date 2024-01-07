@@ -1,15 +1,9 @@
 
-set(gem_path ${CMAKE_CURRENT_LIST_DIR})
-set(gem_json ${gem_path}/gem.json)
-o3de_restricted_path(${gem_json} gem_restricted_path gem_parent_relative_path)
+# Setup the gem meta variables that includes the "gem_path", "gem_name" and "gem_version"
+# The "pal_dir" variable is also set which refers to the Platform/<platform-name> directory
+# based on the directory of this CMakeLists.txt
+o3de_gem_setup("cgdc2022")
 
-# Currently we are in the cgdc2022/Code folder: ${CMAKE_CURRENT_LIST_DIR}
-# Get the platform specific folder ${pal_dir} for the current folder: ${CMAKE_CURRENT_LIST_DIR}/Platform/${PAL_PLATFORM_NAME}
-# Note: o3de_pal_dir will take care of the details for us, as this may be a restricted platform
-#       in which case it will see if that platform is present here or in the restricted folder.
-#       i.e. It could here : cgdc2022/Code/Platform/<platform_name>  or
-#            <restricted_folder>/<platform_name>/cgdc2022/Code
-o3de_pal_dir(pal_dir ${CMAKE_CURRENT_LIST_DIR}/Platform/${PAL_PLATFORM_NAME} "${gem_restricted_path}" "${gem_path}" "${gem_parent_relative_path}")
 
 # Now that we have the platform abstraction layer (PAL) folder for this folder, thats where we will find the
 # traits for this platform. Traits for a platform are defines for things like whether or not something in this project
@@ -26,7 +20,7 @@ endif()
 # Note: We include the common files and the platform specific files which are set in cgdc2022_files.cmake and
 # in ${pal_dir}/cgdc2022_${PAL_PLATFORM_NAME_LOWERCASE}_files.cmake
 ly_add_target(
-    NAME cgdc2022.Static STATIC
+    NAME ${gem_name}.Static STATIC
     NAMESPACE Gem
     FILES_CMAKE
         cgdc2022_files.cmake
@@ -43,7 +37,7 @@ ly_add_target(
 )
 
 ly_add_target(
-    NAME cgdc2022 ${PAL_TRAIT_MONOLITHIC_DRIVEN_MODULE_TYPE}
+    NAME ${gem_name} ${PAL_TRAIT_MONOLITHIC_DRIVEN_MODULE_TYPE}
     NAMESPACE Gem
     FILES_CMAKE
         cgdc2022_shared_files.cmake
@@ -53,22 +47,46 @@ ly_add_target(
             Include
     BUILD_DEPENDENCIES
         PRIVATE
-            Gem::cgdc2022.Static
+            Gem::${gem_name}.Static
             AZ::AzCore
     RUNTIME_DEPENDENCIES
         Gem::GameState
         Gem::LocalUser
 )
 
-# if enabled, cgdc2022 is used by all kinds of applications
-ly_create_alias(NAME cgdc2022.Builders NAMESPACE Gem TARGETS Gem::cgdc2022)
-ly_create_alias(NAME cgdc2022.Tools    NAMESPACE Gem TARGETS Gem::cgdc2022)
-ly_create_alias(NAME cgdc2022.Clients  NAMESPACE Gem TARGETS Gem::cgdc2022)
-ly_create_alias(NAME cgdc2022.Servers  NAMESPACE Gem TARGETS Gem::cgdc2022)
+# Include the gem name into the Client Module source file
+# for use with the AZ_DECLARE_MODULE_CLASS macro
+# This is to allow renaming of the gem to also cause
+# the CreateModuleClass_Gem_<gem-name> function which
+# is used to bootstrap the gem in monolithic builds to link to the new gem name
+ly_add_source_properties(
+SOURCES
+    Source/cgdc2022Module.cpp
+PROPERTY COMPILE_DEFINITIONS
+    VALUES
+        O3DE_GEM_NAME=${gem_name}
+        O3DE_GEM_VERSION=${gem_version})
+
+# if enabled, ${gem_name} is used by all kinds of applications
+ly_create_alias(NAME ${gem_name}.Builders NAMESPACE Gem TARGETS Gem::${gem_name})
+ly_create_alias(NAME ${gem_name}.Tools    NAMESPACE Gem TARGETS Gem::${gem_name})
+ly_create_alias(NAME ${gem_name}.Clients  NAMESPACE Gem TARGETS Gem::${gem_name})
+ly_create_alias(NAME ${gem_name}.Servers  NAMESPACE Gem TARGETS Gem::${gem_name})
+ly_create_alias(NAME ${gem_name}.Unified  NAMESPACE Gem TARGETS Gem::${gem_name})
+
 
 ################################################################################
 # Gem dependencies
 ################################################################################
 
-# Enable the specified list of gems from GEM_FILE or GEMS list for this specific project:
-ly_enable_gems(PROJECT_NAME cgdc2022 GEM_FILE enabled_gems.cmake)
+# Query the project name from the nearest project.json file in a directory at or above
+# the current one.
+# This gem is the project gem and therefore should be part of the project that is using it
+o3de_find_ancestor_project_root(project_path project_name "${CMAKE_CURRENT_SOURCE_DIR}")
+
+# If the project name could not be queried from a project.json file, then fallback
+# to using the name of the project provided when the project template was instantiated
+if (NOT project_name)
+    set(project_name cgdc2022)
+endif()
+
