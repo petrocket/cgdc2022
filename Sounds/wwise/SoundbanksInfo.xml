@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+<SoundBanksInfo Platform="Linux" BasePlatform="Linux" SchemaVersion="16" SoundBankVersion="145">
 	<RootPaths>
-		<ProjectRoot>C:\O3DE\project\Sounds\wwise_project\</ProjectRoot>
-		<SourceFilesRoot>C:\O3DE\project\Sounds\wwise_project\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\O3DE\project\gg\Sounds\wwise\</SoundBanksRoot>
+		<ProjectRoot>../wwise_project</ProjectRoot>
+		<SourceFilesRoot>../wwise_project/.cache/Linux</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\O3DE\project\Sounds\wwise_project\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>../wwise_project/GeneratedSoundBanks/Linux</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
-	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="782826392" Language="SFX" Hash="3283667599">
-			<ObjectPath>\SoundBanks\Default Work Unit\default</ObjectPath>
+		<SoundBank Id="782826392" Type="User" Language="SFX" Hash="{8FFC03AE-AD34-73B5-045F-B1DE043501E1}">
 			<ShortName>default</ShortName>
 			<Path>default.bnk</Path>
-			<IncludedEvents>
-				<Event Id="3057162532" Name="Play_Blaster_Shot" ObjectPath="\Events\Default Work Unit\Play_Blaster_Shot">
-					<IncludedMemoryFiles>
-						<File Id="228546115" Language="SFX">
-							<ShortName>gun_blaster_no_trigger_shot_1.wav</ShortName>
-							<Path>SFX\gun_blaster_no_trigger_shot_1_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="228546115" Language="SFX">
+			<Media>
+				<File Id="228546115" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>gun_blaster_no_trigger_shot_1.wav</ShortName>
-					<Path>SFX\gun_blaster_no_trigger_shot_1_10C4C929.wem</Path>
+					<CachePath>SFX/gun_blaster_no_trigger_shot_1_10C4C929.wem</CachePath>
 				</File>
-			</IncludedMemoryFiles>
+			</Media>
+			<Events>
+				<Event Id="3057162532" Name="Play_Blaster_Shot">
+					<MediaRefs>
+						<MediaRef Id="228546115"/>
+					</MediaRefs>
+				</Event>
+			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
-			<ObjectPath>Init</ObjectPath>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5308C421-FB28-8D19-3DFE-A978E0AA809A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
 		</SoundBank>
 	</SoundBanks>
+	<FileHash>{5A37C368-93AA-B46C-FDAB-33B8D72D214C}</FileHash>
 </SoundBanksInfo>
